@@ -1,0 +1,93 @@
+
+
+```{r}
+if("{{measurement_name}}" == "Micronutrients") {
+  
+  measurement_plot <- ggplot() +
+  annotate("text", x = 0.5, y = 0.95, label = "Micro",
+           size = 24.5/.pt, color = "#ED8B36",
+           fontface = "bold",
+           family = "Lato",
+           vjust = 1.2) +
+  annotate("text", x = 0.5, y = 0.5, label = "nutrients",
+           size = 16/.pt, color = "#ED8B36",
+           fontface = "plain",
+           family = "Lato",
+           vjust = 1) +
+  theme_void() +
+  coord_cartesian(xlim = c(0, 1), ylim = c(0, 1), expand = FALSE, clip = "off")
+  
+
+} else {
+  measurement_unit <- str_extract("{{measurement_name}}", r"(\(.*\))") %>% 
+    str_remove("\\(") %>% 
+    str_remove("\\)")
+  
+  if (is.na(measurement_unit)) measurement_unit <- ""
+  
+  measurement_avg <- calc_green_average("{{measurement_name}}")
+
+  
+  measurement_plot <- ggplot() +
+    annotate("text", x = 0.5, y = 0.95, label = measurement_avg,
+             size = 32/.pt, color = "#ED8B36",
+             fontface = "bold",
+             family = "Lato",
+             vjust = 1) +
+    annotate("text", x = 0.5, y = 0.5, label = measurement_unit,
+             size = 16/.pt, color = "#ED8B36",
+             fontface = "plain",
+             family = "Lato",
+             vjust = 1) +
+    theme_void() +
+    coord_cartesian(xlim = c(0, 1), ylim = c(0, 1), expand = FALSE, clip = "off")
+  
+}
+
+clean_measurement_name <- str_remove("{{measurement_name}}", "(\\(.*\\))") %>% 
+  janitor::make_clean_names()
+
+ggsave(here(root_figure_location, "soil_testing", glue::glue("{clean_measurement_name}_{{sample_description_number_1}}_plot.png")), 
+       measurement_plot, width = 1, height = 1, bg = "#ffffff")
+
+```
+
+
+
+```{r}
+measurement_type_style <- officer::fp_text(font.size = 13, 
+                                           font.family = "Lato", 
+                                           bold = TRUE)
+```
+
+
+
+
+```{r, fig.width=0.75, fig.height=0.75}
+officer::block_section(officer::prop_section(type = "continuous"))
+knitr::include_graphics(here(root_figure_location, "soil_testing", glue::glue("{clean_measurement_name}_{{sample_description_number_1}}_plot.png")), dpi = 300)
+```
+
+
+`r officer::run_columnbreak()``r officer::ftext(str_remove("{{measurement_name}}", r"(\(.*\))"), measurement_type_style)`
+
+```{r, results = "asis"}
+if("{{measurement_name}}"  == "Total Nitrogen (ppm)") {
+  cat("The total available Nitrogen measurement is the sum of the Ammonium (NH~4~-N) and Nitrate (NO~3~-N) measurements. ")
+}
+
+filter(measurement_commentaries, 
+       sample_description_number_1 == "{{sample_description_number_1}}" &
+         measurement_name == "{{measurement_name}}") %>%
+  pull(commentary) %>%
+  cat()
+```
+
+
+```{r}
+officer::block_section(
+  officer::prop_section(
+    section_columns = officer::section_columns(
+      widths = c(1,5.5), space = .25, sep = FALSE),
+    type = "continuous"))
+```

@@ -1,0 +1,216 @@
+
+\newpage
+
+
+```{r, warning=FALSE, message=FALSE}
+header_file_create("OM", glue::glue("{{sample_description_number_2}}"))
+
+header_width <- 8
+header_height <- 1
+
+officer::fpar(
+  officer::external_img(here(root_figure_location, "headers",
+                             glue::glue("om_testing_{{sample_description_number_2}}_plot.png")), 
+                        height = header_height, width = header_width),
+  fp_p = officer::fp_par(text.align = "left")
+)
+```
+
+These measurements are neither good nor bad. Information such as fertilizer applied, cultural practices, sand applied, verti-cutting, aerification, etc. can be used to see how these practices have changed the OM% by depth. Ideally, once a desired OM% has been identified based on playability and turf performance, fertility and cultural practices can be adjusted to maintain the desired OM%.
+
+The S325 test package includes the entire sample submitted. This includes leaves, stems, and roots. This differs from the standard soil test which filters out most of the components. This is the reason why the percentages appear higher than that on a standard soil test.
+
+```{r, warning=FALSE, message=FALSE, results='asis'}
+om_data <- all_om_data %>% 
+  filter(sample_description_number_2 == "{{sample_description_number_2}}")
+
+year_range <- lubridate::decimal_date(range(om_data$year_date))
+
+om_data <- om_data %>%
+  {
+    if(year_range[2] - year_range[1] < 2) {
+      group_by(., month_date, measurement_name, depth) %>%
+        rename(., plot_date = month_date)
+    } else {
+      group_by(., year_date, measurement_name, depth) %>%
+        rename(., plot_date = year_date)
+    }
+  } 
+
+om_avgs <- om_data %>%
+  group_by(measurement_name, depth, plot_date) %>% 
+  summarize(avg_measurement_result = mean(measurement_result, na.rm = TRUE),
+            torv_avg = mean(torv_avg, na.rm = TRUE), 
+            .groups = "drop") 
+
+last_two_dates <- om_avgs %>%
+  filter(plot_date %in% head(sort(unique(plot_date), 
+                                  decreasing = TRUE), 
+                             2)) %>%
+  arrange(measurement_name, depth, plot_date) %>%
+  mutate(label_v_align = ifelse(avg_measurement_result - lag(avg_measurement_result) >= 0, 0, 1)) %>%
+  # Make the alignment opposite to the other in the pair for the first one which is always NA
+  mutate(label_v_align = case_when(is.na(label_v_align) ~ 1 - lead(label_v_align),
+                                   TRUE ~ label_v_align),
+         text_size = case_when(plot_date == max(plot_date) ~ 3.25,
+                               TRUE ~ 2.75),
+         text_alpha = case_when(plot_date == max(plot_date) ~ 1,
+                                TRUE ~ 0.8))
+
+# So that the alignment is always above the dot if there is only one date
+if(length(unique(last_two_dates$plot_date)) == 1) {
+  last_two_dates <- last_two_dates %>%
+    mutate(label_v_align = 0)
+}
+
+plot_range <- if(year_range[2] - year_range[1] < 2) {
+  range(as_date(ymd(om_data$plot_date)))
+} else { 
+  as_date(date_decimal(year_range))
+}
+
+if (year_range[2] - year_range[1] < 2) {
+  date_breaks <- c(plot_range[1], plot_range[2])
+} else if (year_range[2] - year_range[1] <= 3) {
+  date_breaks <- unique(om_data$plot_date)
+} else {
+  date_breaks <- waiver()
+}
+
+make_om_plot <- function(plot_measurement_name, plot_depth) {
+  
+  om_plot <- om_avgs %>% 
+    filter(measurement_name == plot_measurement_name,
+           depth == plot_depth) %>% 
+    ggplot() +
+    geom_line(aes(x = plot_date, y = avg_measurement_result),
+              stat = "smooth",
+              method = "lm", formula = y ~ x, se = FALSE, 
+              size = 0.4, alpha = 0.8,
+              color = "#8F51C0", linetype = "longdash") +
+    geom_point(data = filter(om_data,
+                             measurement_name == plot_measurement_name,
+                             depth == plot_depth),
+               aes(x = plot_date, y = measurement_result),
+               color = torv_orange, size = 2, alpha = 0.15) +
+    geom_point(aes(x = plot_date, y = avg_measurement_result),
+               color = torv_orange, size = 2) +
+    geom_line(aes(x = plot_date, y = avg_measurement_result),
+              color = torv_orange, linetype = "solid", alpha = 0.8) +
+    geom_hline(aes(yintercept = torv_avg), 
+               size = 0.5, linetype = "dotted", color = torv_gray) +
+    ggtext::geom_textbox(data = filter(last_two_dates,
+                                       measurement_name == plot_measurement_name,
+                                       depth == plot_depth),
+                         aes(x = plot_date, y = avg_measurement_result, 
+                             label = sprintf("%.1f%%", avg_measurement_result),
+                             vjust = label_v_align, valign = label_v_align,
+                             alpha = text_alpha, size = text_size),
+                         hjust = 0.5, halign = 0.5,
+                         color = torv_orange,
+                         box.color = NA,
+                         fill = NA,
+                         family = "Lato",
+                         fontface = "bold",
+                         show.legend = FALSE) +
+    scale_x_date(breaks = date_breaks, 
+                 date_labels = ifelse(year_range[2] - year_range[1] < 2, "%b\n%Y", "%Y"), 
+                 limits = plot_range,
+                 # making room for textbox above final value, but only if there's more than one date
+                 expand = expansion(c(ifelse(length(unique(om_data$plot_date)) == 2, 0.125, 0.05), 
+                                      ifelse(length(unique(om_data$plot_date)) > 1, 0.15, 0.05)))) +
+    scale_y_continuous(labels = function(x) paste0(janitor::round_half_up(x, 2), "%"),
+                       # making room for optional textboxes below
+                       expand = expansion(mult = c(0.25, 0.25))) + 
+    scale_size_identity() +
+    scale_alpha_identity() +
+    labs(x = NULL, y = NULL) +
+    theme(panel.grid.minor = element_blank(),
+          plot.title = element_text(size = 10, hjust = 0.5),
+          axis.title = element_text(size = 8)) + 
+    labs(title = glue::glue("Soil Depth: {plot_depth}")) +
+    theme(plot.title = element_text(size = 8, hjust = 0.5,
+                                    face = "bold")) 
+  
+  om_plot <- om_plot 
+  
+  
+  if (plot_depth == "0-2 cm") {
+    om_plot <- om_plot +
+      labs(y = plot_measurement_name)
+  }
+  
+  om_plot
+  
+}
+
+possible_measurements <- "OM 440 As Rcvd (%)"
+possible_depths <- c("0-2 cm", "2-4 cm", "4-6 cm")
+depth_measure_comb <- expand.grid(possible_depths, possible_measurements, stringsAsFactors = F)
+
+om_plots <- map2(depth_measure_comb[[2]], depth_measure_comb[[1]], make_om_plot)
+
+# Legend function created in trendline_figure.Rmd
+om_plots[[4]] <- make_trendline_legend(main_color = torv_orange)
+
+om_combined_plot <- patchwork::wrap_plots(om_plots[c(1:3)], ncol = 3)/(om_plots[[4]]+plot_spacer()+plot_spacer())
+
+```
+
+```{r, warning=FALSE, message=FALSE, results='asis'}
+# Longitudinal table under the plot
+
+om_longitudinal_table <- om_data %>%
+  filter(measurement_name == "OM 440 As Rcvd (%)") %>%
+  filter(date_sample_submitted %in% head(sort(unique(om_data$date_sample_submitted)), 8)) %>%
+  group_by(date_sample_submitted, depth) %>%
+  summarize(avg_measurement_result = mean(measurement_result, na.rm = TRUE),
+            torv_avg = mean(torv_avg, na.rm = TRUE), # all values same, take mean to collapse
+            .groups = "drop")
+
+
+colorer_02 <- scales::col_numeric(
+  palette = c("#FFFFFF", torv_orange),
+  # taking 95% of min as lowest colour so that there is a bit of orange even for lowest value (which isn't 0)
+  domain = c(0.95 * min(filter(om_longitudinal_table, depth == "0-2 cm")$avg_measurement_result),
+             max(filter(om_longitudinal_table, depth == "0-2 cm")$avg_measurement_result)))
+
+colorer_24 <- scales::col_numeric(
+  palette = c("#FFFFFF", torv_orange),
+  domain = c(0.95 *min(filter(om_longitudinal_table, depth == "2-4 cm")$avg_measurement_result),
+             max(filter(om_longitudinal_table, depth == "2-4 cm")$avg_measurement_result)))
+
+colorer_46 <- scales::col_numeric(
+  palette = c("#FFFFFF", torv_orange),
+  domain = c(0.95 * min(filter(om_longitudinal_table, depth == "4-6 cm")$avg_measurement_result),
+             max(filter(om_longitudinal_table, depth == "4-6 cm")$avg_measurement_result)))
+
+om_display_table <- om_longitudinal_table %>%
+  pivot_wider(id_cols = depth,
+              names_from = date_sample_submitted, values_from = avg_measurement_result) %>%
+  flextable() %>%
+  delete_part(part = "header") %>%
+  add_header_row(values = c("", gsub(" ", "\n", paste(zoo::as.yearmon(unique(om_data$date_sample_submitted)))))) %>%
+  border_remove() %>%
+  border(part = "body", border.bottom = officer::fp_border(color = "white", width = 1)) %>%
+  align(part = "all",
+        align = "center") %>%
+  font(part = "all",
+       fontname = "Lato") %>%
+  colformat_double(big.mark=",", digits = 2, na_str = "N/A") %>%
+  bg(part = "body", i = ~ depth == "0-2 cm", j = -1, bg = colorer_02) %>%
+  bg(part = "body", i = ~ depth == "2-4 cm", j = -1, bg = colorer_24) %>%
+  bg(part = "body", i = ~ depth == "4-6 cm", j = -1, bg = colorer_46) %>%
+  color(i = 1, color = torv_orange, part = "header") %>%
+  line_spacing(i = 1, space = 1.3, part = "header") %>%
+  fontsize(i = 1, size = 11, part = "header")
+
+                                        
+ggsave(here(root_figure_location, "organic_matter", "om_plot_{{sample_description_number_2}}.png"),
+       patchwork:: wrap_plots(om_combined_plot / flextable::gen_grob(om_display_table)), bg = "#ffffff",
+       device = png(width = 6.5, height = 5, units = "in", type = "cairo", res = 144))
+
+cat("![](", here::here(root_figure_location, "organic_matter", "om_plot_{{sample_description_number_2}}.png)"), sep = "")
+
+
+```

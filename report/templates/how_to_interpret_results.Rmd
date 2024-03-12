@@ -1,0 +1,76 @@
+
+\newpage
+
+
+```{r how_to_header}
+header_file_create("None", "How to interpret these results")
+# in testing, id value of cairo svg gets updated with surface+5 every time (starts at 1, then 6, 11, etc)
+
+header_width <- 8
+header_height <- 1
+
+officer::fpar(
+  officer::external_img(here(root_figure_location, "headers", glue("none_testing_how_to_interpret_these_results_plot.png")), 
+                        height = header_height, width = header_width),
+  fp_p = officer::fp_par(text.align = "left")
+)
+```
+
+The Minimum Levels for Sustainable Nutrition (MLSN) guidelines are applied in this report. These guidelines are developed and based on two key principles (Global Soil Survey):
+
+
+* Excellent turf conditions can be produced when essential nutrients are present in the soil at or above the MLSN guideline. As long as the element of interest remains above the MLSN guideline, adding more of that element is not expected to confer an improvement to turfgrass performance.  
+
+* The amount of nitrogen supplied to the grass controls the growth rate and consequently the uptake of mineral nutrients by the grass.
+
+
+## How and why MLSN works
+
+It works by ensuring the grass is supplied with all the nutrients it can use while keeping a safe amount of each nutrient untouched in the soil as a reserve. The MLSN calculation identifies the amount of nutrients the grass uses at a particular site. It then ensures the grass is either supplied with 100% of those nutrients from fertilizer, from soil, or from a combination of soil and fertilizer (Woods et al., 2014).
+
+
+This approach recognizes that grass uses nutrients. Rather than trying to maintain all the nutrients the grass could ever use, and then some, in a hypothetical optimum soil that doesn’t exist, the MLSN approach makes a careful estimate of plant use and makes sure the grass is supplied with that much while still keeping a safe amount in reserve, untouched, in the soil. This approach puts the turfgrass manager in control. 
+
+_“The fundamental principle of successful greenkeeping is the recognition of the fact that the finest golfing grasses flourish on poor soil and that more harm is done by over-, rather than underfertilizing”_ (MacKenzie, 1998). 
+
+## Why MLSN is needed
+
+Conventional soil test interpretation is based on guidelines that are higher than required to produce high quality turf. Turner and Waddington (1978) described this problem 40 years ago: 
+
+_“Unfortunately, turfgrass recommendations appear to be based on research done with other crops, such as forages, results from turfgrass fertility studies not designed to relate to soil testing, and the best judgement of the agronomist making the recommendations.”_
+
+Carrow et al. (2001, p. 164) wrote about this problem in their Turfgrass Soil Fertility book: 
+
+_“In some cases, turfgrasses have been placed in a ‘high’ P and K requirement category, while pasture grasses were in a ‘low’ category. This decision was based on economics, not agronomics. The cost of fertilization was not considered of primary importance for turf.”_
+
+The MLSN approach to soil test interpretation is designed to make a fertilizer recommendation that is based on supplying the grass all the nutrients that it can use, while ensuring a safe amount remains in the soil. This solves – or more precisely, avoids – many of the problems of conventional soil test interpretation
+
+The following “Frequently asked questions” is directly from Dr. Micah Woods’s “MLSN Cheat Sheet”, February 1, 2018.
+
+
+## Frequently asked questions
+
+### How do I know the nutrients are available?
+
+You know the nutrients are available because you’ve done a soil test. That’s what a soil test is – by definition it produces a nutrient availability index. If you don’t trust the soil tests, then I suggest skipping them altogether. Instead, assume the soil can supply nothing, and supply to the grass 100% (or a little more) of its possible use of each element. This isn’t the most efficient way to do it, but you won’t need to worry about availability, and it is guaranteed to supply all that the grass can use.
+
+### MLSN guideline, target level or minimum level?
+
+Conventional soil test interpretation may give the impression that there are target or optimum levels in the soil. The MLSN guideline is a minimum value – minimum is the M in MLSN so we haven’t always repeated that – that one doesn’t
+want to drop below. It’s not a level below which one will have deficiency. It’s not a target level that one ideally will have the soil at. What the MLSN guideline represents is a level in the soil with enough of that element to produce high quality turf. There is high quality turf in soils with less of that element too, and that’s why we are confident the MLSN guideline is a safe level. But there aren’t a lot of soils with less, so we suggest keeping the soil from dropping below the MLSN guideline. 
+
+### Seriously, the same minimum for every grass, soil, and location? No regional customization? 
+
+We are confident that the MLSN guideline is enough to produce high quality turf for every grass, everywhere. MLSN has the ultimate customization, however, because the grass use of elements is entirely site specific. In order to ensure the soil doesn’t drop below the MLSN guideline, one has to estimate the expected nutrient use by the plant over time. That’s where the customization comes in. 
+
+### How is this different than conventional soil test interpretation? 
+
+The focus of MLSN is on keeping the soil from dropping below a known safe level. To do this, one must account for how much the grass uses over time. The MLSN approach explicitly calculates the grass use. The conventional interpretation (Carrow et al., 2004) is about classifying based on soil levels. 
+
+### What about micronutrients?
+
+I don’t worry about them. They are used in tiny amounts by the grass. The grass uses about 400 times as much N as it does the most used micronutrient. The grass probably can get all the micronutrients it needs from the soil, because it uses such small quantities of them. And because it uses such small quantities of them, if you are worried about it, apply micronutrients. It doesn’t cost much and is easy to do. 
+
+### What about salinity?
+
+Salinity can kill the grass. That’s a major problem. To keep the grass from getting killed by high salinity, one needs to leach the salts from the soil. I wouldn’t worry much about soil nutrient levels or MLSN if I have a salinity problem. I would leach the salts, and I would supply 100% or a little more than the grass can use. 

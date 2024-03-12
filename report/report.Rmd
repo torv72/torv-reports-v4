@@ -1,0 +1,781 @@
+---
+title: ""
+output: 
+  officedown::rdocx_document:
+    reference_docx: "template.docx"
+    plots:
+      align: center
+    page_margins: 
+      bottom: 1
+      top: .67
+      right: 1
+      left: 1
+      gutter: 0
+    page_size:
+      width: 8.5
+      height: 11
+params: 
+  database_name: "MASTER_DATABASE.xlsx"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = NA)
+options(tigris_use_cache = TRUE)
+
+
+library(tidyverse) 
+library(here) 
+library(lubridate)
+library(glue)
+library(patchwork) 
+library(flextable)
+
+# Set up the aesthetics for the report
+import_lato <- function() {
+  
+  # Determine user OS
+  # https://stackoverflow.com/questions/4463087/detecting-operating-system-in-r-e-g-for-adaptive-rprofile-files
+  user_os <- Sys.info()[['sysname']]
+  
+  if (user_os == "Windows") {
+    grDevices::windowsFonts(`Lato` = grDevices::windowsFont("Lato"))
+    grDevices::windowsFonts(`Lato Light` = grDevices::windowsFont("Lato Light"))
+    grDevices::windowsFonts(`Lato Black` = grDevices::windowsFont("Lato Black"))
+  } else {
+    suppressWarnings(suppressMessages(extrafont::font_import(pattern = "Lato", prompt=FALSE)))
+  }
+  
+  usethis::ui_done("Lato font has been imported and can be used")
+  
+}
+
+import_lato()
+
+default_theme <- theme_minimal() +
+  theme(text = element_text(family = "Lato"))
+
+theme_set(default_theme)
+
+# Define colors
+torv_green <<- "#44ad4c"
+torv_orange <<- "#ec8c35"
+torv_blue <<- "#0d98d6"
+torv_gray <<- "#808080"
+
+# Function to format deficit tables as desired
+branded_table <- function(header_colour = torv_orange, 
+                          body_colour = "#f6cba2", #80% light on torv_orange colour
+                          data) {
+  data %>%
+    flextable() %>%
+    bold(part = "header") %>%
+    border_remove() %>%
+    width(j = 1:7, # revise to add area column
+          width = 0.89) %>%
+    align(part = "all",
+          align = "center") %>%
+    font(part = "all",
+         fontname = "Lato") %>%
+    color(i = 1, color = header_colour, part = "header") %>%
+    border(i = 1,
+           border.top = officer::fp_border(width = 1.5, color = header_colour), part = "body") %>% 
+    {
+      if("Area" %in% names (data)) {
+        bold(., j = "Area", part = "body") %>%
+          border(., i = ~ `Area` == "Average",
+                 border.top = officer::fp_border(width = 1.5, color = torv_gray), part = "body") %>%
+          bold(., i = ~ `Area` == "Average")
+      } else {
+        .
+      }
+    }
+}
+
+# Set up Figure directories if they aren't already there
+figure_dirs <- c("headers", "organic_matter", "soil_testing", "trendlines", "water_testing")
+
+if(!dir.exists("figures")) {
+  dir.create("figures")
+}
+
+for (figure_dir in figure_dirs) {
+  if(!dir.exists(file.path("figures", figure_dir))) {
+    dir.create(file.path("figures", figure_dir))
+  }
+}
+
+# This is used in om_testing.Rmd and in trendline_figure.Rmd
+make_trendline_legend <<- function(main_color,
+                                   average_label = "TORV Average") {
+  
+  stable_year_range <- c(year(ymd("2020-01-01")), year(ymd("2021-01-01")), year(ymd("2022-01-01")))
+  
+  legend_plot_data <- tibble(year = stable_year_range, avg_measurement_result = c(2.15, 2.5, 2.4))
+  torv_avg <- 2
+  
+  legend_plot_points <- tibble(year = rep(stable_year_range, 2),
+                               measurement_result = c(2.25, 2.25, 2.05, 2.05, 2.75, 2.75))
+  
+  legend_plot_data %>%
+    ggplot(aes(x = lubridate::as_date(lubridate::date_decimal(stable_year_range)), y = avg_measurement_result)) +
+    geomtextpath::geom_textpath(data = legend_plot_points,
+                                aes(y = measurement_result,
+                                    x = lubridate::as_date(lubridate::date_decimal(year)),
+                                    label = "Trend"),
+                                stat = "smooth",
+                                method = "lm", formula = y ~ x, se = FALSE, 
+                                linewidth = 0.4, alpha = 0.8,
+                                color = "#8F51C0", linetype = "longdash",
+                                size = 7/.pt) + 
+    geom_point(color = main_color, size = 2) +
+    geom_point(data = legend_plot_points,
+               aes(x = rep(lubridate::as_date(lubridate::date_decimal(stable_year_range)), 2), y = measurement_result),
+               color = main_color,
+               size = 2,
+               alpha = 0.25) +
+    geom_line(color = main_color, 
+              linetype = "solid") +
+    geomtextpath::geom_textpath(aes(y = torv_avg, 
+                                    label = average_label), 
+                                linetype = "dotted", linewidth = 0.5, 
+                                family = "Lato",
+                                color = torv_gray,
+                                size = 7/.pt) +
+    ggtext::geom_textbox(aes(x = lubridate::as_date("2021-11-01"), y = 2.95,
+                             label = "All Samples"),
+                         hjust = 1,
+                         halign = 1,
+                         box.color = NA,
+                         fill = NA,
+                         alpha = 0.5,
+                         family = "Lato",
+                         color = main_color,
+                         size = 2.5) +
+    annotate("curve",
+             x = lubridate::as_date("2021-10-15"), y = 2.94,
+             xend = lubridate::as_date("2021-12-30"), yend = 2.8,
+             curvature = -.2,
+             arrow = arrow(length = unit(1, "mm"), type = "closed"),
+             alpha = 0.25,
+             color = main_color) +
+    ggtext::geom_textbox(aes(x = lubridate::as_date("2020-01-01"), y = 2.62,
+                             label = "Average Measurement<br>per date"),
+                         hjust = 0,
+                         halign = 0,
+                         box.color = NA,
+                         fill = NA,
+                         family = "Lato",
+                         color = main_color,
+                         alpha = 1,
+                         size = 2.5) +
+    annotate("curve",
+             x = as_date(lubridate::as_date("2020-08-20")), y = 2.57,
+             xend = as_date(lubridate::as_date("2020-12-01")), yend = 2.52,
+             curvature = -.2,
+             arrow = arrow(length = unit(1, "mm"), type = "closed"),
+             alpha = 0.5,
+             color = main_color) +
+    scale_y_continuous(labels = function(x) paste0(janitor::round_half_up(x, 2), "%"), limits = c(2, 3)) +
+    labs(x = NULL, y = NULL, title = "Legend") +
+    theme(panel.grid.minor = element_blank(),
+          plot.title = element_text(size = 10, hjust = 0.5),
+          axis.text.x = element_blank())
+  
+}
+
+
+```
+
+```{r get_filtered_database}
+param_date_sample_submitted <- lubridate::ymd(input_params$date_sample_submitted)
+param_start_date <- lubridate::ymd(input_params$start_date)
+param_end_date <- lubridate::ymd(input_params$end_date)
+
+rowAny <- function(x) rowSums(x) > 0
+
+master_database_file <- ifelse(.test == "No", 
+                               here("data", params$database_name),
+                               here("tests/test-master-database", "MASTER_DATABASE.xlsx"))
+
+full_database <- readxl::read_excel(master_database_file,
+                                    range = readxl::cell_cols("A:Q"),
+                                    col_types = c("numeric", # A
+                                                  "text", # B
+                                                  "text", # C
+                                                  "text", # D
+                                                  "date", # E
+                                                  "text", # F
+                                                  "text", # G
+                                                  "text", # H
+                                                  "text", # I
+                                                  "text", # J
+                                                  "text", # K
+                                                  "text", # L
+                                                  "text", # M
+                                                  "text", # N
+                                                  "text", # O
+                                                  "text", # P
+                                                  "numeric" # Q
+                                    )) %>% 
+  filter(rowAny(across(everything(), ~ !is.na(.x)))) %>%   # remove empty rows
+  janitor::clean_names() %>%  # make names r friendly
+  # exclude data after the end date (end date defaults to date_sample_submitted unless specified)
+  filter(date_sample_submitted <= param_end_date) %>% 
+  filter(date_sample_submitted >= param_start_date) %>%
+  mutate(measurement_name = case_when(measurement_name == "Sodium Adsorption Ratio" ~ "SAR",
+                                      TRUE ~ measurement_name))
+
+nitrogen_sums <- full_database %>%
+  filter(measurement_name %in% c("Ammonium (ppm)", "Nitrate (ppm)")) %>%
+  group_by(source_filename, date_sample_submitted, sample_type, sample_description_number_1,
+           sample_description_number_2, sample_description_number_3, sample_description_number_4) %>%
+  add_count() %>% # this allows you to look through the data to see where there was only one measurement, if desired
+  mutate(measurement_result = sum(measurement_result),
+         measurement_name = "Total Nitrogen (ppm)") %>%
+  select(!c(row_number, n)) %>%
+  unique()
+
+full_database <- full_database %>%
+  bind_rows(nitrogen_sums)
+
+# Check venue and sample date are in the database; exit with a message if not
+if(!input_params$site_name %in% full_database$site) {
+  stop(paste0("\nIn generate_report(), you specified the site_name variable as ",
+              input_params$site_name, 
+              ". \nI couldn't find any data corresponding to that site name so I can't compile the report.
+              \nPlease ensure your database is up to date and check for typos before trying again."))
+}
+
+if(!lubridate::ymd(input_params$date_sample_submitted) %in% lubridate::ymd(full_database$date_sample_submitted)) {
+  stop(paste0("\nIn generate_report(), you specified the date_sample_submitted variable as ",
+              input_params$date_sample_submitted, 
+              ". \nI couldn't find any data corresponding to that date so I can't compile the report.
+              \nPlease ensure your database is up to date and check for typos before trying again."))
+}
+
+filtered_database <- full_database %>% 
+  filter(site == input_params$site_name,
+         date_sample_submitted == param_date_sample_submitted) 
+
+if(nrow(filtered_database) == 0){
+  stop(paste0("\nIn generate_report(), you specified the site_name variable as ", input_params$site_name, 
+              ", and the date_sample_submitted variable as ", input_params$date_sample_submitted,
+              ". \nI couldn't find any data corresponding to that combination of site and date, so I can't compile the report.
+              \nPlease ensure your database is up to date and check for typos before trying again."))
+}
+
+monthly_normals <- read_rds(here("data", "monthly_normals_2010.rds"))
+
+# Check additional YAML variables
+if(!tolower(input_params$acid_extract) %in% c("mehlich", "olsen")) {
+  stop(paste0("\nIn generate_report(), you specified the acid_extract variable as ", input_params$acid_extract, 
+              ". It needs to be either Mehlich or Olsen.
+              \nPlease check for typos before trying again.")) 
+}
+
+if(!is.na(input_params$warm_or_cool) && !tolower(input_params$warm_or_cool) %in% c("warm", "cool")) {
+  stop(paste0("\nIn generate_report(), you specified the warm_or_cool variable as ", input_params$warm_or_cool, 
+              ". It needs to be either warm or cool.
+              \nPlease check for typos before trying again.")) 
+}
+
+# Bump object to parent environment so they can be accessed by child knit scripts
+filtered_database <<- filtered_database
+full_database <<- full_database
+
+```
+
+````{r get_types, results='asis', warning= FALSE, message = NA}
+soil_types <- filtered_database %>% 
+  filter(sample_type == "Soil") %>% 
+  filter(sample_description_number_1 != "OM") %>% 
+  pull(sample_description_number_1) %>% 
+  unique() 
+
+# to get them in order and leave room for unanticipated ones
+soil_types <- c(intersect(c("GREEN", "TEE", "FAIRWAY", "ROUGH"), soil_types), 
+                sort(setdiff(soil_types, intersect(c("GREEN", "TEE", "FAIRWAY", "ROUGH"), soil_types))))
+
+# for accessibility by other scripts
+soil_types <<- soil_types
+
+# check that warm_or_cool has been specified of there are soil samples to analyse
+if(is.na(input_params$warm_or_cool) && length(soil_types > 0)) {
+  stop(paste0("\nIn generate_report(), you specified the warm_or_cool variable as NA.", 
+              "\nIt needs to be either warm or cool in order to analyse the soil samples in the data.
+              \nPlease check before trying again.")) 
+}
+
+water_types <- filtered_database %>% 
+  filter(sample_type == "Water") %>% 
+  filter(sample_description_number_1 != "OM") %>% 
+  pull(sample_description_number_1) %>% 
+  unique() 
+
+water_types <<- water_types
+
+om_types <- filtered_database %>%
+  filter(sample_description_number_1 == "OM",
+         sample_type %in% c("Soil", "Physical")) %>%
+  pull(sample_description_number_2) %>%
+  unique() 
+
+# to get them in order and leave room for unanticipated ones
+om_types <- c(intersect(c("GREEN", "TEE", "FAIRWAY", "ROUGH"), om_types), 
+              sort(setdiff(om_types, intersect(c("GREEN", "TEE", "FAIRWAY", "ROUGH"), om_types))))
+
+# for accessibility by other scripts
+om_types <<- om_types
+
+
+if(length(soil_types) == 0) {
+  message("\nI didn't find any soil types in the database.")
+} else {
+  message(paste0("\nI found the following soil types in the database: ", 
+                 paste(unique(soil_types), collapse = ", "),
+                 ".")) 
+}
+
+if(length(water_types) == 0) {
+  message("I didn't find any water types in the database.")
+} else {
+  message(paste0("I found the following water types in the database: ", 
+                 paste(unique(water_types), collapse = ", "),
+                 "."))
+}
+
+if(length(om_types) == 0) {
+  message("I didn't find any OM types in the database.")
+} else {
+  message(paste0("I found the following OM types in the database: ", 
+                 paste(unique(om_types), collapse = ", "),
+                 "."))
+}
+
+if(testing_report == "No") {
+  message("\n* Does that seem correct, or do you want to exit to investigate the database before running the rest of the report? *\n")
+  proceed <- readline("Type c for correct and hit ENTER to proceed, or hit any other key followed by ENTER to exit now. ")
+  
+  if(proceed != "c") stop("\n\n* Thank you! Please investigate the database before running the report again.* \n\n")
+}
+
+````
+
+```{r header_file_creator}
+# possible sampletypes: soil, water, turf
+
+header_file_create <- function(sampletype, title, trends=FALSE) {
+  clean_sampletype <- str_to_lower(sampletype)
+  if (trends == FALSE) {
+    rsvg::rsvg_svg(
+      here(glue("report/assets/{clean_sampletype}-icon.svg")),
+      here(glue("report/assets/{clean_sampletype}-icon-cairo.svg"))
+    )
+  } else {
+    rsvg::rsvg_svg(
+      here(glue("report/assets/soil-icon.svg")),
+      here(glue("report/assets/soil-icon-cairo.svg"))
+    )
+  }
+  
+  img <- grImport2::readPicture(here(glue("report/assets/{clean_sampletype}-icon-cairo.svg")))
+  sym.grob <- grImport2::symbolsGrob(img, x = 0.5, y = 0.5, default.units = "npc", size = 1)
+  
+  if (sampletype == "OM") {
+    col <- torv_orange
+    plot_title <- glue("Total Organic Matter | {title}")
+  } else if (sampletype == "Soil" & trends == TRUE) {
+    col <- torv_orange
+    plot_title <- glue("Trends Over Time | {title}")
+  } else if (sampletype == "Soil") {
+    col <- torv_orange
+    plot_title <- glue("Soil Testing | {title}")
+  } else if (sampletype == "Water" & trends == TRUE) {
+    col <- torv_blue
+    plot_title <- glue("Trends Over Time | {title}")
+  } else if (sampletype == "Water" & trends == FALSE) {
+    col <- torv_blue
+    plot_title <- glue("Water Testing | {title}")
+  } else if (sampletype == "Turf") {
+    col <- torv_green
+    plot_title <- glue("Turf Growth Potential Model")
+  } else if (sampletype == "None") {
+    col <- torv_gray
+    plot_title <- glue("{title}")
+    title <- janitor::make_clean_names(title)
+  }
+  r <- 0.5
+  
+  header_plot <- ggplot() +
+    ggforce::geom_circle(aes(x0 = 0, y0 = 0, r = r), fill = col, color = NA) +
+    annotation_custom(sym.grob, xmin = -0.5, xmax = 0.5, ymin = -0.5, ymax = 0.5) +
+    annotate(
+      "text", x = r + 0.5, y = 0, hjust = 0,
+      label = plot_title,
+      color = col, fontface = "bold", family = "Lato"
+    ) +
+    xlim(c(-0.5, 10)) +
+    ylim(c(-0.5,0.5)) +
+    coord_fixed() +
+    theme_void() +
+    theme(plot.margin=grid::unit(c(0,0,0,0), "null"))
+  
+  clean_title <- janitor::make_clean_names(title)
+  
+  # header_plot
+  if(trends == TRUE) {
+    ggsave(here(root_figure_location, "headers", glue("{clean_sampletype}_testing_{clean_title}_trends_plot.png")),
+           header_plot, width = 5.6, height = 0.7, bg = "#ffffff")
+  } else {
+    ggsave(here(root_figure_location, "headers", glue("{clean_sampletype}_testing_{clean_title}_plot.png")),
+           header_plot, width = 5.6, height = 0.7, bg = "#ffffff")
+  }
+  
+}
+```
+
+```{r logo_header}
+torv_logo_ratio <- 640/189
+torv_logo_height <- 0.75
+
+officer::fpar(
+  officer::external_img(here("report", "assets", "torv-logo.png"), 
+                        height = torv_logo_height, width = torv_logo_height * torv_logo_ratio, 
+                        alt = "TORV Sustainable Agronomics"),
+  fp_p = officer::fp_par(text.align = "right")
+)
+```
+
+`r format(Sys.Date(), "%B %e, %Y")`
+
+Company\
+Address Line 1\
+Address Line 2\
+City, State, Zip
+
+Cover Letter
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas facilisis sollicitudin magna at condimentum. Vestibulum at aliquam lorem. Aliquam ut nibh pretium, volutpat metus eu, fermentum velit. Cras dapibus placerat viverra. Etiam faucibus lectus ac neque scelerisque fringilla. Nunc mi velit, tristique ac placerat gravida, porttitor at ante. Phasellus vehicula.
+
+Best Regards,
+```{r signature}
+signature_logo_ratio <- 144/23
+signature_logo_height <- 0.25
+
+officer::fpar(
+  officer::external_img(here("report", "assets", "eric-signature.png"), 
+                        height = signature_logo_height, width = signature_logo_height * signature_logo_ratio, 
+                        alt = "Eric Foerster's Signature"),
+  fp_p = officer::fp_par(text.align = "left")
+)
+```
+
+Eric Foerster CGCS, MG\
+TORV, LLC\
+970.409.9874\
+eric\@torv.me
+
+\newpage
+
+```{r exec_summary_header}
+header_file_create("None", "Executive Summary")
+# in testing, id value of cairo svg gets updated with surface+5 every time (starts at 1, then 6, 11, etc)
+
+header_width <- 8
+header_height <- 1
+
+officer::fpar(
+  officer::external_img(here(root_figure_location, "headers", glue("none_testing_executive_summary_plot.png")), 
+                        height = header_height, width = header_width),
+  fp_p = officer::fp_par(text.align = "left")
+)
+```
+
+```{r station_data, message=FALSE}
+# retrieve temperatures
+zipcode_geometry <- tigris::zctas(cb = TRUE, 
+                                  starts_with = input_params$zip_code, 
+                                  progress_bar = FALSE,
+                                  year = 2019) # retrieve border of zip code (from census)
+
+nearest_station_index <- zipcode_geometry %>% 
+  sf::st_transform(crs = 4326) %>% 
+  sf::st_nearest_feature(monthly_normals)
+
+nearest_station_data <<- monthly_normals[nearest_station_index[1],] 
+```
+
+
+```{r prepare_element_tables_and_auto_comments}
+# This script asks for climate values input for the soil analysis, if there are soil types to analyse
+# It then prepares the overall deficits table, for subsetting by soil type and pulling into the report below
+
+if(length(om_types > 0)) {
+  source(here("aux-scripts", "om-calculations.R"))
+  source(here("aux-scripts", "om-text-automation.R"))
+}
+
+if(length(soil_types > 0)){
+  source(here("aux-scripts", "deficit-tables.R"))
+  source(here("aux-scripts", "soil-text-automation.R"))
+}
+
+
+```
+
+
+```{r exec_summary, results='asis'}
+
+non_table_elements <- c("pH", "Sodium (ppm)", "Micronutrients", 
+                        "Organic Matter (%)", "Total Nitrogen (ppm)")
+
+if(length(soil_types) > 0) {
+  for(soil_type in soil_types) {
+    
+    cat("
+        
+## ", str_to_title(soil_type))
+    
+    # Including the Nitrogen value regardless of flag status as the rest all depend on this
+    cat("
+        
+* ", filter(measurement_commentaries,
+            sample_description_number_1 == soil_type &
+              measurement_name == "Total Nitrogen (ppm)") %>%
+  pull(commentary),
+sep = "")
+    
+    # Adding commentary for the deficits tied to MLSN values
+    filter(exec_summary_commentary, sample_description_number_1 == soil_type & 
+             flag == "low" & 
+             !measurement_name %in% non_table_elements) %>%
+      pull(measurement_name) %>% 
+      {
+        if(length(.) > 1) {
+          cat("
+              
+* Deficits were noted in the following ", length(.),
+" measurements: ", paste(.[1:length(.)-1], collapse = ", "), " and ", .[length(.)],
+". See the \"Required element per area\" table within the ", str_to_title(soil_type), 
+" section for an indication of how much fertilizer should be added to each sampled area. [TODO: Add custom comment.]", sep = "")
+        } else if (length(.) == 1){
+          cat("
+              
+* Deficits were noted in the following measurement: ", .,
+". See the \"Required element per area\" table within the ",  str_to_title(soil_type), 
+" section for an indication of how much fertilizer should be added to each sampled area. [TODO: Add custom comment.]", sep = "")
+        } else {
+          cat("
+              
+* No deficits were noted in the values tied to MLSN values. [TODO: Add custom comment.]")
+        }
+      }
+    
+    filter(exec_summary_commentary, sample_description_number_1 == soil_type & 
+             measurement_name %in% non_table_elements &
+             measurement_name != "Total Nitrogen (ppm)") %>%
+      pull(commentary) %>%
+      {
+        if(length(.) > 0) {
+          cat("
+              
+* ", paste(., collapse = ". 
+
+* "),
+          sep = "")
+        } else {
+          cat("
+* No other anomalies were highlighted in the analysis. [TODO: Add custom comment.]")
+        }
+      }
+  }
+}
+
+
+if(length(om_types > 0)) {
+  
+  cat("
+      
+## Organic Matter
+
+
+")
+  
+  cat("The mean OM measurements can be summarised as follows: \n")
+  
+  for(unique_type_date in unique(all_om_data_comms$type_date)) {
+    
+    filter(all_om_data_comms, type_date == unique_type_date) %>%
+      pull(type_date) %>%
+      unique() %>%
+      cat()
+    
+    filter(all_om_data_comms, type_date == unique_type_date) %>%
+      pull(difference) %>%
+      cat()
+  }
+  
+  # If there is only one measurement, add in reasons why it's good to measure again
+  if(length(unique(all_om_data$date_sample_submitted)) == 1) { 
+   
+    om_single_measure_commentary %>%
+      cat("\n", ., sep = "\n\n")
+
+  } else if(nrow(om_acc_df) == 0) {
+    
+    om_no_additional_analyses_commentary %>%
+      cat("\n", ., sep = "\n\n")
+  }
+  
+  if(nrow(om_acc_df) > 0) {
+    
+    cat("\n\n", acc_rate_commentary, "\n", sep = "")
+    
+    for(unique_soil_type in unique(om_acc_df$type)) {
+      
+      filter(om_acc_df, type == unique_soil_type) %>%
+        pull(type) %>%
+        unique() %>%
+        cat("\n-", .)
+      
+       filter(om_acc_df, type == unique_soil_type) %>%
+         pull(commentary) %>%
+         cat()
+      
+    }
+  }
+  
+   if(nrow(sand_req_df) > 0) {
+    
+    cat("\n\n", sand_req_commentary, "\n", sep = "")
+     
+     for(unique_soil_type in unique(sand_req_df$type)) {
+      
+      filter(sand_req_df, type == unique_soil_type) %>%
+        pull(type) %>%
+        unique() %>%
+        cat("\n-", .)
+      
+       filter(sand_req_df, type == unique_soil_type) %>%
+         pull(commentary) %>%
+         cat()
+    }
+  }
+}
+  
+
+if(length(water_types > 0)) {
+  cat("
+      
+## Water
+* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas facilisis sollicitudin magna at condimentum. Vestibulum at aliquam lorem. Aliquam ut nibh pretium, volutpat metus eu, fermentum velit.")
+}
+
+
+```
+
+```{r interpret_results, eval = input_params$include_results_interpretation, child = "templates/how_to_interpret_results.Rmd"}
+```
+
+```{r turf_new_page, eval = length(soil_types) > 0, results='asis'}
+cat("\\newpage")
+```
+
+```{r turf_growth_header, eval = length(soil_types) > 0}
+header_file_create("Turf", "growth")
+# in testing, id value of cairo svg gets updated with surface+5 every time (starts at 1, then 6, 11, etc)
+
+header_width <- 8
+header_height <- 1
+
+officer::fpar(
+  officer::external_img(here(root_figure_location, "headers", glue("turf_testing_growth_plot.png")), 
+                        height = header_height, width = header_width),
+  fp_p = officer::fp_par(text.align = "left")
+)
+```
+
+```{r turf_growth_text, eval = (length(soil_types) > 0), results='asis'}
+
+cat("The temperature data is provided by NOAA using 30-year climate normals and is site-specific to your location. Pace Turf, LLC (Gelernter and Stowell, 2005) developed the growth potential model to explain the myriad of ways in which weather impacts turf growth. The model considers turf growth to be good when the GP is between 50% and 100% (the best possible growth occurs at a GP of 100%). However, when weather conditions are either too hot or too cold for optimal turf growth, the GP falls below 50%, and turf becomes progressively more stressed. When the GP falls to 10% or lower, growth is extremely limited. Appearing below is your model specific to ", input_params$site_name, ".\n\n", sep = "")
+
+cat("![](", here::here(root_figure_location, "monthly_growth_potential_plot.png)"), sep = "")
+```
+
+```{r soil_results, results='asis', warning=FALSE, message=FALSE}
+
+if(length(soil_types > 0)) {
+  
+  map(soil_types, function(soil_type) {
+    knitr::knit_expand("templates/soil_testing_table.Rmd",
+                       sample_type = "Soil",
+                       sample_description_number_1 = soil_type)
+  }) %>%
+    unlist() %>%
+    knitr::knit_child(text = ., quiet = TRUE) %>%
+    unlist() %>%
+    cat(., sep = '\n')
+} else {
+  message("\n**Soil results not reported. Either no soil data or an error occured.**\n")
+}
+
+```
+
+```{r om_results, results='asis', warning=FALSE, message=FALSE}
+
+if(length(om_types > 0)) { # So the section only shows up if there are OM results to report
+  
+  map(om_types, function(om_type) {
+    knitr::knit_expand("templates/om_testing.Rmd",
+                       sample_type = "Soil",
+                       sample_description_number_2 = om_type)
+  }) %>%
+    unlist() %>%
+    knitr::knit_child(text = ., quiet = TRUE) %>%
+    unlist() %>%
+    cat(., sep = '\n')
+} else {
+  message("\n**OM results not reported. Either no OM data or an error occured.**\n")
+}
+
+```
+
+```{r water_results, results='asis', warning=FALSE, message=FALSE}
+
+if(length(water_types > 0)) { # So the section only shows up if there are Water results to report
+  
+  water_mod_full_database <<- full_database %>%
+    mutate(water_sample_description = case_when(sample_description_number_1 == "IRRIGATION" & !is.na(sample_description_number_2) ~ 
+                                                  paste(sample_description_number_1, 
+                                                        "-", 
+                                                        sample_description_number_2),
+                                                TRUE ~ sample_description_number_1)) 
+  
+  water_mod_filtered_database <<- filtered_database %>%
+    mutate(water_sample_description = case_when(sample_description_number_1 == "IRRIGATION" & !is.na(sample_description_number_2) ~ 
+                                                  paste(sample_description_number_1, 
+                                                        "-", 
+                                                        sample_description_number_2),
+                                                TRUE ~ sample_description_number_1))
+  
+  water_sample_descriptions <- water_mod_filtered_database %>%
+    filter(sample_description_number_1 %in% water_types) %>%
+    pull(water_sample_description) %>%
+    unique()
+  
+  map(water_sample_descriptions, function(water_type) {
+    knitr::knit_expand("templates/water_testing.Rmd",
+                       sample_type = "Water",
+                       water_description = water_type)
+  }) %>%
+    unlist() %>%
+    knitr::knit_child(text = ., quiet = TRUE) %>%
+    unlist() %>%
+    cat(., sep = '\n')
+} else {
+  message("\n**Water results not reported. Either no water data or an error occured.**\n")
+}
+
+
+```
+
