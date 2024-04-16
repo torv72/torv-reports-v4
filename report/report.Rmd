@@ -32,33 +32,12 @@ library(flextable)
 options(tigris_use_cache = TRUE)
 options(dplyr.summarise.inform = FALSE)
 
-# Set up the aesthetics for the report
-# import_lato <- function() {
-#   
-#   # Determine user OS
-#   # https://stackoverflow.com/questions/4463087/detecting-operating-system-in-r-e-g-for-adaptive-rprofile-files
-#   user_os <- Sys.info()[['sysname']]
-#   
-#   if (user_os == "Windows") {
-#     grDevices::windowsFonts(`Lato` = grDevices::windowsFont("Lato"))
-#     grDevices::windowsFonts(`Lato Light` = grDevices::windowsFont("Lato Light"))
-#     grDevices::windowsFonts(`Lato Black` = grDevices::windowsFont("Lato Black"))
-#   } else {
-#     suppressWarnings(suppressMessages(extrafont::font_import(pattern = "Lato", prompt=FALSE)))
-#   }
-#   
-#   usethis::ui_done("Lato font has been imported and can be used")
-#   
-# }
-# 
-# import_lato()
-
 is_installed <- sum(grepl("Lato", systemfonts::system_fonts()$family)) != 0
 
 if(is_installed) {
   font_main <- "Lato"
 } else {
-  message("Using system default font as the corporate font is not installed on your system. Please install Lato on your system and then restart your R session: https://fonts.google.com/specimen/Lato")
+  message("Using system default font as Lato is not installed on your system. Please install the typeface on your system and then restart your R session: https://fonts.google.com/specimen/Lato")
   font_main <- ""
 } 
 
@@ -293,7 +272,7 @@ full_database <<- full_database
 
 ```
 
-````{r get_types, results='asis', warning= FALSE, message = NA}
+````{r get_types, results='asis', warning=FALSE, message=NA}
 soil_types <- filtered_database %>% 
   filter(sample_type == "Soil") %>% 
   filter(sample_description_number_1 != "OM") %>% 
@@ -442,7 +421,7 @@ header_file_create <- function(sampletype, title, trends=FALSE) {
 }
 ```
 
-```{r logo_header}
+```{r logo-header}
 torv_logo_ratio <- 640/189
 torv_logo_height <- 0.75
 
@@ -485,7 +464,7 @@ eric\@torv.me
 
 \newpage
 
-```{r exec_summary_header}
+```{r exec-summary-header}
 header_file_create("None", "Executive Summary")
 # in testing, id value of cairo svg gets updated with surface+5 every time (starts at 1, then 6, 11, etc)
 
@@ -499,7 +478,7 @@ officer::fpar(
 )
 ```
 
-```{r station_data, message=FALSE}
+```{r station-data, message=FALSE}
 # retrieve temperatures
 zipcode_geometry <- tigris::zctas(cb = TRUE, 
                                   starts_with = input_params$zip_code, 
@@ -514,7 +493,7 @@ nearest_station_data <<- monthly_normals[nearest_station_index[1],]
 ```
 
 
-```{r prepare_element_tables_and_auto_comments}
+```{r prepare-element-tables-and-auto-comments}
 # This script asks for climate values input for the soil analysis, if there are soil types to analyse
 # It then prepares the overall deficits table, for subsetting by soil type and pulling into the report below
 
@@ -532,7 +511,7 @@ if(length(soil_types > 0)){
 ```
 
 
-```{r exec_summary, results='asis'}
+```{r exec-summary, results='asis'}
 
 non_table_elements <- c("pH", "Sodium (ppm)", "Micronutrients", 
                         "Organic Matter (%)", "Total Nitrogen (ppm)")
@@ -682,14 +661,14 @@ if(length(water_types > 0)) {
 
 ```
 
-```{r interpret_results, eval = input_params$include_results_interpretation, child = "templates/how_to_interpret_results.Rmd"}
+```{r interpret-results, eval=input_params$include_results_interpretation, child="templates/how_to_interpret_results.Rmd"}
 ```
 
-```{r turf_new_page, eval = length(soil_types) > 0, results='asis'}
+```{r turf-new-page, eval=length(soil_types) > 0, results='asis'}
 cat("\\newpage")
 ```
 
-```{r turf_growth_header, eval = length(soil_types) > 0}
+```{r turf-growth-header, eval=length(soil_types) > 0}
 header_file_create("Turf", "growth")
 # in testing, id value of cairo svg gets updated with surface+5 every time (starts at 1, then 6, 11, etc)
 
@@ -703,14 +682,14 @@ officer::fpar(
 )
 ```
 
-```{r turf_growth_text, eval = (length(soil_types) > 0), results='asis'}
+```{r turf-growth-text, eval=(length(soil_types) > 0), results='asis'}
 
 cat("The temperature data is provided by NOAA using 30-year climate normals and is site-specific to your location. Pace Turf, LLC (Gelernter and Stowell, 2005) developed the growth potential model to explain the myriad of ways in which weather impacts turf growth. The model considers turf growth to be good when the GP is between 50% and 100% (the best possible growth occurs at a GP of 100%). However, when weather conditions are either too hot or too cold for optimal turf growth, the GP falls below 50%, and turf becomes progressively more stressed. When the GP falls to 10% or lower, growth is extremely limited. Appearing below is your model specific to ", input_params$site_name, ".\n\n", sep = "")
 
 cat("![](", here::here(root_figure_location, "monthly_growth_potential_plot.png)"), sep = "")
 ```
 
-```{r soil_results, results='asis', warning=FALSE, message=FALSE}
+```{r soil-results, results='asis', warning=FALSE, message=FALSE}
 
 if(length(soil_types > 0)) {
   
@@ -729,7 +708,7 @@ if(length(soil_types > 0)) {
 
 ```
 
-```{r om_results, results='asis', warning=FALSE, message=FALSE}
+```{r om-results, results='asis', warning=FALSE, message=FALSE}
 
 if(length(om_types > 0)) { # So the section only shows up if there are OM results to report
   
@@ -748,7 +727,7 @@ if(length(om_types > 0)) { # So the section only shows up if there are OM result
 
 ```
 
-```{r water_results, results='asis', warning=FALSE, message=FALSE}
+```{r water-results, results='asis', warning=FALSE, message=FALSE}
 
 if(length(water_types > 0)) { # So the section only shows up if there are Water results to report
   
