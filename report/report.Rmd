@@ -173,7 +173,7 @@ make_trendline_legend <<- function(main_color,
 
 ```
 
-```{r get_filtered_database}
+```{r get-filtered-database}
 param_date_sample_submitted <- lubridate::ymd(input_params$date_sample_submitted)
 param_start_date <- lubridate::ymd(input_params$start_date)
 param_end_date <- lubridate::ymd(input_params$end_date)
@@ -272,7 +272,7 @@ full_database <<- full_database
 
 ```
 
-````{r get_types, results='asis', warning=FALSE, message=NA}
+````{r get-types, results='asis', warning=FALSE, message=NA}
 soil_types <- filtered_database %>% 
   filter(sample_type == "Soil") %>% 
   filter(sample_description_number_1 != "OM") %>% 
@@ -348,7 +348,7 @@ if(testing_report == "No") {
 
 ````
 
-```{r header_file_creator}
+```{r header-file-creator}
 # possible sampletypes: soil, water, turf
 
 header_file_create <- function(sampletype, title, trends=FALSE) {
