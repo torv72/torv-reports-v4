@@ -100,7 +100,7 @@ if(testing_report == "No") {
 
     if(length(unique(all_om_data$date_sample_submitted)) > 1) {
 
-      message(glue("\n\n**{sample_description_number_2}s**\n\nI have found several dates for OM data  for {sample_description_number_2}s. ",
+      message(glue("\n\n**{sample_description_number_2}s**\n\nI have found several dates for OM data for {sample_description_number_2}s. ",
                    "Would you like to calculate the OM accumulation rate?\n"))
       run_om_accumulation <- readline("Type y for yes or n for no and hit ENTER. ")
 

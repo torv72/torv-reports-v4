@@ -110,7 +110,7 @@ make_om_plot <- function(plot_measurement_name, plot_depth) {
                          color = torv_orange,
                          box.color = NA,
                          fill = NA,
-                         family = "Lato",
+                         family = font_main,
                          fontface = "bold",
                          show.legend = FALSE) +
     scale_x_date(breaks = date_breaks, 
@@ -196,7 +196,7 @@ om_display_table <- om_longitudinal_table %>%
   align(part = "all",
         align = "center") %>%
   font(part = "all",
-       fontname = "Lato") %>%
+       fontname = font_main) %>%
   colformat_double(big.mark=",", digits = 2, na_str = "N/A") %>%
   bg(part = "body", i = ~ depth == "0-2 cm", j = -1, bg = colorer_02) %>%
   bg(part = "body", i = ~ depth == "2-4 cm", j = -1, bg = colorer_24) %>%

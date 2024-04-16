@@ -7,12 +7,12 @@ if("{{measurement_name}}" == "Micronutrients") {
   annotate("text", x = 0.5, y = 0.95, label = "Micro",
            size = 24.5/.pt, color = "#ED8B36",
            fontface = "bold",
-           family = "Lato",
+           family = font_main,
            vjust = 1.2) +
   annotate("text", x = 0.5, y = 0.5, label = "nutrients",
            size = 16/.pt, color = "#ED8B36",
            fontface = "plain",
-           family = "Lato",
+           family = font_main,
            vjust = 1) +
   theme_void() +
   coord_cartesian(xlim = c(0, 1), ylim = c(0, 1), expand = FALSE, clip = "off")
@@ -32,12 +32,12 @@ if("{{measurement_name}}" == "Micronutrients") {
     annotate("text", x = 0.5, y = 0.95, label = measurement_avg,
              size = 32/.pt, color = "#ED8B36",
              fontface = "bold",
-             family = "Lato",
+             family = font_main,
              vjust = 1) +
     annotate("text", x = 0.5, y = 0.5, label = measurement_unit,
              size = 16/.pt, color = "#ED8B36",
              fontface = "plain",
-             family = "Lato",
+             family = font_main,
              vjust = 1) +
     theme_void() +
     coord_cartesian(xlim = c(0, 1), ylim = c(0, 1), expand = FALSE, clip = "off")
@@ -56,7 +56,7 @@ ggsave(here(root_figure_location, "soil_testing", glue::glue("{clean_measurement
 
 ```{r}
 measurement_type_style <- officer::fp_text(font.size = 13, 
-                                           font.family = "Lato", 
+                                           font.family = font_main, 
                                            bold = TRUE)
 ```
 

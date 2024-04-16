@@ -48,7 +48,7 @@ filter(fertilizer_table_all, sample_description_number_1 == "{{sample_descriptio
   flextable::add_footer_lines(values = c("\nNote: The symbol \" - \" means no deficit was found; an empty cell means no data was provided. The Average values are the means across all areas where a deficit was found.")) %>%
   ftExtra::colformat_md(part = "header") %>%
   # Specifying font again after adding footnote
-  flextable::font(fontname = "Lato", 
+  flextable::font(fontname = font_main, 
                   part = "all")
 
 ```
@@ -105,7 +105,7 @@ measurement_names <<- c("pH",
                         "Micronutrients")
 
 measurement_type_style <- officer::fp_text(font.size = 13, 
-                                           font.family = "Lato", 
+                                           font.family = font_main, 
                                            bold = TRUE)
 
 src = lapply(measurement_names, function(measurement_name) {

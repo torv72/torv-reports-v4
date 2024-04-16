@@ -20,41 +20,49 @@ params:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = NA)
-options(tigris_use_cache = TRUE)
-
 
 library(tidyverse) 
 library(here) 
+library(systemfonts)
 library(lubridate)
 library(glue)
 library(patchwork) 
 library(flextable)
 
+options(tigris_use_cache = TRUE)
+options(dplyr.summarise.inform = FALSE)
+
 # Set up the aesthetics for the report
-import_lato <- function() {
-  
-  # Determine user OS
-  # https://stackoverflow.com/questions/4463087/detecting-operating-system-in-r-e-g-for-adaptive-rprofile-files
-  user_os <- Sys.info()[['sysname']]
-  
-  if (user_os == "Windows") {
-    grDevices::windowsFonts(`Lato` = grDevices::windowsFont("Lato"))
-    grDevices::windowsFonts(`Lato Light` = grDevices::windowsFont("Lato Light"))
-    grDevices::windowsFonts(`Lato Black` = grDevices::windowsFont("Lato Black"))
-  } else {
-    suppressWarnings(suppressMessages(extrafont::font_import(pattern = "Lato", prompt=FALSE)))
-  }
-  
-  usethis::ui_done("Lato font has been imported and can be used")
-  
-}
+# import_lato <- function() {
+#   
+#   # Determine user OS
+#   # https://stackoverflow.com/questions/4463087/detecting-operating-system-in-r-e-g-for-adaptive-rprofile-files
+#   user_os <- Sys.info()[['sysname']]
+#   
+#   if (user_os == "Windows") {
+#     grDevices::windowsFonts(`Lato` = grDevices::windowsFont("Lato"))
+#     grDevices::windowsFonts(`Lato Light` = grDevices::windowsFont("Lato Light"))
+#     grDevices::windowsFonts(`Lato Black` = grDevices::windowsFont("Lato Black"))
+#   } else {
+#     suppressWarnings(suppressMessages(extrafont::font_import(pattern = "Lato", prompt=FALSE)))
+#   }
+#   
+#   usethis::ui_done("Lato font has been imported and can be used")
+#   
+# }
+# 
+# import_lato()
 
-import_lato()
+is_installed <- sum(grepl("Lato", systemfonts::system_fonts()$family)) != 0
 
-default_theme <- theme_minimal() +
-  theme(text = element_text(family = "Lato"))
+if(is_installed) {
+  font_main <- "Lato"
+} else {
+  message("Using system default font as the corporate font is not installed on your system. Please install Lato on your system and then restart your R session: https://fonts.google.com/specimen/Lato")
+  font_main <- ""
+} 
 
-theme_set(default_theme)
+theme_set(theme_minimal(base_family = "Lato"))
 
 # Define colors
 torv_green <<- "#44ad4c"
@@ -75,7 +83,7 @@ branded_table <- function(header_colour = torv_orange,
     align(part = "all",
           align = "center") %>%
     font(part = "all",
-         fontname = "Lato") %>%
+         fontname = font_main) %>%
     color(i = 1, color = header_colour, part = "header") %>%
     border(i = 1,
            border.top = officer::fp_border(width = 1.5, color = header_colour), part = "body") %>% 
@@ -138,7 +146,7 @@ make_trendline_legend <<- function(main_color,
     geomtextpath::geom_textpath(aes(y = torv_avg, 
                                     label = average_label), 
                                 linetype = "dotted", linewidth = 0.5, 
-                                family = "Lato",
+                                family = font_main,
                                 color = torv_gray,
                                 size = 7/.pt) +
     ggtext::geom_textbox(aes(x = lubridate::as_date("2021-11-01"), y = 2.95,
@@ -148,7 +156,7 @@ make_trendline_legend <<- function(main_color,
                          box.color = NA,
                          fill = NA,
                          alpha = 0.5,
-                         family = "Lato",
+                         family = font_main,
                          color = main_color,
                          size = 2.5) +
     annotate("curve",
@@ -164,7 +172,7 @@ make_trendline_legend <<- function(main_color,
                          halign = 0,
                          box.color = NA,
                          fill = NA,
-                         family = "Lato",
+                         family = font_main,
                          color = main_color,
                          alpha = 1,
                          size = 2.5) +
@@ -412,13 +420,13 @@ header_file_create <- function(sampletype, title, trends=FALSE) {
     annotate(
       "text", x = r + 0.5, y = 0, hjust = 0,
       label = plot_title,
-      color = col, fontface = "bold", family = "Lato"
+      color = col, fontface = "bold", family = font_main
     ) +
     xlim(c(-0.5, 10)) +
     ylim(c(-0.5,0.5)) +
     coord_fixed() +
     theme_void() +
-    theme(plot.margin=grid::unit(c(0,0,0,0), "null"))
+    theme(plot.margin = grid::unit(c(0,0,0,0), "null"))
   
   clean_title <- janitor::make_clean_names(title)
   

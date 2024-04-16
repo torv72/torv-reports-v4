@@ -49,7 +49,7 @@ generate_report <- function(.site_name,
                          # date at which the tests were finalised
                          end_date = "2021-12-31",
                          warm_or_cool = "cool",
-                         acid_extract ="Mehlich",
+                         acid_extract = "Mehlich",
                          include_results_interpretation = TRUE)
   } else if(.test == "MC_202108") {
     # Full report
@@ -59,7 +59,7 @@ generate_report <- function(.site_name,
                          end_date = "2022-03-24",
                          start_date = "1900-01-01",
                          warm_or_cool = "cool",
-                         acid_extract ="Mehlich",
+                         acid_extract = "Mehlich",
                          include_results_interpretation = FALSE)
   } else if(.test == "Saratoga_202109") {
     # Full report with only one date in sample data; tests trend plots
@@ -81,7 +81,7 @@ generate_report <- function(.site_name,
                          start_date = "2016-01-01",
                          end_date = "2022-03-24",
                          warm_or_cool = "cool",
-                         acid_extract ="Mehlich",
+                         acid_extract = "Mehlich",
                          include_results_interpretation = FALSE)
   } else if(.test == "Sonnenalp_202111") {
     # Small number of measurements; tests trends plots work in absence
@@ -92,7 +92,7 @@ generate_report <- function(.site_name,
                          start_date = "2016-01-01",
                          end_date = "2022-03-24",
                          warm_or_cool = "cool",
-                         acid_extract ="Mehlich",
+                         acid_extract = "Mehlich",
                          include_results_interpretation = FALSE)
   } else if(.test == "Bartlett_202112") {
     # Small report with only OM data; tests the Turf Growth Model switch
@@ -102,7 +102,7 @@ generate_report <- function(.site_name,
                          start_date = "2016-01-01",
                          end_date = "2022-03-24",
                          warm_or_cool = "cool",
-                         acid_extract ="Mehlich",
+                         acid_extract = "Mehlich",
                          include_results_interpretation = FALSE)
   } else {
     input_params <- list(site_name = .site_name,
@@ -117,7 +117,7 @@ generate_report <- function(.site_name,
   # The default is for the end date to be the same as the sample date (so that we're not
   # pulling in data from "the future")
   if(is.null(input_params$end_date)) {
-  input_params$end_date <- input_params$date_sample_submitted
+    input_params$end_date <- input_params$date_sample_submitted
   }
 
   # list returned to the global Env so it can be accessed by the markdown file
