@@ -173,9 +173,6 @@ for(soil_type in soil_types) {
       geom_text(aes(label = glue("{round(growth_potential, 0)}%")),
                 nudge_y = 1, vjust = 0,
                 family = "Lato") +
-      theme(panel.grid.major.x = element_blank(),
-            panel.grid.minor.x = element_blank(),
-            panel.grid.minor.y = element_blank()) +
       labs(x = NULL,
            y = NULL,
            title = "Monthly Growth Potential") +
@@ -384,7 +381,6 @@ create_deficits_graph <- function(soil_type) {
     theme(strip.background = element_rect(color = torv_orange, fill = torv_orange),
           panel.grid = element_line(color = "white", size = 0.3),
           panel.grid.major.y = element_blank(),
-          panel.grid.minor = element_blank(),
           panel.background = element_rect(colour = "#FFFFFF", fill = "#EC8C351A"),
           strip.text.y.left = ggtext::element_markdown(color = "#FFFFFF", angle = 0, face = "bold"),
           axis.text.y = element_blank(),

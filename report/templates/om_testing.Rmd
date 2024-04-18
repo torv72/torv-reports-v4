@@ -119,18 +119,15 @@ make_om_plot <- function(plot_measurement_name, plot_depth) {
                  # making room for textbox above final value, but only if there's more than one date
                  expand = expansion(c(ifelse(length(unique(om_data$plot_date)) == 2, 0.125, 0.05), 
                                       ifelse(length(unique(om_data$plot_date)) > 1, 0.15, 0.05)))) +
-    scale_y_continuous(labels = function(x) paste0(janitor::round_half_up(x, 2), "%"),
+    scale_y_continuous(labels = function(x) paste0(sprintf("%2.2f", janitor::round_half_up(x, 2)), "%"),
                        # making room for optional textboxes below
                        expand = expansion(mult = c(0.25, 0.25))) + 
     scale_size_identity() +
     scale_alpha_identity() +
     labs(x = NULL, y = NULL) +
-    theme(panel.grid.minor = element_blank(),
-          plot.title = element_text(size = 10, hjust = 0.5),
-          axis.title = element_text(size = 8)) + 
     labs(title = glue::glue("Soil Depth: {plot_depth}")) +
-    theme(plot.title = element_text(size = 8, hjust = 0.5,
-                                    face = "bold")) 
+    theme(plot.title = element_text(size = 10, hjust = 0),
+          axis.title = element_text(size = 8)) 
   
   om_plot <- om_plot 
   

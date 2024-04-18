@@ -30,7 +30,7 @@ mlsn_summary <- deficits_graph_data %>%
                                                                         janitor::round_half_up(aiming_for, digits = 1),
                                                                         janitor::round_half_up(aiming_for, digits = 0)),
                                                                  # Eric TODO
-                                                                 " ppm for all the samples. [Something along the lines of all is well.]")),
+                                                                 " ppm for all the samples. **[TODO: Add something along the lines of all is well.]**")),
                                 TRUE ~ str_squish(paste0("The mean ", measurement_name, " measurement is ",
                                                          ifelse(abs(mean_result) < 10,
                                                                 janitor::round_half_up(mean_result, digits = 1),
@@ -41,7 +41,7 @@ mlsn_summary <- deficits_graph_data %>%
                                                                 janitor::round_half_up(aiming_for, digits = 0)),
                                                          " in ", verbal_proportion, " samples. ",
                                                          # Eric TODO
-                                                         "[Something along the lines of add fertilizer as specified in the table.]")))) %>%
+                                                         "**[TODO: Add something along the lines of add fertilizer as specified in the table.]**")))) %>%
   select(sample_description_number_1, measurement_name, mean_result, flag, commentary)
 
 # Create commentary for non-MLSN values ----
@@ -71,9 +71,9 @@ extra_soil_measurements <- filtered_database %>%
                           measurement_name == "Sodium (ppm)" & mean_result > 110 ~ "high",
                           TRUE ~ "ok"),
          commentary = case_when(measurement_name == "pH" & mean_result < 6.5 ~
-                                  "The pH is below the optimal range of 6.5 to 7.9. [TODO: Add custom comment]",
+                                  "The pH is below the optimal range of 6.5 to 7.9. **[TODO: Add custom comment]**",
                                 measurement_name == "pH" & mean_result > 7.9 ~
-                                  "The pH is above the optimal range of 6.5 to 7.9. [TODO: Add custom comment]",
+                                  "The pH is above the optimal range of 6.5 to 7.9. **[TODO: Add custom comment]**",
                                 # glue() doesn't like being used inside case_when, so useing paste0() instead
                                 # str_squish() gets rid of the extra white space caused by the line breaks
                                 # in the text which are just there to make the code easier to read.
@@ -86,7 +86,7 @@ extra_soil_measurements <- filtered_database %>%
                                                     occur, you can fix it by making foliar applications of ferrous
                                                     sulfate.")),
                                 measurement_name == "Organic Matter (%)" & mean_result > 4.5 ~
-                                  "The average Organic Matter (%) measurement is above 4.5%. [TODO: Add custom comment]",
+                                  "The average Organic Matter (%) measurement is above 4.5%. **[TODO: Add custom comment]**",
                                 measurement_name == "Organic Matter (%)" ~
                                   str_squish(paste0("The average Organic Matter is ",
                                                     janitor::round_half_up(mean_result, 1),
