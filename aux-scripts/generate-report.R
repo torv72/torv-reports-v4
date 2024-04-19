@@ -31,8 +31,8 @@ generate_report <- function(.site_name,
   # Remove all the figures from report/figures for the same reason
   # Those are only temporary to get them into the word document
   file.remove(grep(".png", grep("_ref.png",
-                                list.files(here::here(root_figure_location), recursive = T, full.names = T),
-                                value = T, invert = T), value = T))
+                                list.files(here::here(root_figure_location), recursive = TRUE, full.names = TRUE),
+                                value = TRUE, invert = TRUE), value = TRUE))
 
 
   # The test variable allows us to test the output against know input
