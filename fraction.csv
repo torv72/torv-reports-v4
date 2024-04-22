@@ -1,0 +1,67 @@
+﻿depth,particle,usga,year,value
+0-2 cm,Sand,,2024,96.6
+0-2 cm,Sand,,2025,200
+0-2 cm,Fine Gravel (2.0 mm),≤ 3.0 %,2024,0
+0-2 cm,Fine Gravel (2.0 mm),≤ 3.0 %,2025,10
+0-2 cm,Very Coarse Sand (1.0 mm),,2024,6.4
+0-2 cm,Very Coarse Sand (1.0 mm),,2025,9
+0-2 cm,Fine Gravel + Very Coarse Sand (2.0 mm + 1.0 mm),≤ 10 %,2024,6.4
+0-2 cm,Fine Gravel + Very Coarse Sand (2.0 mm + 1.0 mm),≤ 10 %,2025,10
+0-2 cm,Coarse Sand (0.5 mm),,2024,29.9
+0-2 cm,Coarse Sand (0.5 mm),,2025,45
+0-2 cm,Medium Sand (0.25 mm),,2024,37
+0-2 cm,Medium Sand (0.25 mm),,2025,43
+0-2 cm,Coarse Sand + Medium Sand (0.5 mm + 0.25 mm),≥ 60 %,2024,66.9
+0-2 cm,Coarse Sand + Medium Sand (0.5 mm + 0.25 mm),≥ 60 %,2025,80
+0-2 cm,Fine Sand (0.15 mm),≤ 20 %,2024,13.9
+0-2 cm,Fine Sand (0.15 mm),≤ 20 %,2025,17
+0-2 cm,Very Fine Sand (0.106 mm),,2024,5.2
+0-2 cm,Very Fine Sand (0.106 mm),,2025,25
+0-2 cm,Very Fine Sand (0.053 mm),,2024,4.3
+0-2 cm,Very Fine Sand (0.053 mm),,2025,5
+0-2 cm,Very Fine Sand + Very Fine Sand (0.106 mm + 0.053 mm),≤ 5.0 %,2024,9.5
+0-2 cm,Very Fine Sand + Very Fine Sand (0.106 mm + 0.053 mm),≤ 5.0 %,2025,10
+2-4 cm,Sand,,2024,96.6
+2-4 cm,Sand,,2025,40
+2-4 cm,Fine Gravel (2.0 mm),≤ 3.0 %,2024,0.1
+2-4 cm,Fine Gravel (2.0 mm),≤ 3.0 %,2025,4
+2-4 cm,Very Coarse Sand (1.0 mm),,2024,8
+2-4 cm,Very Coarse Sand (1.0 mm),,2025,9
+2-4 cm,Fine Gravel + Very Coarse Sand (2.0 mm + 1.0 mm),≤ 10 %,2024,8.1
+2-4 cm,Fine Gravel + Very Coarse Sand (2.0 mm + 1.0 mm),≤ 10 %,2025,15
+2-4 cm,Coarse Sand (0.5 mm),,2024,32.3
+2-4 cm,Coarse Sand (0.5 mm),,2025,37
+2-4 cm,Medium Sand (0.25 mm),,2024,32.6
+2-4 cm,Medium Sand (0.25 mm),,2025,18
+2-4 cm,Coarse Sand + Medium Sand (0.5 mm + 0.25 mm),≥ 60 %,2024,64.9
+2-4 cm,Coarse Sand + Medium Sand (0.5 mm + 0.25 mm),≥ 60 %,2025,75
+2-4 cm,Fine Sand (0.15 mm),≤ 20 %,2024,13.9
+2-4 cm,Fine Sand (0.15 mm),≤ 20 %,2025,21
+2-4 cm,Very Fine Sand (0.106 mm),,2024,5.7
+2-4 cm,Very Fine Sand (0.106 mm),,2025,9
+2-4 cm,Very Fine Sand (0.053 mm),,2024,4.1
+2-4 cm,Very Fine Sand (0.053 mm),,2025,4.5
+2-4 cm,Very Fine Sand + Very Fine Sand (0.106 mm + 0.053 mm),≤ 5.0 %,2024,9.8
+2-4 cm,Very Fine Sand + Very Fine Sand (0.106 mm + 0.053 mm),≤ 5.0 %,2025,2
+4-6 cm,Sand,,2024,96.9
+4-6 cm,Sand,,2025,100
+4-6 cm,Fine Gravel (2.0 mm),≤ 3.0 %,2024,0.2
+4-6 cm,Fine Gravel (2.0 mm),≤ 3.0 %,2025,3
+4-6 cm,Very Coarse Sand (1.0 mm),,2024,7.5
+4-6 cm,Very Coarse Sand (1.0 mm),,2025,9
+4-6 cm,Fine Gravel + Very Coarse Sand (2.0 mm + 1.0 mm),≤ 10 %,2024,7.7
+4-6 cm,Fine Gravel + Very Coarse Sand (2.0 mm + 1.0 mm),≤ 10 %,2025,9
+4-6 cm,Coarse Sand (0.5 mm),,2024,32.4
+4-6 cm,Coarse Sand (0.5 mm),,2025,60
+4-6 cm,Medium Sand (0.25 mm),,2024,34.1
+4-6 cm,Medium Sand (0.25 mm),,2025,35
+4-6 cm,Coarse Sand + Medium Sand (0.5 mm + 0.25 mm),≥ 60 %,2024,66.5
+4-6 cm,Coarse Sand + Medium Sand (0.5 mm + 0.25 mm),≥ 60 %,2025,40
+4-6 cm,Fine Sand (0.15 mm),≤ 20 %,2024,14.1
+4-6 cm,Fine Sand (0.15 mm),≤ 20 %,2025,19
+4-6 cm,Very Fine Sand (0.106 mm),,2024,4.9
+4-6 cm,Very Fine Sand (0.106 mm),,2025,11
+4-6 cm,Very Fine Sand (0.053 mm),,2024,3.9
+4-6 cm,Very Fine Sand (0.053 mm),,2025,6
+4-6 cm,Very Fine Sand + Very Fine Sand (0.106 mm + 0.053 mm),≤ 5.0 %,2024,8.8
+4-6 cm,Very Fine Sand + Very Fine Sand (0.106 mm + 0.053 mm),≤ 5.0 %,2025,12

@@ -1,0 +1,49 @@
+---
+output:
+  word_document: default
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, warning=FALSE, message=FALSE, echo=FALSE}
+library(tidyverse)
+library(flextable)
+library(officer)
+
+set_flextable_defaults(font.size = 9,
+                       font.family = 'Rowan',
+                       line_spacing = .8
+)
+
+fraction <- read_csv("fraction.csv") %>% 
+  mutate(year = as.character(year)) %>%
+  group_by(depth) %>% 
+  pivot_wider(
+    names_from = (year)
+  )
+```
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+fraction %>%
+  as_grouped_data('depth') %>% 
+  flextable() %>%
+  set_header_labels(
+    depth = 'Depth',
+    particle = 'Particle Size',
+    usga = 'USGA Spec',
+    trend = 'Trend'
+  ) %>%
+  add_header_row(
+    values = c("",'%Retained'),
+    colwidths = c(3,2)
+  ) %>% 
+  add_header_lines(
+    values = c(
+      'OM 246 Sand Fractions'
+    )
+  ) %>% 
+  autofit()
+  
+```
+
+
