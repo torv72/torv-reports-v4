@@ -128,7 +128,7 @@ make_trendline_legend <<- function(main_color,
       aes(y = torv_avg, label = average_label), 
       linetype = "dotted", linewidth = .5, 
       family = font_main, color = torv_gray, size = 7/.pt
-    # ) +
+    ) +
     ggtext::geom_textbox(
       aes(x = lubridate::as_date("2021-11-01"), y = 2.95,
           label = "All samples"),
