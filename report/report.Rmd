@@ -18,8 +18,11 @@ params:
   database_name: "MASTER_DATABASE.xlsx"
 ---
 
-```{r setup, include=FALSE}
+```{r options, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = NA)
+```
+
+```{r setup, include=FALSE, results='hide'}
 database_name <<- params$database_name
 knitr::knit("templates/setup.Rmd")
 ```
@@ -263,7 +266,7 @@ cat("The temperature data is provided by NOAA using 30-year climate normals and 
 cat("![](", here::here(root_figure_location, "monthly_growth_potential_plot.png)"), sep = "")
 ```
 
-```{r soil-results, results='asis', warning=FALSE, message=FALSE}
+```{r soil-results, results='asis', warning=FALSE}
 
 if(length(soil_types > 0)) {
   
@@ -282,7 +285,7 @@ if(length(soil_types > 0)) {
 
 ```
 
-```{r om-results, results='asis', warning=FALSE, message=FALSE}
+```{r om-results, results='asis', warning=FALSE}
 
 if(length(om_types > 0)) { # So the section only shows up if there are OM results to report
   
@@ -301,7 +304,7 @@ if(length(om_types > 0)) { # So the section only shows up if there are OM result
 
 ```
 
-```{r water-results, results='asis', warning=FALSE, message=FALSE}
+```{r water-results, results='asis', warning=FALSE}
 
 if(length(water_types > 0)) { # So the section only shows up if there are Water results to report
   

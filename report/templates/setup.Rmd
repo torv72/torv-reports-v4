@@ -1,6 +1,6 @@
 
 
-```{r libraries-and-variables, include=FALSE}
+```{r libraries, include=FALSE, message=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = NA)
 
 library(tidyverse) 
@@ -13,18 +13,22 @@ library(flextable)
 
 options(tigris_use_cache = TRUE)
 options(dplyr.summarise.inform = FALSE)
+```
 
+
+```{r variables-and-theme}
 is_installed <- sum(grepl("Lato", systemfonts::system_fonts()$family)) != 0
-
+ 
 if(is_installed) {
   font_main <- "Lato"
 } else {
   message("Using system default font as Lato is not installed on your system. Please install the typeface on your system and then restart your R session: https://fonts.google.com/specimen/Lato")
-  font_main <- ""
+  font_main <- "Lato"
 } 
 
-theme_set(theme_minimal(base_family = "Lato"))
+theme_set(theme_minimal(base_family = font_main))
 theme_update(
+  panel.grid.major = element_line(linewidth = .4, color = "grey94"),
   panel.grid.minor = element_blank(),
   #plot.title.position = "plot",
   #plot.caption.position = "plot",
@@ -36,6 +40,7 @@ torv_green <<- "#44ad4c"
 torv_orange <<- "#ec8c35"
 torv_blue <<- "#0d98d6"
 torv_gray <<- "#808080"
+torv_gray_light <<- "#B1B1B1"
 
 # Function to format deficit tables as desired
 branded_table <- function(header_colour = torv_orange, 
@@ -88,73 +93,81 @@ make_trendline_legend <<- function(main_color,
   legend_plot_data <- tibble(year = stable_year_range, avg_measurement_result = c(2.15, 2.5, 2.4))
   torv_avg <- 2
   
-  legend_plot_points <- tibble(year = rep(stable_year_range, 2),
-                               measurement_result = c(2.25, 2.25, 2.05, 2.05, 2.75, 2.75))
+  # legend_plot_points <- tibble(year = rep(stable_year_range, 2),
+  #                              measurement_result = c(2.25, 2.25, 2.05, 2.05, 2.75, 2.75))
+  legend_plot_points <- tibble(year = rep(stable_year_range, each = 5),
+                               measurement_result = c(
+                                 2, 2.05, 2.2, 2.2, 2.3, 
+                                 2.15, 2.45, 2.45, 2.55, 2.9,
+                                 2.2, 2.35, 2.35, 2.35, 2.75
+                               ))
   
   legend_plot_data %>%
     ggplot(aes(x = lubridate::as_date(lubridate::date_decimal(stable_year_range)), y = avg_measurement_result)) +
-    geomtextpath::geom_textpath(data = legend_plot_points,
-                                aes(y = measurement_result,
-                                    x = lubridate::as_date(lubridate::date_decimal(year)),
-                                    label = "Trend"),
-                                stat = "smooth",
-                                method = "lm", formula = y ~ x, se = FALSE, 
-                                linewidth = 0.4, alpha = 0.8,
-                                color = "#8F51C0", linetype = "longdash",
-                                size = 7/.pt) + 
-    geom_point(color = main_color, size = 2) +
-    geom_point(data = legend_plot_points,
-               aes(x = rep(lubridate::as_date(lubridate::date_decimal(stable_year_range)), 2), y = measurement_result),
-               color = main_color,
-               size = 2,
-               alpha = 0.25) +
-    geom_line(color = main_color, 
-              linetype = "solid") +
-    geomtextpath::geom_textpath(aes(y = torv_avg, 
-                                    label = average_label), 
-                                linetype = "dotted", linewidth = 0.5, 
-                                family = font_main,
-                                color = torv_gray,
-                                size = 7/.pt) +
-    ggtext::geom_textbox(aes(x = lubridate::as_date("2021-11-01"), y = 2.95,
-                             label = "All Samples"),
-                         hjust = 1,
-                         halign = 1,
-                         box.color = NA,
-                         fill = NA,
-                         alpha = 0.5,
-                         family = font_main,
-                         color = main_color,
-                         size = 2.5) +
-    annotate("curve",
-             x = lubridate::as_date("2021-10-15"), y = 2.94,
-             xend = lubridate::as_date("2021-12-30"), yend = 2.8,
-             curvature = -.2,
-             arrow = arrow(length = unit(1, "mm"), type = "closed"),
-             alpha = 0.25,
-             color = main_color) +
-    ggtext::geom_textbox(aes(x = lubridate::as_date("2020-01-01"), y = 2.62,
-                             label = "Average Measurement<br>per date"),
-                         hjust = 0,
-                         halign = 0,
-                         box.color = NA,
-                         fill = NA,
-                         family = font_main,
-                         color = main_color,
-                         alpha = 1,
-                         size = 2.5) +
-    annotate("curve",
-             x = as_date(lubridate::as_date("2020-08-20")), y = 2.57,
-             xend = as_date(lubridate::as_date("2020-12-01")), yend = 2.52,
-             curvature = -.2,
-             arrow = arrow(length = unit(1, "mm"), type = "closed"),
-             alpha = 0.5,
-             color = main_color) +
-    #scale_y_continuous(labels = function(x) paste0(sprintf("%2.2f", janitor::round_half_up(x, 2)), "%"), limits = c(2, 3)) +
-    scale_y_continuous(limits = c(2, 3)) +
-    labs(x = NULL, y = NULL, title = "Legend") +
-    theme(plot.title = element_text(size = 10, color = "grey50"),
-          axis.text = element_blank())
+    geomtextpath::geom_textpath(
+      data = legend_plot_points,
+       aes(y = measurement_result,
+           x = lubridate::as_date(lubridate::date_decimal(year)),
+           label = "Trend"),
+     stat = "smooth",method = "lm", formula = y ~ x, se = FALSE, 
+     linewidth = .8, color = "#8F51C0", alpha = .75, size = 7/.pt
+    ) + 
+    ggbeeswarm::geom_beeswarm(
+      data = legend_plot_points,
+      aes(x = rep(lubridate::as_date(lubridate::date_decimal(stable_year_range)), each = 5), y = measurement_result),
+      shape = 21, color = "transparent", fill = torv_gray, size = 1, alpha = .35, cex = 2
+    ) +
+    geom_line(
+      color = prismatic::clr_lighten(main_color, .3), linewidth = .6, linetype = "solid", alpha = .65 
+    ) +
+    geom_point(
+      color = main_color, size = 1.6, 
+      shape = 21, fill = "white", stroke = .8
+    ) +
+    geomtextpath::geom_textpath(
+      aes(y = torv_avg, label = average_label), 
+      linetype = "dotted", linewidth = .5, 
+      family = font_main, color = torv_gray, size = 7/.pt
+    ) +
+    ggtext::geom_textbox(
+      aes(x = lubridate::as_date("2021-11-01"), y = 2.95,
+          label = "All samples"),
+      hjust = 1, halign = 1, box.color = NA, fill = NA,
+      alpha = .5, family = font_main, color = torv_gray, size = 2.5
+    ) +
+    annotate(
+      geom = "curve",
+      x = lubridate::as_date("2021-10-15"), y = 2.94,
+      xend = lubridate::as_date("2021-12-30"), yend = 2.8,
+      curvature = -.2,
+      arrow = arrow(length = unit(1.2, "mm"), type = "closed"),
+      color = prismatic::clr_lighten(torv_gray, .6)
+    ) +
+    ggtext::geom_textbox(
+      aes(x = lubridate::as_date("2020-01-01"), y = 2.62,
+          label = "Average measurement<br>per date"),
+      hjust = 0, halign = 0, box.color = NA, fill = NA,
+      family = font_main, color = main_color, alpha = 1, size = 2.5
+    ) +
+    annotate(
+      geom = "curve",
+      x = as_date(lubridate::as_date("2020-08-15")), y = 2.57,
+      xend = as_date(lubridate::as_date("2020-12-01")), yend = 2.52,
+      curvature = -.2,
+      arrow = arrow(length = unit(1.2, "mm"), type = "closed"),
+      color = prismatic::clr_lighten(main_color, .6)
+    ) +
+    coord_cartesian(clip = "off") +
+    scale_x_date(expand = c(0, 0)) +
+    scale_y_continuous(limits = c(2, 3), expand = expansion(mult = c(.025, .025))) +
+    labs(x = NULL, y = NULL, title = "How to read:") +
+    theme(
+      plot.title = element_text(size = 10, color = "grey50"),
+      axis.text = element_blank(),
+      plot.margin = margin(6, 12, 12, 6), ## without repeated labels
+      #plot.margin = margin(rep(12, 4)), ## with repeated labels
+      panel.grid.major.x = element_blank()
+    )
   
 }
 
@@ -260,7 +273,7 @@ full_database <<- full_database
 
 ```
 
-````{r get-types, results='asis', warning=FALSE, message=NA}
+````{r get-types}
 soil_types <- filtered_database %>% 
   filter(sample_type == "Soil") %>% 
   filter(sample_description_number_1 != "OM") %>% 
@@ -306,7 +319,7 @@ om_types <<- om_types
 if(length(soil_types) == 0) {
   message("\nI didn't find any soil types in the database.")
 } else {
-  message(paste0("\nI found the following soil types in the database: ", 
+  print(paste0("\nI found the following soil types in the database: ", 
                  paste(unique(soil_types), collapse = ", "),
                  ".")) 
 }
@@ -411,7 +424,7 @@ header_file_create <<- function(sampletype, title, trends=FALSE) {
 
 
 
-```{r station-data, message=FALSE}
+```{r station-data}
 # retrieve temperatures
 zipcode_geometry <- tigris::zctas(cb = TRUE, 
                                   starts_with = input_params$zip_code, 
@@ -439,6 +452,4 @@ if(length(soil_types > 0)){
   source(here("aux-scripts", "deficit-tables.R"))
   source(here("aux-scripts", "soil-text-automation.R"))
 }
-
-
 ```

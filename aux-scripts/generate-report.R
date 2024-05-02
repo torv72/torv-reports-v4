@@ -169,4 +169,9 @@ generate_report <- function(.site_name,
     testthat::test_file(here("tests/test-scripts/value-tests.R"))
     testthat::test_file(here("tests/test-scripts/plot-tests.R"))
   }
+  
+  # Clean-up
+  graphics.off()
+  x <- file.remove(here::here("report", "setup.md"))
+  
 }

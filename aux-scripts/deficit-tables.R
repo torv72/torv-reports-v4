@@ -168,20 +168,33 @@ for(soil_type in soil_types) {
   if(soil_type == soil_type_for_growth_model) {
     growth_potential_plot <-
       climate %>%
-      ggplot(aes(x = month, y = growth_potential)) +
-      geom_col(fill = torv_green) +
-      geom_text(aes(label = glue("{round(growth_potential, 0)}%")),
-                nudge_y = 1, vjust = 0,
-                family = "Lato") +
-      labs(x = NULL,
-           y = NULL,
-           title = "Monthly Growth Potential") +
-      # Allowing space for percentage label to be just above 100
-      scale_y_continuous(limits = c(0, 110), breaks = seq(0, 100, 25))
+      ggplot(aes(x = month, y = round(growth_potential, 0))) +
+      geom_col(fill = torv_green, width = .8) +
+      geom_text(
+        data = filter(climate, round(growth_potential, 0) > 0),  ## remove this line if you want to show labels for 0% bars as well
+        aes(label = glue("{round(growth_potential, 0)}%")),
+        nudge_y = 1, vjust = 0, family = "Lato"
+      ) +
+      geom_hline(yintercept = 0, color = torv_gray_light, linewidth = .6) +
+      coord_cartesian(clip = "off", expand = FALSE) +
+      ## old version with horizontal grid lines and percentage labels on the axis
+      # scale_y_continuous(
+      #   limits = c(0, 100), breaks = 0:4*25,
+      #   labels = scales::percent_format(scale = 1), expand = c(0, 0)
+      # ) +
+      scale_y_continuous(breaks = NULL, guide = "none") +
+      labs(x = NULL, y = NULL, title = "Monthly Growth Potential") +
+      theme(
+        panel.grid.major.x = element_blank(),
+        plot.title = element_text(margin = margin(b = 20)),
+        plot.title.position = "plot",
+        axis.text.x = element_text(margin = margin(t = 5))
+      )
 
     ggsave(here(root_figure_location, "monthly_growth_potential_plot.png"),
            growth_potential_plot, bg = "#ffffff",
-           device = png(width = 6.5, height = 4, units = "in", type = "cairo", res = 144))
+           width = 6.5, height = 4)
+          # device = png(width = 6.5, height = 4, units = "in", type = "cairo", res = 144))
 
     annual_N_per_1000sqft <- sum(climate$N)
 
