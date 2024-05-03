@@ -125,7 +125,12 @@ plot_test_trend <- function(plot_measurement, is_last_row) {
                                             length.out = ifelse((year_range[2] - year_range[1]) %% 2 == 0,
                                                                 4,
                                                                 3))))
-    # date_breaks <- as_date(ymd(paste0(year(seq(min(unique(site_points$year)), max(unique(site_points$year)), length.out = ifelse((year_range[2] - year_range[1] + 1) %% 2 == 0, 4, 3))), "-01-01")))
+    date_breaks <- as_date(ymd(
+      paste0(round(
+        seq(min(unique(site_points$year)), max(unique(site_points$year)), 
+            length.out = ifelse((year_range[2] - year_range[1] + 1) %% 2 == 0, 4, 3))
+      ), "-01-01")
+    ))
     
   } else {
     date_breaks <- waiver()
