@@ -46,7 +46,7 @@ source(here::here("aux-scripts/generate-report.R"))
 generate_report(.site_name = "Maroon Creek Club",
                 .zip_code = 81611,
                 .date_sample_submitted = "2023-05-24",
-                .start_date = "2007-01-01",
+                .start_date = "2018-01-01",
                 .warm_or_cool = "cool",
                 .acid_extract = "Mehlich",
                 .include_results_interpretation = FALSE)
