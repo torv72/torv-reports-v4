@@ -20,6 +20,15 @@ generate_report <- function(.site_name,
   # Export to global Env so can be used by other scripts
   testing_report <<- .test
 
+  # Set up Figure directories if they aren't already there
+  figure_dirs <- c("headers", "organic_matter", "soil_testing", "trendlines", "water_testing")
+  
+  for (figure_dir in figure_dirs) {
+    if(!dir.exists(here::here("report", "figures", figure_dir))) {
+      dir.create(here::here("report", "figures", figure_dir), recursive = TRUE)
+    }
+  }
+  
   # Create alternative location for figures associated with test reports for ease of testing
   root_figure_location <<-
     if(testing_report != "No") {

@@ -71,19 +71,6 @@ branded_table <- function(header_colour = torv_orange,
     }
 }
 
-# Set up Figure directories if they aren't already there
-figure_dirs <- c("headers", "organic_matter", "soil_testing", "trendlines", "water_testing")
-
-if(!dir.exists("figures")) {
-  dir.create("figures")
-}
-
-for (figure_dir in figure_dirs) {
-  if(!dir.exists(file.path("figures", figure_dir))) {
-    dir.create(file.path("figures", figure_dir))
-  }
-}
-
 # This is used in om_testing.Rmd and in trendline_figure.Rmd
 make_trendline_legend <<- function(main_color,
                                    average_label = "TORV Average") {
