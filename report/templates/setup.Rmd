@@ -319,7 +319,7 @@ om_types <<- om_types
 if(length(soil_types) == 0) {
   message("\nI didn't find any soil types in the database.")
 } else {
-  print(paste0("\nI found the following soil types in the database: ", 
+  message(paste0("\nI found the following soil types in the database: ", 
                  paste(unique(soil_types), collapse = ", "),
                  ".")) 
 }
