@@ -51,7 +51,6 @@ generate_report(.site_name = "Maroon Creek Club",
                 .acid_extract = "Mehlich",
                 .include_results_interpretation = FALSE)
 
-
 # It will save a file in generated-reports with a filename which includes the site name
 # and the date_sample_submitted argument. If a file with that name already exists, it will
 # ask you whether you want to overwrite it before continuing. If you do want to overwrite a

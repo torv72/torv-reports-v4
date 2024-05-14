@@ -72,8 +72,7 @@ branded_table <- function(header_colour = torv_orange,
 }
 
 # This is used in om_testing.Rmd and in trendline_figure.Rmd
-make_trendline_legend <<- function(main_color,
-                                   average_label = "TORV Average") {
+make_trendline_legend <<- function(main_color, average_label = "TORV Average", draw_beeswarm = beeswarm) {
   
   stable_year_range <- c(year(ymd("2020-01-01")), year(ymd("2021-01-01")), year(ymd("2022-01-01")))
   
@@ -99,11 +98,23 @@ make_trendline_legend <<- function(main_color,
      stat = "smooth",method = "lm", formula = y ~ x, se = FALSE, 
      linewidth = .8, color = "#8F51C0", alpha = .75, size = 7/.pt
     ) + 
-    ggbeeswarm::geom_beeswarm(
-      data = legend_plot_points,
-      aes(x = rep(lubridate::as_date(lubridate::date_decimal(stable_year_range)), each = 5), y = measurement_result),
-      shape = 21, color = "transparent", fill = torv_gray, size = 1, alpha = .35, cex = 2
-    ) +
+    { if(draw_beeswarm)
+      ## raw measurements as beeswarms to avoid overlaps (varied around x)
+      ggbeeswarm::geom_beeswarm(
+        data = legend_plot_points,
+        aes(x = rep(lubridate::as_date(lubridate::date_decimal(stable_year_range)), each = 5), y = measurement_result),
+        shape = 21, color = "transparent", fill = torv_gray, size = 1, alpha = .35, cex = 2
+      )
+    } +
+    { if(!draw_beeswarm)
+      ## raw measurements as dot strips (centered x)
+      geom_point(
+        data = legend_plot_points,
+        aes(x = rep(lubridate::as_date(lubridate::date_decimal(stable_year_range)), each = 5), y = measurement_result),
+        #color = prismatic::clr_darken(torv_gray, .4), size = 1.5, shape = 1, alpha = .2
+        shape = 21, color = "transparent", fill = torv_gray, size = 1.3, alpha = .25
+      )
+    } +
     geom_line(
       color = prismatic::clr_lighten(main_color, .3), linewidth = .6, linetype = "solid", alpha = .65 
     ) +

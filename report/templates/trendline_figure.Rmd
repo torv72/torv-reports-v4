@@ -62,7 +62,7 @@ if (sample_type_for_color == "Soil") {
   torv_color <- torv_blue
 }
 
-plot_test_trend <- function(plot_measurement, is_last_row) {
+plot_test_trend <- function(plot_measurement, is_last_row, draw_beeswarm = beeswarm) {
   
   # For Soil, the average is within each sample_description_number_1 (e.g. GREEN  / TEE) across all TORV data
   # For water, start from the full database and include all samples *at that site* with the specific sample site,
@@ -144,18 +144,23 @@ plot_test_trend <- function(plot_measurement, is_last_row) {
       aes(yintercept = torv_avg), 
       linewidth = .4, linetype = "dashed", color = torv_gray
     ) +
-    ## raw measurements as small gray points
-    # geom_point(
-    #   data = site_points,
-    #   aes(x = plot_date, y = measurement_result),
-    #   #color = prismatic::clr_darken(torv_gray, .4), size = 1.5, shape = 1, alpha = .2
-    #   shape = 21, color = "transparent", fill = torv_gray, size = 1.3, alpha = .25
-    # ) +
-    ggbeeswarm::geom_beeswarm(
-      data = site_points,
+    { if(draw_beeswarm)
+      ## raw measurements as beeswarms to avoid overlaps (varied around x)
+      ggbeeswarm::geom_beeswarm(
+        data = site_points,
       aes(x = plot_date, y = measurement_result),
       shape = 21, color = "transparent", fill = torv_gray, size = 1, alpha = .35, cex = 2
-    ) +
+      )
+    } +
+    { if(!draw_beeswarm)
+      ## raw measurements as dot strips (centered x)
+      geom_point(
+        data = site_points,
+      aes(x = plot_date, y = measurement_result),
+      #color = prismatic::clr_darken(torv_gray, .4), size = 1.5, shape = 1, alpha = .2
+        shape = 21, color = "transparent", fill = torv_gray, size = 1.3, alpha = .25
+      )
+    } +
     ## purple trend line
     geom_line(
       stat = "smooth", method = "lm", formula = y ~ x, se = FALSE, 

@@ -7,6 +7,7 @@ generate_report <- function(.site_name,
                             .warm_or_cool,
                             .acid_extract,
                             .include_results_interpretation,
+                            .draw_beeswarm = "Yes",
                             .test = "No") {
 
   # Clears the environment, to avoid cross contamination between successive reports!
@@ -19,7 +20,8 @@ generate_report <- function(.site_name,
 
   # Export to global Env so can be used by other scripts
   testing_report <<- .test
-
+  beeswarm <<- ifelse(.draw_beeswarm == "Yes", TRUE, FALSE)
+  
   # Set up Figure directories if they aren't already there
   figure_dirs <- c("headers", "organic_matter", "soil_testing", "trendlines", "water_testing")
   
