@@ -74,11 +74,11 @@ make_water_plot <- function(plot_measurement) {
                  color = "#BFBFBF",
                  size = line_size) +
     geom_point(size = 10, color = "#119AD6") +
-    geom_text(color = "white", fontface = "bold", family = "Lato",
+    geom_text(color = "white", fontface = "bold", family = typeface,
               size = 8/.pt) +
     labs(y = str_wrap(plot_measurement, 20)) +
     theme_void() +
-    theme(text = element_text(family = "Lato"),
+    theme(text = element_text(family = typeface),
           axis.title.y = element_text(size = 8))
 
   if (plot_measurement == "Residual Sodium Carbonate (RSC)") {
@@ -92,14 +92,14 @@ make_water_plot <- function(plot_measurement) {
                y = -0.5,
                label = "Low",
                color = "#626262",
-               family = "Lato",
+               family = typeface,
                size = label_size) +
       annotate("text",
                x = (water_plot_data$low_med_cutoff - lower_bound)/2 + water_plot_data$low_med_cutoff, # halfway between right edge and cutoff
                y = -0.5,
                label = "Medium/High",
                color = "#626262",
-               family = "Lato",
+               family = typeface,
                size = label_size)
   } else if (plot_measurement == "Chloride (ppm)") {
     lower_bound <- 0
@@ -112,14 +112,14 @@ make_water_plot <- function(plot_measurement) {
                y = -0.5,
                label = "Low",
                color = "#626262",
-               family = "Lato",
+               family = typeface,
                size = label_size) +
       annotate("text",
                x = (water_plot_data$low_med_cutoff - lower_bound)/2 + water_plot_data$low_med_cutoff, # halfway between right edge and cutoff
                y = -0.5,
                label = "Medium/High",
                color = "#626262",
-               family = "Lato",
+               family = typeface,
                size = label_size)
 
 
@@ -133,21 +133,21 @@ make_water_plot <- function(plot_measurement) {
                y = -0.5,
                label = "Low",
                color = "#626262",
-               family = "Lato",
+               family = typeface,
                size = label_size) +
       annotate("text",
                x = water_plot_data$low_med_cutoff + (cutoff_distance)/2,
                y = -0.5,
                label = "Medium",
                color = "#626262",
-               family = "Lato",
+               family = typeface,
                size = label_size) +
       annotate("text",
                x = water_plot_data$med_high_cutoff + (cutoff_distance)/2,
                y = -0.5,
                label = "High",
                color = "#626262",
-               family = "Lato",
+               family = typeface,
                size = label_size)
   }
 

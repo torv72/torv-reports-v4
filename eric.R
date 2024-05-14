@@ -49,7 +49,9 @@ generate_report(.site_name = "Maroon Creek Club",
                 .start_date = "2018-01-01",
                 .warm_or_cool = "cool",
                 .acid_extract = "Mehlich",
-                .include_results_interpretation = FALSE)
+                .include_results_interpretation = FALSE,
+                .draw_beeswarm = "Yes",
+                .typeface = "Lato")
 
 # It will save a file in generated-reports with a filename which includes the site name
 # and the date_sample_submitted argument. If a file with that name already exists, it will

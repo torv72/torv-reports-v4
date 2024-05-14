@@ -173,7 +173,7 @@ for(soil_type in soil_types) {
       geom_text(
         data = filter(climate, round(growth_potential, 0) > 0),  ## remove this line if you want to show labels for 0% bars as well
         aes(label = glue("{round(growth_potential, 0)}%")),
-        nudge_y = 1, vjust = 0, family = "Lato"
+        nudge_y = 1, vjust = 0, family = typeface
       ) +
       geom_hline(yintercept = 0, color = torv_gray_light, linewidth = .6) +
       coord_cartesian(clip = "off", expand = FALSE) +
@@ -358,7 +358,7 @@ create_deficits_graph <- function(soil_type) {
                                                 TRUE ~ 1)),
                          hjust = 1,
                          halign = 0.5,
-                         family = "Lato",
+                         family = typeface,
                          lineheight = 0.85,
                          color = alpha(torv_orange, 0.5),
                          box.color = NA,
@@ -376,7 +376,7 @@ create_deficits_graph <- function(soil_type) {
                                                 TRUE ~ 0)),
                          hjust = 1.2,
                          halign = 0.5,
-                         family = "Lato",
+                         family = typeface,
                          lineheight = 0.85,
                          box.color = NA,
                          fill = NA,
@@ -398,7 +398,7 @@ create_deficits_graph <- function(soil_type) {
           strip.text.y.left = ggtext::element_markdown(color = "#FFFFFF", angle = 0, face = "bold"),
           axis.text.y = element_blank(),
           axis.ticks = element_blank(),
-          axis.text.x.top = ggtext::element_markdown(color = torv_gray, family = "Lato"),
+          axis.text.x.top = ggtext::element_markdown(color = torv_gray, family = typeface),
           panel.spacing = unit(0.75, "lines"))
 
   ggsave(deficit_graph,

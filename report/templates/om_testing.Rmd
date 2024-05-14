@@ -136,7 +136,7 @@ make_om_plot <- function(plot_measurement_name, plot_depth, draw_beeswarm = bees
           color = text_color, size = text_size),
       hjust = .5, halign = .5,
       box.color = NA, fill = NA,
-      family = font_main, fontface = "bold",
+      family = typeface, fontface = "bold",
       show.legend = FALSE
     ) +
     coord_cartesian(clip = "off") +
@@ -226,7 +226,7 @@ om_display_table <- om_longitudinal_table %>%
   align(part = "all",
         align = "center") %>%
   font(part = "all",
-       fontname = font_main) %>%
+       fontname = typeface) %>%
   colformat_double(big.mark=",", digits = 2, na_str = "N/A") %>%
   bg(part = "body", i = ~ depth == "0-2 cm", j = -1, bg = colorer_02) %>%
   bg(part = "body", i = ~ depth == "2-4 cm", j = -1, bg = colorer_24) %>%

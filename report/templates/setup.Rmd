@@ -17,16 +17,15 @@ options(dplyr.summarise.inform = FALSE)
 
 
 ```{r variables-and-theme}
-is_installed <- sum(grepl("Lato", systemfonts::system_fonts()$family)) != 0
+typeface <<- .typeface
+is_installed <- sum(grepl(typeface, systemfonts::system_fonts()$family)) != 0
  
-if(is_installed) {
-  font_main <- "Lato"
-} else {
-  message("Using system default font as Lato is not installed on your system. Please install the typeface on your system and then restart your R session: https://fonts.google.com/specimen/Lato")
-  font_main <- "Lato"
+if(!is_installed) {
+  message("Using system default font as the specified typeface is not installed on your system. Please install the typeface on your system and then restart your R session.")
+  typeface <<- ""
 } 
 
-theme_set(theme_minimal(base_family = font_main))
+theme_set(theme_minimal(base_family = typeface))
 theme_update(
   panel.grid.major = element_line(linewidth = .4, color = "grey94"),
   panel.grid.minor = element_blank(),
@@ -55,7 +54,7 @@ branded_table <- function(header_colour = torv_orange,
     align(part = "all",
           align = "center") %>%
     font(part = "all",
-         fontname = font_main) %>%
+         fontname = typeface) %>%
     color(i = 1, color = header_colour, part = "header") %>%
     border(i = 1,
            border.top = officer::fp_border(width = 1.5, color = header_colour), part = "body") %>% 
@@ -96,7 +95,7 @@ make_trendline_legend <<- function(main_color, average_label = "TORV Average", d
            x = lubridate::as_date(lubridate::date_decimal(year)),
            label = "Trend"),
      stat = "smooth",method = "lm", formula = y ~ x, se = FALSE, 
-     linewidth = .8, color = "#8F51C0", alpha = .75, size = 7/.pt
+     linewidth = .8, color = "#8F51C0", alpha = .75, size = 7/.pt, family = typeface
     ) + 
     { if(draw_beeswarm)
       ## raw measurements as beeswarms to avoid overlaps (varied around x)
@@ -125,33 +124,39 @@ make_trendline_legend <<- function(main_color, average_label = "TORV Average", d
     geomtextpath::geom_textpath(
       aes(y = torv_avg, label = average_label), 
       linetype = "dotted", linewidth = .5, 
-      family = font_main, color = torv_gray, size = 7/.pt
+      family = typeface, color = torv_gray, size = 7/.pt
     ) +
-    ggtext::geom_textbox(
-      aes(x = lubridate::as_date("2021-11-01"), y = 2.95,
-          label = "All samples"),
-      hjust = 1, halign = 1, box.color = NA, fill = NA,
-      alpha = .5, family = font_main, color = torv_gray, size = 2.5
+    # ggtext::geom_textbox(
+    #   aes(x = lubridate::as_date("2021-11-01"), y = 2.95,
+    #       label = "All samples"),
+    #   hjust = 1, halign = 1, box.color = NA, fill = NA,
+    #   alpha = .5, family = typeface, color = torv_gray, size = 2.5
+    # ) +
+    annotate(
+      geom = "text", 
+      x = lubridate::as_date("2021-10-01"), y = 2.95,
+      label = "All samples",
+      hjust = 1, family = typeface, color = torv_gray, size = 2.5
     ) +
     annotate(
       geom = "curve",
       x = lubridate::as_date("2021-10-15"), y = 2.94,
       xend = lubridate::as_date("2021-12-30"), yend = 2.8,
-      curvature = -.2,
+      curvature = -.2, 
       arrow = arrow(length = unit(1.2, "mm"), type = "closed"),
       color = prismatic::clr_lighten(torv_gray, .6)
     ) +
-    ggtext::geom_textbox(
-      aes(x = lubridate::as_date("2020-01-01"), y = 2.62,
-          label = "Average measurement<br>per date"),
-      hjust = 0, halign = 0, box.color = NA, fill = NA,
-      family = font_main, color = main_color, alpha = 1, size = 2.5
+    annotate(
+      geom = "text", 
+      x = lubridate::as_date("2021-06-01"), y = 2.7,
+      label = "Average measurement",
+      hjust = 1, family = typeface, color = main_color, size = 2.5
     ) +
     annotate(
       geom = "curve",
-      x = as_date(lubridate::as_date("2020-08-15")), y = 2.57,
+      x = as_date(lubridate::as_date("2020-08 -15")), y = 2.63,
       xend = as_date(lubridate::as_date("2020-12-01")), yend = 2.52,
-      curvature = -.2,
+      curvature = .2,
       arrow = arrow(length = unit(1.2, "mm"), type = "closed"),
       color = prismatic::clr_lighten(main_color, .6)
     ) +
@@ -398,7 +403,7 @@ header_file_create <<- function(sampletype, title, trends=FALSE) {
     annotate(
       "text", x = r + 0.5, y = 0, hjust = 0,
       label = plot_title,
-      color = col, fontface = "bold", family = font_main
+      color = col, fontface = "bold", family = typeface
     ) +
     xlim(c(-0.5, 10)) +
     ylim(c(-0.5,0.5)) +

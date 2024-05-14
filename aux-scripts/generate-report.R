@@ -8,6 +8,7 @@ generate_report <- function(.site_name,
                             .acid_extract,
                             .include_results_interpretation,
                             .draw_beeswarm = "Yes",
+                            .typeface = "Lato",
                             .test = "No") {
 
   # Clears the environment, to avoid cross contamination between successive reports!
