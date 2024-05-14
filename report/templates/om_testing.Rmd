@@ -76,10 +76,19 @@ if (year_range[2] - year_range[1] < 2) {
 
 make_om_plot <- function(plot_measurement_name, plot_depth) {
   
-  om_plot <- om_avgs %>% 
+  data <- om_avgs %>% 
     filter(measurement_name == plot_measurement_name,
-           depth == plot_depth) %>% 
-    ggplot() +
+           depth == plot_depth) %>%
+    arrange(plot_date)
+  
+  check_lims <- slice_tail(data, n = 2)
+  
+  lwr <- upr <- .05
+  
+  if(min(check_lims$measurement_result) == min(data$measurement_result)) lwr <- .2
+  if(max(check_lims$measurement_result) == max(data$measurement_result)) upr <- .2
+  
+  om_plot <- ggplot(data) +
     ## historical average as dashed horizontal line
     geom_hline(
       aes(yintercept = torv_avg), 
@@ -136,7 +145,7 @@ make_om_plot <- function(plot_measurement_name, plot_depth) {
     ) +
     scale_y_continuous(
       labels = function(x) paste0(sprintf("%2.2f", janitor::round_half_up(x, 2)), "%"),
-      expand = expansion(mult = c(.025, .025))
+      expand = expansion(mult = c(lwr, upr))
     ) +
     scale_size_identity() +
     scale_color_identity() +
