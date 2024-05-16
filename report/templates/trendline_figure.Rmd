@@ -184,7 +184,7 @@ plot_test_trend <- function(plot_measurement, is_last_row, draw_beeswarm = beesw
     scale_y_continuous(expand = expansion(mult = c(.025, .025))) +
     labs(x = NULL, y = NULL, title = str_wrap(plot_measurement, 25)) +
     theme(
-      plot.title = element_text(size = 10),
+      plot.title = element_text(size = 10, family = typeface_title),
       axis.text.x = element_text(size = 7.5, margin = margin(t = 2), color = torv_gray),
       axis.text.y = element_text(size = 7.5, margin = margin(r = 4), color = torv_gray),
       plot.margin = margin(6, 12, 12, 6), ## without repeated labels
@@ -232,7 +232,8 @@ combined_trends <- wrap_plots(greens_ph_trends, ncol = 3, guides = "collect",
 ggsave(here(root_figure_location, "trendlines", glue::glue(janitor::make_clean_names("trend_plot_{{sample_type}}_{{sample_description}})"), ".png")),
        combined_trends, bg = "#ffffff", width = 6.5, height = 7)
 
-cat("![](", here::here(root_figure_location, "trendlines", glue::glue(janitor::make_clean_names("trend_plot_{{sample_type}}_{{sample_description}}"), ".png")), ")", sep = "")
+#cat("![](", here::here(root_figure_location, "trendlines", glue::glue(janitor::make_clean_names("trend_plot_{{sample_type}}_{{sample_description}}"), ".png")), ")", sep = "")
 
+knitr::include_graphics(here(root_figure_location, "trendlines", glue::glue(janitor::make_clean_names("trend_plot_{{sample_type}}_{{sample_description}}"), ".png")))
 ```
 

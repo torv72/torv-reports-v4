@@ -10,6 +10,7 @@ library(lubridate)
 library(glue)
 library(patchwork) 
 library(flextable)
+library(ggiraph)
 
 options(tigris_use_cache = TRUE)
 options(dplyr.summarise.inform = FALSE)
@@ -17,13 +18,14 @@ options(dplyr.summarise.inform = FALSE)
 
 
 ```{r variables-and-theme}
-typeface <<- .typeface
 is_installed <- sum(grepl(typeface, systemfonts::system_fonts()$family)) != 0
  
 if(!is_installed) {
   message("Using system default font as the specified typeface is not installed on your system. Please install the typeface on your system and then restart your R session.")
   typeface <<- ""
 } 
+
+typeface_title <<- "Geologica"
 
 theme_set(theme_minimal(base_family = typeface))
 theme_update(
@@ -34,10 +36,21 @@ theme_update(
   strip.text.x = element_text(hjust = 0, margin = margin(3, 0, 3, 0))
 )
 
+tooltip_css <- paste0("background-color:white;padding:12px;border-radius:5px;border-width:2px;color:white;border-style:solid;border-color:white;line-height:1.15;font-family:", typeface_title, ";font-size:1.4em;")
+
+set_girafe_defaults(
+  opts_tooltip = opts_tooltip(css = tooltip_css, opacity = 1, use_fill = TRUE, offx = 10, offy = 10),
+  opts_hover = opts_hover(css = "stroke-width:2;"),
+  opts_hover_inv = opts_hover_inv(css = "opacity:.3;"),
+  opts_sizing = opts_sizing(rescale = TRUE),
+  opts_toolbar = opts_toolbar(saveaspng = TRUE, delay_mouseout = 5000)
+)
+
 # Define colors
-torv_green <<- "#44ad4c"
-torv_orange <<- "#ec8c35"
-torv_blue <<- "#0d98d6"
+torv_green <<- "#0aa67b" #44ad4c
+torv_orange <<- "#a67b0a" #ec8c35
+torv_blue <<- "#0a83a6" #0d98d6"
+torv_green2 <<- "#5b921e"
 torv_gray <<- "#808080"
 torv_gray_light <<- "#B1B1B1"
 
@@ -165,7 +178,7 @@ make_trendline_legend <<- function(main_color, average_label = "TORV Average", d
     scale_y_continuous(limits = c(2, 3), expand = expansion(mult = c(.025, .025))) +
     labs(x = NULL, y = NULL, title = "How to read:") +
     theme(
-      plot.title = element_text(size = 10, color = "grey50"),
+      plot.title = element_text(size = 10, color = "grey50", family = typeface_title),
       axis.text = element_blank(),
       plot.margin = margin(6, 12, 12, 6), ## without repeated labels
       #plot.margin = margin(rep(12, 4)), ## with repeated labels
@@ -173,8 +186,6 @@ make_trendline_legend <<- function(main_color, average_label = "TORV Average", d
     )
   
 }
-
-
 ```
 
 ```{r get-filtered-database}
@@ -373,7 +384,7 @@ header_file_create <<- function(sampletype, title, trends=FALSE) {
   sym.grob <- grImport2::symbolsGrob(img, x = 0.5, y = 0.5, default.units = "npc", size = 1)
   
   if (sampletype == "OM") {
-    col <- torv_orange
+    col <- torv_green
     plot_title <- glue("Total Organic Matter | {title}")
   } else if (sampletype == "Soil" & trends == TRUE) {
     col <- torv_orange
@@ -388,7 +399,7 @@ header_file_create <<- function(sampletype, title, trends=FALSE) {
     col <- torv_blue
     plot_title <- glue("Water Testing | {title}")
   } else if (sampletype == "Turf") {
-    col <- torv_green
+    col <- torv_green2
     plot_title <- glue("Turf Growth Potential Model")
   } else if (sampletype == "None") {
     col <- torv_gray
@@ -402,8 +413,8 @@ header_file_create <<- function(sampletype, title, trends=FALSE) {
     annotation_custom(sym.grob, xmin = -0.5, xmax = 0.5, ymin = -0.5, ymax = 0.5) +
     annotate(
       "text", x = r + 0.5, y = 0, hjust = 0,
-      label = plot_title,
-      color = col, fontface = "bold", family = typeface
+      label = plot_title, size = 6.7,
+      color = col, fontface = "bold", family = typeface_title
     ) +
     xlim(c(-0.5, 10)) +
     ylim(c(-0.5,0.5)) +

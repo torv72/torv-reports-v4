@@ -169,12 +169,12 @@ for(soil_type in soil_types) {
     growth_potential_plot <-
       climate %>%
       ggplot(aes(x = month, y = round(growth_potential, 0))) +
-      geom_col(fill = torv_green, width = .8) +
-      geom_text(
-        data = filter(climate, round(growth_potential, 0) > 0),  ## remove this line if you want to show labels for 0% bars as well
-        aes(label = glue("{round(growth_potential, 0)}%")),
-        nudge_y = 1, vjust = 0, family = typeface
-      ) +
+      geom_col_interactive(fill = torv_green2, width = .8, aes(data_id = month, tooltip = paste0(round(growth_potential, 1), "%"))) +
+      # geom_text(
+      #   data = filter(climate, round(growth_potential, 0) > 0),  ## remove this line if you want to show labels for 0% bars as well
+      #   aes(label = glue("{round(growth_potential, 0)}%")),
+      #   nudge_y = 1, vjust = 0, family = typeface
+      # ) +
       geom_hline(yintercept = 0, color = torv_gray_light, linewidth = .6) +
       coord_cartesian(clip = "off", expand = FALSE) +
       ## old version with horizontal grid lines and percentage labels on the axis
@@ -186,7 +186,7 @@ for(soil_type in soil_types) {
       labs(x = NULL, y = NULL, title = "Monthly Growth Potential") +
       theme(
         panel.grid.major.x = element_blank(),
-        plot.title = element_text(margin = margin(b = 20)),
+        plot.title = element_text(margin = margin(b = 20), size = 12, family = typeface_title),
         plot.title.position = "plot",
         axis.text.x = element_text(margin = margin(t = 5))
       )
@@ -197,6 +197,8 @@ for(soil_type in soil_types) {
           # device = png(width = 6.5, height = 4, units = "in", type = "cairo", res = 144))
 
     annual_N_per_1000sqft <- sum(climate$N)
+    
+    saveRDS(growth_potential_plot, here("report", "figures", "growth_potential_plot.Rds"))
 
   }
 

@@ -1,22 +1,42 @@
 ---
 title: ""
-output: 
-  officedown::rdocx_document:
-    reference_docx: "template.docx"
-    plots:
-      align: center
-    page_margins: 
-      bottom: 1
-      top: .67
-      right: 1
-      left: 1
-      gutter: 0
-    page_size:
-      width: 8.5
-      height: 11
+output:
+  #tufte::tufte_html: default
+  html_document:
+   toc: true
+   toc_float: true
+   toc_depth: 3
 params: 
   database_name: "MASTER_DATABASE.xlsx"
 ---
+
+<style>
+  body {
+    font-family: "Rasa" !important;
+    background-color: #FFFFFF;
+  }
+  p {
+    font-size: 15pt;
+  }
+  li, li>li {
+    font-size: 13pt;
+  }
+  h2, h3 {
+    color: #FFFFFFFF;
+  }
+  h4 {
+    font-size: 26pt; 
+    font-weight: 500;
+  }
+  summary {
+    font-size: 20pt; 
+    font-weight: 500;
+  }
+  .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+    background-color: #0aa67b;
+    border-color: #0aa67b;
+  }
+</style>
 
 ```{r options, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = NA)
@@ -29,62 +49,15 @@ knitr::knit("templates/setup.Rmd")
 
 <!-- report starts here -->
 
-```{r logo-header}
-torv_logo_ratio <- 640/189
-torv_logo_height <- 0.75
-
-officer::fpar(
-  officer::external_img(here("report", "assets", "torv-logo.png"), 
-                        height = torv_logo_height, width = torv_logo_height * torv_logo_ratio, 
-                        alt = "TORV Sustainable Agronomics"),
-  fp_p = officer::fp_par(text.align = "right")
-)
+```{r logo-header, out.width = "100%"}
+knitr::include_graphics(here("report", "assets", "torv-logo-wide.png"))
 ```
 
-`r format(Sys.Date(), "%B %e, %Y")`
-
-Company\
-Address Line 1\
-Address Line 2\
-City, State, Zip
-
-Cover Letter
-
-**Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas facilisis sollicitudin magna at condimentum. Vestibulum at aliquam lorem. Aliquam ut nibh pretium, volutpat metus eu, fermentum velit. Cras dapibus placerat viverra. Etiam faucibus lectus ac neque scelerisque fringilla. Nunc mi velit, tristique ac placerat gravida, porttitor at ante. Phasellus vehicula.**
-
-Best Regards,
-```{r signature}
-signature_logo_ratio <- 144/23
-signature_logo_height <- 0.25
-
-officer::fpar(
-  officer::external_img(here("report", "assets", "eric-signature.png"), 
-                        height = signature_logo_height, width = signature_logo_height * signature_logo_ratio, 
-                        alt = "Eric Foerster's Signature"),
-  fp_p = officer::fp_par(text.align = "left")
-)
-```
-
-Eric Foerster CGCS, MG\
-TORV, LLC\
-970.409.9874\
-eric\@torv.me
-
-
-\newpage
+## Executive Summary
 
 ```{r exec-summary-header}
 header_file_create("None", "Executive Summary")
-# in testing, id value of cairo svg gets updated with surface+5 every time (starts at 1, then 6, 11, etc)
-
-header_width <- 8
-header_height <- 1
-
-officer::fpar(
-  officer::external_img(here(root_figure_location, "headers", glue("none_testing_executive_summary_plot.png")), 
-                        height = header_height, width = header_width),
-  fp_p = officer::fp_par(text.align = "left")
-)
+knitr::include_graphics(here(root_figure_location, "headers", "none_testing_executive_summary_plot.png"))
 ```
 
 
@@ -98,7 +71,7 @@ if(length(soil_types) > 0) {
     
     cat("
         
-## ", str_to_title(soil_type))
+#### ", str_to_title(soil_type))
     
     # Including the Nitrogen value regardless of flag status as the rest all depend on this
     cat("
@@ -160,7 +133,7 @@ if(length(om_types > 0)) {
   
   cat("
       
-## Organic Matter
+#### Organic Matter
 
 
 ")
@@ -231,40 +204,41 @@ if(length(om_types > 0)) {
 if(length(water_types > 0)) {
   cat("
       
-## Water
+#### Water
 * **Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas facilisis sollicitudin magna at condimentum. Vestibulum at aliquam lorem. Aliquam ut nibh pretium, volutpat metus eu, fermentum velit.**")
 }
 
 
 ```
 
-```{r interpret-results, eval=input_params$include_results_interpretation, child="templates/how_to_interpret_results.Rmd"}
-```
 
-```{r turf-new-page, eval=length(soil_types) > 0, results='asis'}
-cat("\\newpage")
+## Turf Growth Potential Model
+
+```{r interpret-results, eval=input_params$include_results_interpretation, child="templates/how_to_interpret_results.Rmd"}
 ```
 
 ```{r turf-growth-header, eval=length(soil_types) > 0}
 header_file_create("Turf", "growth")
-# in testing, id value of cairo svg gets updated with surface+5 every time (starts at 1, then 6, 11, etc)
-
-header_width <- 8
-header_height <- 1
-
-officer::fpar(
-  officer::external_img(here(root_figure_location, "headers", glue("turf_testing_growth_plot.png")), 
-                        height = header_height, width = header_width),
-  fp_p = officer::fp_par(text.align = "left")
-)
+knitr::include_graphics(here(root_figure_location, "headers", glue("turf_testing_growth_plot.png")))
 ```
+
+```{r turf-growth-rds, eval=length(soil_types) > 0, include=FALSE}
+readRDS(here("report", "figures", "growth_potential_plot.Rds"))
+```
+
 
 ```{r turf-growth-text, eval=(length(soil_types) > 0), results='asis'}
 
 cat("The temperature data is provided by NOAA using 30-year climate normals and is site-specific to your location. Pace Turf, LLC (Gelernter and Stowell, 2005) developed the growth potential model to explain the myriad of ways in which weather impacts turf growth. The model considers turf growth to be good when the GP is between 50% and 100% (the best possible growth occurs at a GP of 100%). However, when weather conditions are either too hot or too cold for optimal turf growth, the GP falls below 50%, and turf becomes progressively more stressed. When the GP falls to 10% or lower, growth is extremely limited. Appearing below is your model specific to ", input_params$site_name, ".\n\n", sep = "")
 
-cat("![](", here::here(root_figure_location, "monthly_growth_potential_plot.png)"), sep = "")
+#cat("![](", here::here(root_figure_location, "monthly_growth_potential_plot.png)"), sep = "")
 ```
+
+```{r turf-growth-interactive, fig.height=3.5, eval=length(soil_types) > 0}
+girafe(ggobj = growth_potential_plot)
+```
+
+## Soil Testing
 
 ```{r soil-results, results='asis', warning=FALSE}
 
@@ -285,6 +259,8 @@ if(length(soil_types > 0)) {
 
 ```
 
+## Total Organic Matter Testing
+
 ```{r om-results, results='asis', warning=FALSE}
 
 if(length(om_types > 0)) { # So the section only shows up if there are OM results to report
@@ -303,6 +279,8 @@ if(length(om_types > 0)) { # So the section only shows up if there are OM result
 }
 
 ```
+
+## Water Testing
 
 ```{r water-results, results='asis', warning=FALSE}
 

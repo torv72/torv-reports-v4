@@ -1,22 +1,13 @@
 
-\newpage
-
+```{r, results='asis'}
+cat(glue("### {{water_description}}"))
+```
 
 ```{r, message=FALSE, warning=FALSE}
-
 clean_water_description <- janitor::make_clean_names("{{water_description}}")
 
 header_file_create("Water", "{{water_description}}")
-
-header_width <- 8
-header_height <- 1
-
-officer::fpar(
-  officer::external_img(here(root_figure_location,  "headers",
-                             glue::glue("water_testing_{clean_water_description}_plot.png")), 
-               height = header_height, width = header_width),
-  fp_p = officer::fp_par(text.align = "left")
-)
+knitr::include_graphics(here(root_figure_location,  "headers", glue("water_testing_{clean_water_description}_plot.png")))
 ```
 
 FAO Handbook 29 is the Food and Agricultural Organization of the United Nations and widely is recognized as the leading source for irrigation water quality guidelines. Below are the water sample results as shown in comparison to the FAO guidelines for likelihood of soil problems.
@@ -36,9 +27,7 @@ fao_water_guidelines <- tribble(
   "Chloride (ppm)", 105, NA
 ) 
 
-  
-  measurement_names <<- fao_water_guidelines$measurement_name
-
+measurement_names <<- fao_water_guidelines$measurement_name
 ```
 
 
@@ -221,23 +210,9 @@ ggsave(here(root_figure_location,  "water_testing", glue::glue(janitor::make_cle
 cat("![](", here::here(root_figure_location, "water_testing", glue::glue(janitor::make_clean_names("water_plot_{{water_description}})"), ".png")), ")", sep = "")
 ```
 
-
-
-\newpage
-
-
 ```{r}
 header_file_create("Water", "{{water_description}}", trends = TRUE)
-
-header_width <- 8
-header_height <- 1
-
-officer::fpar(
-  officer::external_img(here(root_figure_location,  "headers",
-                             glue::glue("water_testing_{clean_water_description}_trends_plot.png")), 
-               height = header_height, width = header_width),
-  fp_p = officer::fp_par(text.align = "left")
-)
+knitr::include_graphics(here(root_figure_location,  "headers", glue("water_testing_{clean_water_description}_trends_plot.png")))
 ```
 
 ```{r, results='asis', warning=FALSE, message=FALSE}

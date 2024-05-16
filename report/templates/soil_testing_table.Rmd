@@ -1,39 +1,33 @@
 
-\newpage
-
-```{r, warning=FALSE, message=FALSE}
-header_file_create("Soil", glue::glue("{{sample_description_number_1}}"))
-
-header_width <- 8
-header_height <- 1
-
-officer::fpar(
-  officer::external_img(here(root_figure_location, "headers", glue::glue("soil_testing_{{sample_description_number_1}}_plot.png")), 
-                        height = header_height, width = header_width),
-  fp_p = officer::fp_par(text.align = "left")
-)
+```{r, results='asis'}
+cat(glue("### {{sample_description_number_1}}"))
 ```
 
 
-## Measurement results and MLSN values
+```{r, warning=FALSE, message=FALSE}
+header_file_create("Soil", glue("{{sample_description_number_1}}"))
+knitr::include_graphics(here(root_figure_location, "headers", glue("soil_testing_{{sample_description_number_1}}_plot.png")))
+```
+
+
+#### Measurement results and MLSN values
 
 ```{r, results='asis'}
-cat(glue::glue("The following graph shows how the samples taken from each {{sample_description_number_1}} compare to the calculated MLSN values and required elemental inputs based on the provided nitrogen input and the Turf Growth Potential Model."))
+cat(glue("The following graph shows how the samples taken from each {{sample_description_number_1}} compare to the calculated MLSN values and required elemental inputs based on the provided nitrogen input and the Turf Growth Potential Model."))
 ```
 
 - **Red** dots highlight samples where a deficit was found
 - **Orange** dots represent samples which are within 1% of the desired MLSN value
 - **Green** dots indicate that the samples met the MLSN requirements
 
-<br/>
 
 ```{r, results='asis'}
-cat("![](", here::here(root_figure_location, "soil_testing", "MLSN_deficits_{{sample_description_number_1}}_plot.png)"), sep = "")
+knitr::include_graphics(glue(here(root_figure_location, "soil_testing"), "/MLSN_deficits_{{sample_description_number_1}}_plot.png"))
 ```
 
+<hr>
 
-
-## Required element per area (lbs. per 1000 sq.ft.)
+<details><summary>Required element per area (lbs. per 1000 sq.ft.)</summary>
 
 This table specifies the amount of fertilizer required to remedy the deficits highlighted by the analysis. 
 
@@ -84,11 +78,11 @@ calc_green_average <- function(measurement_name) {
 }
 ```
 
-\newpage
+</details>
 
-## Mean measurements and recommendations
+<hr>
 
-<br/>
+<details><summary>Mean measurements and recommendations</summary>
 
 ```{r, echo=FALSE, results='asis'}
 measurement_names <<- c("pH",
@@ -104,10 +98,6 @@ measurement_names <<- c("pH",
                         "Manganese (ppm)",
                         "Micronutrients")
 
-measurement_type_style <- officer::fp_text(font.size = 13, 
-                                           font.family = typeface, 
-                                           bold = TRUE)
-
 src = lapply(measurement_names, function(measurement_name) {
   knitr::knit_expand("templates/soil_testing_row.Rmd",
                      sample_description_number_1 = "{{sample_description_number_1}}")
@@ -119,30 +109,25 @@ cat(unlist(res), sep = '\n')
 
 ```
 
-\newpage
+</details>
+
+<hr>
+
+<br>
 
 
 ```{r}
-header_file_create("Soil", glue::glue("{{sample_description_number_1}}"), trends = TRUE)
-
-header_width <- 8
-header_height <- 1
-
-officer::fpar(
-  officer::external_img(here(root_figure_location, "headers", glue::glue("soil_testing_{{sample_description_number_1}}_trends_plot.png")), 
-                        height = header_height, width = header_width),
-  fp_p = officer::fp_par(text.align = "left")
-)
+header_file_create("Soil", glue("{{sample_description_number_1}}"), trends = TRUE)
+knitr::include_graphics(here(root_figure_location, "headers", glue("soil_testing_{{sample_description_number_1}}_trends_plot.png")))
 ```
 
-```{r, results='asis', warning=FALSE, message=FALSE}
+```{r, warning=FALSE, message=FALSE, fig.fullwidth=TRUE}
 knitr::knit_expand("templates/trendline_figure.Rmd", 
                    sample_type = "{{sample_type}}",
                    sample_description = "{{sample_description_number_1}}") %>% # cant pass measurement names here, must use as defined above
   unlist() %>% 
   knitr::knit_child(text = ., quiet = TRUE, , envir = parent.frame()) %>% 
   unlist() %>% 
-  cat(., sep = '\n')
+  #cat(., sep = '\n')
+  knitr::include_graphics(.)
 ```
-
-

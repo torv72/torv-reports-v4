@@ -22,6 +22,7 @@ generate_report <- function(.site_name,
   # Export to global Env so can be used by other scripts
   testing_report <<- .test
   beeswarm <<- ifelse(.draw_beeswarm == "Yes", TRUE, FALSE)
+  typeface <<- .typeface
   
   # Set up Figure directories if they aren't already there
   figure_dirs <- c("headers", "organic_matter", "soil_testing", "trendlines", "water_testing")
@@ -165,16 +166,20 @@ generate_report <- function(.site_name,
   }
 
   # Generate the report
-  rmarkdown::render(here::here("report/report.Rmd"),
-                    quiet = quiet_reporting,
-                    output_file = here::here(ifelse(testing_report == "No",
-                                                    "generated-reports",
-                                                    # saving the output elsewhere if we're generating reports
-                                                    # just to test consequences of code changes
-                                                    file.path(here::here("tests", "test-reports", testing_report))),
-                                             paste0("TORV-report_",
-                                                    gsub(" ", "-", input_params$site_name),
-                                                    "_", input_params$date_sample_submitted, ".docx")))
+  #quarto::quarto_render(
+    #input = "report/report.qmd",
+  rmarkdown::render(
+    input = "report/report.Rmd",
+    quiet = quiet_reporting,
+    output_file = "test.html")
+    #ifelse(testing_report == "No",
+                                    # "generated-reports",
+                                    # # saving the output elsewhere if we're generating reports
+                                    # # just to test consequences of code changes
+                                    # file.path(here::here("tests", "test-reports", testing_report))),
+                             # paste0("TORV-report_",
+                             #        gsub(" ", "-", input_params$site_name),
+                             #        "_", input_params$date_sample_submitted, ".html")))
 
   # Run tests if this is a test report
   if (.test != "No") {
