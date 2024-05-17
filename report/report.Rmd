@@ -1,11 +1,10 @@
 ---
 title: ""
 output:
+  html_document: 
+    toc: true
+    toc_float: true
   #tufte::tufte_html: default
-  html_document:
-   toc: true
-   toc_float: true
-   toc_depth: 3
 params: 
   database_name: "MASTER_DATABASE.xlsx"
 ---
