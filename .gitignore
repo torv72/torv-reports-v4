@@ -49,7 +49,11 @@ temp.png
 generated-reports/
 longitudinal-summaries/
 report/figures/
-report/assets/*-cairo.svg
+report/assets/none-icon-cairo.svg
+report/assets/om-icon-cairo.svg
+report/assets/soil-icon-cairo.svg
+report/assets/turf-icon-cairo.svg
+report/assets/water-icon-cairo.svg
 data/MASTER_DATABASE_UPDATED*
 data/duplicates.csv
 data-raw/lab-reports/
