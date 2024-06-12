@@ -1,10 +1,10 @@
 ---
-title: ""
+title: "TORV Report"
 output:
-  html_document: 
-    toc: true
-    toc_float: true
-  #tufte::tufte_html: default
+  # html_document: 
+  #   toc: true
+  #   toc_float: true
+  tufte::tufte_html: default
 params: 
   database_name: "MASTER_DATABASE.xlsx"
 ---
@@ -15,21 +15,36 @@ params:
     background-color: #FFFFFF;
   }
   p {
-    font-size: 15pt;
+    font-family: "Rasa" !important;
+    font-size: 16pt;
   }
   li, li>li {
-    font-size: 13pt;
+    font-size: 14pt;
   }
-  h2, h3 {
+  h1, h2, h3 {
     color: #FFFFFFFF;
+    font-size: 0pt !important;
   }
+  h2 {
+    margin-top: 60px; 
+  } 
   h4 {
     font-size: 26pt; 
     font-weight: 500;
+    margin-block-end: .5em;
   }
   summary {
-    font-size: 20pt; 
-    font-weight: 500;
+    font-size: 17pt;
+    font-weight:500;
+  }
+  li, li>li, li>li>li {
+    font-size: 16pt;
+  }
+  ol, ul {
+    margin-block-start: .5em;
+  } 
+  ol ol, ul ul {
+    width: 85%;
   }
   .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
     background-color: #0aa67b;
@@ -61,7 +76,6 @@ knitr::include_graphics(here(root_figure_location, "headers", "none_testing_exec
 
 
 ```{r exec-summary, results='asis'}
-
 non_table_elements <- c("pH", "Sodium (ppm)", "Micronutrients", 
                         "Organic Matter (%)", "Total Nitrogen (ppm)")
 
@@ -70,7 +84,7 @@ if(length(soil_types) > 0) {
     
     cat("
         
-#### ", str_to_title(soil_type))
+#### [", str_to_title(soil_type), "](#", str_to_lower(soil_type), "-1)", sep = "")
     
     # Including the Nitrogen value regardless of flag status as the rest all depend on this
     cat("
@@ -89,20 +103,17 @@ sep = "")
       {
         if(length(.) > 1) {
           cat("
-              
 * Deficits were noted in the following ", length(.),
 " measurements: ", paste(.[1:length(.)-1], collapse = ", "), " and ", .[length(.)],
 ". See the \"Required element per area\" table within the ", str_to_title(soil_type), 
 " section for an indication of how much fertilizer should be added to each sampled area. **[TODO: Add custom comment.]**", sep = "")
         } else if (length(.) == 1){
           cat("
-              
 * Deficits were noted in the following measurement: ", .,
 ". See the \"Required element per area\" table within the ",  str_to_title(soil_type), 
 " section for an indication of how much fertilizer should be added to each sampled area. **[TODO: Add custom comment.]**", sep = "")
         } else {
           cat("
-              
 * No deficits were noted in the values tied to MLSN values. **[TODO: Add custom comment.]**")
         }
       }
@@ -114,9 +125,7 @@ sep = "")
       {
         if(length(.) > 0) {
           cat("
-              
 * ", paste(., collapse = ". 
-
 * "),
           sep = "")
         } else {
@@ -132,7 +141,7 @@ if(length(om_types > 0)) {
   
   cat("
       
-#### Organic Matter
+#### [Organic Matter](#total-organic-matter-testing)
 
 
 ")
@@ -155,24 +164,24 @@ if(length(om_types > 0)) {
   if(length(unique(all_om_data$date_sample_submitted)) == 1) { 
    
     om_single_measure_commentary %>%
-      cat("\n", ., sep = "\n\n")
+      cat("\n", ., sep = "\n")
 
   } else if(nrow(om_acc_df) == 0) {
     
     om_no_additional_analyses_commentary %>%
-      cat("\n", ., sep = "\n\n")
+      cat("\n", ., sep = "\n")
   }
   
   if(nrow(om_acc_df) > 0) {
     
-    cat("\n\n", acc_rate_commentary, "\n", sep = "")
+    cat("\n", acc_rate_commentary, "\n", sep = "")
     
     for(unique_soil_type in unique(om_acc_df$type)) {
       
       filter(om_acc_df, type == unique_soil_type) %>%
         pull(type) %>%
         unique() %>%
-        cat("\n-", .)
+        cat("\n*", .)
       
        filter(om_acc_df, type == unique_soil_type) %>%
          pull(commentary) %>%
@@ -183,14 +192,14 @@ if(length(om_types > 0)) {
   
    if(nrow(sand_req_df) > 0) {
     
-    cat("\n\n", sand_req_commentary, "\n", sep = "")
+    cat("\n", sand_req_commentary, "\n", sep = "")
      
      for(unique_soil_type in unique(sand_req_df$type)) {
       
       filter(sand_req_df, type == unique_soil_type) %>%
         pull(type) %>%
         unique() %>%
-        cat("\n-", .)
+        cat("\n*", .)
       
        filter(sand_req_df, type == unique_soil_type) %>%
          pull(commentary) %>%
@@ -203,7 +212,7 @@ if(length(om_types > 0)) {
 if(length(water_types > 0)) {
   cat("
       
-#### Water
+#### [Water](#water-testing)
 * **Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas facilisis sollicitudin magna at condimentum. Vestibulum at aliquam lorem. Aliquam ut nibh pretium, volutpat metus eu, fermentum velit.**")
 }
 
@@ -228,7 +237,7 @@ readRDS(here("report", "figures", "growth_potential_plot.Rds"))
 
 ```{r turf-growth-text, eval=(length(soil_types) > 0), results='asis'}
 
-cat("The temperature data is provided by NOAA using 30-year climate normals and is site-specific to your location. Pace Turf, LLC (Gelernter and Stowell, 2005) developed the growth potential model to explain the myriad of ways in which weather impacts turf growth. The model considers turf growth to be good when the GP is between 50% and 100% (the best possible growth occurs at a GP of 100%). However, when weather conditions are either too hot or too cold for optimal turf growth, the GP falls below 50%, and turf becomes progressively more stressed. When the GP falls to 10% or lower, growth is extremely limited. Appearing below is your model specific to ", input_params$site_name, ".\n\n", sep = "")
+cat("The temperature data is provided by NOAA using 30-year climate normals and is site-specific to your location. Pace Turf, LLC (<a href='https://www.files.asianturfgrass.com/gelernter_stowell_2005_improved_overseeding_gp.pdf' target='_blank'target='_blank' rel='noopener noreferrer'>Gelernter and Stowell, 2005</a>) developed the growth potential model to explain the myriad of ways in which weather impacts turf growth.\nThe model considers turf growth to be good when the GP is between 50% and 100% (the best possible growth occurs at a GP of 100%). However, when weather conditions are either too hot or too cold for optimal turf growth, the GP falls below 50%, and turf becomes progressively more stressed. When the GP falls to 10% or lower, growth is extremely limited. Appearing below is your model specific to ", input_params$site_name, ".\n", sep = "")
 
 #cat("![](", here::here(root_figure_location, "monthly_growth_potential_plot.png)"), sep = "")
 ```
@@ -236,6 +245,7 @@ cat("The temperature data is provided by NOAA using 30-year climate normals and 
 ```{r turf-growth-interactive, fig.height=3.5, eval=length(soil_types) > 0}
 girafe(ggobj = growth_potential_plot)
 ```
+
 
 ## Soil Testing
 
@@ -318,5 +328,17 @@ if(length(water_types > 0)) { # So the section only shows up if there are Water 
 }
 
 
+```
+
+
+## How to Read Trend Line Plots
+
+```{r guide-header}
+header_file_create("None", "How to Read Trend Line Plots")
+knitr::include_graphics(here(root_figure_location, "headers", "none_testing_how_to_read_trend_line_plots_plot.png"))
+```
+
+```{r legend-trends, fig.width=2.5, fig.height=2, out.width="80%", dpi=300}
+make_trendline_legend(main_color = "grey30")
 ```
 

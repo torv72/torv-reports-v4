@@ -153,7 +153,7 @@ make_om_plot <- function(plot_measurement_name, plot_depth, draw_beeswarm = bees
     scale_color_identity() +
     labs(x = NULL, y = NULL, title = glue::glue("Soil Depth: {plot_depth}")) +
     theme(
-      plot.title = element_text(size = 10, family = typeface_title),
+      plot.title = element_text(size = 10, family =typeface),
       axis.text.x = element_text(size = 7.5, margin = margin(t = 2), color = torv_gray),
       axis.text.y = element_text(size = 7.5, margin = margin(r = 4), color = torv_gray),
       plot.margin = margin(6, 12, 12, 6), ## without repeated labels

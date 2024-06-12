@@ -27,23 +27,21 @@ knitr::include_graphics(glue(here(root_figure_location, "soil_testing"), "/MLSN_
 
 <hr>
 
-<details><summary>Required element per area (lbs. per 1000 sq.ft.)</summary>
+<details><summary style='font-size:22pt;'>Required element per area</summary>
 
-This table specifies the amount of fertilizer required to remedy the deficits highlighted by the analysis. 
+The table specifies the amount of **fertilizer required** to remedy the deficits highlighted by the analysis in **lbs. per 1000 sq.ft.**. 
 
-<br/>
-
-
-```{r, warning=FALSE, message=FALSE}
-
+```{r, warning=FALSE, message=FALSE, ft.align="left"}
 filter(fertilizer_table_all, sample_description_number_1 == "{{sample_description_number_1}}") %>%
   select(Area:Mn) %>%
   branded_table(data = .) %>%
-  flextable::add_footer_lines(values = c("\nNote: The symbol \" - \" means no deficit was found; an empty cell means no data was provided. The Average values are the means across all areas where a deficit was found.")) %>%
+  flextable::add_footer_lines(values = c("\nThe symbol \" — \" means no deficit was found; an empty cell means no data was provided.\nThe Average values are the means across all areas where a deficit was found.\n")) %>%
   ftExtra::colformat_md(part = "header") %>%
+  flextable::fontsize(size = 15, part = "header") %>%
+  flextable::fontsize(size = 14, part = "body") %>%
+  flextable::fontsize(size = 11.5, part = "footer") %>%
   # Specifying font again after adding footnote
-  flextable::font(fontname = typeface, 
-                  part = "all")
+  flextable::font(fontname = typeface, part = "all")
 
 ```
 
@@ -82,7 +80,7 @@ calc_green_average <- function(measurement_name) {
 
 <hr>
 
-<details><summary>Mean measurements and recommendations</summary>
+<details><summary style='font-size:22pt;'>Mean measurements and recommendations</summary>
 
 ```{r, echo=FALSE, results='asis'}
 measurement_names <<- c("pH",
@@ -121,13 +119,13 @@ header_file_create("Soil", glue("{{sample_description_number_1}}"), trends = TRU
 knitr::include_graphics(here(root_figure_location, "headers", glue("soil_testing_{{sample_description_number_1}}_trends_plot.png")))
 ```
 
-```{r, warning=FALSE, message=FALSE, fig.fullwidth=TRUE}
+```{r, warning=FALSE, message=FALSE, results='asis', fig.fullwidth=TRUE}
 knitr::knit_expand("templates/trendline_figure.Rmd", 
                    sample_type = "{{sample_type}}",
                    sample_description = "{{sample_description_number_1}}") %>% # cant pass measurement names here, must use as defined above
-  unlist() %>% 
-  knitr::knit_child(text = ., quiet = TRUE, , envir = parent.frame()) %>% 
-  unlist() %>% 
-  #cat(., sep = '\n')
-  knitr::include_graphics(.)
+  unlist() %>%
+  knitr::knit_child(text = ., quiet = TRUE, , envir = parent.frame()) %>%
+  unlist() %>%
+  cat(., sep = '\n')
+  #knitr::include_graphics(.)
 ```

@@ -43,25 +43,25 @@ if(length(unique(all_om_data$date_sample_submitted)) == 1) {
                               case_when(!is.na(date_sample_submitted_date_2) ~ paste0("omparing the **", sample_description_number_2_date_1,
                                                                                       "** samples taken on ", verbaliseR::prettify_date(date_sample_submitted_date_2, "US"),
                                                                                       " to their most recent previous samples (",
-                                                                                      verbaliseR::prettify_date(date_sample_submitted_date_1, "US"), ")"),
+                                                                                      verbaliseR::prettify_date(date_sample_submitted_date_1, "US"), ")."),
                                         TRUE ~ "")),
-           difference = paste0("\n  - At a depth of **", depth_date_1, "**, the OM content ",
+           difference = paste0("\n  * At a depth of **", depth_date_1, "**, the OM content ",
                                case_when(
                                  is.na(date_sample_submitted_date_2) ~ paste0("was **", janitor::round_half_up(avg_measurement_result_date_1, 2), "%**."),
                                  janitor::round_half_up(avg_measurement_result_date_1, 2) - janitor::round_half_up(avg_measurement_result_date_2, 2)  > 0 ~
                                            paste0("decreased from ",
                                                   janitor::round_half_up(avg_measurement_result_date_1, 2),
                                                   "% to ",
-                                                  janitor::round_half_up(avg_measurement_result_date_2, 2), "%"),
+                                                  janitor::round_half_up(avg_measurement_result_date_2, 2), "%."),
                                          janitor::round_half_up(avg_measurement_result_date_1, 2) - janitor::round_half_up(avg_measurement_result_date_2, 2) < 0 ~
                                            paste0("increased from ",
                                                   janitor::round_half_up(avg_measurement_result_date_1, 2),
                                                   "% to ",
-                                                  janitor::round_half_up(avg_measurement_result_date_2, 2), "%"),
+                                                  janitor::round_half_up(avg_measurement_result_date_2, 2), "%."),
                                          janitor::round_half_up(avg_measurement_result_date_1, 2) == janitor::round_half_up(avg_measurement_result_date_2, 2)  ~
                                            paste0("was stable at ",
                                                   janitor::round_half_up(unique(avg_measurement_result_date_1,
-                                                         avg_measurement_result_date_2), 2), "%"))),
+                                                         avg_measurement_result_date_2), 2), "%."))),
            commentary = case_when(is.na(date_sample_submitted_date_2) ~ paste0(difference, "."),
                                   TRUE ~ paste0(difference, ", a change of **", janitor::round_half_up(avg_measurement_result_date_2 - avg_measurement_result_date_1, 2), "%**.")))
 

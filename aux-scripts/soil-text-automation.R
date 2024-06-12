@@ -95,13 +95,13 @@ extra_soil_measurements <- filtered_database %>%
                                 measurement_name == "Total Nitrogen (ppm)" & mean_result < 5 ~
                                   str_squish(paste0("The average total available Nitrogen is ",
                                                     janitor::round_half_up(mean_result, 1), " ppm.
-                                                    This is below the optimal range of 5 ppm - 10 ppm for soil nitrogen.
+                                                    This is below the optimal range of 5 ppm – 10 ppm for soil nitrogen.
                                                     Consider additional applications of nitrate or ammonium based fertilizers
                                                     to increase soil nitrogen levels.")),
                                 measurement_name == "Total Nitrogen (ppm)" & mean_result > 10 ~
                                   str_squish(paste0("The average total available Nitrogen is ",
                                                     janitor::round_half_up(mean_result, 1), " ppm.
-                                                    This is above the optimal range of 5 ppm - 10 ppm for soil nitrogen.
+                                                    This is above the optimal range of 5 ppm – 10 ppm for soil nitrogen.
                                                     Excessive soil nitrogen may result in unwanted turfgrass growth and
                                                     increased organic matter.")),
                                 measurement_name == "Total Nitrogen (ppm)" ~

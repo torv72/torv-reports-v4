@@ -169,12 +169,8 @@ for(soil_type in soil_types) {
     growth_potential_plot <-
       climate %>%
       ggplot(aes(x = month, y = round(growth_potential, 0))) +
-      geom_col_interactive(fill = torv_green2, width = .8, aes(data_id = month, tooltip = paste0(round(growth_potential, 1), "%"))) +
-      # geom_text(
-      #   data = filter(climate, round(growth_potential, 0) > 0),  ## remove this line if you want to show labels for 0% bars as well
-      #   aes(label = glue("{round(growth_potential, 0)}%")),
-      #   nudge_y = 1, vjust = 0, family = typeface
-      # ) +
+      #geom_col_interactive(fill = torv_green2, width = .8, aes(data_id = month, tooltip = paste0(sprintf("%2.1f", growth_potential), "%"))) +
+      geom_col_interactive(aes(fill = growth_potential < .1, data_id = month, tooltip = paste0(sprintf("%2.1f", growth_potential), "%")), width = .8) +
       geom_hline(yintercept = 0, color = torv_gray_light, linewidth = .6) +
       coord_cartesian(clip = "off", expand = FALSE) +
       ## old version with horizontal grid lines and percentage labels on the axis
@@ -183,10 +179,11 @@ for(soil_type in soil_types) {
       #   labels = scales::percent_format(scale = 1), expand = c(0, 0)
       # ) +
       scale_y_continuous(breaks = NULL, guide = "none") +
+      scale_fill_manual(values = c(torv_green2, "#929F83"), guide = "none") +
       labs(x = NULL, y = NULL, title = "Monthly Growth Potential") +
       theme(
         panel.grid.major.x = element_blank(),
-        plot.title = element_text(margin = margin(b = 20), size = 12, family = typeface_title),
+        plot.title = element_text(margin = margin(b = 20), size = 12, family =typeface),
         plot.title.position = "plot",
         axis.text.x = element_text(margin = margin(t = 5))
       )
@@ -194,7 +191,6 @@ for(soil_type in soil_types) {
     ggsave(here(root_figure_location, "monthly_growth_potential_plot.png"),
            growth_potential_plot, bg = "#ffffff",
            width = 6.5, height = 4)
-          # device = png(width = 6.5, height = 4, units = "in", type = "cairo", res = 144))
 
     annual_N_per_1000sqft <- sum(climate$N)
     
@@ -290,7 +286,7 @@ fertilizer_table_all <- deficit_table_all %>%
   mutate(across(setdiff(elemental_ratios$element, "N"), function(x) ifelse(is.na(x), NA,
                                                                            # only keeping values greater than 0
                                                                            ifelse(x > 0, round(x, 2),
-                                                                                  "-")))) %>%
+                                                                                  "—")))) %>%
   rename('P~2~O~5~' = P,
          'K~2~O' = K)
 
@@ -300,7 +296,7 @@ deficit_table_all <- deficit_table_all %>%
   # using ifelse because case_when doesn't accept the change in type (double to character)
   mutate(across(setdiff(elemental_ratios$element, "N"), function(x) ifelse(is.na(x), NA,
                                                                            ifelse(x < 0, round(x, 2),
-                                                                                  "-"))))
+                                                                                  "—"))))
 
 # Get the data ready to plot and comment on ----
 deficits_graph_data <- deficit_analysis %>%

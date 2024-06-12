@@ -16,19 +16,37 @@ options(tigris_use_cache = TRUE)
 options(dplyr.summarise.inform = FALSE)
 ```
 
-
 ```{r variables-and-theme}
+# Colors
+torv_green <<- "#0aa67b" #44ad4c
+torv_orange <<- "#a67b0a" #ec8c35
+torv_blue <<- "#0a83a6" #0d98d6"
+torv_green2 <<- "#5b921e"
+torv_gray <<- "#808080"
+torv_gray_light <<- "#B1B1B1"
+
+# Typeface
 is_installed <- sum(grepl(typeface, systemfonts::system_fonts()$family)) != 0
  
-if(!is_installed) {
+if(is_installed) {
+  typeface_tabular <<- paste(typeface, "Tabular")
+  
+  systemfonts::register_variant(
+    family = typeface,
+    name = typeface_tabular,
+    weight = "normal",
+    features = font_feature(numbers = "tabular")
+  )
+} else {
   message("Using system default font as the specified typeface is not installed on your system. Please install the typeface on your system and then restart your R session.")
   typeface <<- ""
-} 
+  typeface_tabular <- ""
+}
 
-typeface_title <<- "Geologica"
-
+# Plot Theme
 theme_set(theme_minimal(base_family = typeface))
 theme_update(
+  axis.text = element_text(family = typeface_tabular, color = torv_gray),
   panel.grid.major = element_line(linewidth = .4, color = "grey94"),
   panel.grid.minor = element_blank(),
   #plot.title.position = "plot",
@@ -36,7 +54,8 @@ theme_update(
   strip.text.x = element_text(hjust = 0, margin = margin(3, 0, 3, 0))
 )
 
-tooltip_css <- paste0("background-color:white;padding:12px;border-radius:5px;border-width:2px;color:white;border-style:solid;border-color:white;line-height:1.15;font-family:", typeface_title, ";font-size:1.4em;")
+# Tooltip Theme
+tooltip_css <- paste0("background-color:white;padding:12px;border-radius:5px;border-width:2px;color:white;border-style:solid;border-color:white;line-height:1.15;font-family:", typeface_tabular, ";font-size:1.4em;")
 
 set_girafe_defaults(
   opts_tooltip = opts_tooltip(css = tooltip_css, opacity = 1, use_fill = TRUE, offx = 10, offy = 10),
@@ -45,15 +64,10 @@ set_girafe_defaults(
   opts_sizing = opts_sizing(rescale = TRUE),
   opts_toolbar = opts_toolbar(saveaspng = TRUE, delay_mouseout = 5000)
 )
+```
 
-# Define colors
-torv_green <<- "#0aa67b" #44ad4c
-torv_orange <<- "#a67b0a" #ec8c35
-torv_blue <<- "#0a83a6" #0d98d6"
-torv_green2 <<- "#5b921e"
-torv_gray <<- "#808080"
-torv_gray_light <<- "#B1B1B1"
 
+```{r function-table-formatting}
 # Function to format deficit tables as desired
 branded_table <- function(header_colour = torv_orange, 
                           body_colour = "#f6cba2", #80% light on torv_orange colour
@@ -82,17 +96,17 @@ branded_table <- function(header_colour = torv_orange,
       }
     }
 }
+```
 
-# This is used in om_testing.Rmd and in trendline_figure.Rmd
-make_trendline_legend <<- function(main_color, average_label = "TORV Average", draw_beeswarm = beeswarm) {
+```{r function-make-trendline-legend}
+## Function to create a how-to plot for the trendline charts
+make_trendline_legend <<- function(main_color, average_label = "Historic average", draw_beeswarm = beeswarm) {
   
   stable_year_range <- c(year(ymd("2020-01-01")), year(ymd("2021-01-01")), year(ymd("2022-01-01")))
   
   legend_plot_data <- tibble(year = stable_year_range, avg_measurement_result = c(2.15, 2.5, 2.4))
-  torv_avg <- 2
+  torv_avg <- 2.2
   
-  # legend_plot_points <- tibble(year = rep(stable_year_range, 2),
-  #                              measurement_result = c(2.25, 2.25, 2.05, 2.05, 2.75, 2.75))
   legend_plot_points <- tibble(year = rep(stable_year_range, each = 5),
                                measurement_result = c(
                                  2, 2.05, 2.2, 2.2, 2.3, 
@@ -104,11 +118,11 @@ make_trendline_legend <<- function(main_color, average_label = "TORV Average", d
     ggplot(aes(x = lubridate::as_date(lubridate::date_decimal(stable_year_range)), y = avg_measurement_result)) +
     geomtextpath::geom_textpath(
       data = legend_plot_points,
-       aes(y = measurement_result,
-           x = lubridate::as_date(lubridate::date_decimal(year)),
-           label = "Trend"),
-     stat = "smooth",method = "lm", formula = y ~ x, se = FALSE, 
-     linewidth = .8, color = "#8F51C0", alpha = .75, size = 7/.pt, family = typeface
+      aes(y = measurement_result,
+          x = lubridate::as_date(lubridate::date_decimal(year)),
+          label = "Trend"),
+      stat = "smooth", method = "lm", formula = y ~ x, se = FALSE, 
+      linewidth = .8, color = "#8F51C0", alpha = .8, size = 7/.pt, family = typeface
     ) + 
     { if(draw_beeswarm)
       ## raw measurements as beeswarms to avoid overlaps (varied around x)
@@ -123,7 +137,6 @@ make_trendline_legend <<- function(main_color, average_label = "TORV Average", d
       geom_point(
         data = legend_plot_points,
         aes(x = rep(lubridate::as_date(lubridate::date_decimal(stable_year_range)), each = 5), y = measurement_result),
-        #color = prismatic::clr_darken(torv_gray, .4), size = 1.5, shape = 1, alpha = .2
         shape = 21, color = "transparent", fill = torv_gray, size = 1.3, alpha = .25
       )
     } +
@@ -136,15 +149,9 @@ make_trendline_legend <<- function(main_color, average_label = "TORV Average", d
     ) +
     geomtextpath::geom_textpath(
       aes(y = torv_avg, label = average_label), 
-      linetype = "dotted", linewidth = .5, 
+      linetype = "21", linewidth = .5, 
       family = typeface, color = torv_gray, size = 7/.pt
     ) +
-    # ggtext::geom_textbox(
-    #   aes(x = lubridate::as_date("2021-11-01"), y = 2.95,
-    #       label = "All samples"),
-    #   hjust = 1, halign = 1, box.color = NA, fill = NA,
-    #   alpha = .5, family = typeface, color = torv_gray, size = 2.5
-    # ) +
     annotate(
       geom = "text", 
       x = lubridate::as_date("2021-10-01"), y = 2.95,
@@ -176,15 +183,15 @@ make_trendline_legend <<- function(main_color, average_label = "TORV Average", d
     coord_cartesian(clip = "off") +
     scale_x_date(expand = c(0, 0)) +
     scale_y_continuous(limits = c(2, 3), expand = expansion(mult = c(.025, .025))) +
-    labs(x = NULL, y = NULL, title = "How to read:") +
+    labs(x = "Dates", y = "Values") + #, title = "How to read:") +
     theme(
-      plot.title = element_text(size = 10, color = "grey50", family = typeface_title),
+      plot.title = element_text(size = 10, color = "grey50", family = typeface),
       axis.text = element_blank(),
+      axis.title = element_text(size = 7.5),
       plot.margin = margin(6, 12, 12, 6), ## without repeated labels
       #plot.margin = margin(rep(12, 4)), ## with repeated labels
       panel.grid.major.x = element_blank()
     )
-  
 }
 ```
 
@@ -366,7 +373,7 @@ if(testing_report == "No") {
 ```{r header-file-creator}
 # possible sampletypes: soil, water, turf
 
-header_file_create <<- function(sampletype, title, trends=FALSE) {
+header_file_create <<- function(sampletype, title, trends = FALSE) {
   clean_sampletype <- str_to_lower(sampletype)
   if (trends == FALSE) {
     rsvg::rsvg_svg(
@@ -414,11 +421,11 @@ header_file_create <<- function(sampletype, title, trends=FALSE) {
     annotate(
       "text", x = r + 0.5, y = 0, hjust = 0,
       label = plot_title, size = 6.7,
-      color = col, fontface = "bold", family = typeface_title
+      color = col, fontface = "bold", family = typeface
     ) +
     xlim(c(-0.5, 10)) +
     ylim(c(-0.5,0.5)) +
-    coord_fixed() +
+    coord_fixed(expand = FALSE) +
     theme_void() +
     theme(plot.margin = grid::unit(c(0,0,0,0), "null"))
   
