@@ -48,7 +48,7 @@ clean_measurement_name <- str_remove("{{measurement_name}}", "(\\(.*\\))") %>%
   janitor::make_clean_names()
 
 ggsave(here(root_figure_location, "soil_testing", glue::glue("{clean_measurement_name}_{{sample_description_number_1}}_plot.png")), 
-       measurement_plot, width = 1, height = .7, bg = "#ffffff")
+       measurement_plot, width = 1, height = .7, bg = "#ffffff", dpi = 300)
 
 ```
 

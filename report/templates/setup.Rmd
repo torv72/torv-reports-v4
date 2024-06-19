@@ -1,7 +1,7 @@
 
 
 ```{r libraries, include=FALSE, message=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = NA)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = NA, dev = "ragg_png", dpi = 300)
 
 library(tidyverse) 
 library(here) 
@@ -29,24 +29,26 @@ torv_gray_light <<- "#B1B1B1"
 is_installed <- sum(grepl(typeface, systemfonts::system_fonts()$family)) != 0
  
 if(is_installed) {
-  typeface_tabular <<- paste(typeface, "Tabular")
+  typeface_tabular <<- typeface#paste(typeface, "Tabular")
+  typeface_condensed <<- paste(typeface, "SemiCondensed")
   
-  systemfonts::register_variant(
-    family = typeface,
-    name = typeface_tabular,
-    weight = "normal",
-    features = font_feature(numbers = "tabular")
-  )
+  # systemfonts::register_variant(
+  #   family = typeface,
+  #   name = typeface_tabular,
+  #   weight = "normal",
+  #   features = font_feature(numbers = "tabular")
+  # )
 } else {
   message("Using system default font as the specified typeface is not installed on your system. Please install the typeface on your system and then restart your R session.")
   typeface <<- ""
-  typeface_tabular <- ""
+  typeface_tabular <<- ""
+  typeface_condensed <<- ""
 }
 
 # Plot Theme
 theme_set(theme_minimal(base_family = typeface))
 theme_update(
-  axis.text = element_text(family = typeface_tabular, color = torv_gray),
+  axis.text = element_text(family = typeface, color = torv_gray),
   panel.grid.major = element_line(linewidth = .4, color = "grey94"),
   panel.grid.minor = element_blank(),
   #plot.title.position = "plot",
@@ -54,16 +56,18 @@ theme_update(
   strip.text.x = element_text(hjust = 0, margin = margin(3, 0, 3, 0))
 )
 
-# Tooltip Theme
-tooltip_css <- paste0("background-color:white;padding:12px;border-radius:5px;border-width:2px;color:white;border-style:solid;border-color:white;line-height:1.15;font-family:", typeface_tabular, ";font-size:1.4em;")
-
-set_girafe_defaults(
-  opts_tooltip = opts_tooltip(css = tooltip_css, opacity = 1, use_fill = TRUE, offx = 10, offy = 10),
-  opts_hover = opts_hover(css = "stroke-width:2;"),
-  opts_hover_inv = opts_hover_inv(css = "opacity:.3;"),
-  opts_sizing = opts_sizing(rescale = TRUE),
-  opts_toolbar = opts_toolbar(saveaspng = TRUE, delay_mouseout = 5000)
-)
+if (html) {
+  # Tooltip Theme
+  tooltip_css <- paste0("background-color:white;padding:12px;border-radius:5px;border-width:2px;color:white;border-style:solid;border-color:white;line-height:1.15;font-family:", typeface_tabular, ";font-size:1.4em;")
+  
+  set_girafe_defaults(
+    opts_tooltip = opts_tooltip(css = tooltip_css, opacity = 1, use_fill = TRUE, offx = 10, offy = 10),
+    opts_hover = opts_hover(css = "stroke-width:2;"),
+    opts_hover_inv = opts_hover_inv(css = "opacity:.5;"),
+    opts_sizing = opts_sizing(rescale = TRUE),
+    opts_toolbar = opts_toolbar(saveaspng = TRUE, delay_mouseout = 5000)
+  )
+}
 ```
 
 
@@ -193,6 +197,11 @@ make_trendline_legend <<- function(main_color, average_label = "Historic average
       panel.grid.major.x = element_blank()
     )
 }
+
+trend_legend <- make_trendline_legend(main_color = "grey30", draw_beeswarm = beeswarm)
+
+ggsave(here(root_figure_location, "trendlines", "trend_plot_legend.png"),
+       trend_legend, width = 2.5, height = 2, bg = "#ffffff", dpi = 300)
 ```
 
 ```{r get-filtered-database}
@@ -434,10 +443,10 @@ header_file_create <<- function(sampletype, title, trends = FALSE) {
   # header_plot
   if(trends == TRUE) {
     ggsave(here(root_figure_location, "headers", glue("{clean_sampletype}_testing_{clean_title}_trends_plot.png")),
-           header_plot, width = 5.6, height = 0.7, bg = "#ffffff")
+           header_plot, width = 5.6, height = 0.7, bg = "#ffffff", dpi = 300)
   } else {
     ggsave(here(root_figure_location, "headers", glue("{clean_sampletype}_testing_{clean_title}_plot.png")),
-           header_plot, width = 5.6, height = 0.7, bg = "#ffffff")
+           header_plot, width = 5.6, height = 0.7, bg = "#ffffff", dpi = 300)
   }
   
 }

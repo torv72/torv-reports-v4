@@ -168,29 +168,36 @@ for(soil_type in soil_types) {
   if(soil_type == soil_type_for_growth_model) {
     growth_potential_plot <-
       climate %>%
+      mutate(
+        condition = case_when(growth_potential >= 50 ~ "good", growth_potential < 10 ~ "limited", TRUE ~ "stressed"),
+        tooltip = paste0(sprintf("%2.1f", growth_potential), "%<br><span style='font-size:12pt;'>(", condition, ")</span>")
+      ) |> 
       ggplot(aes(x = month, y = round(growth_potential, 0))) +
       #geom_col_interactive(fill = torv_green2, width = .8, aes(data_id = month, tooltip = paste0(sprintf("%2.1f", growth_potential), "%"))) +
-      geom_col_interactive(aes(fill = growth_potential < .1, data_id = month, tooltip = paste0(sprintf("%2.1f", growth_potential), "%")), width = .8) +
+      geom_hline(yintercept = 10, color = "#f9d4c9", linewidth = .4) +
+      geom_hline(yintercept = 50, color = "#f2f1c6", linewidth = .4) +
+      geom_col(fill = "white", width = .8) +
+      geom_col_interactive(aes(fill = condition, data_id = month, tooltip = tooltip), width = .8) +
       geom_hline(yintercept = 0, color = torv_gray_light, linewidth = .6) +
       coord_cartesian(clip = "off", expand = FALSE) +
       ## old version with horizontal grid lines and percentage labels on the axis
-      # scale_y_continuous(
-      #   limits = c(0, 100), breaks = 0:4*25,
-      #   labels = scales::percent_format(scale = 1), expand = c(0, 0)
-      # ) +
-      scale_y_continuous(breaks = NULL, guide = "none") +
-      scale_fill_manual(values = c(torv_green2, "#929F83"), guide = "none") +
+      scale_y_continuous(
+        breaks = c(10, 50),
+        labels = scales::percent_format(scale = 1), expand = c(0, 0)
+      ) +
+      #scale_y_continuous(breaks = NULL, guide = "none") +
+      scale_fill_manual(values = c("good" = torv_green2, "stressed" = "#686617", "limited" = "#7c230d"), guide = "none") +
       labs(x = NULL, y = NULL, title = "Monthly Growth Potential") +
       theme(
         panel.grid.major.x = element_blank(),
         plot.title = element_text(margin = margin(b = 20), size = 12, family =typeface),
         plot.title.position = "plot",
-        axis.text.x = element_text(margin = margin(t = 5))
+        axis.text.x = element_text(margin = margin(t = 5)),
+        axis.text.y = element_text(size = rel(.8), color = c("#7c230d", "#686617"))
       )
 
-    ggsave(here(root_figure_location, "monthly_growth_potential_plot.png"),
-           growth_potential_plot, bg = "#ffffff",
-           width = 6.5, height = 4)
+    ggsave(here(root_figure_location, "monthly_growth_potential_plot.png"), 
+           growth_potential_plot, width = 6.5, height = 4, bg = "#ffffff", dpi = 300)
 
     annual_N_per_1000sqft <- sum(climate$N)
     
@@ -399,9 +406,8 @@ create_deficits_graph <- function(soil_type) {
           axis.text.x.top = ggtext::element_markdown(color = torv_gray, family = typeface),
           panel.spacing = unit(0.75, "lines"))
 
-  ggsave(deficit_graph,
-         filename = here::here(root_figure_location, "soil_testing", glue::glue("MLSN_deficits_{soil_type}_plot.png")),
-         width = 6.5, height = 5.5, bg = "#FFFFFF")
+  ggsave(here::here(root_figure_location, "soil_testing", glue::glue("MLSN_deficits_{soil_type}_plot.png")),
+         deficit_graph, width = 6.5, height = 5.5, bg = "#FFFFFF", dpi = 300)
 }
 
 purrr::map(soil_types, create_deficits_graph)

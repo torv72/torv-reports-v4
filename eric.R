@@ -45,13 +45,15 @@ source(here::here("aux-scripts/generate-report.R"))
 # Here's an example:
 generate_report(.site_name = "Maroon Creek Club",
                 .zip_code = 81611,
-                .date_sample_submitted = "2023-05-24",
+                .date_sample_submitted = "2024-06-06",
                 .start_date = "2018-01-01",
                 .warm_or_cool = "cool",
                 .acid_extract = "Mehlich",
+                .om_season = "Spring",
                 .include_results_interpretation = FALSE,
                 .draw_beeswarm = "Yes",
-                .typeface = "Geologica")
+                .output = "html",
+                .typeface = "Georama")
 
 # It will save a file in generated-reports with a filename which includes the site name
 # and the date_sample_submitted argument. If a file with that name already exists, it will

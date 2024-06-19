@@ -6,7 +6,8 @@ om_no_additional_analyses_commentary <- read_lines(here::here("aux-scripts/om-no
 # Only add OM commentary if there are OM measurements in this report
 if(length(unique(all_om_data$date_sample_submitted)) == 1) {
 
-  all_om_data_comms <- all_om_longitudinal_table %>%
+  all_om_data_comms <- 
+    all_om_longitudinal_table %>%
     group_by(sample_description_number_2, depth) %>%
     mutate(reference_only = case_when(date_sample_submitted == max(date_sample_submitted) ~ "",
                                       TRUE ~ "for reference")) %>%

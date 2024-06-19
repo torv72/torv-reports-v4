@@ -1,0 +1,15 @@
+\usepackage{xcolor,sectsty}
+
+\definecolor{white}{RGB}{255,255,255}
+\sectionfont{\color{white}\fontsize{1}{1}\selectfont}
+\subsectionfont{\color{white}\fontsize{1}{1}\selectfont}
+\subsubsectionfont{\fontsize{16}{15}\selectfont}
+
+\makeatletter
+\renewcommand{\title}[1]{\renewcommand{\@title}{\color{\@titlecolor}#1}}
+\newcommand{\@titlecolor}{white}
+\newcommand{\titlecolor}[1]{\renewcommand{\@titlecolor}{#1}}
+\makeatother
+
+\usepackage{fontspec}
+    \setmainfont{Rasa}

@@ -76,23 +76,35 @@ om_acc_df <- tibble()
 sand_req_df <- tibble()
 
 ## Set up the data
-all_om_data <- full_database %>%
-  filter(sample_description_number_1 == "OM",
-         # The older data in the MASTER DATABASE had OM data as "Soil";
-         # Since May 2022 it reads in the sample type as "Physical".
-         sample_type %in% c("Soil", "Physical")) %>%
-  mutate(depth = ifelse(str_detect(sample_description_number_3, "[0-9]-[0-9]"), # depth info either in desc3 or desc4 column
-                        sample_description_number_3,
-                        sample_description_number_4),
-         year = lubridate::year(date_sample_submitted),
-         year_date = lubridate::ymd(glue("{year}-01-01")),
-         month = lubridate::month(date_sample_submitted),
-         month_date = lubridate::ymd(glue("{year}-{month}-01")),
-         depth = as.character(glue::glue("{depth} cm"))) %>%
+all_om_data <- 
+  full_database %>%
+  filter(
+    sample_description_number_1 == "OM",
+    # The older data in the MASTER DATABASE had OM data as "Soil";
+    # Since May 2022 it reads in the sample type as "Physical".
+    sample_type %in% c("Soil", "Physical")
+  ) %>%
+  mutate(
+    depth = ifelse(str_detect(sample_description_number_3, "[0-9]-[0-9]"), # depth info either in desc3 or desc4 column
+                   sample_description_number_3,
+                   sample_description_number_4),
+    year = lubridate::year(date_sample_submitted),
+    year_date = lubridate::ymd(glue("{year}-01-01")),
+    month = lubridate::month(date_sample_submitted),
+    month_date = lubridate::ymd(glue("{year}-{month}-01")),
+    depth = as.character(glue::glue("{depth} cm"))
+  ) %>%
   group_by(measurement_name, depth, sample_description_number_2) %>%
   mutate(torv_avg = mean(measurement_result, na.rm = TRUE)) %>%
   ungroup() %>%
-  filter(site == input_params$site_name)
+  filter(site == input_params$site_name) %>%
+  mutate(season = case_when(
+    month %in% 3:5 ~ "Spring",
+    month %in% 6:8 ~ "Summer",
+    month %in% 9:11 ~ "Autumn",
+    month %in% c(1, 2, 12) ~ "Winter",
+  )) %>%
+  filter(season %in% om_seasons)
 
 if(testing_report == "No") {
 
