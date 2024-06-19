@@ -1,75 +1,41 @@
 ---
 title: "TORV Report"
-output:
-  # html_document: 
-  #   toc: true
-  #   toc_float: true
-  tufte::tufte_html: default
+output: 
+  tufte::tufte_html: 
+    css: "theme/style.css"
+    self_contained: true
+  pdf_document:
+    #template: theme/template.tex
+    keep_tex: true
+    latex_engine: "lualatex"
+    includes:
+      in_header: "theme/template.tex"
 params: 
   database_name: "MASTER_DATABASE.xlsx"
+  html: true
 ---
 
-<style>
-  body {
-    font-family: "Rasa" !important;
-    background-color: #FFFFFF;
-  }
-  p {
-    font-family: "Rasa" !important;
-    font-size: 16pt;
-  }
-  li, li>li {
-    font-size: 14pt;
-  }
-  h1, h2, h3 {
-    color: #FFFFFFFF;
-    font-size: 0pt !important;
-  }
-  h2 {
-    margin-top: 60px; 
-  } 
-  h4 {
-    font-size: 26pt; 
-    font-weight: 500;
-    margin-block-end: .5em;
-  }
-  summary {
-    font-size: 17pt;
-    font-weight:500;
-  }
-  li, li>li, li>li>li {
-    font-size: 16pt;
-  }
-  ol, ul {
-    margin-block-start: .5em;
-  } 
-  ol ol, ul ul {
-    width: 85%;
-  }
-  .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
-    background-color: #0aa67b;
-    border-color: #0aa67b;
-  }
-</style>
-
 ```{r options, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = NA)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = NA, dev = "ragg_png", dpi = 300)
 ```
 
 ```{r setup, include=FALSE, results='hide'}
 database_name <<- params$database_name
+html <<- params$html
 knitr::knit("templates/setup.Rmd")
 ```
 
 <!-- report starts here -->
 
-```{r logo-header, out.width = "100%"}
+```{r logo-header, out.width="100%"}
 knitr::include_graphics(here("report", "assets", "torv-logo-wide.png"))
 ```
 
+\newpage
+
 ## Executive Summary
 
-```{r exec-summary-header}
+```{r exec-summary-header, out.width="900px"}
 header_file_create("None", "Executive Summary")
 knitr::include_graphics(here(root_figure_location, "headers", "none_testing_executive_summary_plot.png"))
 ```
@@ -84,7 +50,7 @@ if(length(soil_types) > 0) {
     
     cat("
         
-#### [", str_to_title(soil_type), "](#", str_to_lower(soil_type), "-1)", sep = "")
+### [", str_to_title(soil_type), "](#", str_to_lower(soil_type), "-1)", sep = "")
     
     # Including the Nitrogen value regardless of flag status as the rest all depend on this
     cat("
@@ -141,7 +107,7 @@ if(length(om_types > 0)) {
   
   cat("
       
-#### [Organic Matter](#total-organic-matter-testing)
+### [Organic Matter](#om-testing)
 
 
 ")
@@ -212,45 +178,39 @@ if(length(om_types > 0)) {
 if(length(water_types > 0)) {
   cat("
       
-#### [Water](#water-testing)
+### [Water](#water-testing)
 * **Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas facilisis sollicitudin magna at condimentum. Vestibulum at aliquam lorem. Aliquam ut nibh pretium, volutpat metus eu, fermentum velit.**")
 }
-
-
 ```
 
+\newpage
 
 ## Turf Growth Potential Model
 
 ```{r interpret-results, eval=input_params$include_results_interpretation, child="templates/how_to_interpret_results.Rmd"}
 ```
 
-```{r turf-growth-header, eval=length(soil_types) > 0}
+```{r turf-growth-header, eval=length(soil_types) > 0, out.width="900px"}
 header_file_create("Turf", "growth")
 knitr::include_graphics(here(root_figure_location, "headers", glue("turf_testing_growth_plot.png")))
 ```
 
 ```{r turf-growth-rds, eval=length(soil_types) > 0, include=FALSE}
-readRDS(here("report", "figures", "growth_potential_plot.Rds"))
+if (html) readRDS(here("report", "figures", "growth_potential_plot.Rds")) else knitr::include_graphics(here::here("report", "figures", "monthly_growth_potential_plot.png"))
 ```
 
-
 ```{r turf-growth-text, eval=(length(soil_types) > 0), results='asis'}
-
-cat("The temperature data is provided by NOAA using 30-year climate normals and is site-specific to your location. Pace Turf, LLC (<a href='https://www.files.asianturfgrass.com/gelernter_stowell_2005_improved_overseeding_gp.pdf' target='_blank'target='_blank' rel='noopener noreferrer'>Gelernter and Stowell, 2005</a>) developed the growth potential model to explain the myriad of ways in which weather impacts turf growth.\nThe model considers turf growth to be good when the GP is between 50% and 100% (the best possible growth occurs at a GP of 100%). However, when weather conditions are either too hot or too cold for optimal turf growth, the GP falls below 50%, and turf becomes progressively more stressed. When the GP falls to 10% or lower, growth is extremely limited. Appearing below is your model specific to ", input_params$site_name, ".\n", sep = "")
-
-#cat("![](", here::here(root_figure_location, "monthly_growth_potential_plot.png)"), sep = "")
+cat("The temperature data is provided by NOAA using 30-year climate normals and is site-specific to your location. Pace Turf, LLC ([Gelernter and Stowell, 2005](https://www.files.asianturfgrass.com/gelernter_stowell_2005_improved_overseeding_gp.pdf)) developed the growth potential model to explain the myriad of ways in which weather impacts turf growth.\n\nThe model considers <b style='color:#5b921e;'>turf growth to be good when the GP is between 50% and 100%</b> (the best possible growth occurs at a GP of 100%). However, when weather conditions are either too hot or too cold for optimal turf growth, <b style='color:#686617;'>the GP falls below 50%, and turf becomes progressively more stressed</b>. When <b style='color:#7c230d;'>the GP falls to 10% or lower, growth is extremely limited</b>. Appearing below is your model specific to ", input_params$site_name, ".\n\n", sep = "")
 ```
 
 ```{r turf-growth-interactive, fig.height=3.5, eval=length(soil_types) > 0}
-girafe(ggobj = growth_potential_plot)
+if (html) girafe(ggobj = growth_potential_plot) else growth_potential_plot
 ```
 
 
-## Soil Testing
+## Soil Testing {#soil-testing}
 
 ```{r soil-results, results='asis', warning=FALSE}
-
 if(length(soil_types > 0)) {
   
   map(soil_types, function(soil_type) {
@@ -265,13 +225,12 @@ if(length(soil_types > 0)) {
 } else {
   message("\n**Soil results not reported. Either no soil data or an error occured.**\n")
 }
-
 ```
 
-## Total Organic Matter Testing
+
+## Total Organic Matter Testing {#om-testing}
 
 ```{r om-results, results='asis', warning=FALSE}
-
 if(length(om_types > 0)) { # So the section only shows up if there are OM results to report
   
   map(om_types, function(om_type) {
@@ -286,13 +245,12 @@ if(length(om_types > 0)) { # So the section only shows up if there are OM result
 } else {
   message("\n**OM results not reported. Either no OM data or an error occured.**\n")
 }
-
 ```
 
-## Water Testing
+
+## Water Testing {#water-testing}
 
 ```{r water-results, results='asis', warning=FALSE}
-
 if(length(water_types > 0)) { # So the section only shows up if there are Water results to report
   
   water_mod_full_database <<- full_database %>%
@@ -326,19 +284,4 @@ if(length(water_types > 0)) { # So the section only shows up if there are Water 
 } else {
   message("\n**Water results not reported. Either no water data or an error occured.**\n")
 }
-
-
 ```
-
-
-## How to Read Trend Line Plots
-
-```{r guide-header}
-header_file_create("None", "How to Read Trend Line Plots")
-knitr::include_graphics(here(root_figure_location, "headers", "none_testing_how_to_read_trend_line_plots_plot.png"))
-```
-
-```{r legend-trends, fig.width=2.5, fig.height=2, out.width="80%", dpi=300}
-make_trendline_legend(main_color = "grey30")
-```
-

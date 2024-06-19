@@ -1,9 +1,11 @@
 
+\newpage
+
 ```{r, results='asis'}
 cat(glue("### {{water_description}}"))
 ```
 
-```{r, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE, out.width="900px"}
 clean_water_description <- janitor::make_clean_names("{{water_description}}")
 
 header_file_create("Water", "{{water_description}}")
@@ -204,13 +206,12 @@ combined_plots <- patchwork::wrap_plots(water_plots) +
   patchwork::plot_layout(ncol = 1, heights = 1)
 
 ggsave(here(root_figure_location,  "water_testing", glue::glue(janitor::make_clean_names("water_plot_{{water_description}}"), ".png")),
-       combined_plots, bg = "#ffffff",
-       device = png(width = 6.5, height = 6, units = "in", type = "cairo", res = 144))
+       combined_plots, width = 6.5, height = 6, bg = "#ffffff", dpi = 300)
 
 cat("![](", here::here(root_figure_location, "water_testing", glue::glue(janitor::make_clean_names("water_plot_{{water_description}})"), ".png")), ")", sep = "")
 ```
 
-```{r}
+```{r, out.width="900px"}
 header_file_create("Water", "{{water_description}}", trends = TRUE)
 knitr::include_graphics(here(root_figure_location,  "headers", glue("water_testing_{clean_water_description}_trends_plot.png")))
 ```

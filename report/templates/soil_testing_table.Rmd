@@ -1,16 +1,18 @@
 
+\newpage
+
 ```{r, results='asis'}
-cat(glue("### {{sample_description_number_1}}"))
+cat(glue("## {{sample_description_number_1}}"))
 ```
 
 
-```{r, warning=FALSE, message=FALSE}
+```{r, warning=FALSE, message=FALSE, out.width="900px"}
 header_file_create("Soil", glue("{{sample_description_number_1}}"))
 knitr::include_graphics(here(root_figure_location, "headers", glue("soil_testing_{{sample_description_number_1}}_plot.png")))
 ```
 
 
-#### Measurement results and MLSN values
+### Measurement results and MLSN values
 
 ```{r, results='asis'}
 cat(glue("The following graph shows how the samples taken from each {{sample_description_number_1}} compare to the calculated MLSN values and required elemental inputs based on the provided nitrogen input and the Turf Growth Potential Model."))
@@ -21,30 +23,48 @@ cat(glue("The following graph shows how the samples taken from each {{sample_des
 - **Green** dots indicate that the samples met the MLSN requirements
 
 
-```{r, results='asis'}
+```{r, results='asis', out.width="100%"}
 knitr::include_graphics(glue(here(root_figure_location, "soil_testing"), "/MLSN_deficits_{{sample_description_number_1}}_plot.png"))
 ```
 
-<hr>
 
-<details><summary style='font-size:22pt;'>Required element per area</summary>
+```{r, results='asis', include=html}
+cat("<br><details><summary style='font-size:22pt;font-weight:600;'>Required element per area</summary>")
+```
 
-The table specifies the amount of **fertilizer required** to remedy the deficits highlighted by the analysis in **lbs. per 1000 sq.ft.**. 
+```{r, results='asis', include=!html}
+cat("### Required element per area")
+```
+
+The table specifies the amount of **fertilizer required in _lbs. per 1000 sq.ft._** to remedy the deficits highlighted by the analysis. 
 
 ```{r, warning=FALSE, message=FALSE, ft.align="left"}
+if (html) {
+  size_h <- 16
+  size_b <- 15
+  size_f <- 11.5
+  w <- 1
+} else {
+  size_h <- 11.5
+  size_b <- 10.5
+  size_f <- 7.5
+  w <- .5
+}
+
 filter(fertilizer_table_all, sample_description_number_1 == "{{sample_description_number_1}}") %>%
   select(Area:Mn) %>%
   branded_table(data = .) %>%
-  flextable::add_footer_lines(values = c("\nThe symbol \" — \" means no deficit was found; an empty cell means no data was provided.\nThe Average values are the means across all areas where a deficit was found.\n")) %>%
+  flextable::add_footer_lines(values = c("\nThe symbol \"—\" means no deficit was found; an empty cell means no data was provided.\nThe \"Average\" values are the means across all areas where a deficit was found.\n")) %>%
   ftExtra::colformat_md(part = "header") %>%
-  flextable::fontsize(size = 15, part = "header") %>%
-  flextable::fontsize(size = 14, part = "body") %>%
-  flextable::fontsize(size = 11.5, part = "footer") %>%
+  flextable::fontsize(size = size_h, part = "header") %>%
+  flextable::fontsize(size = size_b, part = "body") %>%
+  flextable::fontsize(size = size_f, part = "footer") %>%
   # Specifying font again after adding footnote
-  flextable::font(fontname = typeface, part = "all")
+  flextable::font(fontname = typeface_condensed, part = "all") %>%
+  flextable::font(fontname = typeface, part = "footer") %>%
+  flextable::width(width = w)
 
 ```
-
 
 ```{r}
 calc_green_average <- function(measurement_name) {
@@ -76,11 +96,18 @@ calc_green_average <- function(measurement_name) {
 }
 ```
 
-</details>
+```{r, results='asis', include=html}
+cat('</details>')
+```
 
-<hr>
 
-<details><summary style='font-size:22pt;'>Mean measurements and recommendations</summary>
+```{r, results='asis', include=html}
+cat("<details><summary style='font-size:22pt;font-weight:600;'>Mean measurements and recommendations</summary>")
+```
+
+```{r, results='asis', include=!html}
+cat("### Mean measurements and recommendations")
+```
 
 ```{r, echo=FALSE, results='asis'}
 measurement_names <<- c("pH",
@@ -107,14 +134,15 @@ cat(unlist(res), sep = '\n')
 
 ```
 
-</details>
+```{r, results='asis', include=html}
+cat('
+</details>',
+  '<br>', sep = "\n")
+```
 
-<hr>
+\newpage
 
-<br>
-
-
-```{r}
+```{r, out.width="900px"}
 header_file_create("Soil", glue("{{sample_description_number_1}}"), trends = TRUE)
 knitr::include_graphics(here(root_figure_location, "headers", glue("soil_testing_{{sample_description_number_1}}_trends_plot.png")))
 ```

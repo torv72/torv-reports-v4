@@ -6,11 +6,22 @@ generate_report <- function(.site_name,
                             .end_date = NULL,
                             .warm_or_cool,
                             .acid_extract,
+                            .om_seasons = "all",
                             .include_results_interpretation,
                             .draw_beeswarm = "Yes",
-                            .typeface = "Lato",
+                            .typeface = "Sofia Sans",
+                            .output = "html",
                             .test = "No") {
 
+  # Check function inputs
+  if (!.warm_or_cool %in% c("warm", "cool")) stop('.warm_or_cool should be either "warm" or "cool".')
+  if (!.acid_extract %in% c("Mehlich", "Olsen")) stop('.acid_extract should be either "Mehlich" or "Olsen".')
+  if (!.om_seasons %in% c("all", "Spring", "Summer", "Autumn", "Winter")) stop('.om_seasons should be one of "all", "Spring", "Summer", "Autumn", "Winter", or a vector with a combination of season names (e.g. c("Spring", "Summer")).')
+  if (!.draw_beeswarm %in% c("Yes", "No")) stop('.draw_beeswarm should be either "Yes" or "No".')
+  if (!is.character(.typeface)) stop('.typeface should be of type character.')
+  if (any(!(.output %in% c("html", "pdf") | .output == c("pdf", "html") | .output == c("html", "pdf")))) stop('.output should be either "html", "pdf", or c("html", "pdf").')
+  if (!.test %in% c("Yes", "No")) stop('.test should be either "Yes" or "No".')
+  
   # Clears the environment, to avoid cross contamination between successive reports!
   rm(list = setdiff(ls(pos = ".GlobalEnv"),
                     # but keep the functions we need to run reports, set up tests and update the database
@@ -22,7 +33,11 @@ generate_report <- function(.site_name,
   # Export to global Env so can be used by other scripts
   testing_report <<- .test
   beeswarm <<- ifelse(.draw_beeswarm == "Yes", TRUE, FALSE)
+  om_seasons <<- .om_seasons
+  if (om_seasons == "all") om_seasons <<- c("Spring", "Summer", "Autumn", "Winter")
   typeface <<- .typeface
+  output_html <<- "html" %in% .output
+  output_pdf <<- "pdf" %in% .output
   
   # Set up Figure directories if they aren't already there
   figure_dirs <- c("headers", "organic_matter", "soil_testing", "trendlines", "water_testing")
@@ -141,19 +156,32 @@ generate_report <- function(.site_name,
   if(.test == "No") {
 
     quiet_reporting <- FALSE
+    
+    filename <- paste0("TORV-report_",
+                        gsub(" ", "-", input_params$site_name),
+                        "_", input_params$date_sample_submitted)
+    
+    filename_pdf <- paste0(filename, ".pdf")
+    filename_html <- paste0(filename, ".html")
 
-    if(file.exists(here::here("generated-reports",
-                              paste0("TORV-report_",
-                                     gsub(" ", "-", input_params$site_name),
-                                     "_", input_params$date_sample_submitted, ".docx")))){
+    if(output_pdf & file.exists(here::here("generated-reports", filename_pdf))) {
 
-      message("\nThere is already a report called ", paste0("TORV-report_",
-                                                            gsub(" ", "-", input_params$site_name),
-                                                            "_", input_params$date_sample_submitted, ".docx"),
-              "\nin the generated-reports folder!")
+      message("\nThere is already a report called ", filename_pdf, "\nin the generated-reports folder!")
 
       overwrite <- readline("Do you want to overwrite it? Type y for yes or any other letter to exit and hit ENTER.")
 
+      if(overwrite == "y") {
+        message("Great, thanks! Always good to make sure!")
+      } else {
+        stop("Ok, I'll exit now. Phew!")
+      }
+    }
+    if(output_html & file.exists(here::here("generated-reports", filename_html))) {
+      
+      message("\nThere is already a report called ", filename_html, "\nin the generated-reports folder!")
+      
+      overwrite <- readline("Do you want to overwrite it? Type y for yes or any other letter to exit and hit ENTER.")
+      
       if(overwrite == "y") {
         message("Great, thanks! Always good to make sure!")
       } else {
@@ -164,22 +192,33 @@ generate_report <- function(.site_name,
     # Keep only test output in console when running tests
     quiet_reporting <- TRUE
   }
-
+  
   # Generate the report
-  #quarto::quarto_render(
-    #input = "report/report.qmd",
-  rmarkdown::render(
-    input = "report/report.Rmd",
-    quiet = quiet_reporting,
-    output_file = "test.html")
-    #ifelse(testing_report == "No",
-                                    # "generated-reports",
-                                    # # saving the output elsewhere if we're generating reports
-                                    # # just to test consequences of code changes
-                                    # file.path(here::here("tests", "test-reports", testing_report))),
-                             # paste0("TORV-report_",
-                             #        gsub(" ", "-", input_params$site_name),
-                             #        "_", input_params$date_sample_submitted, ".html")))
+  if (output_html) {
+    
+    rmarkdown::render(
+      input = "report/report.Rmd",
+      quiet = quiet_reporting,
+      output_file = here::here("generated-reports", filename_html),
+      output_format = "tufte_html",
+      output_options = list(css = "theme/style.css", self_contained = TRUE),
+      params = list(html = TRUE)
+    )
+  } 
+  
+  if (output_pdf) {
+    library(tufte)
+    
+    rmarkdown::render(
+      input = "report/report.Rmd",
+      quiet = quiet_reporting,
+      output_file = here::here("generated-reports", filename_pdf),
+      output_format = "pdf_document",
+      #output_options = list(template = "theme/template.tex", keep_tex = TRUE),
+      #output_options = list(latex_engine = "xelatex", keep_tex = FALSE),
+      params = list(html = FALSE)
+    )
+  }
 
   # Run tests if this is a test report
   if (.test != "No") {
