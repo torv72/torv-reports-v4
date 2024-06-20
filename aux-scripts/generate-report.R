@@ -214,8 +214,6 @@ generate_report <- function(.site_name,
       quiet = quiet_reporting,
       output_file = here::here("generated-reports", filename_pdf),
       output_format = "pdf_document",
-      #output_options = list(template = "theme/template.tex", keep_tex = TRUE),
-      #output_options = list(latex_engine = "xelatex", keep_tex = FALSE),
       params = list(html = FALSE)
     )
   }
