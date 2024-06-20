@@ -1,17 +1,17 @@
 ---
 title: "TORV Report"
-output: 
-  tufte::tufte_html: 
-    css: "theme/style.css"
+output:
+  tufte::tufte_html:
+    css: theme/style.css
     self_contained: true
+  word_document: default
   pdf_document:
-    #template: theme/template.tex
     keep_tex: true
-    latex_engine: "lualatex"
+    latex_engine: lualatex
     includes:
-      in_header: "theme/template.tex"
-params: 
-  database_name: "MASTER_DATABASE.xlsx"
+      in_header: theme/template.tex
+params:
+  database_name: MASTER_DATABASE.xlsx
   html: true
 ---
 
