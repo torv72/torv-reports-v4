@@ -195,6 +195,7 @@ generate_report <- function(.site_name,
   
   # Generate the report
   if (output_html) {
+    library(tufte)
     
     rmarkdown::render(
       input = "report/report.Rmd",
@@ -207,7 +208,6 @@ generate_report <- function(.site_name,
   } 
   
   if (output_pdf) {
-    library(tufte)
     
     rmarkdown::render(
       input = "report/report.Rmd",
