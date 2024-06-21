@@ -10,6 +10,8 @@ output:
     latex_engine: lualatex
     includes:
       in_header: theme/template.tex
+urlcolor: PineGreen
+linkcolor: PineGreen
 params:
   database_name: MASTER_DATABASE.xlsx
   html: true

@@ -18,9 +18,9 @@ options(dplyr.summarise.inform = FALSE)
 
 ```{r variables-and-theme}
 # Colors
-torv_green <<- "#0aa67b" #44ad4c
-torv_orange <<- "#a67b0a" #ec8c35
-torv_blue <<- "#0a83a6" #0d98d6"
+torv_green <<- "#0aa67b"
+torv_orange <<- "#a67b0a"
+torv_blue <<- "#0a83a6"
 torv_green2 <<- "#5b921e"
 torv_gray <<- "#808080"
 torv_gray_light <<- "#B1B1B1"
