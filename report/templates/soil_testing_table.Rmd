@@ -32,6 +32,8 @@ knitr::include_graphics(glue(here(root_figure_location, "soil_testing"), "/MLSN_
 cat("<br><details><summary style='font-size:22pt;font-weight:600;'>Required element per area</summary>")
 ```
 
+\pagebreak
+
 ```{r, results='asis', include=!html}
 cat("### Required element per area")
 ```
