@@ -52,7 +52,7 @@ generate_report(.site_name = "Maroon Creek Club",
                 .om_season = "Spring",
                 .include_results_interpretation = FALSE,
                 .draw_beeswarm = "Yes",
-                .output = "html",
+                .output = "pdf",
                 .typeface = "Georama")
 
 # It will save a file in generated-reports with a filename which includes the site name

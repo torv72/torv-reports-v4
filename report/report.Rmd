@@ -10,6 +10,8 @@ output:
     latex_engine: lualatex
     includes:
       in_header: theme/template.tex
+urlcolor: PineGreen
+linkcolor: PineGreen
 params:
   database_name: MASTER_DATABASE.xlsx
   html: true
@@ -31,6 +33,18 @@ knitr::knit("templates/setup.Rmd")
 knitr::include_graphics(here("report", "assets", "torv-logo-wide.png"))
 ```
 
+```{r, results='asis', include=!html}
+cat(
+  "\\bigskip  \\bigskip  \\begin{center}\\Large \\textbf{Report for ", 
+  input_params$site_name, 
+  "}\\par   \\large ", 
+  format(Sys.time(), "%Y, %B %d"), 
+  "\\par   \\large ", 
+  "Eric Foerster\\end{center}",
+  sep = ""
+)
+```
+
 \newpage
 
 ## Executive Summary
@@ -39,7 +53,6 @@ knitr::include_graphics(here("report", "assets", "torv-logo-wide.png"))
 header_file_create("None", "Executive Summary")
 knitr::include_graphics(here(root_figure_location, "headers", "none_testing_executive_summary_plot.png"))
 ```
-
 
 ```{r exec-summary, results='asis'}
 non_table_elements <- c("pH", "Sodium (ppm)", "Micronutrients", 

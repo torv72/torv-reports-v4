@@ -1,6 +1,10 @@
-\usepackage{xcolor,sectsty}
+\usepackage{xcolor,sectsty,fontspec}
+\usepackage[dvipsnames]{xcolor}
 
 \definecolor{white}{RGB}{255,255,255}
+
+\setmainfont{Rasa}
+
 \sectionfont{\color{white}\fontsize{1}{1}\selectfont}
 \subsectionfont{\color{white}\fontsize{1}{1}\selectfont}
 \subsubsectionfont{\fontsize{16}{15}\selectfont}
@@ -10,6 +14,3 @@
 \newcommand{\@titlecolor}{white}
 \newcommand{\titlecolor}[1]{\renewcommand{\@titlecolor}{#1}}
 \makeatother
-
-\usepackage{fontspec}
-    \setmainfont{Rasa}
