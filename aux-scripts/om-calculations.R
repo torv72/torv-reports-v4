@@ -110,34 +110,25 @@ if (testing_report == "No") {
   
   if (length(unique(all_om_data$date_sample_submitted)) > 1) {
     
-    message("\n\n❓ I have found several dates for OM data. Would you like to calculate OM accumulation rates?")
+    message("\n\nI have found several dates for OM data.\n\n❓ Would you like to calculate OM accumulation rates?")
     run_om_accumulation <- readline("Type y for yes or n for no and hit ENTER. ")
     
     while (!run_om_accumulation %in% c("y","n")) {
       
-      message(glue("\n\nI didn't quite get that. Would you like to calculate the OM accumulation rates?\n"))
+      message(glue("\n\n❓ I didn't quite get that. Would you like to calculate the OM accumulation rates?\n"))
       run_om_accumulation <- readline("Type y for yes or n for no and hit ENTER. ")
     }
   }
   
   if (run_om_accumulation == "n") {
+    
     message("\n✅️️ Alright, I'll skip the calculation of accumulation rates.")
+    
   } else {
   
     for (sample_description_number_2 in unique(all_om_data$sample_description_number_2)) {
   
       if (length(unique(all_om_data$date_sample_submitted)) > 1) {
-        
-        message("\n❓ I have found several dates for OM data. Would you like to calculate the OM accumulation rates?")
-        run_om_accumulation <- readline("Type y for yes or n for no and hit ENTER. ")
-        
-        while (!run_om_accumulation %in% c("y","n")) {
-          
-          message(glue("\n\n❓ I didn't quite get that. Would you like to calculate the OM accumulation rates?\n"))
-          run_om_accumulation <- readline("Type y for yes or n for no and hit ENTER. ")
-        }
-        
-        if (run_om_accumulation == "y") {
   
         message(glue("\n\n**{sample_description_number_2}s**\n\n❓ I have found several dates for OM data for {sample_description_number_2}s. Would you like to calculate the OM accumulation rate?\n"))
         run_om_accumulation <- readline("Type y for yes or n for no and hit ENTER. ")
@@ -150,7 +141,7 @@ if (testing_report == "No") {
   
         if (run_om_accumulation == "n") {
   
-          message("\n>✅ No accumulation rates are calculated.")
+          message("\n✅ No accumulation rates are calculated.")
           
         } else if (run_om_accumulation == "y") {
   
@@ -330,8 +321,6 @@ if (testing_report == "No") {
       } else {
   
         message("\n\nI have only found one date for OM data. I will not ask you about the OM accumulation rate.\n\n")
-  
-      }
   
       }
     } # close `for (sample_description_number_2)``
