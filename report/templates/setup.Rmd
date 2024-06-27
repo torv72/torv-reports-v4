@@ -51,8 +51,6 @@ theme_update(
   axis.text = element_text(family = typeface, color = torv_gray),
   panel.grid.major = element_line(linewidth = .4, color = "grey94"),
   panel.grid.minor = element_blank(),
-  #plot.title.position = "plot",
-  #plot.caption.position = "plot",
   strip.text.x = element_text(hjust = 0, margin = margin(3, 0, 3, 0))
 )
 
@@ -104,7 +102,7 @@ branded_table <- function(header_colour = torv_orange,
 
 ```{r function-make-trendline-legend}
 ## Function to create a how-to plot for the trendline charts
-make_trendline_legend <<- function(main_color, average_label = "Historic average", draw_beeswarm = beeswarm) {
+make_trendline_legend <- function(main_color, average_label = "Historic average", draw_beeswarm = beeswarm) {
   
   stable_year_range <- c(year(ymd("2020-01-01")), year(ymd("2021-01-01")), year(ymd("2022-01-01")))
   
@@ -300,7 +298,6 @@ if(!is.na(input_params$warm_or_cool) && !tolower(input_params$warm_or_cool) %in%
 # Bump object to parent environment so they can be accessed by child knit scripts
 filtered_database <<- filtered_database
 full_database <<- full_database
-
 ```
 
 ````{r get-types}
@@ -376,7 +373,6 @@ if(testing_report == "No") {
   
   if(proceed != "c") stop("\n\n* Thank you! Please investigate the database before running the report again.* \n\n")
 }
-
 ````
 
 ```{r header-file-creator}
@@ -451,8 +447,6 @@ header_file_create <<- function(sampletype, title, trends = FALSE) {
   
 }
 ```
-
-
 
 ```{r station-data}
 # retrieve temperatures
