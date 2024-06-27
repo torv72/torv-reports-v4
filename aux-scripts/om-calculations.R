@@ -106,207 +106,236 @@ all_om_data <-
   )) %>%
   filter(season %in% om_seasons)
 
-if(testing_report == "No") {
-
-  for(sample_description_number_2 in unique(all_om_data$sample_description_number_2)) {
-
-    if(length(unique(all_om_data$date_sample_submitted)) > 1) {
-
-      message(glue("\n\n**{sample_description_number_2}s**\n\nI have found several dates for OM data for {sample_description_number_2}s. ",
-                   "Would you like to calculate the OM accumulation rate?\n"))
+if (testing_report == "No") {
+  
+  if (length(unique(all_om_data$date_sample_submitted)) > 1) {
+    
+    message("\n\n❓ I have found several dates for OM data. Would you like to calculate OM accumulation rates?")
+    run_om_accumulation <- readline("Type y for yes or n for no and hit ENTER. ")
+    
+    while (!run_om_accumulation %in% c("y","n")) {
+      
+      message(glue("\n\nI didn't quite get that. Would you like to calculate the OM accumulation rates?\n"))
       run_om_accumulation <- readline("Type y for yes or n for no and hit ENTER. ")
-
-      while (!run_om_accumulation %in% c("y","n")) {
-
-        message(glue("\n\nI didn't quite get that. Would you like to calculate the OM accumulation rate for {sample_description_number_2}s?\n"))
+    }
+  }
+  
+  if (run_om_accumulation == "n") {
+    message("\n✅️️ Alright, I'll skip the calculation of accumulation rates.")
+  } else {
+  
+    for (sample_description_number_2 in unique(all_om_data$sample_description_number_2)) {
+  
+      if (length(unique(all_om_data$date_sample_submitted)) > 1) {
+        
+        message("\n❓ I have found several dates for OM data. Would you like to calculate the OM accumulation rates?")
         run_om_accumulation <- readline("Type y for yes or n for no and hit ENTER. ")
-      }
-
-      if (run_om_accumulation == "n") {
-
-        message("\nNo problem. I'll skip that this time.")
-      } else if (run_om_accumulation == "y") {
-
-        add_new_depth <- "y"
-
-        while(add_new_depth == "y") {
-
-          happy_with_input <- "n" # Allows user to check values and enter them again if they made a mistake
-
-          while(happy_with_input == "n") {
-
-            new_om_accumulation <- list()
-
-            new_om_accumulation$type <- sample_description_number_2
-
-            message("\n\nPlease answer the following questions using only numbers:")
-
-            new_om_accumulation$soil_depth <- as.numeric(readline(" - What is the depth of the soil in cm (type the number)? "))
-            new_om_accumulation$starting_om <- as.numeric(readline(" - What is the starting OM%? "))
-            new_om_accumulation$ending_om <- as.numeric(readline(" - What is the ending OM%? "))
-            new_om_accumulation$sand_added <- as.numeric(readline(" - How much sand was added (in mm)? "))
-
-            new_om_accumulation$start_date <- readline(" - What is the start date, corresponding to the starting OM% (as yyyy-mm-dd)? ")
-
-            while(is.na(tryCatch(suppressWarnings(lubridate::ymd(new_om_accumulation$start_date))))) {
-
-              new_om_accumulation$start_date <- readline("I didn't understand the start date you provided. Please use the format yyyy-mm-dd: ")
-
-            }
-
-            new_om_accumulation$end_date <- readline(" - What is the ending date, corresponding to the ending OM% (as yyyy-mm-dd)? ")
-
-            while(is.na(tryCatch(suppressWarnings(lubridate::ymd(new_om_accumulation$end_date))))) {
-
-              new_om_accumulation$end_date <- readline("I didn't understand the end date you provided. Please use the format yyyy-mm-dd: ")
-
-            }
-
-            while(as.numeric(lubridate::ymd(new_om_accumulation$end_date) - lubridate::ymd(new_om_accumulation$start_date)) < 1) {
-
-              new_om_accumulation$end_date <- readline("The end date is not after the start date. Please type in a new end date (yyyy-mm-dd): ")
-            }
-
-            message("\n\nThank you.
-            \n\n* You have provided the following values. *\n\n",
-            paste0(gsub("list\\(|\\)", "", list(new_om_accumulation))),
-            "\n")
-
-            happy_with_input <- readline("Are these correct? Type y for yes or n for no and hit ENTER: ")
-
-            while(!happy_with_input %in% c("y", "n")) {
-              message("\n\nSorry, I didn't understand your answer.\n")
-              happy_with_input <- readline("Please type y for yes or n for no and hit ENTER: ")
-            }
-
-            if(happy_with_input == "n") {
-              message("\nNo problem, let's try that again!\n")
-            } else{
-              message("\nGreat, thank you!\n\n")
-            }
-          }
-
-          new_om_accumulation$accum_rate <- calculate_accum_rate(sand = new_om_accumulation$sand_added,
-                                                                 depth = new_om_accumulation$soil_depth,
-                                                                 om1 = new_om_accumulation$starting_om,
-                                                                 om2 = new_om_accumulation$ending_om,
-                                                                 start_date = lubridate::ymd(new_om_accumulation$start_date),
-                                                                 end_date = lubridate::ymd(new_om_accumulation$end_date))
-
-          # Add the values and calculation into a tibble for later retrieval
-          om_acc_df <- om_acc_df %>%
-            bind_rows(new_om_accumulation)
-
-          ## Ask about Sand Requirement calculations within the same depth
-          message(glue("\n\nWould you also like to calculate the sand requirement for {sample_description_number_2}s at depth = ",
-                       new_om_accumulation$soil_depth,
-                       " cm using the OM accumulation rate I've just calculated (",
-                       janitor::round_half_up(new_om_accumulation$accum_rate, 1), " g/kg/year)?\n"))
-
-          run_sand_req <- readline("Type y for yes or n for no and hit ENTER. ")
-
-          while (!run_sand_req %in% c("y","n")) {
-
-            message(glue("\n\nI didn't quite get that. Would you like to calculate the sand requirement for {sample_description_number_2}s?\n"))
-            run_sand_req <- readline("Type y for yes or n for no and hit ENTER. ")
-
-          }
-
-          if (run_sand_req == "n") {
-
-            message("\nNo problem. I'll skip that this time.")
-
-          } else if (run_sand_req == "y") {
-
-            new_sand_req <- list()
-
+        
+        while (!run_om_accumulation %in% c("y","n")) {
+          
+          message(glue("\n\n❓ I didn't quite get that. Would you like to calculate the OM accumulation rates?\n"))
+          run_om_accumulation <- readline("Type y for yes or n for no and hit ENTER. ")
+        }
+        
+        if (run_om_accumulation == "y") {
+  
+        message(glue("\n\n**{sample_description_number_2}s**\n\n❓ I have found several dates for OM data for {sample_description_number_2}s. Would you like to calculate the OM accumulation rate?\n"))
+        run_om_accumulation <- readline("Type y for yes or n for no and hit ENTER. ")
+        
+        while (!run_om_accumulation %in% c("y","n")) {
+          
+          message(glue("\n\n❌ I didn't quite get that.\n❓ Would you like to calculate the OM accumulation rate for {sample_description_number_2}?\n"))
+          run_om_accumulation <- readline("Type y for yes or n for no and hit ENTER. ")
+        }
+  
+        if (run_om_accumulation == "n") {
+  
+          message("\n>✅ No accumulation rates are calculated.")
+          
+        } else if (run_om_accumulation == "y") {
+  
+          add_new_depth <- "y"
+  
+          while(add_new_depth == "y") {
+  
             happy_with_input <- "n" # Allows user to check values and enter them again if they made a mistake
-
+  
             while(happy_with_input == "n") {
-
-              message("\n\nPlease answer the following questions using only numbers:\n")
-
-              new_sand_req$type <- sample_description_number_2
-              new_sand_req$depth <- as.numeric(new_om_accumulation$soil_depth)
-              new_sand_req$om_acc_rate <- new_om_accumulation$accum_rate
-              new_sand_req$current_om <- as.numeric(readline(" - What is the current OM%? "))
-              new_sand_req$desired_om <- as.numeric(readline(" - What is the desired OM%? "))
-
-
-              new_sand_req$start_date <- readline(" - What is the start date corresponding to the starting OM% (as yyyy-mm-dd)? ")
-
-              while(is.na(tryCatch(suppressWarnings(lubridate::ymd(new_sand_req$start_date))))) {
-
-                new_sand_req$start_date <- readline("I didn't understand the start date you provided. Please use the format yyyy-mm-dd: ")
-
+  
+              new_om_accumulation <- list()
+  
+              new_om_accumulation$type <- sample_description_number_2
+  
+              message("\n\nPlease answer the following questions using only numbers:")
+  
+              new_om_accumulation$soil_depth <- as.numeric(readline("❓ What is the depth of the soil in cm (type the number)? "))
+              new_om_accumulation$starting_om <- as.numeric(readline("❓ What is the starting OM%? "))
+              new_om_accumulation$ending_om <- as.numeric(readline("❓ What is the ending OM%? "))
+              new_om_accumulation$sand_added <- as.numeric(readline("❓ How much sand was added (in mm)? "))
+  
+              new_om_accumulation$start_date <- readline("❓ What is the start date, corresponding to the starting OM% (as yyyy-mm-dd)? ")
+  
+              while(is.na(tryCatch(suppressWarnings(lubridate::ymd(new_om_accumulation$start_date))))) {
+  
+                new_om_accumulation$start_date <- readline("❌ I didn't understand the start date you provided. Please use the format yyyy-mm-dd: ")
+  
               }
-
-              new_sand_req$end_date <- readline(" - What is the target date for achieving the desired OM% (as yyyy-mm-dd)? ")
-
-              while(is.na(tryCatch(suppressWarnings(lubridate::ymd(new_sand_req$end_date))))) {
-
-                new_sand_req$end_date <- readline("I didn't understand the end date you provided. Please use the format yyyy-mm-dd: ")
-
+  
+              new_om_accumulation$end_date <- readline("❓ What is the ending date, corresponding to the ending OM% (as yyyy-mm-dd)? ")
+  
+              while(is.na(tryCatch(suppressWarnings(lubridate::ymd(new_om_accumulation$end_date))))) {
+  
+                new_om_accumulation$end_date <- readline("❌ I didn't understand the end date you provided. Please use the format yyyy-mm-dd: ")
+  
               }
-
-              while(as.numeric(lubridate::ymd(new_sand_req$end_date) - lubridate::ymd(new_sand_req$start_date)) < 1) {
-
-                new_sand_req$end_date <- readline("The end date is not after the start date. Please type in a new end date (yyyy-mm-dd): ")
+  
+              while(as.numeric(lubridate::ymd(new_om_accumulation$end_date) - lubridate::ymd(new_om_accumulation$start_date)) < 1) {
+  
+                new_om_accumulation$end_date <- readline("❌ The end date is not after the start date. Please type in a new end date (yyyy-mm-dd): ")
               }
-
+  
               message("\n\nThank you.
-            \n\n* You have provided the following values. *\n\n",
-            paste0(gsub("list\\(|\\)", "", list(new_sand_req))),
-            "\n")
-
+              \n\nYou have provided the following values:",
+              paste0(gsub("list\\(|\\)", "", list(new_om_accumulation))), ".",
+              "\n")
+  
               happy_with_input <- readline("Are these correct? Type y for yes or n for no and hit ENTER: ")
-
+  
               while(!happy_with_input %in% c("y", "n")) {
-                message("\n\nSorry, I didn't understand your answer.\n")
+                message("\n\n❌ Sorry, I didn't understand your answer.\n")
                 happy_with_input <- readline("Please type y for yes or n for no and hit ENTER: ")
               }
-
+  
               if(happy_with_input == "n") {
-                message("\nNo problem, let's try that again!\n")
+                message("\n🔁 No problem, let's try that again!\n")
               } else{
-
-                message("\nGreat, thank you!\n\n")
-
-                new_sand_req$sand_req <- calculate_sand_req(om_now = new_sand_req$current_om,
-                                                            om_goal = new_sand_req$desired_om,
-                                                            depth = new_sand_req$depth,
-                                                            om_rate = new_sand_req$om_acc_rate,
-                                                            now_date = lubridate::ymd(new_sand_req$start_date),
-                                                            target_date = lubridate::ymd(new_sand_req$end_date))
-
-                # Add the values and calculation into a tibble for later retrieval
-                sand_req_df <- sand_req_df %>%
-                  bind_rows(new_sand_req)
+                message("\n✅ Great, thank you!\n\n")
               }
-
+            }
+  
+            new_om_accumulation$accum_rate <- calculate_accum_rate(sand = new_om_accumulation$sand_added,
+                                                                   depth = new_om_accumulation$soil_depth,
+                                                                   om1 = new_om_accumulation$starting_om,
+                                                                   om2 = new_om_accumulation$ending_om,
+                                                                   start_date = lubridate::ymd(new_om_accumulation$start_date),
+                                                                   end_date = lubridate::ymd(new_om_accumulation$end_date))
+  
+            # Add the values and calculation into a tibble for later retrieval
+            om_acc_df <- om_acc_df %>%
+              bind_rows(new_om_accumulation)
+  
+            ## Ask about Sand Requirement calculations within the same depth
+            message(glue("\n\n❓ Would you also like to calculate the sand requirement for {sample_description_number_2}s at depth = ",
+                         new_om_accumulation$soil_depth,
+                         " cm using the OM accumulation rate I've just calculated (",
+                         janitor::round_half_up(new_om_accumulation$accum_rate, 1), " g/kg/year)?\n"))
+  
+            run_sand_req <- readline("Type y for yes or n for no and hit ENTER. ")
+  
+            while (!run_sand_req %in% c("y","n")) {
+  
+              message(glue("\n\n❓ I didn't quite get that. Would you like to calculate the sand requirement for {sample_description_number_2}s?\n"))
+              run_sand_req <- readline("Type y for yes or n for no and hit ENTER. ")
+  
+            }
+  
+            if (run_sand_req == "n") {
+  
+              message("\n✅ Alright, I'll skip the calculation of the accumulation rate.")
+  
+            } else if (run_sand_req == "y") {
+  
+              new_sand_req <- list()
+  
+              happy_with_input <- "n" # Allows user to check values and enter them again if they made a mistake
+  
+              while(happy_with_input == "n") {
+  
+                message("\n\nPlease answer the following questions using only numbers:\n")
+  
+                new_sand_req$type <- sample_description_number_2
+                new_sand_req$depth <- as.numeric(new_om_accumulation$soil_depth)
+                new_sand_req$om_acc_rate <- new_om_accumulation$accum_rate
+                new_sand_req$current_om <- as.numeric(readline("❓ What is the current OM%? "))
+                new_sand_req$desired_om <- as.numeric(readline("❓ What is the desired OM%? "))
+  
+  
+                new_sand_req$start_date <- readline("❓ What is the start date corresponding to the starting OM% (as yyyy-mm-dd)? ")
+  
+                while(is.na(tryCatch(suppressWarnings(lubridate::ymd(new_sand_req$start_date))))) {
+  
+                  new_sand_req$start_date <- readline("❌ I didn't understand the start date you provided. Please use the format yyyy-mm-dd: ")
+  
+                }
+  
+                new_sand_req$end_date <- readline("❓ What is the target date for achieving the desired OM% (as yyyy-mm-dd)? ")
+  
+                while(is.na(tryCatch(suppressWarnings(lubridate::ymd(new_sand_req$end_date))))) {
+  
+                  new_sand_req$end_date <- readline("❌ I didn't understand the end date you provided. Please use the format yyyy-mm-dd: ")
+  
+                }
+  
+                while(as.numeric(lubridate::ymd(new_sand_req$end_date) - lubridate::ymd(new_sand_req$start_date)) < 1) {
+  
+                  new_sand_req$end_date <- readline("❌ The end date is not after the start date. Please type in a new end date (yyyy-mm-dd): ")
+                }
+  
+                message("\n\nThank you.
+              \n\nYou have provided the following values: ",
+              paste0(gsub("list\\(|\\)", "", list(new_sand_req))), ".",
+              "\n")
+  
+                happy_with_input <- readline("❓ Are these correct? Type y for yes or n for no and hit ENTER: ")
+  
+                while(!happy_with_input %in% c("y", "n")) {
+                  message("\n\n❌ Sorry, I didn't understand your answer.\n")
+                  happy_with_input <- readline("Please type y for yes or n for no and hit ENTER: ")
+                }
+  
+                if(happy_with_input == "n") {
+                  message("\n🔁 No problem, let's try that again!\n")
+                } else{
+  
+                  message("\n✅ Great, thank you!\n\n")
+  
+                  new_sand_req$sand_req <- calculate_sand_req(om_now = new_sand_req$current_om,
+                                                              om_goal = new_sand_req$desired_om,
+                                                              depth = new_sand_req$depth,
+                                                              om_rate = new_sand_req$om_acc_rate,
+                                                              now_date = lubridate::ymd(new_sand_req$start_date),
+                                                              target_date = lubridate::ymd(new_sand_req$end_date))
+  
+                  # Add the values and calculation into a tibble for later retrieval
+                  sand_req_df <- sand_req_df %>%
+                    bind_rows(new_sand_req)
+                }
+  
+              }
+            }
+  
+            message(glue("\n\n❓ Would you like to add another OM accumulation calculation for a different depth within {sample_description_number_2}s?\n"))
+  
+            add_new_depth <- readline("Type y for yes or n for no and hit ENTER: ")
+  
+            while (!add_new_depth %in% c("y","n")) {
+  
+              add_new_depth <- readlines("\n\n❌ I didn't quite get that. Type y for yes or n for no and hit ENTER. \n")
+  
             }
           }
-
-          message(glue("\n\nWould you like to add another OM accumulation calculation for a different depth within {sample_description_number_2}s?\n"))
-
-          add_new_depth <- readline("Type y for yes or n for no and hit ENTER: ")
-
-          while (!add_new_depth %in% c("y","n")) {
-
-            add_new_depth <- readlines("\n\nI didn't quite get that. Type y for yes or n for no and hit ENTER. \n")
-
-          }
+  
         }
-
+  
+      } else {
+  
+        message("\n\nI have only found one date for OM data. I will not ask you about the OM accumulation rate.\n\n")
+  
       }
-
-    } else {
-
-      message("\n\nI have only found one date for OM data. I will not ask you about the OM accumulation rate.\n\n")
-
-    }
-
-  }
+  
+      }
+    } # close `for (sample_description_number_2)``
+  } # close `if (run_om_accumulation == "y")`
 }
 
 # Get data for exec summary info

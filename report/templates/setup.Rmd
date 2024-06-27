@@ -360,7 +360,7 @@ if(length(water_types) == 0) {
 }
 
 if(length(om_types) == 0) {
-  message("I didn't find any OM types in the database.")
+  message("❗ I didn't find any OM types in the database.")
 } else {
   message(paste0("I found the following OM types in the database: ", 
                  paste(unique(om_types), collapse = ", "),
@@ -368,10 +368,10 @@ if(length(om_types) == 0) {
 }
 
 if(testing_report == "No") {
-  message("\n* Does that seem correct, or do you want to exit to investigate the database before running the rest of the report? *\n")
-  proceed <- readline("Type c for correct and hit ENTER to proceed, or hit any other key followed by ENTER to exit now. ")
+  message("\n❓ Does that seem correct, or do you want to exit to investigate the database before running the rest of the report?")
+  proceed <- readline("Type c for correct and hit ENTER to proceed, or hit any other key followed by ENTER to exit now.")
   
-  if(proceed != "c") stop("\n\n* Thank you! Please investigate the database before running the report again.* \n\n")
+  if(proceed != "c") stop("\n\n❌ Report generation canceled. Please investigate the database before running the report again.\n\n")
 }
 ````
 

@@ -7,65 +7,89 @@ if(testing_report == "No") { # Removes the need to type in values in order to ru
 
   happy_with_input <- "n" # Allows user to check values and enter them again if they made a mistake
 
+  message("\n\nI found analyses for the following types of soil in the database: ",
+          paste0(soil_types, collapse = ", "), ".")
+  
+  if (all(soil_types %in% c("GREEN", "TEE", "FAIRWAY", "ROUGH"))) {
+    
+    message("\n❓ Do you want to use the default Grass Maximum N/month lb/1000 sq ft values?")
+    happy_with_input <- readline("Type y for yes or n for no and hit ENTER: ")
+    
+    while(!happy_with_input %in% c("y", "n")) {
+      message("\n\n❌ Sorry, I didn't understand your answer.\n")
+      happy_with_input <- readline("Please type y for yes or n for no and hit ENTER: ")
+    }
+    
+    if (happy_with_input == "y") {
+      grass_max_n_per_month_per_1000sqft[["GREEN"]] <- .5
+      grass_max_n_per_month_per_1000sqft[["TEE"]] <- .5
+      grass_max_n_per_month_per_1000sqft[["FAIRWAY"]] <- .5
+      grass_max_n_per_month_per_1000sqft[["ROUGH"]] <- .5
+      
+      message("\n✅ Using the following default values: ",
+              paste0(gsub("list\\(|\\)", "", list(grass_max_n_per_month_per_1000sqft[soil_types]))),
+              "\n")
+    }
+  } 
+  
   while(happy_with_input == "n") {
-    message("\n\n** I need some information from you in order to compile the MLSN deficit tables.
-Please answer the following questions. I'll give you an opportunity to revisit your answers at the end.**")
+    #message("\n\nI need some information from you in order to compile the MLSN deficit tables.")
+    
+    if (!all(soil_types %in% c("GREEN", "TEE", "FAIRWAY", "ROUGH")) | happy_with_input == "n") {
 
-    message("\n\nIn the database, we found analyses for the following types of soil: ",
-            paste0(soil_types, collapse = ", "),
-            "\nI will ask you in turn for the Grass Maximum N/month lb/1000 sq ft value for each of these.
-        \nPlease type in the value (e.g. 0.85) and hit ENTER.\n")
+      message("\n❓ Please specify the custom value for each soil type (e.g. 0.85) and hit ENTER.")
+  
+      for(soil_type in soil_types){
+  
+        grass_max_n_per_month_per_1000sqft[[soil_type]] <- as.numeric(
+          readline(paste0("What is the value for soil type ", soil_type, "?   ")))
+      }
+  
+      message("\nYou have provided the following values: ",
+              paste0(gsub("list\\(|\\)", "", list(grass_max_n_per_month_per_1000sqft)), ".\n\n"),
+              "❓ Are these correct?")
 
-    for(soil_type in soil_types){
-
-      grass_max_n_per_month_per_1000sqft[[soil_type]] <- as.numeric(
-        readline(paste0("What is the value for soil type ", soil_type, "?   ")))
+      
+      happy_with_input <- readline("Type y for yes or n for no and hit ENTER: ")
     }
 
-    message("\n\nThank you.
-            \n\n* You have provided the following values. *\n\n",
-            paste0(gsub("list\\(|\\)", "", list(grass_max_n_per_month_per_1000sqft))),
-            "\n")
-
-    happy_with_input <- readline("Are these correct? Type y for yes or n for no and hit ENTER: ")
-
     while(!happy_with_input %in% c("y", "n")) {
-      message("\n\nSorry, I didn't understand your answer.\n")
+      message("\n\n❌ Sorry, I didn't understand your answer.\n")
       happy_with_input <- readline("Please type y for yes or n for no and hit ENTER: ")
     }
 
     if(happy_with_input == "n") {
-      message("\nNo problem, let's try that again!\n")
+      message("\n🔁 No problem, let's try that again!")
     } else{
-      message("\nGreat, I'll compile the rest of the report!\n\n")
+      message("\n\n✅ Great, I'll compile the rest of the report!\n\n")
     }
   }
 } else if(testing_report == "MC_202106") {
 
-  grass_max_n_per_month_per_1000sqft <- list(GREEN = 0.8,
-                                             TEE = 0.71,
-                                             FAIRWAY = 0.97,
-                                             ROUGH = 0.75)
+  grass_max_n_per_month_per_1000sqft <- list(GREEN = .8,
+                                             TEE = .71,
+                                             FAIRWAY = .97,
+                                             ROUGH = .75)
 
 } else if(testing_report == "MC_202108") {
 
-  grass_max_n_per_month_per_1000sqft <- list(GREEN = 0.37,
-                                             TEE = 0.53,
-                                             FAIRWAY = 0.47,
-                                             ROUGH = 0.53)
+  grass_max_n_per_month_per_1000sqft <- list(GREEN = .37,
+                                             TEE = .53,
+                                             FAIRWAY = .47,
+                                             ROUGH = .53)
 
 } else if(testing_report == "Saratoga_202109") {
 
-  grass_max_n_per_month_per_1000sqft <- list(GREEN = 0.5,
-                                             FAIRWAY = 0.5)
+  grass_max_n_per_month_per_1000sqft <- list(GREEN = .5,
+                                             FAIRWAY = .5)
 
 } else if(testing_report == "Wellshire_202111") {
 
-  grass_max_n_per_month_per_1000sqft <- list(FAIRWAY = 0.5)
+  grass_max_n_per_month_per_1000sqft <- list(FAIRWAY = .5)
 
 } else if(testing_report == "Sonnenalp_202111") {
 
-  grass_max_n_per_month_per_1000sqft <- list(GREEN = 0.2)
+  grass_max_n_per_month_per_1000sqft <- list(GREEN = .2)
 
 }
 
@@ -74,13 +98,13 @@ Please answer the following questions. I'll give you an opportunity to revisit y
 # Hard coded values
 elemental_ratios <- tribble(~element, ~ratio,
                             "N", 1,
-                            "K", 0.5,
-                            "P", 0.125,
-                            "Ca", 0.1,
-                            "Mg", 0.0625,
-                            "S", 0.075,
-                            "Fe", 0.005,
-                            "Mn", 0.001875)
+                            "K", .5,
+                            "P", .125,
+                            "Ca", .1,
+                            "Mg", .0625,
+                            "S", .075,
+                            "Fe", .005,
+                            "Mn", .001875)
 
 if (tolower(input_params$acid_extract) == "mehlich") {
 
@@ -311,7 +335,7 @@ deficits_graph_data <- deficit_analysis %>%
   summarise(mean_measurement = mean(measurement_result),
             aiming_for = unique(plus_mlsn_ppm)) %>%
   mutate(point_color = case_when(mean_measurement > aiming_for * 1.01 ~ torv_green,
-                                 mean_measurement > aiming_for * 0.99 ~ torv_orange,
+                                 mean_measurement > aiming_for * .99 ~ torv_orange,
                                  TRUE ~ "#ec4a35")) %>%
   group_by(sample_description_number_1, mehlich_3) %>%
   mutate(mean_per_soil_type = mean(mean_measurement),
@@ -319,7 +343,7 @@ deficits_graph_data <- deficit_analysis %>%
            length(mean_measurement)*100) %>%
   ungroup() %>%
   mutate(mean_line_color = case_when(mean_per_soil_type > aiming_for * 1.01 ~ torv_green,
-                                     mean_per_soil_type > aiming_for * 0.99 ~ torv_orange,
+                                     mean_per_soil_type > aiming_for * .99 ~ torv_orange,
                                      TRUE ~ "#ec4a35")) %>%
   arrange(mixedrank(sample_description_number_2)) %>%
   mutate(sample_description_number_2 = factor(sample_description_number_2,
@@ -334,7 +358,7 @@ create_deficits_graph <- function(soil_type) {
 
   deficit_graph <- ggplot(filter(deficits_graph_data, sample_description_number_1 == soil_type)) +
     geom_hline(aes(yintercept = aiming_for),
-               color = alpha(torv_orange, 0.5)) +
+               color = alpha(torv_orange, .5)) +
     geom_hline(aes(yintercept = mean_per_soil_type,
                    color = mean_line_color),
                linetype = 3) +
@@ -342,13 +366,13 @@ create_deficits_graph <- function(soil_type) {
                      x = sample_description_number_2,
                      xend = sample_description_number_2),
                  linetype = 1,
-                 size = 0.3,
-                 color = alpha(torv_orange, 0.5)) +
+                 linewidth = .3,
+                 color = alpha(torv_orange, .5)) +
     geom_point(aes(x = sample_description_number_2,
                    y = mean_measurement,
                    fill = point_color),
                shape = 21,
-               color = alpha(torv_orange, 0.5),
+               color = alpha(torv_orange, .5),
                size = 2) +
     scale_fill_identity() +
     scale_color_identity() +
@@ -357,54 +381,54 @@ create_deficits_graph <- function(soil_type) {
     ggtext::geom_textbox(aes(x = Inf,
                              y = aiming_for,
                              label = glue::glue("<span style=\"font-size:5pt\">MLSN<br></span>**{janitor::round_half_up(aiming_for)}**"),
-                             vjust = case_when(aiming_for > mean_per_soil_type ~ 0.15,
-                                               TRUE ~ 0.85),
+                             vjust = case_when(aiming_for > mean_per_soil_type ~ .15,
+                                               TRUE ~ .85),
                              valign = case_when(aiming_for > mean_per_soil_type ~ 0,
                                                 TRUE ~ 1)),
                          hjust = 1,
-                         halign = 0.5,
+                         halign = .5,
                          family = typeface,
-                         lineheight = 0.85,
-                         color = alpha(torv_orange, 0.5),
+                         lineheight = .85,
+                         color = alpha(torv_orange, .5),
                          box.color = NA,
                          fill = NA,
                          width = unit(2, "lines"),
-                         alpha = 0.8,
+                         alpha = .8,
                          size = 3) +
     ggtext::geom_textbox(aes(x = Inf,
                              y = mean_per_soil_type,
                              label = glue::glue("<span style=\"font-size:5pt\">MEAN<br></span>**{janitor::round_half_up(mean_per_soil_type)}**"),
                              color = mean_line_color,
-                             vjust = case_when(aiming_for > mean_per_soil_type ~ 0.85,
-                                               TRUE ~ 0.15),
+                             vjust = case_when(aiming_for > mean_per_soil_type ~ .85,
+                                               TRUE ~ .15),
                              valign = case_when(aiming_for > mean_per_soil_type ~ 1,
                                                 TRUE ~ 0)),
                          hjust = 1.2,
-                         halign = 0.5,
+                         halign = .5,
                          family = typeface,
-                         lineheight = 0.85,
+                         lineheight = .85,
                          box.color = NA,
                          fill = NA,
                          width = unit(4, "lines"),
-                         alpha = 0.8,
+                         alpha = .8,
                          size = 3) +
     facet_wrap(.~mehlich_3, ncol = 1, scales = "free_y",
                strip.position = "left") +
     scale_y_continuous(expand = expansion(mult = 1),
                        position = "right") +
-    scale_x_discrete(expand = expansion(add = c(0.5, 2.5)),
+    scale_x_discrete(expand = expansion(add = c(.5, 2.5)),
                      position = "top",
                      labels = function(x)
                        glue::glue("<span style=\"font-size:5pt\">{soil_type}<br></span>**{x}**")) +
     theme(strip.background = element_rect(color = torv_orange, fill = torv_orange),
-          panel.grid = element_line(color = "white", size = 0.3),
+          panel.grid = element_line(color = "white", linewidth = .3),
           panel.grid.major.y = element_blank(),
           panel.background = element_rect(colour = "#FFFFFF", fill = "#EC8C351A"),
           strip.text.y.left = ggtext::element_markdown(color = "#FFFFFF", angle = 0, face = "bold"),
           axis.text.y = element_blank(),
           axis.ticks = element_blank(),
           axis.text.x.top = ggtext::element_markdown(color = torv_gray, family = typeface),
-          panel.spacing = unit(0.75, "lines"))
+          panel.spacing = unit(.75, "lines"))
 
   ggsave(here::here(root_figure_location, "soil_testing", glue::glue("MLSN_deficits_{soil_type}_plot.png")),
          deficit_graph, width = 6.5, height = 5.5, bg = "#FFFFFF", dpi = 300)

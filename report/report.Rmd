@@ -208,9 +208,9 @@ The mean OM measurements can be summarised as follows: \n")
   sink()
 }
 } else { # if txt_file already exists just source it
-  message(paste0('\n\nAn executive summary for this site already exists. Using the file "', txt_file, '" in the "report" directory.',
-                 '\n- To add comments, open the txt file, modify its content, and generate the report again.',
-                 '\n- To create a new auto-generated executive summary for this site, please delete the txt file.\n'))
+  message(paste0('\n\n❗ An executive summary for this site already exists. Using the file "', txt_file, '" in the "report" directory.',
+                 '\n  - To add comments, open the txt file, modify its content, and generate the report again.',
+                 '\n  - To create a new auto-generated executive summary for this site, please delete the txt file.\n'))
 }
 
 cat(readLines(txt_path), sep = "\n")
@@ -256,7 +256,7 @@ if(length(soil_types > 0)) {
     unlist() %>%
     cat(., sep = '\n')
 } else {
-  message("\n**Soil results not reported. Either no soil data or an error occured.**\n")
+  message("\n❗ Soil results not reported. Either no soil data or an error occured.\n")
 }
 ```
 
@@ -276,7 +276,7 @@ if(length(om_types > 0)) { # So the section only shows up if there are OM result
     unlist() %>%
     cat(., sep = '\n')
 } else {
-  message("\n**OM results not reported. Either no OM data or an error occured.**\n")
+  message("\n❗ OM results not reported. Either no OM data or an error occured.\n")
 }
 ```
 
@@ -315,6 +315,6 @@ if(length(water_types > 0)) { # So the section only shows up if there are Water 
     unlist() %>%
     cat(., sep = '\n')
 } else {
-  message("\n**Water results not reported. Either no water data or an error occured.**\n")
+  message("\n❗ Water results not reported. Either no water data or an error occured.\n")
 }
 ```

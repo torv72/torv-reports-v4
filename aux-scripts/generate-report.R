@@ -4,9 +4,9 @@ generate_report <- function(.site_name,
                             .date_sample_submitted,
                             .start_date,
                             .end_date = NULL,
+                            .om_seasons = "all",
                             .warm_or_cool,
                             .acid_extract,
-                            .om_seasons = "all",
                             .include_results_interpretation,
                             .draw_beeswarm = "Yes",
                             .typeface = "Sofia Sans",
@@ -158,35 +158,27 @@ generate_report <- function(.site_name,
     quiet_reporting <- FALSE
     
     filename <- paste0("TORV-report_",
-                        gsub(" ", "-", input_params$site_name),
-                        "_", input_params$date_sample_submitted)
+                       gsub(" ", "-", input_params$site_name),
+                       "_", input_params$date_sample_submitted)
     
     filename_pdf <- paste0(filename, ".pdf")
     filename_html <- paste0(filename, ".html")
 
     if(output_pdf & file.exists(here::here("generated-reports", filename_pdf))) {
 
-      message("\nThere is already a report called ", filename_pdf, "\nin the generated-reports folder!")
+      message("\n❗ There is already a report called ", filename_pdf, "\nin the generated-reports folder!\n\n❓ Do you want to overwrite it?")
 
-      overwrite <- readline("Do you want to overwrite it? Type y for yes or any other letter to exit and hit ENTER.")
+      overwrite <- readline("Type y for yes or any other letter to exit and hit ENTER.")
 
-      if(overwrite == "y") {
-        message("Great, thanks! Always good to make sure!")
-      } else {
-        stop("Ok, I'll exit now. Phew!")
-      }
+      if(overwrite == "n") stop("\n❌ Ok, I'll exit now. Phew!")
     }
     if(output_html & file.exists(here::here("generated-reports", filename_html))) {
       
-      message("\nThere is already a report called ", filename_html, "\nin the generated-reports folder!")
+      message("\n❗ There is already a report called ", filename_html, "in the generated-reports folder!\n\n❓ Do you want to overwrite it?")
       
-      overwrite <- readline("Do you want to overwrite it? Type y for yes or any other letter to exit and hit ENTER.")
+      overwrite <- readline("Type y for yes or any other letter to exit and hit ENTER.")
       
-      if(overwrite == "y") {
-        message("Great, thanks! Always good to make sure!")
-      } else {
-        stop("Ok, I'll exit now. Phew!")
-      }
+      if(overwrite == "n") stop("\n❌ Ok, I'll exit now. Phew!")
     }
   } else {
     # Keep only test output in console when running tests
