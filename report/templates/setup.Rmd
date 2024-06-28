@@ -344,7 +344,7 @@ om_types <<- om_types
 
 
 if(length(soil_types) == 0) {
-  message("\nI didn't find any soil types in the database.")
+  message("\n❗ I didn't find any soil types in the database.")
 } else {
   message(paste0("\nI found the following soil types in the database: ", 
                  paste(unique(soil_types), collapse = ", "),
@@ -352,7 +352,7 @@ if(length(soil_types) == 0) {
 }
 
 if(length(water_types) == 0) {
-  message("I didn't find any water types in the database.")
+  message("❗ I didn't find any water types in the database.")
 } else {
   message(paste0("I found the following water types in the database: ", 
                  paste(unique(water_types), collapse = ", "),
@@ -476,4 +476,6 @@ if(length(soil_types > 0)){
   source(here("aux-scripts", "deficit-tables.R"))
   source(here("aux-scripts", "soil-text-automation.R"))
 }
+
+message("\n\n💪 Perfect, we're all set up! I'll compile the rest of the report now, wait a moment.\n\n\n")
 ```
