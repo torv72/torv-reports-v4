@@ -23,8 +23,8 @@ if(testing_report == "No") { # Removes the need to type in values in order to ru
     if (happy_with_input == "y") {
       grass_max_n_per_month_per_1000sqft[["GREEN"]] <- .5
       grass_max_n_per_month_per_1000sqft[["TEE"]] <- .5
-      grass_max_n_per_month_per_1000sqft[["FAIRWAY"]] <- .5
-      grass_max_n_per_month_per_1000sqft[["ROUGH"]] <- .5
+      grass_max_n_per_month_per_1000sqft[["ROUGH"]] <- .7
+      grass_max_n_per_month_per_1000sqft[["FAIRWAY"]] <- .7
       
       message("\n✅ Great, I'll use these default values: ",
               paste0(gsub("list\\(|\\)", "", list(grass_max_n_per_month_per_1000sqft[soil_types]))), ".\n")
