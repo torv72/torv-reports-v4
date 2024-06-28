@@ -102,7 +102,7 @@ all_om_data <-
     month %in% 3:5 ~ "Spring",
     month %in% 6:8 ~ "Summer",
     month %in% 9:11 ~ "Autumn",
-    month %in% c(1, 2, 12) ~ "Winter",
+    month %in% c(1, 2, 12) ~ "Winter"
   )) %>%
   filter(season %in% om_seasons)
 
