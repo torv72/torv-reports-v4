@@ -76,9 +76,12 @@ if (!file.exists(txt_path)) {
 
 ### [", str_to_title(soil_type), "](#", str_to_lower(soil_type), "-1)", sep = "")
       
+      cat("
+      
+* All calculations are based on a monthly maximum of", grass_max_n_per_month_per_1000sqft[[soil_type]], "lbs of N/M.", sep = " ")
+      
       # Including the Nitrogen value regardless of flag status as the rest all depend on this
       cat("
-          
 * ", filter(measurement_commentaries,
               sample_description_number_1 == soil_type &
                 measurement_name == "Total Nitrogen (ppm)") %>%
