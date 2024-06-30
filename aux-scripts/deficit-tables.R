@@ -10,9 +10,9 @@ if(testing_report == "No") { # Removes the need to type in values in order to ru
   message("\n\nI found analyses for the following types of soil in the database: ",
           paste0(soil_types, collapse = ", "), ".")
   
-  if (all(soil_types %in% c("GREEN", "TEE", "FAIRWAY", "ROUGH"))) {
+  if (all(soil_types %in% c("GREEN", "TEE", "FAIRWAY", "ROUGH"))) { # check if uncommon soil types are included in the data
     
-    message("\n❓ Do you want to use the default Grass Maximum N/month lb/1000 sq ft values?")
+    message("\n❓ Do you want to use the default Grass Maximum N/month lb/1000 sq ft values for the deficit tables?")
     happy_with_input <- readline("Type y for yes or n for no and hit ENTER: ")
     
     while(!happy_with_input %in% c("y", "n")) {
@@ -23,47 +23,40 @@ if(testing_report == "No") { # Removes the need to type in values in order to ru
     if (happy_with_input == "y") {
       grass_max_n_per_month_per_1000sqft[["GREEN"]] <- .5
       grass_max_n_per_month_per_1000sqft[["TEE"]] <- .5
-      grass_max_n_per_month_per_1000sqft[["FAIRWAY"]] <- .5
-      grass_max_n_per_month_per_1000sqft[["ROUGH"]] <- .5
+      grass_max_n_per_month_per_1000sqft[["ROUGH"]] <- .7
+      grass_max_n_per_month_per_1000sqft[["FAIRWAY"]] <- .7
       
-      message("\n✅ Using the following default values: ",
-              paste0(gsub("list\\(|\\)", "", list(grass_max_n_per_month_per_1000sqft[soil_types]))),
-              "\n")
+      message("\n✅ Great, I'll use these default values: ",
+              paste0(gsub("list\\(|\\)", "", list(grass_max_n_per_month_per_1000sqft[soil_types]))), ".\n")
     }
   } 
   
-  while(happy_with_input == "n") {
+  while (happy_with_input == "n") {
     #message("\n\nI need some information from you in order to compile the MLSN deficit tables.")
     
-    if (!all(soil_types %in% c("GREEN", "TEE", "FAIRWAY", "ROUGH")) | happy_with_input == "n") {
+    message("\n❓ Please specify the custom value for each soil type (e.g. 0.85) and hit ENTER.")
+  
+    for (soil_type in soil_types){
 
-      message("\n❓ Please specify the custom value for each soil type (e.g. 0.85) and hit ENTER.")
-  
-      for(soil_type in soil_types){
-  
-        grass_max_n_per_month_per_1000sqft[[soil_type]] <- as.numeric(
-          readline(paste0("What is the value for soil type ", soil_type, "?   ")))
-      }
-  
-      message("\nYou have provided the following values: ",
-              paste0(gsub("list\\(|\\)", "", list(grass_max_n_per_month_per_1000sqft)), ".\n\n"),
-              "❓ Are these correct?")
-
-      
-      happy_with_input <- readline("Type y for yes or n for no and hit ENTER: ")
+      grass_max_n_per_month_per_1000sqft[[soil_type]] <- as.numeric(
+        readline(paste0("What is the value for soil type ", soil_type, "?   ")))
     }
 
-    while(!happy_with_input %in% c("y", "n")) {
-      message("\n\n❌ Sorry, I didn't understand your answer.\n")
-      happy_with_input <- readline("Please type y for yes or n for no and hit ENTER: ")
-    }
+    message("\nYou have provided the following values: ",
+            paste0(gsub("list\\(|\\)", "", list(grass_max_n_per_month_per_1000sqft)), ".\n\n"),
+            "❓ Are these correct?")
 
-    if(happy_with_input == "n") {
-      message("\n🔁 No problem, let's try that again!")
-    } else{
-      message("\n\n✅ Great, I'll compile the rest of the report!\n\n")
-    }
+    
+    happy_with_input <- readline("Type y for yes or n for no and hit ENTER: ")
   }
+
+  while (!happy_with_input %in% c("y", "n")) {
+    message("\n\n❌ Sorry, I didn't understand your answer.\n")
+    happy_with_input <- readline("Please type y for yes or n for no and hit ENTER: ")
+  }
+
+  if (happy_with_input == "n") message("\n🔁 No problem, let's try that again!")
+  
 } else if(testing_report == "MC_202106") {
 
   grass_max_n_per_month_per_1000sqft <- list(GREEN = .8,

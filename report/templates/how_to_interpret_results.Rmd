@@ -1,5 +1,5 @@
 
-```{r how_to_header}
+```{r how_to_header, out.width="900px"}
 header_file_create("None", "How to interpret these results")
 knitr::include_graphics(here(root_figure_location, "headers", "none_testing_how_to_interpret_these_results_plot.png"))
 ```

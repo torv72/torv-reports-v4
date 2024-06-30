@@ -274,3 +274,7 @@ cat('
 </details>',
   '<br>', sep = "\n")
 ```
+
+```{r, results='asis', include=!html}
+cat('\\par → [How to read this chart](#how-to-read)')
+```
