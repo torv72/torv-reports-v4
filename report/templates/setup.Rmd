@@ -3,7 +3,11 @@
 ```{r libraries, include=FALSE, message=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = NA, dev = "ragg_png", dpi = 300)
 
-library(tidyverse) 
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(ggplot2)
+library(purrr)
 library(here) 
 library(systemfonts)
 library(lubridate)
@@ -109,51 +113,51 @@ make_trendline_legend <- function(main_color, average_label = "Historic average"
   legend_plot_data <- tibble(year = stable_year_range, avg_measurement_result = c(2.15, 2.5, 2.4))
   torv_avg <- 2.2
   
-  legend_plot_points <- tibble(year = rep(stable_year_range, each = 5),
-                               measurement_result = c(
-                                 2, 2.05, 2.2, 2.2, 2.3, 
-                                 2.15, 2.45, 2.45, 2.55, 2.9,
-                                 2.2, 2.35, 2.35, 2.35, 2.75
-                               ))
-  
-  legend_plot_data %>%
-    ggplot(aes(x = lubridate::as_date(lubridate::date_decimal(stable_year_range)), y = avg_measurement_result)) +
-    geomtextpath::geom_textpath(
+  legend_plot_points <- tibble(
+    year = rep(stable_year_range, each = 5),
+    measurement_result = c(
+      2, 2.05, 2.2, 2.2, 2.3, 
+      2.15, 2.45, 2.45, 2.55, 2.9,
+      2.2, 2.35, 2.35, 2.35, 2.75
+   ))
+
+  ggplot(legend_plot_data,
+         aes(x = lubridate::as_date(lubridate::date_decimal(stable_year_range)), 
+             y = avg_measurement_result)) +
+    
+    ## trend line
+    geom_smooth(
       data = legend_plot_points,
       aes(y = measurement_result,
-          x = lubridate::as_date(lubridate::date_decimal(year)),
-          label = "Trend"),
-      stat = "smooth", method = "lm", formula = y ~ x, se = FALSE, 
-      linewidth = .8, color = "#8F51C0", alpha = .8, size = 7/.pt, family = typeface
+          x = lubridate::as_date(lubridate::date_decimal(year))),
+      method = "lm", formula = y ~ x, se = FALSE, 
+      linewidth = .8, color = "#8F51C0", alpha = .8
     ) + 
+    geom_label(
+      data = legend_plot_points,
+      aes(x = lubridate::as_date("2021-01-01"), y = 2.35, label = "Trend"), 
+      family = typeface, color = "#8F51C0", size = 7/.pt, label.size = 0, angle = 10, stat = "unique"
+    ) +
+    
+    ## all measurements 
     { if(draw_beeswarm)
-      ## raw measurements as beeswarms to avoid overlaps (varied around x)
+      ## as beeswarms to avoid overlaps (varied around x)
       ggbeeswarm::geom_beeswarm(
         data = legend_plot_points,
-        aes(x = rep(lubridate::as_date(lubridate::date_decimal(stable_year_range)), each = 5), y = measurement_result),
+        aes(x = rep(lubridate::as_date(lubridate::date_decimal(stable_year_range)), each = 5), 
+            y = measurement_result),
         shape = 21, color = "transparent", fill = torv_gray, size = 1, alpha = .35, cex = 2
       )
     } +
     { if(!draw_beeswarm)
-      ## raw measurements as dot strips (centered x)
+      ## as dot strips (centered x)
       geom_point(
         data = legend_plot_points,
-        aes(x = rep(lubridate::as_date(lubridate::date_decimal(stable_year_range)), each = 5), y = measurement_result),
+        aes(x = rep(lubridate::as_date(lubridate::date_decimal(stable_year_range)), each = 5), 
+            y = measurement_result),
         shape = 21, color = "transparent", fill = torv_gray, size = 1.3, alpha = .25
       )
     } +
-    geom_line(
-      color = prismatic::clr_lighten(main_color, .3), linewidth = .6, linetype = "solid", alpha = .65 
-    ) +
-    geom_point(
-      color = main_color, size = 1.6, 
-      shape = 21, fill = "white", stroke = .8
-    ) +
-    geomtextpath::geom_textpath(
-      aes(y = torv_avg, label = average_label), 
-      linetype = "21", linewidth = .5, 
-      family = typeface, color = torv_gray, size = 7/.pt
-    ) +
     annotate(
       geom = "text", 
       x = lubridate::as_date("2021-10-01"), y = 2.95,
@@ -167,6 +171,16 @@ make_trendline_legend <- function(main_color, average_label = "Historic average"
       curvature = -.2, 
       arrow = arrow(length = unit(1.2, "mm"), type = "closed"),
       color = prismatic::clr_lighten(torv_gray, .6)
+    ) +
+    
+    ## average measurements
+    geom_line(
+      color = prismatic::clr_lighten(main_color, .3), 
+      linewidth = .6, linetype = "solid", alpha = .65 
+    ) +
+    geom_point(
+      color = main_color, size = 1.6, 
+      shape = 21, fill = "white", stroke = .8
     ) +
     annotate(
       geom = "text", 
@@ -182,6 +196,17 @@ make_trendline_legend <- function(main_color, average_label = "Historic average"
       arrow = arrow(length = unit(1.2, "mm"), type = "closed"),
       color = prismatic::clr_lighten(main_color, .6)
     ) +
+    
+    ## historic average
+    geom_line(
+      aes(y = torv_avg), 
+      linetype = "21", linewidth = .5, color = torv_gray
+    ) +
+    geom_label(aes(x = lubridate::as_date("2021-01-01"), y = torv_avg, label = average_label), 
+      family = typeface, color = torv_gray, size = 7/.pt, label.size = 0, stat = "unique"
+    ) +
+    
+    ## styling
     coord_cartesian(clip = "off") +
     scale_x_date(expand = c(0, 0)) +
     scale_y_continuous(limits = c(2, 3), expand = expansion(mult = c(.025, .025))) +
@@ -190,8 +215,7 @@ make_trendline_legend <- function(main_color, average_label = "Historic average"
       plot.title = element_text(size = 10, color = "grey50", family = typeface),
       axis.text = element_blank(),
       axis.title = element_text(size = 7.5),
-      plot.margin = margin(6, 12, 12, 6), ## without repeated labels
-      #plot.margin = margin(rep(12, 4)), ## with repeated labels
+      plot.margin = margin(6, 12, 12, 6),
       panel.grid.major.x = element_blank()
     )
 }
@@ -280,7 +304,7 @@ if(nrow(filtered_database) == 0){
               \nPlease ensure your database is up to date and check for typos before trying again."))
 }
 
-monthly_normals <- read_rds(here("data", "monthly_normals_2010.rds"))
+monthly_normals <- readRDS(here("data", "monthly_normals_2010.rds"))
 
 # Check additional YAML variables
 if(!tolower(input_params$acid_extract) %in% c("mehlich", "olsen")) {
@@ -377,7 +401,6 @@ if(testing_report == "No") {
 
 ```{r header-file-creator}
 # possible sampletypes: soil, water, turf
-
 header_file_create <<- function(sampletype, title, trends = FALSE) {
   clean_sampletype <- str_to_lower(sampletype)
   if (trends == FALSE) {
@@ -421,7 +444,8 @@ header_file_create <<- function(sampletype, title, trends = FALSE) {
   r <- 0.5
   
   header_plot <- ggplot() +
-    ggforce::geom_circle(aes(x0 = 0, y0 = 0, r = r), fill = col, color = NA) +
+    #ggforce::geom_circle(aes(x0 = 0, y0 = 0, r = r), fill = col, color = NA) +
+    geom_point(aes(x = 0, y = 0), color = col, size = 17) +
     annotation_custom(sym.grob, xmin = -0.5, xmax = 0.5, ymin = -0.5, ymax = 0.5) +
     annotate(
       "text", x = r + 0.5, y = 0, hjust = 0,
@@ -450,10 +474,12 @@ header_file_create <<- function(sampletype, title, trends = FALSE) {
 
 ```{r station-data}
 # retrieve temperatures
-zipcode_geometry <- tigris::zctas(cb = TRUE, 
-                                  starts_with = input_params$zip_code, 
-                                  progress_bar = FALSE,
-                                  year = 2019) # retrieve border of zip code (from census)
+zipcode_geometry <- tigris::zctas(
+  cb = TRUE, 
+  starts_with = input_params$zip_code, 
+  progress_bar = FALSE,
+  year = 2019 # retrieve border of zip code (from census)
+)
 
 nearest_station_index <- zipcode_geometry %>% 
   sf::st_transform(crs = 4326) %>% 

@@ -1,10 +1,17 @@
 
 # Add commentary for OM measurements ----
 
-om_no_additional_analyses_commentary <- read_lines(here::here("aux-scripts/om-no-additional-analyses.txt"))
+om_no_additional_analyses_commentary <- readLines(here::here("aux-scripts/om-no-additional-analyses.txt"))
 
 # Only add OM commentary if there are OM measurements in this report
-if(length(unique(all_om_data$date_sample_submitted)) == 1) {
+
+# TODO: We need to check unique sample dates per type here, don't we? (cf. "Spring" not working for Sonnenalp)
+sample_dates_per_type <- 
+  all_om_data %>% 
+  summarize(n = length(unique(date_sample_submitted)), .by = sample_description_number_2) %>%
+  summarize(n = mean(n))
+
+if(sample_dates_per_type$n == 1) {
 
   all_om_data_comms <- 
     all_om_longitudinal_table %>%
@@ -22,13 +29,14 @@ if(length(unique(all_om_data$date_sample_submitted)) == 1) {
 
 
   # If there is only one OM measurement, read in text about benefits of repeating the measurement
-  om_single_measure_commentary <- read_lines(here::here("aux-scripts/om-single-test-summary.txt"))
+  om_single_measure_commentary <- readLines(here::here("aux-scripts/om-single-test-summary.txt"))
 
 } else {
 
   all_om_data_comms <- all_om_longitudinal_table %>%
     group_by(sample_description_number_2, depth) %>%
     mutate(date_rank = paste0("date_", rank(date_sample_submitted))) %>%
+    ## TODO: Check with Eric what's going on here (cf. "Spring" not working for Sonnenalp)
     pivot_wider(names_from = date_rank, values_from = c(sample_description_number_2, date_sample_submitted, depth, avg_measurement_result)) %>%
     mutate(reference_only = case_when(date_sample_submitted_date_2 == max(date_sample_submitted_date_2, na.rm = TRUE) ~ "",
                                       is.na(date_sample_submitted_date_2) ~ "",
