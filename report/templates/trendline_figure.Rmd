@@ -205,8 +205,7 @@ plot_test_trend <- function(plot_measurement, is_first, draw_beeswarm = beeswarm
       axis.title = element_blank(),
       axis.text.x = element_text(size = 7.5, margin = margin(t = 2), color = torv_gray),
       axis.text.y = element_text(size = 7.5, margin = margin(r = 4), color = torv_gray),
-      #plot.margin = margin(6, 12, 12, 6), ## without repeated labels
-      plot.margin = margin(3, 9, 6, 9), ## with repeated labels
+      plot.margin = margin(3, 9, 6, 9),
       panel.grid.major.x = element_blank()
     )
 
