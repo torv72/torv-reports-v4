@@ -33,7 +33,7 @@ knitr::knit("templates/setup.Rmd")
 knitr::include_graphics(here("report", "assets", "torv-logo-wide.png"))
 ```
 
-```{r, results='asis', include=!html}
+```{r header-pdf, results='asis', include=!html}
 cat(
   "\\bigskip  \\bigskip  \\begin{center}\\Large \\textbf{Report for ", 
   input_params$site_name, 
