@@ -15,6 +15,8 @@ if(sample_dates_per_type$n == 1) {
 
   all_om_data_comms <- 
     all_om_longitudinal_table %>%
+    ## TODO: I think here's where we need to check for each type: if the date_sample_submitted is similar to the max date **overall**
+    ##       the comment needs to be included. Not changing it as I am unsure if the check (l. 21) needs to be done per sample_description_number_2 x depth?
     group_by(sample_description_number_2, depth) %>%
     mutate(reference_only = case_when(date_sample_submitted == max(date_sample_submitted) ~ "",
                                       TRUE ~ "for reference")) %>%
