@@ -194,7 +194,7 @@ generate_report <- function(.site_name,
       quiet = quiet_reporting,
       output_file = here::here("generated-reports", filename_html),
       output_format = "tufte_html",
-      output_options = list(css = "theme/style.css", self_contained = TRUE),
+      output_options = list(css = "theme/style.css", embed_resources = TRUE),
       params = list(html = TRUE)
     )
   } 
