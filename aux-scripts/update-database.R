@@ -2,20 +2,24 @@
 # Create and load the function
 update_database <- function(.test = FALSE) {
 
-  library(tidyverse)
+  library(dplyr)
+  library(tidyr)
+  library(purrr)
   library(readxl)
+  library(writexl)
   library(janitor)
   library(here)
   library(glue)
   library(lubridate)
+  library(patchwork)
 
   # Add flexibility for tests
   if(.test == TRUE) {
-    master_database_file <- here::here("tests/test-master-database/", "MASTER_DATABASE.xlsx")
-    raw_files_location <- here::here("tests/test-lab-data/")
+    master_database_file <- here("tests/test-master-database/", "MASTER_DATABASE.xlsx")
+    raw_files_location <- here("tests/test-lab-data/")
   } else {
-    master_database_file <- here::here("data", "MASTER_DATABASE.xlsx")
-    raw_files_location <- here::here("data-raw/lab-reports/")
+    master_database_file <- here("data", "MASTER_DATABASE.xlsx")
+    raw_files_location <- here("data-raw/lab-reports/")
   }
 
   # Read in manually compiled database ----------------------------
@@ -45,21 +49,21 @@ update_database <- function(.test = FALSE) {
     clean_names() # make names r friendly
 
   # Read in site codes ----
-  client_codes <- readxl::read_excel(here("data", "code_book.xlsx"),
-                                     sheet = "client_list") %>%
+  client_codes <- read_excel(here("data", "code_book.xlsx"),
+                             sheet = "client_list") %>%
     clean_names() %>%
     mutate(client_number = as.character(client_number))
 
-  site_codes <- readxl::read_excel(here("data", "code_book.xlsx"),
-                                     sheet = "site_codes") %>%
+  site_codes <- read_excel(here("data", "code_book.xlsx"),
+                           sheet = "site_codes") %>%
     clean_names()
 
-  test_codes <- readxl::read_excel(here("data", "code_book.xlsx"),
-                                   sheet = "catalog") %>%
+  test_codes <- read_excel(here("data", "code_book.xlsx"),
+                           sheet = "catalog") %>%
     clean_names()
 
-  measurement_codes <- readxl::read_excel(here("data", "code_book.xlsx"),
-                                          sheet = "measurement_names") %>%
+  measurement_codes <- read_excel(here("data", "code_book.xlsx"),
+                                  sheet = "measurement_names") %>%
     clean_names()
 
   # Set up functions and empty list to use later ----
@@ -77,7 +81,7 @@ update_database <- function(.test = FALSE) {
   # Get file names in lab-reports folder ----------------------------
   raw_data_list <- grep("xls",
                         list.files(raw_files_location),
-                        value = T) %>%
+                        value = TRUE) %>%
     data.frame(file_name = .)
 
   if(.test == TRUE){
@@ -290,7 +294,7 @@ I will therefore not create a new MASTER_DATABASE_UPDATED_[date].xlsx.")
 
   if(.test != TRUE) {
     if(nrow(duplicates != 0)) {
-      write.csv(duplicates, row.names = F, here::here("data/duplicates.csv"))
+      write.csv(duplicates, row.names = F, here("data/duplicates.csv"))
 
       message("*** \nI found duplicate rows in the following files and have removed them.
 Only the unique rows of data from those files have been kept and added to the database.")
@@ -446,8 +450,7 @@ to confirm these were indeed duplicates.
 
   } else {
 
-    writexl::write_xlsx(updated_database, here("data",
-                                               paste0("MASTER_DATABASE_UPDATED_", Sys.Date(), ".xlsx")))
+    write_xlsx(updated_database, here("data", paste0("MASTER_DATABASE_UPDATED_", Sys.Date(), ".xlsx")))
 
     message("\n\n***",
             "\nI have finished updating the database!",

@@ -232,7 +232,7 @@ knitr::include_graphics(here(root_figure_location, "headers", "turf_testing_grow
 ```
 
 ```{r turf-growth-rds, eval=length(soil_types) > 0, include=FALSE}
-if (html) readRDS(here("report", "figures", "growth_potential_plot.Rds")) else knitr::include_graphics(here::here("report", "figures", "monthly_growth_potential_plot.png"))
+if (html) readRDS(here("report", "figures", "growth_potential_plot.Rds")) else knitr::include_graphics(here("report", "figures", "monthly_growth_potential_plot.png"))
 ```
 
 ```{r turf-growth-text, eval=(length(soil_types) > 0), results='asis'}

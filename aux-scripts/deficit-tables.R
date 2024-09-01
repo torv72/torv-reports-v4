@@ -423,7 +423,7 @@ create_deficits_graph <- function(soil_type) {
           axis.text.x.top = ggtext::element_markdown(color = torv_gray, family = typeface),
           panel.spacing = unit(.75, "lines"))
 
-  ggsave(here::here(root_figure_location, "soil_testing", glue::glue("MLSN_deficits_{soil_type}_plot.png")),
+  ggsave(here(root_figure_location, "soil_testing", glue::glue("MLSN_deficits_{soil_type}_plot.png")),
          deficit_graph, width = 6.5, height = 5.5, bg = "#FFFFFF", dpi = 300)
 }
 

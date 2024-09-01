@@ -1,6 +1,6 @@
 # Run all the tests in one go
 
-source(here::here("aux-scripts/generate-report.R"))
+source(here("aux-scripts/generate-report.R"))
 
 generate_report_args <- list("MC_202106" = list(.test = "MC_202106"),
                              "MC_202108" = list(.test = "MC_202108"),
