@@ -219,6 +219,23 @@ The mean OM measurements can be summarised as follows: \n")
 cat(readLines(txt_path), sep = "\n")
 ```
 
+```{r liability-html, results='asis', include=html}
+cat(
+  "<b style='font-size:1.05em;font-style:italic;color:#6d6d6d;'>Liability Waiver</b>",
+  "<i style='font-size:.9em;line-height:.8;color:#6d6d6d;'>The recommendations provided in this report are based on current industry standards and site-specific conditions. They are advisory in nature and should be implemented at the client's discretion. The consultant disclaims any liability for outcomes resulting from the application of this advice. Clients are encouraged to seek additional professional input and consider all relevant factors before proceeding with any changes. By using this report, the client acknowledges that they have read, understood, and agreed to these terms, and that they are solely responsible for any decisions made based on these recommendations.</i>",
+  sep = "<br>"
+)
+```
+
+
+```{r liability-pdf, results='asis', include=!html}
+cat(
+  "\\small \\textbf{\\emph{Liability Waiver}}",
+  "\\par \\footnotesize \\emph{The recommendations provided in this report are based on current industry standards and site-specific conditions. They are advisory in nature and should be implemented at the client's discretion. The consultant disclaims any liability for outcomes resulting from the application of this advice. Clients are encouraged to seek additional professional input and consider all relevant factors before proceeding with any changes. By using this report, the client acknowledges that they have read, understood, and agreed to these terms, and that they are solely responsible for any decisions made based on these recommendations.}",
+  sep = ""
+)
+```
+
 \newpage
 
 ## Turf Growth Potential Model
