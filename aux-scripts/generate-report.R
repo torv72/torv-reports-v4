@@ -30,6 +30,27 @@ generate_report <- function(.site_name,
                       "test_report", "generate_report_args")),
      pos = ".GlobalEnv")
 
+  # Import packages
+  library(dplyr)
+  library(tidyr)
+  library(stringr)
+  library(ggplot2)
+  library(purrr)
+  library(vroom)
+  library(rvest)
+  library(janitor)
+  library(here) 
+  library(sf)
+  library(systemfonts)
+  library(lubridate)
+  library(glue)
+  library(patchwork) 
+  library(flextable)
+  library(ggiraph)
+  
+  options(tigris_use_cache = TRUE)
+  options(dplyr.summarise.inform = FALSE)
+  
   # Export to global Env so can be used by other scripts
   testing_report <<- .test
   beeswarm <<- ifelse(.draw_beeswarm == "Yes", TRUE, FALSE)

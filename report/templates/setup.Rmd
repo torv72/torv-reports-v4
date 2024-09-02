@@ -2,27 +2,6 @@
 
 ```{r libraries, include=FALSE, message=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = NA, dev = "ragg_png", dpi = 300)
-
-library(dplyr)
-library(tidyr)
-library(stringr)
-library(ggplot2)
-library(purrr)
-library(vroom)
-library(rvest)
-library(janitor)
-library(here) 
-library(sf)
-library(systemfonts)
-library(lubridate)
-library(glue)
-library(patchwork) 
-library(flextable)
-library(ggiraph)
-
-
-options(tigris_use_cache = TRUE)
-options(dplyr.summarise.inform = FALSE)
 ```
 
 ```{r variables-and-theme}
@@ -375,7 +354,7 @@ om_types <<- om_types
 if(length(soil_types) == 0) {
   message("\n❗ I didn't find any soil types in the database.")
 } else {
-  message(paste0("\nI found the following soil types in the database: ", 
+  message(paste0("\n🗂️ I found the following soil types in the database: ", 
                  paste(unique(soil_types), collapse = ", "),
                  ".")) 
 }
@@ -383,7 +362,7 @@ if(length(soil_types) == 0) {
 if(length(water_types) == 0) {
   message("❗ I didn't find any water types in the database.")
 } else {
-  message(paste0("I found the following water types in the database: ", 
+  message(paste0("🗂️ I found the following water types in the database: ", 
                  paste(unique(water_types), collapse = ", "),
                  "."))
 }
@@ -391,7 +370,7 @@ if(length(water_types) == 0) {
 if(length(om_types) == 0) {
   message("❗ I didn't find any OM types in the database.")
 } else {
-  message(paste0("I found the following OM types in the database: ", 
+  message(paste0("🗂️ I found the following OM types in the database: ", 
                  paste(unique(om_types), collapse = ", "),
                  "."))
 }

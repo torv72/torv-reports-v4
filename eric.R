@@ -24,14 +24,14 @@
 # correct them.
 
 # Make sure you don't have the file open, or you'll get a "permission denied" error.
-source(here("aux-scripts/update-database.R"))
+source(here::here("aux-scripts/update-database.R"))
 
 
 # Generate Reports --------------------------------------------------------
 
 # Run this code to generate reports ...
 # First, source this file to load the generate_report() function into the environment.
-source(here("aux-scripts/generate-report.R"))
+source(here::here("aux-scripts/generate-report.R"))
 
 # Then run the function, giving it the arguments it needs. This approach means you never
 # need to edit the YAML in the report.Rmd file. We have provided an example below, so that
