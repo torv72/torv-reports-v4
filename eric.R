@@ -43,9 +43,9 @@ source(here::here("aux-scripts/generate-report.R"))
 # the git history cleaner. Once you have completed the arguments in the console, hit ENTER.
 
 # Here's an example:
-generate_report(.site_name = "Sonnenalp Golf Club",
+generate_report(.site_name = "Maroon Creek Club",
                 .zip_code = 81611,
-                .date_sample_submitted = "2024-04-30",
+                .date_sample_submitted = "2024-06-06",
                 .start_date = "2007-01-01",
                 .om_seasons = "Spring",
                 .warm_or_cool = "cool",
