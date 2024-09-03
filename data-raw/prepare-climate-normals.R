@@ -1,9 +1,3 @@
-library(here)
-library(vroom)
-library(sf)
-library(tidyverse)
-library(rvest)
-library(janitor)
 
 # data retrieved from https://www.ncei.noaa.gov/data/normals-monthly/1991-2020/archive/
 mly_normal_all_all <- vroom(file = "data-raw/mly-normal-allall.csv")

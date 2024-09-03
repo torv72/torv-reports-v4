@@ -219,6 +219,23 @@ The mean OM measurements can be summarised as follows: \n")
 cat(readLines(txt_path), sep = "\n")
 ```
 
+```{r liability-html, results='asis', include=html}
+cat(
+  "<b style='font-size:1.05em;font-style:italic;color:#6d6d6d;'>Liability Waiver</b>",
+  "<i style='font-size:.9em;line-height:.8;color:#6d6d6d;'>The recommendations provided in this report are based on current industry standards and site-specific conditions. They are advisory in nature and should be implemented at the client's discretion. The consultant disclaims any liability for outcomes resulting from the application of this advice. Clients are encouraged to seek additional professional input and consider all relevant factors before proceeding with any changes. By using this report, the client acknowledges that they have read, understood, and agreed to these terms, and that they are solely responsible for any decisions made based on these recommendations.</i>",
+  sep = "<br>"
+)
+```
+
+
+```{r liability-pdf, results='asis', include=!html}
+cat(
+  "\\small \\textbf{\\emph{Liability Waiver}}",
+  "\\par \\footnotesize \\emph{The recommendations provided in this report are based on current industry standards and site-specific conditions. They are advisory in nature and should be implemented at the client's discretion. The consultant disclaims any liability for outcomes resulting from the application of this advice. Clients are encouraged to seek additional professional input and consider all relevant factors before proceeding with any changes. By using this report, the client acknowledges that they have read, understood, and agreed to these terms, and that they are solely responsible for any decisions made based on these recommendations.}",
+  sep = ""
+)
+```
+
 \newpage
 
 ## Turf Growth Potential Model
@@ -232,7 +249,7 @@ knitr::include_graphics(here(root_figure_location, "headers", "turf_testing_grow
 ```
 
 ```{r turf-growth-rds, eval=length(soil_types) > 0, include=FALSE}
-if (html) readRDS(here("report", "figures", "growth_potential_plot.Rds")) else knitr::include_graphics(here::here("report", "figures", "monthly_growth_potential_plot.png"))
+if (html) readRDS(here("report", "figures", "growth_potential_plot.Rds")) else knitr::include_graphics(here("report", "figures", "monthly_growth_potential_plot.png"))
 ```
 
 ```{r turf-growth-text, eval=(length(soil_types) > 0), results='asis'}
@@ -280,6 +297,20 @@ if(length(om_types > 0)) { # So the section only shows up if there are OM result
     cat(., sep = '\n')
 } else {
   message("\n\n❗ OM results not reported. Either no OM data or an error occured.\n")
+}
+```
+
+
+## Sand Fraction Testing {#sand-fraction-testing}
+
+
+```{r sf-results, eval=input_params$include_sand_fraction, results='asis'}
+if(any(filtered_database$test_short_name == "S022")) { # So the section only shows up if there are SF results to report
+  knitr::knit_child("templates/sand_fraction_testing.Rmd", quiet = TRUE) %>%
+  unlist() %>%
+  cat(., sep = '\n')
+} else {
+  message("\n\n❗ SF results not reported. Either no SF data or an error occured.\n")
 }
 ```
 

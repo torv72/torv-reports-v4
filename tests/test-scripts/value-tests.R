@@ -1,7 +1,7 @@
 
 
 # Test that the values pulled into the report match the manually checked values
-load(here::here("tests", "test-reports", testing_report, "reference_data.RData"),
+load(here("tests", "test-reports", testing_report, "reference_data.RData"),
      envir = .GlobalEnv)
 
 for(tested_object in setdiff(

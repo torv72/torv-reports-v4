@@ -1,7 +1,7 @@
 
 # Test that the plots and stylised numbers produced by the report match the manually checked plots
 for(reference_png in grep("_ref.png",
-                          list.files(here::here("tests", "test-reports", testing_report),
+                          list.files(here("tests", "test-reports", testing_report),
                                      recursive = T, full.names = T),
                           value = T)) {
 

@@ -8,8 +8,9 @@ generate_report <- function(.site_name,
                             .warm_or_cool,
                             .acid_extract,
                             .include_results_interpretation,
+                            .include_sand_fraction,
                             .draw_beeswarm = "Yes",
-                            .typeface = "Sofia Sans",
+                            .typeface = "Georama",
                             .output = "html",
                             .test = "No") {
 
@@ -30,6 +31,27 @@ generate_report <- function(.site_name,
                       "test_report", "generate_report_args")),
      pos = ".GlobalEnv")
 
+  # Import packages
+  library(dplyr)
+  library(tidyr)
+  library(stringr)
+  library(ggplot2)
+  library(purrr)
+  library(vroom)
+  library(rvest)
+  library(janitor)
+  library(here) 
+  library(sf)
+  library(systemfonts)
+  library(lubridate)
+  library(glue)
+  library(patchwork) 
+  library(flextable)
+  library(ggiraph)
+  
+  options(tigris_use_cache = TRUE)
+  options(dplyr.summarise.inform = FALSE)
+  
   # Export to global Env so can be used by other scripts
   testing_report <<- .test
   beeswarm <<- ifelse(.draw_beeswarm == "Yes", TRUE, FALSE)
@@ -43,8 +65,8 @@ generate_report <- function(.site_name,
   figure_dirs <- c("headers", "organic_matter", "soil_testing", "trendlines", "water_testing")
   
   for (figure_dir in figure_dirs) {
-    if(!dir.exists(here::here("report", "figures", figure_dir))) {
-      dir.create(here::here("report", "figures", figure_dir), recursive = TRUE)
+    if(!dir.exists(here("report", "figures", figure_dir))) {
+      dir.create(here("report", "figures", figure_dir), recursive = TRUE)
     }
   }
   
@@ -59,7 +81,7 @@ generate_report <- function(.site_name,
   # Remove all the figures from report/figures for the same reason
   # Those are only temporary to get them into the word document
   file.remove(grep(".png", grep("_ref.png",
-                                list.files(here::here(root_figure_location), recursive = TRUE, full.names = TRUE),
+                                list.files(here(root_figure_location), recursive = TRUE, full.names = TRUE),
                                 value = TRUE, invert = TRUE), value = TRUE))
 
 
@@ -139,7 +161,8 @@ generate_report <- function(.site_name,
                          start_date = .start_date,
                          warm_or_cool = .warm_or_cool,
                          acid_extract = .acid_extract,
-                         include_results_interpretation = .include_results_interpretation)
+                         include_results_interpretation = .include_results_interpretation,
+                         include_sand_fraction = .include_sand_fraction)
   }
 
   # The default is for the end date to be the same as the sample date (so that we're not
@@ -164,7 +187,7 @@ generate_report <- function(.site_name,
     filename_pdf <- paste0(filename, ".pdf")
     filename_html <- paste0(filename, ".html")
 
-    if(output_pdf & file.exists(here::here("generated-reports", filename_pdf))) {
+    if(output_pdf & file.exists(here("generated-reports", filename_pdf))) {
 
       message("\n❗ There is already a report called ", filename_pdf, "\nin the generated-reports folder!\n\n❓ Do you want to overwrite it?")
 
@@ -172,7 +195,7 @@ generate_report <- function(.site_name,
 
       if(overwrite == "n") stop("\n❌ Ok, I'll exit now. Phew!")
     }
-    if(output_html & file.exists(here::here("generated-reports", filename_html))) {
+    if(output_html & file.exists(here("generated-reports", filename_html))) {
       
       message("\n❗ There is already a report called ", filename_html, "in the generated-reports folder!\n\n❓ Do you want to overwrite it?")
       
@@ -192,7 +215,7 @@ generate_report <- function(.site_name,
     rmarkdown::render(
       input = "report/report.Rmd",
       quiet = quiet_reporting,
-      output_file = here::here("generated-reports", filename_html),
+      output_file = here("generated-reports", filename_html),
       output_format = "tufte_html",
       output_options = list(css = "theme/style.css", embed_resources = TRUE),
       params = list(html = TRUE)
@@ -204,7 +227,7 @@ generate_report <- function(.site_name,
     rmarkdown::render(
       input = "report/report.Rmd",
       quiet = quiet_reporting,
-      output_file = here::here("generated-reports", filename_pdf),
+      output_file = here("generated-reports", filename_pdf),
       output_format = "pdf_document",
       params = list(html = FALSE)
     )
@@ -218,6 +241,6 @@ generate_report <- function(.site_name,
   
   # Clean-up
   graphics.off()
-  x <- file.remove(here::here("report", "setup.md"))
+  x <- file.remove(here("report", "setup.md"))
   
 }

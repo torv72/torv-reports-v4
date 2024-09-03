@@ -1,7 +1,7 @@
 
 # Add commentary for OM measurements ----
 
-om_no_additional_analyses_commentary <- readLines(here::here("aux-scripts/om-no-additional-analyses.txt"))
+om_no_additional_analyses_commentary <- readLines(here("aux-scripts/om-no-additional-analyses.txt"))
 
 # Only add OM commentary if there are OM measurements in this report
 
@@ -31,7 +31,7 @@ if(sample_dates_per_type$n == 1) {
 
 
   # If there is only one OM measurement, read in text about benefits of repeating the measurement
-  om_single_measure_commentary <- readLines(here::here("aux-scripts/om-single-test-summary.txt"))
+  om_single_measure_commentary <- readLines(here("aux-scripts/om-single-test-summary.txt"))
 
 } else {
 

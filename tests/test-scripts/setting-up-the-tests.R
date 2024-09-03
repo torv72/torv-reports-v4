@@ -9,12 +9,12 @@
 create_reference_pngs <- function(report) {
   file.rename(from = grep(".png",
                           # avoid ref_ref_ref files!
-                          grep("_ref.png", list.files(here::here("tests", "test-reports", report),
+                          grep("_ref.png", list.files(here("tests", "test-reports", report),
                                      recursive = T, full.names = T), invert = T, value = T),
                           value = T),
               to = gsub(".png", "_ref.png",
                         grep(".png",
-                             list.files(here::here("tests", "test-reports", report),
+                             list.files(here("tests", "test-reports", report),
                                         recursive = T, full.names = T),
                              value = T)))
 }
@@ -31,7 +31,7 @@ create_reference_data <- function(report) {
   save(list = grep("_ref",
                    ls(envir = as.environment(.GlobalEnv)),
                    value = T),
-       file = here::here("tests", "test-reports", report, "reference_data.RData"),
+       file = here("tests", "test-reports", report, "reference_data.RData"),
        # saving as ascii makes it easier to inspect files (e.g. git diff)
        ascii = T)
 }
@@ -63,7 +63,7 @@ update_reference_data <- function(report) {
   save(list = grep("_ref",
                  ls(envir = as.environment(.GlobalEnv)),
                  value = T),
-     file = here::here("tests", "test-reports", report, "reference_data.RData"),
+     file = here("tests", "test-reports", report, "reference_data.RData"),
      # saving as ascii makes it easier to inspect files (e.g. git diff)
      ascii = T)
 }

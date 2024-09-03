@@ -6,7 +6,8 @@ output:
 ---
 
 ```{r setup, warning=FALSE, message=FALSE, echo=FALSE}
-library(tidyverse)
+library(dplyr)
+library(tidyr)
 library(flextable)
 library(officer)
 
