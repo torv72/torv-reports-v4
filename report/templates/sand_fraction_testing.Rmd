@@ -1,0 +1,84 @@
+
+\newpage
+
+```{r sf-header, warning=FALSE, message=FALSE, out.width="900px"}
+header_file_create("OM", "Sand Fraction")
+knitr::include_graphics(here(root_figure_location, "headers", "om_testing_sand_fraction_plot.png"))
+```
+
+```{r sf-table, ft.align="left"}
+usga_specs <- tribble(
+  ~measurement_name,                                       ~usga_spec,
+  "Coarse Sand + Medium Sand (0.5 mm + 0.25 mm)",          "≥ 60 %",
+  "Fine Gravel (2.0 mm)",                                  "≤ 3 %",
+  "Fine Gravel + Very Coarse Sand (2.0 mm + 1.0 mm)",      "≤ 10 %",
+  "Fine Sand (0.15 mm)",                                   "≤ 20 %",
+  "Very Fine Sand + Very Fine Sand (0.106 mm + 0.053 mm)", "≤ 5 %"
+)
+
+sf_data <- full_database %>%
+  filter(sample_description_number_1 == "SF") %>%
+  mutate(
+    depth = ifelse(str_detect(sample_description_number_3, "[0-9]-[0-9]"), # depth info either in desc3 or desc4 column
+                   sample_description_number_3,
+                   sample_description_number_4),
+    year = lubridate::year(date_sample_submitted),
+    month = lubridate::month(date_sample_submitted),
+    depth = as.character(glue::glue("{depth} cm"))
+  ) %>%
+  filter(site == input_params$site_name) %>%
+  mutate(season = case_when(
+    month %in% 3:5 ~ "Spring",
+    month %in% 6:8 ~ "Summer",
+    month %in% 9:11 ~ "Autumn",
+    month %in% c(1, 2, 12) ~ "Winter"
+  )) %>%
+  filter(season %in% om_seasons) %>%
+  mutate(
+    measurement_name = stringr::str_remove_all(measurement_name, " \\(%\\)"),
+    measurement_name = stringr::str_replace(measurement_name, " - ", " ("),
+    measurement_name = stringr::str_replace(measurement_name, " mm$", " mm)")
+  ) %>%
+  select(depth, measurement_name, year, measurement_result) %>%
+  group_by(depth) %>%
+  pivot_wider(names_from = year, values_from = measurement_result) %>%
+  ungroup() |> 
+  left_join(usga_specs) |> 
+  mutate(usga_spec = ifelse(is.na(usga_spec), "", usga_spec)) |> 
+  select(depth, measurement_name, usga_spec, everything())
+
+sf_data %>%
+  as_grouped_data('depth') %>% 
+  flextable() %>%
+  set_header_labels(
+    depth = 'Depth',
+    measurement_name = 'Particle Size',
+    usga_spec = 'USGA Spec',
+    trend = 'Trend'
+  ) %>%
+  # add_header_row(
+  #   values = c("",'%Retained'),
+  #   colwidths = c(3,2)
+  # ) %>%
+  add_header_lines(
+    values = c(
+      'OM 246 Sand Fractions'
+    )
+  ) %>% 
+  #border_remove() %>%
+  #border(part = "body", border.bottom = officer::fp_border(color = "white", width = 1)) %>%
+  #align(part = "all", align = "center") %>%
+  fontsize(size = 12, part = "all") %>%
+  colformat_double(big.mark = ",", digits = 1, na_str = "") %>% 
+  font(fontname = "Rasa", part = "all") %>%
+  bold(bold = TRUE, part = "header") %>%
+  bold(j = 1, bold = TRUE, part = "body") %>%
+  line_spacing(i = 1, space = 1.3, part = "header") %>%
+  width(width = .5) %>%
+  width(j = c(1, 3), width = 1) %>%
+  width(j = 2, width = 2.75) %>%
+  hrule(rule = "exact") %>%
+  height_all(height = 5)
+```
+
+

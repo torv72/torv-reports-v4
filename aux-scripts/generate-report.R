@@ -8,8 +8,9 @@ generate_report <- function(.site_name,
                             .warm_or_cool,
                             .acid_extract,
                             .include_results_interpretation,
+                            .include_sand_fraction,
                             .draw_beeswarm = "Yes",
-                            .typeface = "Sofia Sans",
+                            .typeface = "Georama",
                             .output = "html",
                             .test = "No") {
 
@@ -160,7 +161,8 @@ generate_report <- function(.site_name,
                          start_date = .start_date,
                          warm_or_cool = .warm_or_cool,
                          acid_extract = .acid_extract,
-                         include_results_interpretation = .include_results_interpretation)
+                         include_results_interpretation = .include_results_interpretation,
+                         include_sand_fraction = .include_sand_fraction)
   }
 
   # The default is for the end date to be the same as the sample date (so that we're not

@@ -301,6 +301,20 @@ if(length(om_types > 0)) { # So the section only shows up if there are OM result
 ```
 
 
+## Sand Fraction Testing {#sand-fraction-testing}
+
+
+```{r sf-results, eval=input_params$include_sand_fraction, results='asis'}
+if(any(filtered_database$test_short_name == "S022")) { # So the section only shows up if there are SF results to report
+  knitr::knit_child("templates/sand_fraction_testing.Rmd", quiet = TRUE) %>%
+  unlist() %>%
+  cat(., sep = '\n')
+} else {
+  message("\n\n❗ SF results not reported. Either no SF data or an error occured.\n")
+}
+```
+
+
 ## Water Testing {#water-testing}
 
 ```{r water-results, results='asis', warning=FALSE}

@@ -51,9 +51,22 @@ generate_report(.site_name = "Sonnenalp Golf Club",
                 .warm_or_cool = "cool",
                 .acid_extract = "Mehlich",
                 .include_results_interpretation = FALSE,
+                .include_sand_fraction = TRUE,
                 .draw_beeswarm = "Yes",
-                .output = "html",
-                .typeface = "Georama")
+                .output = "html")
+
+# And another example with a different clinet and both HTML and PDF as output:
+generate_report(.site_name = "Maroon Creek Club",
+                .zip_code = 81611,
+                .date_sample_submitted = "2024-06-06",
+                .start_date = "2018-01-01",
+                .om_seasons = "Spring",
+                .warm_or_cool = "cool",
+                .acid_extract = "Mehlich",
+                .include_results_interpretation = FALSE,
+                .include_sand_fraction = TRUE,
+                .draw_beeswarm = "Yes",
+                .output = c("pdf", "html"))
 
 # It will save a file in generated-reports with a filename which includes the site name
 # and the date_sample_submitted argument. If a file with that name already exists, it will
