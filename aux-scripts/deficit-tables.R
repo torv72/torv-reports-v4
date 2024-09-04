@@ -7,7 +7,7 @@ if(testing_report == "No") { # Removes the need to type in values in order to ru
 
   happy_with_input <- "n" # Allows user to check values and enter them again if they made a mistake
 
-  message("\n\nI found analyses for the following types of soil in the database: ",
+  message("\nI found analyses for the following types of soil in the database: ",
           paste0(soil_types, collapse = ", "), ".")
   
   if (all(soil_types %in% c("GREEN", "TEE", "FAIRWAY", "ROUGH"))) { # check if uncommon soil types are included in the data
