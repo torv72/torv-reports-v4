@@ -230,6 +230,7 @@ cat(
 
 ```{r liability-pdf, results='asis', include=!html}
 cat(
+  "\\par   \\large ",
   "\\small \\textbf{\\emph{Liability Waiver}}",
   "\\par \\footnotesize \\emph{The recommendations provided in this report are based on current industry standards and site-specific conditions. They are advisory in nature and should be implemented at the client's discretion. The consultant disclaims any liability for outcomes resulting from the application of this advice. Clients are encouraged to seek additional professional input and consider all relevant factors before proceeding with any changes. By using this report, the client acknowledges that they have read, understood, and agreed to these terms, and that they are solely responsible for any decisions made based on these recommendations.}",
   sep = ""
@@ -355,11 +356,11 @@ if(length(water_types > 0)) { # So the section only shows up if there are Water 
 
 \newpage
 
-```{r, results='asis', include=!html}
+```{r how-to-index, results='asis', include=!html}
 cat("## How to Read Trend Line Plots {#how-to-read}")
 ```
 
-```{r, include=!html}
+```{r how-to-header, include=!html}
 header_file_create("None", "How to Read Trend Line Plots")
 knitr::include_graphics(here(root_figure_location, "headers", "none_testing_how_to_read_trend_line_plots_plot.png"))
 ```
@@ -367,11 +368,11 @@ knitr::include_graphics(here(root_figure_location, "headers", "none_testing_how_
 \par
 
 \begin{multicols}{2}
-```{r, results='asis', include=!html}
+```{r how-to-text, results='asis', include=!html}
 cat("The trend line plots show the raw sampling values (small grey dots) and the averages per sampling date (large colored points). The purple line indicates a linear fitting across all sampling dates This method is a general indicator of the trend of the average values across time. However, note that a linear fitting is not always suitable (i.e., be careful in case the distance between averages and the trendline is high). For reference, the grey dotted line indicates the historic average, estimated based on TODO.")
 ```
 \columnbreak
-```{r, out.width="300%", include=!html}
+```{r how-to-graphic, out.width="300%", include=!html}
 knitr::include_graphics(here(root_figure_location, "trendlines", "trend_plot_legend.png"))
 ```
 \end{multicols}
