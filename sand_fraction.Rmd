@@ -6,6 +6,7 @@ output:
 ---
 
 ```{r setup, warning=FALSE, message=FALSE, echo=FALSE}
+library(readr)
 library(dplyr)
 library(tidyr)
 library(flextable)
