@@ -20,7 +20,8 @@ generate_report <- function(.site_name,
   if (!.om_seasons %in% c("all", "Spring", "Summer", "Autumn", "Winter")) stop('.om_seasons should be one of "all", "Spring", "Summer", "Autumn", "Winter", or a vector with a combination of season names (e.g. c("Spring", "Summer")).')
   if (!.draw_beeswarm %in% c("Yes", "No")) stop('.draw_beeswarm should be either "Yes" or "No".')
   if (!is.character(.typeface)) stop('.typeface should be of type character.')
-  if (any(!(.output %in% c("html", "pdf") | .output == c("pdf", "html") | .output == c("html", "pdf")))) stop('.output should be either "html", "pdf", or c("html", "pdf").')
+  output <- stringr::str_to_lower(.output)
+  if (any(!(output %in% c("html", "pdf") | output == c("pdf", "html") | .output == c("html", "pdf")))) stop('.output should be either "html", "pdf", or c("html", "pdf").')
   if (!.test %in% c("Yes", "No")) stop('.test should be either "Yes" or "No".')
   
   # Clears the environment, to avoid cross contamination between successive reports!
@@ -58,8 +59,8 @@ generate_report <- function(.site_name,
   om_seasons <<- .om_seasons
   if (om_seasons == "all") om_seasons <<- c("Spring", "Summer", "Autumn", "Winter")
   typeface <<- .typeface
-  output_html <<- "html" %in% .output
-  output_pdf <<- "pdf" %in% .output
+  output_html <<- "html" %in% output
+  output_pdf <<- "pdf" %in% output
   
   # Set up Figure directories if they aren't already there
   figure_dirs <- c("headers", "organic_matter", "soil_testing", "trendlines", "water_testing")
