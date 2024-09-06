@@ -5,7 +5,6 @@ om_no_additional_analyses_commentary <- readLines(here("aux-scripts/om-no-additi
 
 # Only add OM commentary if there are OM measurements in this report
 
-# TODO: We need to check unique sample dates per type here, don't we? (cf. "Spring" not working for Sonnenalp)
 sample_dates_per_type <- 
   all_om_data %>% 
   summarize(n = length(unique(date_sample_submitted)), .by = sample_description_number_2) %>%
@@ -15,10 +14,8 @@ if(sample_dates_per_type$n == 1) {
 
   all_om_data_comms <- 
     all_om_longitudinal_table %>%
-    ## TODO: I think here's where we need to check for each type: if the date_sample_submitted is similar to the max date **overall**
-    ##       the comment needs to be included. Not changing it as I am unsure if the check (l. 21) needs to be done per sample_description_number_2 x depth?
     group_by(sample_description_number_2, depth) %>%
-    mutate(reference_only = case_when(date_sample_submitted == max(date_sample_submitted) ~ "",
+    mutate(reference_only = case_when(max(date_sample_submitted, na.rm = TRUE) == as_date(input_params$date_sample_submitted) ~ "",
                                       TRUE ~ "for reference")) %>%
     rowwise() %>%
     mutate(type_date = paste0(case_when(reference_only == "for reference" ~ paste0("\n- Just for reference, since no **",
@@ -40,7 +37,7 @@ if(sample_dates_per_type$n == 1) {
     mutate(date_rank = paste0("date_", rank(date_sample_submitted))) %>%
     ## TODO: Check with Eric what's going on here (cf. "Spring" not working for Sonnenalp)
     pivot_wider(names_from = date_rank, values_from = c(sample_description_number_2, date_sample_submitted, depth, avg_measurement_result)) %>%
-    mutate(reference_only = case_when(date_sample_submitted_date_2 == max(date_sample_submitted_date_2, na.rm = TRUE) ~ "",
+    mutate(reference_only = case_when(max(date_sample_submitted, na.rm = TRUE) == as_date(input_params$date_sample_submitted) ~ "",
                                       is.na(date_sample_submitted_date_2) ~ "",
                                       TRUE ~ "for reference")) %>%
     rowwise() %>%
