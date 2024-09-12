@@ -32,12 +32,13 @@ if(sample_dates_per_type$n == 1) {
 
 } else {
 
-  all_om_data_comms <- all_om_longitudinal_table %>%
+  all_om_data_comms <- 
+    all_om_longitudinal_table %>%
     group_by(sample_description_number_2, depth) %>%
     mutate(date_rank = paste0("date_", rank(date_sample_submitted))) %>%
     ## TODO: Check with Eric what's going on here (cf. "Spring" not working for Sonnenalp)
     pivot_wider(names_from = date_rank, values_from = c(sample_description_number_2, date_sample_submitted, depth, avg_measurement_result)) %>%
-    mutate(reference_only = case_when(max(date_sample_submitted, na.rm = TRUE) == as_date(input_params$date_sample_submitted) ~ "",
+    mutate(reference_only = case_when(max(date_sample_submitted_date_2, na.rm = TRUE) == as_date(input_params$date_sample_submitted) ~ "",
                                       is.na(date_sample_submitted_date_2) ~ "",
                                       TRUE ~ "for reference")) %>%
     rowwise() %>%
