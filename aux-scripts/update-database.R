@@ -3,6 +3,7 @@
 update_database <- function(.test = FALSE) {
 
   library(dplyr)
+  library(tibble)
   library(tidyr)
   library(stringr)
   library(purrr)
