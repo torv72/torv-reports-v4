@@ -230,7 +230,7 @@ cat(
 
 ```{r liability-pdf, results='asis', include=!html}
 cat(
-  "\\par   \\large ",
+  "\\vfill",
   "\\small \\textbf{\\emph{Liability Waiver}}",
   "\\par \\footnotesize \\emph{The recommendations provided in this report are based on current industry standards and site-specific conditions. They are advisory in nature and should be implemented at the client's discretion. The consultant disclaims any liability for outcomes resulting from the application of this advice. Clients are encouraged to seek additional professional input and consider all relevant factors before proceeding with any changes. By using this report, the client acknowledges that they have read, understood, and agreed to these terms, and that they are solely responsible for any decisions made based on these recommendations.}",
   sep = ""
