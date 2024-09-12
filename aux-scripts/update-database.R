@@ -4,6 +4,7 @@ update_database <- function(.test = FALSE) {
 
   library(dplyr)
   library(tidyr)
+  library(stringr)
   library(purrr)
   library(readxl)
   library(writexl)
