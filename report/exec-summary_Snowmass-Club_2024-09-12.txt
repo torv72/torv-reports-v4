@@ -1,0 +1,55 @@
+
+
+### [Green](#green-1)
+      
+* All calculations are based on a monthly maximum of 0.5 lbs of N/M.
+* The average total available Nitrogen is 2.2 ppm. This is below the optimal range of 5 ppm – 10 ppm for soil nitrogen. Consider additional applications of nitrate or ammonium based fertilizers to increase soil nitrogen levels.
+* Deficits were noted in the following measurement: Potassium (ppm). See the "Required element per area" table within the Green section for an indication of how much fertilizer should be added to each sampled area. **[TODO: Add custom comment.]**
+* No other anomalies were highlighted in the analysis. **[TODO: Add custom comment.]**
+
+### [Tee](#tee-1)
+      
+* All calculations are based on a monthly maximum of 0.5 lbs of N/M.
+* The average total available Nitrogen is 2.4 ppm. This is below the optimal range of 5 ppm – 10 ppm for soil nitrogen. Consider additional applications of nitrate or ammonium based fertilizers to increase soil nitrogen levels.
+* No deficits were noted in the values tied to MLSN values. **[TODO: Add custom comment.]**
+* No other anomalies were highlighted in the analysis. **[TODO: Add custom comment.]**
+
+### [Fairway](#fairway-1)
+      
+* All calculations are based on a monthly maximum of 0.7 lbs of N/M.
+* The average total available Nitrogen is 5.9 ppm. This is optimal and is within the ideal range of 5 ppm - 10 ppm for soil nitrogen.
+* No deficits were noted in the values tied to MLSN values. **[TODO: Add custom comment.]**
+* The average Organic Matter (%) measurement is above 4.5%. **[TODO: Add custom comment]**
+
+### [Approach](#approach-1)
+      
+* All calculations are based on a monthly maximum of 0.7 lbs of N/M.
+* The average total available Nitrogen is 3 ppm. This is below the optimal range of 5 ppm – 10 ppm for soil nitrogen. Consider additional applications of nitrate or ammonium based fertilizers to increase soil nitrogen levels.
+* No deficits were noted in the values tied to MLSN values. **[TODO: Add custom comment.]**
+* The average Organic Matter (%) measurement is above 4.5%. **[TODO: Add custom comment]**
+        
+### [Organic Matter](#om-testing)
+  
+The mean OM measurements can be summarised as follows: 
+
+- Comparing the **FAIRWAY** samples taken on September 12th, 2024 to their most recent previous samples (September 13th, 2023).
+  * At a depth of **0-2 cm**, the OM content increased from 16.22% to 20.48%. 
+  * At a depth of **2-4 cm**, the OM content decreased from 21.8% to 19.16%. 
+  * At a depth of **4-6 cm**, the OM content increased from 10.4% to 10.44%.
+- Comparing the **GREEN** samples taken on September 12th, 2024 to their most recent previous samples (September 13th, 2023).
+  * At a depth of **0-2 cm**, the OM content decreased from 12.79% to 10.94%. 
+  * At a depth of **2-4 cm**, the OM content decreased from 5.75% to 5.11%. 
+  * At a depth of **4-6 cm**, the OM content increased from 3.34% to 3.47%.
+- Comparing the **TEE** samples taken on September 12th, 2024 to their most recent previous samples (September 13th, 2023).
+  * At a depth of **0-2 cm**, the OM content decreased from 12.4% to 11.52%. 
+  * At a depth of **2-4 cm**, the OM content increased from 6.06% to 6.34%. 
+  * At a depth of **4-6 cm**, the OM content increased from 4.29% to 5.16%.
+
+Like calibrating a TDR measurement for soil moisture content based on subjective observations, the OM246 test should be thought of in the same context. Playability and overall green performance should be considered.
+Using a known amount of topdressing applied, we can estimate/calculate the Amount of topdressing needed to maintain, increase, or decrease the organic matter.
+
+- Consider obtaining an accurate topdressing rate per year to make this calculation possible. What is the estimated depth of all topdressing applications applied this year?
+- [This video from the USGA](https://www.asianturfgrass.com/post/sand-topdressing-by-depth) shows how to calculate the depth along with the required conversion equations.
+- Cultural decisions such as aerification, verticutting, topdressing amounts/frequency can be influenced by tracking organic matter over time and established goals for organic matter targets.
+
+**[TODO: Additional comments]**
