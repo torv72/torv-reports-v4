@@ -17,12 +17,24 @@ set_flextable_defaults(font.size = 9,
                        line_spacing = .8
 )
 
-fraction <- read_csv("fraction.csv") %>% 
-  mutate(year = as.character(year)) %>%
-  group_by(depth) %>% 
-  pivot_wider(
-    names_from = (year)
-  )
+# Read the CSV file
+fraction <- read_csv("fraction.csv")
+
+# Print column names and first few rows for debugging
+print(colnames(fraction))
+print(head(fraction))
+
+# Check if 'year' column exists
+if("year" %in% colnames(fraction)) {
+  fraction <- fraction %>% 
+    mutate(year = as.character(year)) %>%
+    group_by(depth) %>% 
+    pivot_wider(names_from = year)
+} else {
+  # If 'year' doesn't exist, we'll assume the data is already in wide format
+  fraction <- fraction %>% 
+    group_by(depth)
+}
 ```
 
 ```{r, warning=FALSE, message=FALSE, echo=FALSE}
@@ -37,7 +49,7 @@ fraction %>%
   ) %>%
   add_header_row(
     values = c("",'%Retained'),
-    colwidths = c(3,2)
+    colwidths = c(3, ncol(fraction) - 3)  # Adjust colwidths based on actual number of columns
   ) %>% 
   add_header_lines(
     values = c(
