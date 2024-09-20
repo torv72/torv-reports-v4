@@ -48,7 +48,7 @@ Using a known amount of topdressing applied, we can estimate/calculate the Amoun
 - [This video from the USGA](https://www.asianturfgrass.com/post/sand-topdressing-by-depth) shows how to calculate the depth along with the required conversion equations.
 - Cultural decisions such as aerification, verticutting, topdressing amounts/frequency can be influenced by tracking organic matter over time and established goals for organic matter targets.
 
-### [OM246 Sand Fraction Analysis]
+### OM246 Sand Fraction Analysis
 
 * At the **0-2 cm** depth all sand fractions met USGA specifications expect for the sum total of the Very Fine Sand(0.106 mm) and Very Fine Sand (0.053 mm).  The result was 11.7% which is over double the USGA specification.  An accumulation of fines over time can inhibit slow down water infiltration and decrease air and water porosity.  Consider applying a larger size sand particle product when you aerify to dilute the very fine sands.  Over time this may aid in increased water infiltration and increase air and water porosity.  
 * At the **2-4 cm** depth the same analysis for the **0-2 cm** depth can be used.
