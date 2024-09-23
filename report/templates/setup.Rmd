@@ -169,7 +169,7 @@ make_trendline_legend <- function(main_color, stat = "average", draw_beeswarm = 
     annotate(
       geom = "text", 
       x = lubridate::as_date("2021-06-01"), y = 2.7,
-      label = paste(str_to_title(input_params$om_stats), "measurement"),
+      label = paste(str_to_title(stat), "measurement"),
       hjust = 1, family = typeface, color = main_color, size = 2.5
     ) +
     annotate(
