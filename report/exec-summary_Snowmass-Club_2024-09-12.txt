@@ -3,30 +3,26 @@
 ### [Green](#green-1)
       
 * All calculations are based on a monthly maximum of 0.5 lbs of N/M.
-* The average total available Nitrogen is 2.2 ppm. This is below the optimal range of 5 ppm – 10 ppm for soil nitrogen. Consider additional applications of nitrate or ammonium based fertilizers to increase soil nitrogen levels.
-* Deficits were noted in the following measurement: Potassium (ppm). See the "Required element per area" table within the Green section for an indication of how much fertilizer should be added to each sampled area. **[TODO: Add custom comment.]**
-* No other anomalies were highlighted in the analysis. **[TODO: Add custom comment.]**
+* Deficits were noted in the following measurement: Potassium (ppm). See the "Required element per area" table within the Green section for an indication of how much fertilizer should be added to each sampled area.
+* No other anomalies were highlighted in the analysis.
 
 ### [Tee](#tee-1)
       
 * All calculations are based on a monthly maximum of 0.5 lbs of N/M.
-* The average total available Nitrogen is 2.4 ppm. This is below the optimal range of 5 ppm – 10 ppm for soil nitrogen. Consider additional applications of nitrate or ammonium based fertilizers to increase soil nitrogen levels.
-* No deficits were noted in the values tied to MLSN values. **[TODO: Add custom comment.]**
-* No other anomalies were highlighted in the analysis. **[TODO: Add custom comment.]**
+* No deficits were noted in the values tied to MLSN values.
+* No other anomalies were highlighted in the analysis.
 
 ### [Fairway](#fairway-1)
       
 * All calculations are based on a monthly maximum of 0.7 lbs of N/M.
 * The average total available Nitrogen is 5.9 ppm. This is optimal and is within the ideal range of 5 ppm - 10 ppm for soil nitrogen.
-* No deficits were noted in the values tied to MLSN values. **[TODO: Add custom comment.]**
-* The average Organic Matter (%) measurement is above 4.5%. **[TODO: Add custom comment]**
+* No deficits were noted in the values tied to MLSN values.
 
 ### [Approach](#approach-1)
       
 * All calculations are based on a monthly maximum of 0.7 lbs of N/M.
-* The average total available Nitrogen is 3 ppm. This is below the optimal range of 5 ppm – 10 ppm for soil nitrogen. Consider additional applications of nitrate or ammonium based fertilizers to increase soil nitrogen levels.
-* No deficits were noted in the values tied to MLSN values. **[TODO: Add custom comment.]**
-* The average Organic Matter (%) measurement is above 4.5%. **[TODO: Add custom comment]**
+* No deficits were noted in the values tied to MLSN values.
+
         
 ### [Organic Matter](#om-testing)
   
@@ -52,4 +48,10 @@ Using a known amount of topdressing applied, we can estimate/calculate the Amoun
 - [This video from the USGA](https://www.asianturfgrass.com/post/sand-topdressing-by-depth) shows how to calculate the depth along with the required conversion equations.
 - Cultural decisions such as aerification, verticutting, topdressing amounts/frequency can be influenced by tracking organic matter over time and established goals for organic matter targets.
 
-**[TODO: Additional comments]**
+### OM246 Sand Fraction Analysis
+
+* At the **0-2 cm** depth all sand fractions met USGA specifications expect for the sum total of the Very Fine Sand(0.106 mm) and Very Fine Sand (0.053 mm).  The result was 11.7% which is over double the USGA specification.  An accumulation of fines over time can inhibit slow down water infiltration and decrease air and water porosity.  Consider applying a larger size sand particle product when you aerify to dilute the very fine sands.  Over time this may aid in increased water infiltration and increase air and water porosity.  
+* At the **2-4 cm** depth the same analysis for the **0-2 cm** depth can be used.
+* At the **4-6 cm** depth fine gravels and coarse sands exceeded the USGA specifications.  There is no concern at this time.
+
+Based on the sample results, when you have the opportunity to apply sand during aerification, focus on the top 2" of the green surface and apply larger particle sized sand to dilute the very fine sand accumulations.
