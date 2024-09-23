@@ -10,7 +10,7 @@ if(testing_report == "No") { # Removes the need to type in values in order to ru
   message("\nI found analyses for the following types of soil in the database: ",
           paste0(soil_types, collapse = ", "), ".")
   
-  if (all(soil_types %in% c("GREEN", "TEE", "FAIRWAY", "ROUGH"))) { # check if uncommon soil types are included in the data
+  if (all(soil_types %in% c("GREEN", "TEE", "ROUGH", "FAIRWAY", "APPROACH"))) { # check if uncommon soil types are included in the data
     
     message("\n❓ Do you want to use the default Grass Maximum N/month lb/1000 sq ft values for the deficit tables?")
     happy_with_input <- readline("Type y for yes or n for no and hit ENTER: ")
