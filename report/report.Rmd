@@ -215,7 +215,7 @@ The mean OM measurements can be summarised as follows: \n")
 } else { # if txt_file already exists just source it
   message(paste0('\n\n❗ An executive summary for this site already exists. Sourcing the file "', txt_file, '" in the "report" directory.',
                  '\n    - To add comments, open the txt file, modify its content, and generate the report again.',
-                 '\n    - To create a new auto-generated executive summary for this site, please delete the txt file.\n'))
+                 '\n    - To create a new auto-generated executive summary for this site, please delete the txt file and rerun the report generation.\n'))
 }
 
 cat(readLines(txt_path), sep = "\n")
@@ -223,8 +223,8 @@ cat(readLines(txt_path), sep = "\n")
 
 ```{r liability-html, results='asis', include=html}
 cat(
-  "<br><b style='font-size:1.1em;font-style:italic;color:#6d6d6d;'>Liability Waiver</b>",
-  "<div style='line-height:.85;'><i style='font-size:.95em;color:#6d6d6d;'>The recommendations provided in this report are based on current industry standards and site-specific conditions. They are advisory in nature and should be implemented at the client's discretion. The consultant disclaims any liability for outcomes resulting from the application of this advice. Clients are encouraged to seek additional professional input and consider all relevant factors before proceeding with any changes. By using this report, the client acknowledges that they have read, understood, and agreed to these terms, and that they are solely responsible for any decisions made based on these recommendations.</i></div>",
+  "<br><b style='font-size:1.5em;font-style:italic;color:#6d6d6d;'>Liability Waiver</b>",
+  "<p style='line-height:1.05;'><i style='font-size:.9em;color:#6d6d6d;'>The recommendations provided in this report are based on current industry standards and site-specific conditions. They are advisory in nature and should be implemented at the client's discretion. The consultant disclaims any liability for outcomes resulting from the application of this advice. Clients are encouraged to seek additional professional input and consider all relevant factors before proceeding with any changes. By using this report, the client acknowledges that they have read, understood, and agreed to these terms, and that they are solely responsible for any decisions made based on these recommendations.</i></p>",
   sep = "<br>"
 )
 ```
