@@ -98,13 +98,7 @@ all_om_data <-
   mutate(torv_avg = mean(measurement_result, na.rm = TRUE)) %>%
   ungroup() %>%
   filter(site == input_params$site_name) %>%
-  mutate(season = case_when(
-    month %in% 3:5 ~ "Spring",
-    month %in% 6:8 ~ "Summer",
-    month %in% 9:11 ~ "Autumn",
-    month %in% c(1, 2, 12) ~ "Winter"
-  )) %>%
-  filter(season %in% om_seasons)
+  filter(month %in% season)
 
 if (testing_report == "No") {
   

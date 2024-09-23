@@ -17,7 +17,7 @@ generate_report <- function(.site_name,
   # Check function inputs
   if (!.warm_or_cool %in% c("warm", "cool")) stop('.warm_or_cool should be either "warm" or "cool".')
   if (!.acid_extract %in% c("Mehlich", "Olsen")) stop('.acid_extract should be either "Mehlich" or "Olsen".')
-  if (!.om_seasons %in% c("all", "Spring", "Summer", "Autumn", "Winter")) stop('.om_seasons should be one of "all", "Spring", "Summer", "Autumn", "Winter", or a vector with a combination of season names (e.g. c("Spring", "Summer")).')
+  if (!.om_seasons %in% c("all", "season")) stop('.om_seasons should be either "all" or "season".')
   if (!.draw_beeswarm %in% c("Yes", "No")) stop('.draw_beeswarm should be either "Yes" or "No".')
   if (!is.character(.typeface)) stop('.typeface should be of type character.')
   output <- stringr::str_to_lower(.output)
@@ -53,11 +53,21 @@ generate_report <- function(.site_name,
   options(tigris_use_cache = TRUE)
   options(dplyr.summarise.inform = FALSE)
   
+  ## Define months based on .om_seasons
+  if (.om_seasons == "all") season <- 1:12
+  if (.om_seasons == "season") {
+    month <- month(.date_sample_submitted)
+    if (month %in% 3:5) season <- 3:5
+    if (month %in% 6:8) season <- 6:8
+    if (month %in% 9:11) season <- 9:11
+    if (month %in% c(1, 2, 12)) season <- c(1, 2, 12)
+  }
+  
+  
   # Export to global Env so can be used by other scripts
   testing_report <<- .test
   beeswarm <<- ifelse(.draw_beeswarm == "Yes", TRUE, FALSE)
-  om_seasons <<- .om_seasons
-  if (om_seasons == "all") om_seasons <<- c("Spring", "Summer", "Autumn", "Winter")
+  season <<- season
   typeface <<- .typeface
   output_html <<- "html" %in% output
   output_pdf <<- "pdf" %in% output

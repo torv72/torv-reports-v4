@@ -27,13 +27,7 @@ sf_data <- full_database %>%
     depth = as.character(glue::glue("{depth} cm"))
   ) %>%
   filter(site == input_params$site_name) %>%
-  mutate(season = case_when(
-    month %in% 3:5 ~ "Spring",
-    month %in% 6:8 ~ "Summer",
-    month %in% 9:11 ~ "Autumn",
-    month %in% c(1, 2, 12) ~ "Winter"
-  )) %>%
-  filter(season %in% om_seasons) %>%
+  filter(month %in% season) %>%
   mutate(
     measurement_name = stringr::str_remove_all(measurement_name, " \\(%\\)"),
     measurement_name = stringr::str_replace(measurement_name, " - ", " ("),
