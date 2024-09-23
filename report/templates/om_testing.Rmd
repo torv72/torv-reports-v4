@@ -9,7 +9,9 @@ knitr::include_graphics(here(root_figure_location, "headers",
 
 These measurements are neither good nor bad. Information such as fertilizer applied, cultural practices, sand applied, verti-cutting, aerification, etc. can be used to see how these practices have changed the OM% by depth. Ideally, once a desired OM% has been identified based on playability and turf performance, fertility and cultural practices can be adjusted to maintain the desired OM%.
 
-The S325 test package includes the entire sample submitted. This includes leaves, stems, and roots. This differs from the standard soil test which filters out most of the components. This is the reason why the percentages appear higher than that on a standard soil test.\newline
+The S325 test package includes the entire sample submitted. This includes leaves, stems, and roots. This differs from the standard soil test which filters out most of the components. This is the reason why the percentages appear higher than that on a standard soil test.
+
+The following results show `r {input_params$om_stats}` values. `r if(input_params$om_stats == "median"){'The median value is the central point of the data, meaning half of the numbers in a list are smaller and half are larger than the median.'}``r if(input_params$om_stats == "average"){'The average, or mean, is the "typical" value in the data and is calculated by adding up all the numbers in a list and then dividing that total by the number of numbers.'}`\newline
 
 ```{r, message=FALSE, warning=FALSE, results='asis', fig.width=6.8, fig.height=2.5, out.width="100%"}
 om_data <- filter(all_om_data, sample_description_number_2 == "{{sample_description_number_2}}")
@@ -34,8 +36,8 @@ om_avgs <-
   om_data %>%
   group_by(measurement_name, depth, plot_date) %>%
   summarize(
-    avg_measurement_result = mean(measurement_result, na.rm = TRUE),
-    torv_avg = mean(torv_avg, na.rm = TRUE),
+    avg_measurement_result = calculate_om_stats(measurement_result), # calculate_om_stats defined in om-calculations.R
+    torv_avg = mean(torv_avg, na.rm = TRUE), # all values same, take mean to collapse
     .groups = "drop"
   )
 
@@ -71,7 +73,7 @@ if (year_range[2] - year_range[1] < 2) {
   date_breaks <- waiver()
 }
 
-make_om_plot <- function(plot_measurement_name, plot_depth, draw_beeswarm = beeswarm) {
+make_om_plot <- function(plot_measurement_name, plot_depth, draw_beeswarm = input_params$beeswarm) {
 
   data_raw <- 
     om_data %>%
@@ -100,12 +102,12 @@ make_om_plot <- function(plot_measurement_name, plot_depth, draw_beeswarm = bees
 
   if(min(check_lims$measurement_result) == min(data$measurement_result)) lwr <- .2
   if(max(check_lims$measurement_result) == max(data$measurement_result)) upr <- .2
-
+  
   om_plot <- 
     ggplot(data) +
     ## historical average as dashed horizontal line
     ggiraph::geom_hline_interactive(
-      aes(yintercept = torv_avg, data_id = 1, tooltip = paste0("<span style='font-size:12pt;'>Historic average:</span><br><b>", round(torv_avg, 2), "%</b>")),
+      aes(yintercept = torv_avg, data_id = 1, tooltip = paste0("<span style='font-size:12pt;'>Historic ", input_params$om_stats, ":</span><br><b>", round(torv_avg, 2), "%</b>")),
       linewidth = .4, linetype = "31", color = torv_gray, stat = "unique"
     ) +
     { if(draw_beeswarm)

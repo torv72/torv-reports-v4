@@ -5,6 +5,7 @@ generate_report <- function(.site_name,
                             .start_date,
                             .end_date = NULL,
                             .om_seasons = "all",
+                            .om_stats = "average",
                             .warm_or_cool,
                             .acid_extract,
                             .include_results_interpretation,
@@ -15,9 +16,12 @@ generate_report <- function(.site_name,
                             .test = "No") {
 
   # Check function inputs
+  if (!.om_seasons %in% c("all", "season")) stop('.om_seasons should be either "all" or "season".')
+  if (!.om_stats %in% c("average", "median")) stop('.om_stats should be either "average" or "median".')
   if (!.warm_or_cool %in% c("warm", "cool")) stop('.warm_or_cool should be either "warm" or "cool".')
   if (!.acid_extract %in% c("Mehlich", "Olsen")) stop('.acid_extract should be either "Mehlich" or "Olsen".')
-  if (!.om_seasons %in% c("all", "season")) stop('.om_seasons should be either "all" or "season".')
+  if (!is.logical(.include_results_interpretation)) stop('.include_results_interpretation should be of type logical (TRUE or FALSE)')
+  if (!is.logical(.include_sand_fraction)) stop('.include_sand_fraction should be of type logical (TRUE or FALSE)')
   if (!.draw_beeswarm %in% c("Yes", "No")) stop('.draw_beeswarm should be either "Yes" or "No".')
   if (!is.character(.typeface)) stop('.typeface should be of type character.')
   output <- stringr::str_to_lower(.output)
@@ -63,14 +67,11 @@ generate_report <- function(.site_name,
     if (month %in% c(1, 2, 12)) season <- c(1, 2, 12)
   }
   
-  
   # Export to global Env so can be used by other scripts
-  testing_report <<- .test
-  beeswarm <<- ifelse(.draw_beeswarm == "Yes", TRUE, FALSE)
-  season <<- season
   typeface <<- .typeface
   output_html <<- "html" %in% output
   output_pdf <<- "pdf" %in% output
+  testing_report <<- .test
   
   # Set up Figure directories if they aren't already there
   figure_dirs <- c("headers", "organic_matter", "soil_testing", "trendlines", "water_testing")
@@ -172,8 +173,12 @@ generate_report <- function(.site_name,
                          start_date = .start_date,
                          warm_or_cool = .warm_or_cool,
                          acid_extract = .acid_extract,
+                         season = season,
+                         om_seasons = .om_seasons,
+                         om_stats = .om_stats,
                          include_results_interpretation = .include_results_interpretation,
-                         include_sand_fraction = .include_sand_fraction)
+                         include_sand_fraction = .include_sand_fraction,
+                         beeswarm = ifelse(.draw_beeswarm == "Yes", TRUE, FALSE))
   }
 
   # The default is for the end date to be the same as the sample date (so that we're not
