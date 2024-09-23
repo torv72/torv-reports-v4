@@ -90,7 +90,7 @@ branded_table <- function(header_colour = torv_orange,
 
 ```{r function-make-trendline-legend}
 ## Function to create a how-to plot for the trendline charts
-make_trendline_legend <- function(main_color, average_label = paste("Historic", input_params$om_stats), draw_beeswarm = input_params$beeswarm) {
+make_trendline_legend <- function(main_color, stat = "average", draw_beeswarm = input_params$beeswarm) {
   
   stable_year_range <- c(year(ymd("2020-01-01")), year(ymd("2021-01-01")), year(ymd("2022-01-01")))
   
@@ -186,7 +186,7 @@ make_trendline_legend <- function(main_color, average_label = paste("Historic", 
       aes(y = torv_avg), 
       linetype = "21", linewidth = .5, color = torv_gray
     ) +
-    geom_label(aes(x = lubridate::as_date("2021-01-01"), y = torv_avg, label = average_label), 
+    geom_label(aes(x = lubridate::as_date("2021-01-01"), y = torv_avg, label = paste("Historic", stat)), 
       family = typeface, color = torv_gray, size = 7/.pt, label.size = 0, stat = "unique"
     ) +
     
@@ -208,6 +208,11 @@ trend_legend <- make_trendline_legend(main_color = "grey30", draw_beeswarm = inp
 
 ggsave(here(root_figure_location, "trendlines", "trend_plot_legend.png"),
        trend_legend, width = 2.5, height = 2, bg = "#ffffff", dpi = 300)
+
+trend_legend_om <- make_trendline_legend(main_color = "grey30", stat = input_params$om_stats, draw_beeswarm = input_params$beeswarm)
+
+ggsave(here(root_figure_location, "trendlines", "trend_plot_legend_om.png"),
+       trend_legend_om, width = 2.5, height = 2, bg = "#ffffff", dpi = 300)
 ```
 
 ```{r get-filtered-database}

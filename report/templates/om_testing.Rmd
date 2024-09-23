@@ -235,7 +235,7 @@ cat('<br><details><summary>How to read this chart</summary>')
 ```
 
 ```{r, out.width="67%", include=html}
-knitr::include_graphics(here("report", "figures", "trendlines", "trend_plot_legend.png"))
+knitr::include_graphics(here("report", "figures", "trendlines", "trend_plot_legend_om.png"))
 ```
 
 ```{r, results='asis', include=html}
