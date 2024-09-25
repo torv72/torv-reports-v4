@@ -4,22 +4,22 @@
       
 * All calculations are based on a monthly maximum of 0.5 lbs of N/M.
 * The average total available Nitrogen is 1 ppm. This is below the optimal range of 5 ppm - 10 ppm for soil nitrogen. Consider additional applications of nitrate or ammonium based fertilizers to increase soil nitrogen levels.
-* Deficits were noted in the following 3 measurements: Potassium (ppm), Magnesium (ppm) and Sulfur (ppm). See the "Required element per area" table within the Green section for an indication of how much fertilizer should be added to each sampled area. **[TODO: Add custom comment.]**
-* No other anomalies were highlighted in the analysis. **[TODO: Add custom comment.]**
+* Deficits were noted in the following 3 measurements: Potassium (ppm), Magnesium (ppm) and Sulfur (ppm). See the "Required element per area" table within the Green section for an indication of how much fertilizer should be added to each sampled area.
+* No other anomalies were highlighted in the analysis.
 
 ### [Tee](#tee-1)
       
 * All calculations are based on a monthly maximum of 0.5 lbs of N/M.
 * The average total available Nitrogen is 1.2 ppm. This is below the optimal range of 5 ppm - 10 ppm for soil nitrogen. Consider additional applications of nitrate or ammonium based fertilizers to increase soil nitrogen levels.
-* Deficits were noted in the following measurement: Potassium (ppm). See the "Required element per area" table within the Tee section for an indication of how much fertilizer should be added to each sampled area. **[TODO: Add custom comment.]**
-* No other anomalies were highlighted in the analysis. **[TODO: Add custom comment.]**
+* Deficits were noted in the following measurement: Potassium (ppm). See the "Required element per area" table within the Tee section for an indication of how much fertilizer should be added to each sampled area.
+* No other anomalies were highlighted in the analysis.
 
 ### [Fairway](#fairway-1)
       
 * All calculations are based on a monthly maximum of 0.7 lbs of N/M.
 * The average total available Nitrogen is 3.1 ppm. This is below the optimal range of 5 ppm - 10 ppm for soil nitrogen. Consider additional applications of nitrate or ammonium based fertilizers to increase soil nitrogen levels.
-* No deficits were noted in the values tied to MLSN values. **[TODO: Add custom comment.]**
-* The average Organic Matter (%) measurement is above 4.5%. [TODO: Add custom comment]
+* No deficits were noted in the values tied to MLSN values.
+* The average Organic Matter (%) measurement is above 4.5%.
         
 ### [Organic Matter](#om-testing)
   
@@ -45,5 +45,3 @@ Using a known amount of topdressing applied, we can estimate/calculate the Amoun
 - Consider obtaining an accurate topdressing rate per year to make this calculation possible. What is the estimated depth of all topdressing applications applied this year?
 - [This video from the USGA](https://www.asianturfgrass.com/post/sand-topdressing-by-depth) shows how to calculate the depth along with the required conversion equations.
 - Cultural decisions such as aerification, verticutting, topdressing amounts/frequency can be influenced by tracking organic matter over time and established goals for organic matter targets.
-
-**[TODO: Additional comments]**

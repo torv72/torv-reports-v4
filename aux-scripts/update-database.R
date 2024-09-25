@@ -311,7 +311,7 @@ to confirm these were indeed duplicates.
   }
 
   data_to_add_to_db <- bind_rows(datasets_parsed) %>%
-    # TODO check if we want to keep this
+    # TODO: check if we want to keep this
     filter(!duplicated(.)) %>%
     # Create dummy columns necessary for the following bits of logic if the columns don't already exist
     {

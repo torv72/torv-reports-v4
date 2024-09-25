@@ -8,16 +8,18 @@ knitr::include_graphics(here(root_figure_location, "headers", "om_testing_sand_f
 
 ```{r sf-table, ft.align="left"}
 usga_specs <- tribble(
-  ~measurement_name,                                       ~usga_spec,
-  "Coarse Sand + Medium Sand (0.5 mm + 0.25 mm)",          "≥ 60 %",
-  "Fine Gravel (2.0 mm)",                                  "≤ 3 %", 
-  "Fine Gravel + Very Coarse Sand (2.0 mm + 1.0 mm)",      "≤ 10 %",
-  "Fine Sand (0.15 mm)",                                   "≤ 20 %",
-  "Very Fine Sand + Very Fine Sand (0.106 mm + 0.053 mm)", "≤ 5 %"
+  ~measurement_name,                                       ~usga_spec, ~usga_value, ~usga_direction,
+  "Coarse Sand + Medium Sand (0.5 mm + 0.25 mm)",          "≥ 60 %",   60,           1,
+  "Fine Gravel (2.0 mm)",                                  "≤ 3 %",     3,          -1,
+  "Fine Gravel + Very Coarse Sand (2.0 mm + 1.0 mm)",      "≤ 10 %",   10,          -1,
+  "Fine Sand (0.15 mm)",                                   "≤ 20 %",   20,          -1,
+  "Very Fine Sand + Very Fine Sand (0.106 mm + 0.053 mm)", "≤ 5 %",     5,          -1
 )
 
-sf_data <- full_database %>%
-  filter(sample_description_number_1 == "SF") %>%
+sf_data <- 
+  full_database |>
+  filter(sample_description_number_1 == "SF") |>
+  filter(site == input_params$site_name) |>
   mutate(
     depth = ifelse(str_detect(sample_description_number_3, "[0-9]-[0-9]"), # depth info either in desc3 or desc4 column
                    sample_description_number_3,
@@ -25,66 +27,101 @@ sf_data <- full_database %>%
     year = lubridate::year(date_sample_submitted),
     month = lubridate::month(date_sample_submitted),
     depth = as.character(glue::glue("{depth} cm")),
-    ## align particle names with those provided by USGA
-    measurement_name_db = measurement_name,
-    measurement_name = case_when(
-      #measurement_name_old == "Fine Gravel - 2 mm (%)" ~ "Fine Gravel (2.0 mm)",
-      measurement_name_db %in% c("Fine Gravel - 2 mm (%)", "Very Coarse Sand - 1 mm (%)") ~ "Fine Gravel + Very Coarse Sand (2.0 mm + 1.0 mm)",
-      measurement_name_db %in% c("Coarse Sand - 0.5 mm (%)", "Medium Sand - 0.25 mm (%)") ~ "Coarse Sand + Medium Sand (0.5 mm + 0.25 mm)",
-      measurement_name_db == "Fine Sand - 0.15 mm (%)" ~ "Fine Sand (0.15 mm)",
-      measurement_name_db %in% c("Very Fine Sand - 0.106 mm (%)", "Very Fine Sand - 0.053 mm (%)") ~ "Very Fine Sand + Very Fine Sand (0.106 mm + 0.053 mm)",
-      measurement_name_db == "Sand (%)" ~ "Sand",
-      TRUE ~ "Undefined in database!"
-    )
-  ) %>%
-  filter(site == input_params$site_name) %>%
-  filter(month %in% input_params$season) %>%
-  group_by(year, measurement_name, depth) %>%
-  summarize(measurement_result = sum(measurement_result, na.rm = TRUE)) %>%
-  group_by(depth) %>%
-  pivot_wider(names_from = year, values_from = measurement_result) %>%
-  ungroup() %>% 
-  left_join(usga_specs) %>%
+    measurement_name = stringr::str_remove_all(measurement_name, " \\(%\\)"),
+    measurement_name = stringr::str_replace(measurement_name, " - ", " ("),
+    measurement_name = stringr::str_replace(measurement_name, " mm$", " mm)"),
+    measurement_name = stringr::str_replace(measurement_name, "1 mm", "1.0 mm"),
+    measurement_name = stringr::str_replace(measurement_name, "2 mm", "2.0 mm")
+  ) |>
+  filter(month %in% input_params$season) |> 
+  select(depth, year, measurement_name, measurement_result)
+
+sf_data_add <-
+  sf_data |> 
   mutate(
-    usga_spec = ifelse(is.na(usga_spec), "", usga_spec),
+    ## align particle names with those provided by USGA
+    measurement_name = case_when(
+      measurement_name %in% c("Fine Gravel (2.0 mm)", "Very Coarse Sand (1.0 mm)") ~ "Fine Gravel + Very Coarse Sand (2.0 mm + 1.0 mm)",
+      measurement_name %in% c("Coarse Sand (0.5 mm)", "Medium Sand (0.25 mm)") ~ "Coarse Sand + Medium Sand (0.5 mm + 0.25 mm)",
+      measurement_name %in% c("Very Fine Sand (0.106 mm)", "Very Fine Sand (0.053 mm)") ~ "Very Fine Sand + Very Fine Sand (0.106 mm + 0.053 mm)",
+      TRUE ~ "drop"
+    )
+  ) |>
+  filter(measurement_name != "drop") |> 
+  group_by(depth, year, measurement_name) |>
+  summarize(measurement_result = sum(measurement_result, na.rm = TRUE)) |> 
+  ungroup()
+
+sf_data_final <-
+  sf_data |> 
+  bind_rows(sf_data_add) |> 
+  left_join(usga_specs) |>
+  mutate(
+    ## placeholders for particles not featured in USGA recommendations
+    usga_spec = if_else(is.na(usga_spec), "", usga_spec),
+    usga_value = if_else(is.na(usga_value), 999, usga_value),
+    usga_direction = if_else(is.na(usga_direction), 0, usga_direction),
+    ## highlight values outside USGA recommendations
+    measurement_result = if_else(
+      if_else(usga_direction == 1, measurement_result < usga_value, measurement_result > usga_value), 
+      paste0("[", measurement_result, "]{.span color='chocolate'}"), 
+      sprintf("%2.1f", measurement_result))
+  ) |> 
+  group_by(depth) |>
+  pivot_wider(names_from = year, values_from = measurement_result) |>
+  ungroup() |>
+  mutate(
     measurement_name = factor(measurement_name, levels = c(
+      "Sand",
+      "Fine Gravel (2.0 mm)",
+      "Very Coarse Sand (1.0 mm)",
       "Fine Gravel + Very Coarse Sand (2.0 mm + 1.0 mm)", 
+      "Coarse Sand (0.5 mm)",
+      "Medium Sand (0.25 mm)",
       "Coarse Sand + Medium Sand (0.5 mm + 0.25 mm)",
       "Fine Sand (0.15 mm)",
-      "Very Fine Sand + Very Fine Sand (0.106 mm + 0.053 mm)",
-      "Sand"
+      "Very Fine Sand (0.106 mm)",
+      "Very Fine Sand (0.053 mm)",
+      "Very Fine Sand + Very Fine Sand (0.106 mm + 0.053 mm)"
     ))
-  ) %>%
-  select(depth, measurement_name, usga_spec, everything()) %>%
+  ) |>
+  select(depth, measurement_name, usga_spec, everything()) |>
+  select(-usga_value, -usga_direction) |> 
   arrange(depth, measurement_name)
 
-sf_data %>%
-  as_grouped_data('depth') %>% 
-  flextable() %>%
+sf_table_raw <- 
+  sf_data_final |>
+  as_grouped_data('depth') |> 
+  flextable()
+
+sf_table_raw |>
   set_header_labels(
     depth = 'Depth',
     measurement_name = 'Particle Size',
     usga_spec = 'USGA Spec',
     trend = 'Trend'
-  ) %>%
-  # add_header_row(
-  #   values = c("",'%Retained'),
-  #   colwidths = c(3,2)
-  # ) %>%
-  add_header_lines(values = c('OM 246 Sand Fractions')) %>% 
-  fontsize(size = 12, part = "all") %>%
-  colformat_double(big.mark = ",", digits = 1, na_str = "") %>% 
-  font(fontname = "Rasa", part = "all") %>%
-  bold(bold = TRUE, part = "header") %>%
-  bold(j = 1, bold = TRUE, part = "body") %>%
-  align(j = 3, align = "right", part = "all") %>%
-  line_spacing(i = 1, space = 1.3, part = "header") %>%
-  width(width = .5) %>%
-  width(j = 1, width = .7) %>%
-  width(j = 2, width = 3.6) %>%
-  width(j = 3, width = 1) %>%
-  hrule(rule = "exact") %>%
-  height_all(height = 5)
+  ) |>
+  add_header_row(
+    values = c("",'%Retained'), top = FALSE,
+    colwidths = c(3, ncol_keys(sf_table_raw) - 3)  # Adjust colwidths based on actual number of columns
+  ) |>
+  border_inner_h(part = "header", border = fp_border(color = "grey70", width = .5)) |> 
+  add_header_lines(values = c('OM 246 Sand Fractions')) |>
+  border_inner_h(part = "header", border = fp_border(color = "grey70", width = .5)) |> 
+  colformat_double(big.mark = ",", digits = 1, na_str = "") |>
+  ftExtra::colformat_md() |> 
+  fontsize(size = 9, part = "all") |>
+  font(fontname = typeface, part = "all") |>
+  bold(bold = TRUE, part = "header") |>
+  bold(j = 1, bold = TRUE, part = "body") |>
+  align(j = 3:ncol_keys(sf_table_raw), align = "right", part = "all") |>
+  line_spacing(i = 1, space = 1.3, part = "header") |>
+  width(width = .5) |>
+  width(j = 1, width = .6) |>
+  width(j = 2, width = 3.2) |>
+  width(j = 3, width = .75) |>
+  hrule(rule = "atleast") |>
+  height_all(height = 2)
 ```
 
 
