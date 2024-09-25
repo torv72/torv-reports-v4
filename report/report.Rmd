@@ -33,6 +33,17 @@ knitr::knit("templates/setup.Rmd")
 knitr::include_graphics(here("report", "assets", "torv-logo-wide.png"))
 ```
 
+```{r header-html, results='asis', include=html}
+cat(
+  "This is a report for ", 
+  input_params$site_name, 
+  " of the xyz survey conducted on ", 
+  format(as_date(input_params$date_sample_submitted), "%Y, %B %d"), 
+  " by Eric Foerster. All charts in the report are interactive, which means that you can hover over chart elements to see more details.",
+  sep = ""
+)
+```
+
 ```{r header-pdf, results='asis', include=!html}
 cat(
   "\\bigskip  \\bigskip  \\begin{center}\\Large \\textbf{Report for ", 
@@ -42,6 +53,14 @@ cat(
   "\\par   \\large ", 
   "Eric Foerster\\end{center}",
   sep = ""
+)
+```
+
+```{r liability-html, results='asis', include=html}
+cat(
+  "<br><b style='font-size:1.5em;font-style:italic;color:#6d6d6d;'>Liability Waiver</b>",
+  "<p style='line-height:1.05;'><i style='font-size:.9em;color:#6d6d6d;'>The recommendations provided in this report are based on current industry standards and site-specific conditions. They are advisory in nature and should be implemented at the client's discretion. The consultant disclaims any liability for outcomes resulting from the application of this advice. Clients are encouraged to seek additional professional input and consider all relevant factors before proceeding with any changes. By using this report, the client acknowledges that they have read, understood, and agreed to these terms, and that they are solely responsible for any decisions made based on these recommendations.</i></p>",
+  sep = "<br>"
 )
 ```
 
@@ -68,126 +87,126 @@ txt_file <- paste0("exec-summary_",
 txt_path <- paste0(here(), "/report/", txt_file)
 
 if (!file.exists(txt_path)) {
-{    
-  sink(txt_path)
+  {    
+    sink(txt_path)
+    
+    if(length(soil_types) > 0) {
+      for(soil_type in soil_types) {
+        
+        cat("
   
-  if(length(soil_types) > 0) {
-    for(soil_type in soil_types) {
-      
-      cat("
-
 ### [", str_to_title(soil_type), "](#", str_to_lower(soil_type), "-1)", sep = "")
-      
-      cat("
-      
+        
+        cat("
+        
 * All calculations are based on a monthly maximum of", grass_max_n_per_month_per_1000sqft[[soil_type]], "lbs of N/M.", sep = " ")
-      
-      # Including the Nitrogen value regardless of flag status as the rest all depend on this
-      cat("
+        
+        # Including the Nitrogen value regardless of flag status as the rest all depend on this
+        cat("
 * ", filter(measurement_commentaries,
-              sample_description_number_1 == soil_type &
-                measurement_name == "Total Nitrogen (ppm)") %>%
-    pull(commentary),
-  sep = "")
-      
-      # Adding commentary for the deficits tied to MLSN values
-      filter(exec_summary_commentary, sample_description_number_1 == soil_type & 
-               flag == "low" & 
-               !measurement_name %in% non_table_elements) %>%
-        pull(measurement_name) %>% 
-        {
-          if(length(.) > 1) {
-            cat("
+            sample_description_number_1 == soil_type &
+            measurement_name == "Total Nitrogen (ppm)") %>%
+      pull(commentary),
+    sep = "")
+        
+        # Adding commentary for the deficits tied to MLSN values
+        filter(exec_summary_commentary, sample_description_number_1 == soil_type & 
+                 flag == "low" & 
+                 !measurement_name %in% non_table_elements) %>%
+          pull(measurement_name) %>% 
+          {
+            if(length(.) > 1) {
+              cat("
 * Deficits were noted in the following ", length(.),
-" measurements: ", paste(.[1:length(.)-1], collapse = ", "), " and ", .[length(.)],
-". See the \"Required element per area\" table within the ", str_to_title(soil_type), 
-" section for an indication of how much fertilizer should be added to each sampled area. **[TODO: Add custom comment.]**", sep = "")
-          } else if (length(.) == 1){
-            cat("
+                " measurements: ", paste(.[1:length(.)-1], collapse = ", "), " and ", .[length(.)],
+                ". See the \"Required element per area\" table within the ", str_to_title(soil_type), 
+                " section for an indication of how much fertilizer should be added to each sampled area.", sep = "")
+            } else if (length(.) == 1){
+              cat("
 * Deficits were noted in the following measurement: ", .,
-". See the \"Required element per area\" table within the ",  str_to_title(soil_type), 
-" section for an indication of how much fertilizer should be added to each sampled area. **[TODO: Add custom comment.]**", sep = "")
-          } else {
-            cat("
-* No deficits were noted in the values tied to MLSN values. **[TODO: Add custom comment.]**")
+                ". See the \"Required element per area\" table within the ",  str_to_title(soil_type), 
+                " section for an indication of how much fertilizer should be added to each sampled area.", sep = "")
+            } else {
+              cat("
+* No deficits were noted in the values tied to MLSN values.")
+            }
           }
-        }
-      
-      filter(exec_summary_commentary, sample_description_number_1 == soil_type & 
-               measurement_name %in% non_table_elements &
-               measurement_name != "Total Nitrogen (ppm)") %>%
-        pull(commentary) %>%
-        {
-          if(length(.) > 0) {
-            cat("
+        
+        filter(exec_summary_commentary, sample_description_number_1 == soil_type & 
+                 measurement_name %in% non_table_elements &
+                 measurement_name != "Total Nitrogen (ppm)") %>%
+          pull(commentary) %>%
+          {
+            if(length(.) > 0) {
+              cat("
 * ", paste(., collapse = ". 
 * "),
-            sep = "")
-          } else {
-            cat("
-* No other anomalies were highlighted in the analysis. **[TODO: Add custom comment.]**")
+              sep = "")
+            } else {
+              cat("
+* No other anomalies were highlighted in the analysis.")
+            }
           }
-        }
-    }
-  }
-  
-  
-  if(length(om_types > 0)) {
-    
-    cat("
-        
-### [Organic Matter](#om-testing)
-  ")
-    
-    cat("
-The mean OM measurements can be summarised as follows: \n")
-    
-    for(unique_type_date in unique(all_om_data_comms$type_date)) {
-      
-      filter(all_om_data_comms, type_date == unique_type_date) %>%
-        pull(type_date) %>%
-        unique() %>%
-        cat()
-      
-      filter(all_om_data_comms, type_date == unique_type_date) %>%
-        pull(difference) %>%
-        cat()
-    }
-    
-    # If there is only one measurement, add in reasons why it's good to measure again
-    if(length(unique(all_om_data$date_sample_submitted)) == 1) { 
-     
-      om_single_measure_commentary %>%
-        cat("\n", ., sep = "\n")
-  
-    } else if(nrow(om_acc_df) == 0) {
-      
-      om_no_additional_analyses_commentary %>%
-        cat("\n", ., sep = "\n")
-    }
-    
-    if(nrow(om_acc_df) > 0) {
-      
-      cat("\n", acc_rate_commentary, "\n", sep = "")
-      
-      for(unique_soil_type in unique(om_acc_df$type)) {
-        
-        filter(om_acc_df, type == unique_soil_type) %>%
-          pull(type) %>%
-          unique() %>%
-          cat("\n*", .)
-        
-         filter(om_acc_df, type == unique_soil_type) %>%
-           pull(commentary) %>%
-           cat()
-        
       }
     }
     
-     if(nrow(sand_req_df) > 0) {
-      
-      cat("\n", sand_req_commentary, "\n", sep = "")
+  
+    if(length(om_types > 0)) {
+    
+      cat("
+        
+### [Organic Matter](#om-testing)
+      ")
+    
+      cat("
+The mean OM measurements can be summarised as follows: \n")
+    
+      for(unique_type_date in unique(all_om_data_comms$type_date)) {
+        
+        filter(all_om_data_comms, type_date == unique_type_date) %>%
+          pull(type_date) %>%
+          unique() %>%
+          cat()
+        
+        filter(all_om_data_comms, type_date == unique_type_date) %>%
+          pull(difference) %>%
+          cat()
+      }
+    
+      # If there is only one measurement, add in reasons why it's good to measure again
+      if(length(unique(all_om_data$date_sample_submitted)) == 1) { 
        
+        om_single_measure_commentary %>%
+          cat("\n", ., sep = "\n")
+    
+      } else if(nrow(om_acc_df) == 0) {
+        
+        om_no_additional_analyses_commentary %>%
+          cat("\n", ., sep = "\n")
+      }
+    
+      if(nrow(om_acc_df) > 0) {
+        
+        cat("\n", acc_rate_commentary, "\n", sep = "")
+        
+        for(unique_soil_type in unique(om_acc_df$type)) {
+          
+          filter(om_acc_df, type == unique_soil_type) %>%
+            pull(type) %>%
+            unique() %>%
+            cat("\n*", .)
+          
+           filter(om_acc_df, type == unique_soil_type) %>%
+             pull(commentary) %>%
+             cat()
+          
+        }
+      }
+    
+     if(nrow(sand_req_df) > 0) {
+        
+      cat("\n", sand_req_commentary, "\n", sep = "")
+         
        for(unique_soil_type in unique(sand_req_df$type)) {
         
         filter(sand_req_df, type == unique_soil_type) %>%
@@ -209,24 +228,16 @@ The mean OM measurements can be summarised as follows: \n")
 ### [Water](#water-testing)
 
 * **Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas facilisis sollicitudin magna at condimentum. Vestibulum at aliquam lorem. Aliquam ut nibh pretium, volutpat metus eu, fermentum velit.**")
+    }
+    sink()
   }
-  sink()
-}
 } else { # if txt_file already exists just source it
   message(paste0('\n\n❗ An executive summary for this site already exists. Sourcing the file "', txt_file, '" in the "report" directory.',
                  '\n    - To add comments, open the txt file, modify its content, and generate the report again.',
-                 '\n    - To create a new auto-generated executive summary for this site, please delete the txt file and rerun the report generation.\n'))
+                 '\n    - To create a new auto-generated executive summary for this site, please delete the txt file, and rerun the report generation.\n'))
 }
 
 cat(readLines(txt_path), sep = "\n")
-```
-
-```{r liability-html, results='asis', include=html}
-cat(
-  "<br><b style='font-size:1.5em;font-style:italic;color:#6d6d6d;'>Liability Waiver</b>",
-  "<p style='line-height:1.05;'><i style='font-size:.9em;color:#6d6d6d;'>The recommendations provided in this report are based on current industry standards and site-specific conditions. They are advisory in nature and should be implemented at the client's discretion. The consultant disclaims any liability for outcomes resulting from the application of this advice. Clients are encouraged to seek additional professional input and consider all relevant factors before proceeding with any changes. By using this report, the client acknowledges that they have read, understood, and agreed to these terms, and that they are solely responsible for any decisions made based on these recommendations.</i></p>",
-  sep = "<br>"
-)
 ```
 
 
@@ -371,7 +382,7 @@ knitr::include_graphics(here(root_figure_location, "headers", "none_testing_how_
 
 \begin{multicols}{2}
 ```{r how-to-text, results='asis', include=!html}
-cat("The trend line plots show the raw sampling values (small grey dots) and the averages per sampling date (large colored points). The purple line indicates a linear fitting across all sampling dates This method is a general indicator of the trend of the average values across time. However, note that a linear fitting is not always suitable (i.e., be careful in case the distance between averages and the trendline is high). For reference, the grey dotted line indicates the historic average, estimated based on TODO.")
+cat("The trend line plots show the raw sampling values (small grey dots) and the averages per sampling date (large colored points). The purple line indicates a linear fitting across all sampling dates This method is a general indicator of the trend of the average values across time. However, note that a linear fitting is not always suitable (i.e., be careful in case the distance between averages and the trendline is high). For reference, the grey dotted line indicates the historic average.")
 ```
 \columnbreak
 ```{r how-to-graphic, out.width="300%", include=!html}
