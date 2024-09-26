@@ -52,6 +52,7 @@ generate_report <- function(.site_name,
   library(glue)
   library(patchwork) 
   library(flextable)
+  library(ftExtra)
   library(ggiraph)
   
   options(tigris_use_cache = TRUE)
