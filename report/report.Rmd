@@ -34,12 +34,29 @@ knitr::include_graphics(here("report", "assets", "torv-logo-wide.png"))
 ```
 
 ```{r header-html, results='asis', include=html}
-cat(
-  "This is a report for ", 
-  input_params$site_name, 
-  " of the xyz survey conducted on ", 
-  format(as_date(input_params$date_sample_submitted), "%Y, %B %d"), 
-  " by Eric Foerster. All charts in the report are interactive, which means that you can hover over chart elements to see more details.",
+# cat(
+#   "This is a report for ", 
+#   input_params$site_name, 
+#   " of the xyz survey conducted on ", 
+#   format(as_date(input_params$date_sample_submitted), "%Y, %B %d"), 
+#   " by Eric Foerster. All charts in the report are interactive, which means that you can hover over chart elements to see more details."
+# )
+
+cat("<h1 style='color:black;'>Interactive Agronomic Survey Report</h1>",
+   "<h2 style='color:black;'>", input_params$site_name, "</h2>",
+  "**Date:** ",
+  format(as_date(input_params$date_sample_submitted), "%Y, %B %d"),
+  "<br>**Consultant:** Eric Foerster<br><br>",
+  "
+Welcome to your interactive agronomic survey report. This HTML-based document offers:
+
+1. **Interactive Charts:** Hover over elements for more details.
+2. **Easy Navigation:** Use the table of contents to jump to specific sections.
+3. **Responsive Design:** Optimized for various devices.
+
+For the best experience, use a modern web browser and explore the interactive features. If you have any questions, please contact me directly.
+
+Thank you for choosing my agronomic consulting services. I trust this report will provide valuable insights for your property management and improvement strategies.",
   sep = ""
 )
 ```
