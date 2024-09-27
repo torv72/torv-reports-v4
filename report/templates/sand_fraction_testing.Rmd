@@ -55,7 +55,7 @@ sf_data_add <-
 sf_data_final <-
   sf_data |> 
   bind_rows(sf_data_add) |> 
-  left_join(usga_specs) |>
+  left_join(usga_specs, by = join_by(measurement_name)) |>
   mutate(
     ## placeholders for particles not featured in USGA recommendations
     usga_spec = if_else(is.na(usga_spec), "", usga_spec),
