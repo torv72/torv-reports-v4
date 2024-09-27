@@ -58,7 +58,7 @@ generate_report(.site_name = "Snowmass Club",
 # the trendline charts, and both HTML and PDF as output:
 generate_report(.site_name = "Maroon Creek Club",
                 .zip_code = 81611,
-                .date_sample_submitted = "2024-06-06",
+                .date_sample_submitted = "2024-09-18",
                 .start_date = "2018-01-01",
                 .om_seasons = "all",
                 .om_stats = "median",
