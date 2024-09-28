@@ -64,7 +64,7 @@ if (sample_type_for_color == "Soil") {
   torv_color <- torv_blue
 }
 
-plot_test_trend <- function(plot_measurement, is_first, draw_beeswarm = beeswarm) {
+plot_test_trend <- function(plot_measurement, is_first, draw_beeswarm = input_params$beeswarm) {
 
   # For Soil, the average is within each sample_description_number_1 (e.g. GREEN  / TEE) across all TORV data
   # For water, start from the full database and include all samples *at that site* with the specific sample site,

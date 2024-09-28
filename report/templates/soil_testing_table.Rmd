@@ -65,7 +65,6 @@ filter(fertilizer_table_all, sample_description_number_1 == "{{sample_descriptio
   flextable::font(fontname = typeface_condensed, part = "all") %>%
   flextable::font(fontname = typeface, part = "footer") %>%
   flextable::width(width = w)
-
 ```
 
 ```{r}

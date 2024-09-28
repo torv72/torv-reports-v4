@@ -75,6 +75,11 @@ calculate_sand_req <-  function(om_now,
 om_acc_df <- tibble()
 sand_req_df <- tibble()
 
+calculate_om_stats <- function(x, na.rm, fun = input_params$om_stats) {
+  if(fun == "average") return(mean(x, na.rm = TRUE))
+  if(fun == "median")  return(median(x, na.rm = TRUE))
+}
+
 ## Set up the data
 all_om_data <- 
   full_database %>%
@@ -95,16 +100,10 @@ all_om_data <-
     depth = as.character(glue::glue("{depth} cm"))
   ) %>%
   group_by(measurement_name, depth, sample_description_number_2) %>%
-  mutate(torv_avg = mean(measurement_result, na.rm = TRUE)) %>%
+  mutate(torv_avg = calculate_om_stats(measurement_result)) %>%
   ungroup() %>%
   filter(site == input_params$site_name) %>%
-  mutate(season = case_when(
-    month %in% 3:5 ~ "Spring",
-    month %in% 6:8 ~ "Summer",
-    month %in% 9:11 ~ "Autumn",
-    month %in% c(1, 2, 12) ~ "Winter"
-  )) %>%
-  filter(season %in% om_seasons)
+  filter(month %in% input_params$season)
 
 if (testing_report == "No") {
   
@@ -340,7 +339,7 @@ if(length(all_om_data$date_sample_submitted) > 1) {
     group_by(sample_description_number_2) %>%
     filter(date_sample_submitted %in% tail(sort(unique(date_sample_submitted)), 2)) %>%
     group_by(sample_description_number_2, date_sample_submitted, depth) %>%
-    summarize(avg_measurement_result = mean(measurement_result, na.rm = TRUE),
+    summarize(avg_measurement_result = calculate_om_stats(measurement_result),
               torv_avg = mean(torv_avg, na.rm = TRUE), # all values same, take mean to collapse
               .groups = "drop")
 
