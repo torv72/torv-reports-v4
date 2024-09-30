@@ -169,7 +169,7 @@ make_trendline_legend <- function(main_color, stat = "average", draw_beeswarm = 
     annotate(
       geom = "text", 
       x = lubridate::as_date("2021-06-01"), y = 2.7,
-      label = paste(str_to_title(stat), "measurement"),
+      label = paste(str_to_sentence(stat), "measurement"),
       hjust = 1, family = typeface, color = main_color, size = 2.5
     ) +
     annotate(
@@ -204,15 +204,22 @@ make_trendline_legend <- function(main_color, stat = "average", draw_beeswarm = 
     )
 }
 
-trend_legend <- make_trendline_legend(main_color = "grey30", draw_beeswarm = input_params$beeswarm)
+## how-to-read plots for HTML version (one showing "average" and one for OM using the specified summary stat)
+trend_legend_mean <- make_trendline_legend(main_color = "grey30", draw_beeswarm = input_params$beeswarm)
 
-ggsave(here(root_figure_location, "trendlines", "trend_plot_legend.png"),
-       trend_legend, width = 2.5, height = 2, bg = "#ffffff", dpi = 300)
+ggsave(here(root_figure_location, "trendlines", "trend_plot_legend_mean.png"),
+       trend_legend_mean, width = 2.5, height = 2, bg = "#ffffff", dpi = 300)
 
 trend_legend_om <- make_trendline_legend(main_color = "grey30", stat = input_params$om_stats, draw_beeswarm = input_params$beeswarm)
 
 ggsave(here(root_figure_location, "trendlines", "trend_plot_legend_om.png"),
        trend_legend_om, width = 2.5, height = 2, bg = "#ffffff", dpi = 300)
+
+## how-to-read plots for PDF version (single chart stating both, mean and median combined)
+trend_legend_mean_median <- make_trendline_legend(main_color = "grey30", stat = "mean/ median", draw_beeswarm = input_params$beeswarm)
+
+ggsave(here(root_figure_location, "trendlines", "trend_plot_legend_mean_median.png"),
+       trend_legend_mean_median, width = 2.5, height = 2, bg = "#ffffff", dpi = 300)
 ```
 
 ```{r get-filtered-database}
