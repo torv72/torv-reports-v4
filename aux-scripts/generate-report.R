@@ -13,6 +13,7 @@ generate_report <- function(.site_name,
                             .draw_beeswarm = "Yes",
                             .typeface = "Georama",
                             .output = "html",
+                            .overwrite_report = "No",
                             .test = "No") {
 
   # Check function inputs
@@ -20,12 +21,13 @@ generate_report <- function(.site_name,
   if (!.om_stats %in% c("average", "median")) stop('.om_stats should be either "average" or "median".')
   if (!.warm_or_cool %in% c("warm", "cool")) stop('.warm_or_cool should be either "warm" or "cool".')
   if (!.acid_extract %in% c("Mehlich", "Olsen")) stop('.acid_extract should be either "Mehlich" or "Olsen".')
-  if (!is.logical(.include_results_interpretation)) stop('.include_results_interpretation should be of type logical (TRUE or FALSE)')
-  if (!is.logical(.include_sand_fraction)) stop('.include_sand_fraction should be of type logical (TRUE or FALSE)')
+  if (!.include_results_interpretation %in% c("Yes", "No")) stop('.include_results_interpretation should be either "Yes" or "No".')
+  if (!.include_sand_fraction %in% c("Yes", "No")) stop('.include_sand_fraction should be either "Yes" or "No".')
   if (!.draw_beeswarm %in% c("Yes", "No")) stop('.draw_beeswarm should be either "Yes" or "No".')
   if (!is.character(.typeface)) stop('.typeface should be of type character.')
   output <- stringr::str_to_lower(.output)
   if (any(!(output %in% c("html", "pdf") | output == c("pdf", "html") | .output == c("html", "pdf")))) stop('.output should be either "html", "pdf", or c("html", "pdf").')
+  if (!.overwrite_report %in% c("Yes", "No")) stop('.overwrite_report should be either "Yes" or "No".')
   if (!.test %in% c("Yes", "No")) stop('.test should be either "Yes" or "No".')
   
   # Clears the environment, to avoid cross contamination between successive reports!
@@ -74,6 +76,7 @@ generate_report <- function(.site_name,
   typeface <<- .typeface
   output_html <<- "html" %in% output
   output_pdf <<- "pdf" %in% output
+  overwrite_report <<- ifelse(.overwrite_report == "Yes", TRUE, FALSE)
   testing_report <<- .test
   
   # Set up Figure directories if they aren't already there
@@ -115,7 +118,7 @@ generate_report <- function(.site_name,
                          end_date = "2021-12-31",
                          warm_or_cool = "cool",
                          acid_extract = "Mehlich",
-                         include_results_interpretation = TRUE)
+                         include_results_interpretation = "Yes")
   } else if(.test == "MC_202108") {
     # Full report
     input_params <- list(site_name = "Maroon Creek Club",
@@ -125,7 +128,7 @@ generate_report <- function(.site_name,
                          start_date = "1900-01-01",
                          warm_or_cool = "cool",
                          acid_extract = "Mehlich",
-                         include_results_interpretation = FALSE)
+                         include_results_interpretation = "No")
   } else if(.test == "Saratoga_202109") {
     # Full report with only one date in sample data; tests trend plots
     # work with no date range
@@ -136,7 +139,7 @@ generate_report <- function(.site_name,
                          end_date = "2022-03-24",
                          warm_or_cool = "cool",
                          acid_extract ="Olsen",
-                         include_results_interpretation = FALSE)
+                         include_results_interpretation = "No")
   } else if(.test == "Wellshire_202111") {
     # Small report with no GREEN data; tests that the Turf Growth model
     # can still be created
@@ -147,7 +150,7 @@ generate_report <- function(.site_name,
                          end_date = "2022-03-24",
                          warm_or_cool = "cool",
                          acid_extract = "Mehlich",
-                         include_results_interpretation = FALSE)
+                         include_results_interpretation = "No")
   } else if(.test == "Sonnenalp_202111") {
     # Small number of measurements; tests trends plots work in absence
     # of past data
@@ -158,7 +161,7 @@ generate_report <- function(.site_name,
                          end_date = "2022-03-24",
                          warm_or_cool = "cool",
                          acid_extract = "Mehlich",
-                         include_results_interpretation = FALSE)
+                         include_results_interpretation = "No")
   } else if(.test == "Bartlett_202112") {
     # Small report with only OM data; tests the Turf Growth Model switch
     input_params <- list(site_name = "Bartlett Hills Golf Course",
@@ -168,7 +171,7 @@ generate_report <- function(.site_name,
                          end_date = "2022-03-24",
                          warm_or_cool = "cool",
                          acid_extract = "Mehlich",
-                         include_results_interpretation = FALSE)
+                         include_results_interpretation = "No")
   } else {
     input_params <- list(site_name = .site_name,
                          zip_code = .zip_code,
@@ -179,8 +182,8 @@ generate_report <- function(.site_name,
                          season = season,
                          om_seasons = .om_seasons,
                          om_stats = .om_stats,
-                         include_results_interpretation = .include_results_interpretation,
-                         include_sand_fraction = .include_sand_fraction,
+                         include_results_interpretation = ifelse(.include_results_interpretation == "Yes", TRUE, FALSE),
+                         include_sand_fraction = ifelse(.include_sand_fraction == "Yes", TRUE, FALSE),
                          beeswarm = ifelse(.draw_beeswarm == "Yes", TRUE, FALSE))
   }
 
@@ -206,17 +209,17 @@ generate_report <- function(.site_name,
     filename_pdf <- paste0(filename, ".pdf")
     filename_html <- paste0(filename, ".html")
 
-    if(output_pdf & file.exists(here("generated-reports", filename_pdf))) {
+    if(output_pdf & file.exists(here("generated-reports", filename_pdf)) & overwrite_report == FALSE) {
 
-      message("\n❗ There is already a report called ", filename_pdf, "\nin the generated-reports folder!\n\n❓ Do you want to overwrite it?")
+      message("\n❗ There is already a report called ", filename_pdf, " in the generated-reports folder!\n\n❓ Do you want to overwrite it?")
 
       overwrite <- readline("Type y for yes or any other letter to exit and hit ENTER.")
 
       if(overwrite == "n") stop("\n❌ Ok, I'll exit now. Phew!")
     }
-    if(output_html & file.exists(here("generated-reports", filename_html))) {
+    if(output_html & file.exists(here("generated-reports", filename_html)) & overwrite_report == FALSE) {
       
-      message("\n❗ There is already a report called ", filename_html, "in the generated-reports folder!\n\n❓ Do you want to overwrite it?")
+      message("\n❗ There is already a report called ", filename_html, " in the generated-reports folder!\n\n❓ Do you want to overwrite it?")
       
       overwrite <- readline("Type y for yes or any other letter to exit and hit ENTER.")
       
