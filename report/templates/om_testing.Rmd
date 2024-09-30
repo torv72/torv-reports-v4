@@ -11,7 +11,7 @@ These measurements are neither good nor bad. Information such as fertilizer appl
 
 The S325 test package includes the entire sample submitted. This includes leaves, stems, and roots. This differs from the standard soil test which filters out most of the components. This is the reason why the percentages appear higher than that on a standard soil test.
 
-The following results show `r {input_params$om_stats}` values. `r if(input_params$om_stats == "median"){'The median value is the central point of the data, meaning half of the numbers in a list are smaller and half are larger than the median.'}``r if(input_params$om_stats == "average"){'The average, or mean, is the "typical" value in the data and is calculated by adding up all the numbers in a list and then dividing that total by the number of numbers.'}`\newline
+The following results show `r {input_params$om_stats}` values. `r if(input_params$om_stats == "median"){'The median value is the central point of the data, meaning half of the numbers in a list are smaller and half are larger than the median.'}``r if(input_params$om_stats == "average"){'The average, or mean, is the "typical" value in the data and is calculated by adding up all the numbers in a list and then dividing that total by the count of numbers.'}`\newline
 
 ```{r, message=FALSE, warning=FALSE, results='asis', fig.width=6.8, fig.height=2.5, out.width="100%"}
 om_data <- filter(all_om_data, sample_description_number_2 == "{{sample_description_number_2}}")
