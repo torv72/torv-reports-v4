@@ -50,12 +50,12 @@ generate_report(.site_name = "Snowmass Club",
                 .om_seasons = "all",
                 .warm_or_cool = "cool",
                 .acid_extract = "Mehlich",
-                .include_results_interpretation = FALSE,
-                .include_sand_fraction = TRUE,
+                .include_results_interpretation = "No",
+                .include_sand_fraction = "No",
                 .output = "pdf")
 
-# And another example with a different site, median values, no beeswarm plots in
-# the trendline charts, and both HTML and PDF as output:
+# And another example with a different site, median values, sand fraction results,
+# no beeswarms in the trendline charts, and both HTML and PDF as output:
 generate_report(.site_name = "Maroon Creek Club",
                 .zip_code = 81611,
                 .date_sample_submitted = "2024-09-18",
@@ -64,8 +64,8 @@ generate_report(.site_name = "Maroon Creek Club",
                 .om_stats = "median",
                 .warm_or_cool = "cool",
                 .acid_extract = "Mehlich",
-                .include_results_interpretation = FALSE,
-                .include_sand_fraction = FALSE,
+                .include_results_interpretation = "No",
+                .include_sand_fraction = "Yes",
                 .draw_beeswarm = "Yes",
                 .output = c("pdf", "html"))
 
