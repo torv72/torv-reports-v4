@@ -42,16 +42,15 @@ knitr::include_graphics(here("report", "assets", "torv-logo-wide.png"))
 #   " by Eric Foerster. All charts in the report are interactive, which means that you can hover over chart elements to see more details."
 # )
 
-cat("<h1 style='color:black;'>Interactive Agronomic Survey Report</h1>",
-   "<h2 style='color:black;'>", input_params$site_name, "</h2>",
-  "**Date:** ",
-  format(as_date(input_params$date_sample_submitted), "%Y, %B %d"),
-  "<br>**Consultant:** Eric Foerster<br><br>",
+cat("<br><h1 style='color:black;font-size:18pt !important;'><b style='font-weight:600;'>Interactive Agronomic Survey Report</b><br>", input_params$site_name, "</h1>",
+  "**Sampling Date:** ",
+  format(as_date(input_params$date_sample_submitted), "%B %d, %Y"),
+  "<br>**Consultant:** Eric Foerster MG, CGCS<br><br>",
   "
 Welcome to your interactive agronomic survey report. This HTML-based document offers:
 
 1. **Interactive Charts:** Hover over elements for more details.
-2. **Easy Navigation:** Use the table of contents to jump to specific sections.
+2. **Easy Navigation:** Use the header in the [executive summary](#executive-summary) to jump to specific sections.
 3. **Responsive Design:** Optimized for various devices.
 
 For the best experience, use a modern web browser and explore the interactive features. If you have any questions, please contact me directly.
@@ -68,7 +67,7 @@ cat(
   "}\\par   \\large ", 
   format(Sys.time(), "%Y, %B %d"), 
   "\\par   \\large ", 
-  "Eric Foerster\\end{center}",
+  "Eric Foerster MG, CGCS\\end{center}",
   sep = ""
 )
 ```
@@ -103,7 +102,7 @@ txt_file <- paste0("exec-summary_",
 
 txt_path <- paste0(here(), "/report/", txt_file)
 
-if (!file.exists(txt_path)) {
+if (!file.exists(txt_path) | overwrite_report) {
   {    
     sink(txt_path)
     
@@ -176,7 +175,7 @@ if (!file.exists(txt_path)) {
       ")
     
       cat("
-The mean OM measurements can be summarised as follows: \n")
+The ", input_params$om_stats, "OM measurements can be summarised as follows: \n")
     
       for(unique_type_date in unique(all_om_data_comms$type_date)) {
         
@@ -188,6 +187,15 @@ The mean OM measurements can be summarised as follows: \n")
         filter(all_om_data_comms, type_date == unique_type_date) %>%
           pull(difference) %>%
           cat()
+      }
+      
+      # Add note how to interpret average or median
+      if(input_params$om_stats == "average") {
+        cat('\n', '\n', '*The results show ', input_params$om_stats, ' values.', '
+The average, or mean, is the "typical" value in the data and is calculated by adding up all the numbers in a list and then dividing that total by the count of numbers.*', sep = "")
+      } else {
+        cat('\n', '\n', '*The results show ', input_params$om_stats, ' values.', '
+The median value is the central point of the data, meaning half of the numbers in a list are smaller and half are larger than the median.*', sep = "")
       }
     
       # If there is only one measurement, add in reasons why it's good to measure again
@@ -220,23 +228,23 @@ The mean OM measurements can be summarised as follows: \n")
         }
       }
     
-     if(nrow(sand_req_df) > 0) {
+      if(nrow(sand_req_df) > 0) {
         
-      cat("\n", sand_req_commentary, "\n", sep = "")
+        cat("\n", sand_req_commentary, "\n", sep = "")
          
-       for(unique_soil_type in unique(sand_req_df$type)) {
+         for(unique_soil_type in unique(sand_req_df$type)) {
         
-        filter(sand_req_df, type == unique_soil_type) %>%
-          pull(type) %>%
-          unique() %>%
-          cat("\n*", .)
+           filter(sand_req_df, type == unique_soil_type) %>%
+             pull(type) %>%
+             unique() %>%
+             cat("\n*", .)
         
-         filter(sand_req_df, type == unique_soil_type) %>%
-           pull(commentary) %>%
-           cat()
+           filter(sand_req_df, type == unique_soil_type) %>%
+             pull(commentary) %>%
+             cat()
+         }
       }
-    }
-  }
+   }
     
   
   if(length(water_types > 0)) {
@@ -334,7 +342,6 @@ if(length(om_types > 0)) { # So the section only shows up if there are OM result
 
 ## Sand Fraction Testing {#sand-fraction-testing}
 
-
 ```{r sf-results, eval=input_params$include_sand_fraction, results='asis'}
 if(any(filtered_database$test_short_name == "S022")) { # So the section only shows up if there are SF results to report
   knitr::knit_child("templates/sand_fraction_testing.Rmd", quiet = TRUE) %>%
@@ -403,6 +410,6 @@ cat("The trend line plots show the raw sampling values (small grey dots) and the
 ```
 \columnbreak
 ```{r how-to-graphic, out.width="300%", include=!html}
-knitr::include_graphics(here(root_figure_location, "trendlines", "trend_plot_legend.png"))
+knitr::include_graphics(here(root_figure_location, "trendlines", "trend_plot_legend_mean_median.png"))
 ```
 \end{multicols}
