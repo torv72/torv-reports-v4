@@ -1,12 +1,12 @@
 
 \newpage
 
-```{r sf-header, warning=FALSE, message=FALSE, out.width="900px"}
+```{r, warning=FALSE, message=FALSE, out.width="900px"}
 header_file_create("OM", "Sand Fraction")
 knitr::include_graphics(here(root_figure_location, "headers", "om_testing_sand_fraction_plot.png"))
 ```
 
-```{r sf-table, ft.align="left"}
+```{r}
 usga_specs <- tribble(
   ~measurement_name,                                       ~usga_spec, ~usga_value, ~usga_direction,
   "Coarse Sand + Medium Sand (0.5 mm + 0.25 mm)",          "≥ 60 %",   60,           1,
@@ -26,6 +26,7 @@ sf_data <-
                    sample_description_number_4),
     year = lubridate::year(date_sample_submitted),
     month = lubridate::month(date_sample_submitted),
+    year_month = lubridate::format_ISO8601(date_sample_submitted, precision = "ym"), #paste0(year, "\n", month),
     depth = as.character(glue::glue("{depth} cm")),
     measurement_name = stringr::str_remove_all(measurement_name, " \\(%\\)"),
     measurement_name = stringr::str_replace(measurement_name, " - ", " ("),
@@ -33,8 +34,14 @@ sf_data <-
     measurement_name = stringr::str_replace(measurement_name, "1 mm", "1.0 mm"),
     measurement_name = stringr::str_replace(measurement_name, "2 mm", "2.0 mm")
   ) |>
-  filter(month %in% input_params$season) |> 
-  select(depth, year, measurement_name, measurement_result)
+  filter(month %in% input_params$season)
+
+samplings_per_year <- sf_data |> group_by(year) |> summarize(n = length(unique(date_sample_submitted)))
+if(max(samplings_per_year$n) > 1) grp <- "year_month" else grp <- "year"
+
+sf_data <- 
+  sf_data |> 
+  select(depth, date_sample_submitted, !!sym(grp), measurement_name, measurement_result)
 
 sf_data_add <-
   sf_data |> 
@@ -48,13 +55,16 @@ sf_data_add <-
     )
   ) |>
   filter(measurement_name != "drop") |> 
-  group_by(depth, year, measurement_name) |>
+  group_by(depth, date_sample_submitted, !!sym(grp), measurement_name) |>
   summarize(measurement_result = sum(measurement_result, na.rm = TRUE)) |> 
   ungroup()
 
-sf_data_final <-
+sf_data_long <-
   sf_data |> 
   bind_rows(sf_data_add) |> 
+  group_by(depth, !!sym(grp), measurement_name) |> 
+  summarize(measurement_result = mean(measurement_result)) |> 
+  ungroup() |> 
   left_join(usga_specs, by = join_by(measurement_name)) |>
   mutate(
     ## placeholders for particles not featured in USGA recommendations
@@ -62,14 +72,11 @@ sf_data_final <-
     usga_value = if_else(is.na(usga_value), 999, usga_value),
     usga_direction = if_else(is.na(usga_direction), 0, usga_direction),
     ## highlight values outside USGA recommendations
-    measurement_result = if_else(
+    measurement_result_lab = if_else(
       if_else(usga_direction == 1, measurement_result < usga_value, measurement_result > usga_value), 
-      paste0("[", measurement_result, "]{.span color='chocolate'}"), 
+      paste0("[", sprintf("%2.1f", measurement_result), "]{.span color='chocolate'}"), 
       sprintf("%2.1f", measurement_result))
-  ) |> 
-  group_by(depth) |>
-  pivot_wider(names_from = year, values_from = measurement_result) |>
-  ungroup() |>
+  ) |>
   mutate(
     measurement_name = factor(measurement_name, levels = c(
       "Sand",
@@ -84,17 +91,97 @@ sf_data_final <-
       "Very Fine Sand (0.053 mm)",
       "Very Fine Sand + Very Fine Sand (0.106 mm + 0.053 mm)"
     ))
-  ) |>
-  select(depth, measurement_name, usga_spec, everything()) |>
-  select(-usga_value, -usga_direction) |> 
-  arrange(depth, measurement_name)
+  )
 
+sf_data_wide <- 
+  sf_data_long |> 
+  select(-measurement_result, -usga_value, -usga_direction) |> 
+  group_by(depth) |>
+  pivot_wider(names_from = !!sym(grp), values_from = measurement_result_lab) |>
+  ungroup() |>
+  select(depth, measurement_name, usga_spec, everything()) |> 
+  arrange(depth, measurement_name)
+```
+
+
+```{r}
+## too high, too low, satisfied, not specified
+
+# sf_data_bars_red <- 
+#   sf_data_long |> 
+#   filter(usga_spec != "" | measurement_name == "Sand") |>
+#   mutate(
+#     measurement_name = factor(measurement_name, levels = rev(c(
+#       "Sand",
+#       "Fine Gravel (2.0 mm)",
+#       "Fine Gravel + Very Coarse Sand (2.0 mm + 1.0 mm)", 
+#       "Coarse Sand + Medium Sand (0.5 mm + 0.25 mm)",
+#       "Fine Sand (0.15 mm)",
+#       "Very Fine Sand + Very Fine Sand (0.106 mm + 0.053 mm)"
+#     )))
+#   )
+# 
+# sf_data_bars <-
+#   sf_data_bars_red |> 
+#   mutate(
+#     measurement_name = factor(measurement_name, levels = rev(levels(sf_data_bars_red$measurement_name)), 
+#                               labels = stringr::str_replace(rev(levels(sf_data_bars_red$measurement_name)), " \\(", " \n(")),
+#     usga_value = if_else(usga_value == 999, NA, usga_value),
+#     is_satisfied = if_else(usga_direction == 1, measurement_result < usga_value, measurement_result > usga_value),
+#     outcome = case_when(
+#       is_satisfied == TRUE ~ "satisfied",
+#       is_satisfied == FALSE & usga_direction == 1 ~ "too high",
+#       is_satisfied == FALSE & usga_direction == -1 ~ "too low",
+#       TRUE ~ "not specified"
+#     ),
+#     outcome = factor(outcome, levels = c("too high", "too low", "satisfied", "not specified"))
+#   )
+# 
+# sf_data_bars |> 
+#   ggplot(aes(y = fct_rev(measurement_name), x = measurement_result)) +
+#   #geom_line(aes(group = year))
+#   geom_col(aes(x = 100), fill = "grey92", width = .8) +
+#   geom_col(aes(fill = outcome), width = .8) +
+#   geom_segment(
+#     aes(x = usga_value, xend = usga_value,
+#         y = as.numeric(fct_rev(measurement_name)) - .4, yend = as.numeric(fct_rev(measurement_name)) + .4)
+#   ) +
+#   geom_text(
+#     aes(x = 130, color = outcome,
+#         label = paste0(sprintf("%3.1f", measurement_result), "%")), 
+#     family = typeface, size = 2.3, hjust = 1
+#   ) +
+#   geom_vline(xintercept = 0, color = torv_gray) +
+#   facet_wrap(~depth) +
+#   scale_x_continuous(
+#     breaks = 0:4*25,
+#     labels = scales::percent_format(scale = 1),
+#     expand = expansion(add = c(0, 30))
+#   ) +
+#   scale_y_discrete(expand = c(0, 0)) +
+#   scale_fill_manual(
+#     values = c("firebrick", "royalblue", "grey30", "grey60"), name = NULL
+#   ) +
+#   scale_color_manual(
+#     values = c("firebrick", "royalblue", "grey30", "grey60"), name = NULL
+#   ) +
+#   labs(x = NULL, y = NULL) +
+#   theme(strip.text = element_text(face = "bold"),
+#         axis.text.x = element_text(family = typeface_condensed),
+#         panel.grid.major.x = element_line(color = "grey92", linewidth = .3),
+#         panel.grid.major.y = element_blank(),
+#         legend.position = "bottom")
+```
+
+
+```{r}
 sf_table_raw <- 
-  sf_data_final |>
+  sf_data_wide |>
   as_grouped_data('depth') |> 
   flextable()
 
-sf_table_raw |>
+sf_table <- 
+  sf_table_raw |>
   set_header_labels(
     depth = 'Depth',
     measurement_name = 'Particle Size',
@@ -110,14 +197,28 @@ sf_table_raw |>
   border_inner_h(part = "header", border = fp_border(color = "grey70", width = .5)) |> 
   colformat_double(big.mark = ",", digits = 1, na_str = "") |>
   ftExtra::colformat_md() |> 
-  fontsize(size = 9, part = "all") |>
   font(fontname = typeface, part = "all") |>
   bold(bold = TRUE, part = "header") |>
   bold(j = 1, bold = TRUE, part = "body") |>
   align(j = 3:ncol_keys(sf_table_raw), align = "right", part = "all") |>
+  align(i = 3, j = 3:ncol_keys(sf_table_raw), align = "center", part = "header") |>
   line_spacing(i = 1, space = 1.3, part = "header") |>
-  width(width = .5) |>
-  width(j = 1, width = .6) |>
+  hrule(rule = "atleast")
+```
+
+```{r, ft.align="left", include=html}
+sf_table |> 
+  fontsize(size = 11, part = "all") |>
+  width(width = .94) |>
+  width(j = 1, width = .67) |>
+  width(j = 2, width = 4) |>
+  height_all(height = .05)
+```
+
+```{r, ft.align="left", include=!html}
+sf_table |> 
+  fontsize(size = 9, part = "all") |>
+  width(width = .6) |>
   width(j = 2, width = 3.2) |>
   width(j = 3, width = .75) |>
   hrule(rule = "atleast") |>
