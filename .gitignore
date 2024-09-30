@@ -58,9 +58,13 @@ data-raw/lab-reports/
 
 # Exclude the newly generated test reports and pngs, 
 # but not the ones we're comparing them to
-tests/test-reports/*/*.docx
+tests/test-reports/*/*.html
+tests/test-reports/*/*.pdf
+tests/test-reports/*/*.log
 tests/test-reports/*/*/*/*.png
-!tests/test-reports/*/*_ref.docx
+!tests/test-reports/*/*_ref.html
+!tests/test-reports/*/*_ref.pdf
+!tests/test-reports/*/*_ref.log
 !tests/test-reports/*/*/*/*_ref.png
 
 # DS Store
