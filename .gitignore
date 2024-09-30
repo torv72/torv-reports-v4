@@ -47,7 +47,7 @@ vignettes/*.pdf
 temp.R
 temp.png
 generated-reports/
-report/*.txt
+report/exec-summary_*
 longitudinal-summaries/
 report/figures/
 report/assets/*-cairo.svg
