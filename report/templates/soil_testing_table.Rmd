@@ -103,11 +103,11 @@ cat('</details>')
 
 
 ```{r, results='asis', include=html}
-cat("<details><summary style='font-size:22pt;font-weight:600;'>Mean measurements and recommendations</summary>")
+cat("<details><summary style='font-size:22pt;font-weight:600;'>Mean measurements</summary>")
 ```
 
 ```{r, results='asis', include=!html}
-cat("### Mean measurements and recommendations")
+cat("### Mean measurements")
 ```
 
 ```{r, echo=FALSE, results='asis'}
