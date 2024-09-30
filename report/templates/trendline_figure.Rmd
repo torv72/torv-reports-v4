@@ -228,7 +228,25 @@ plot_test_trend <- function(plot_measurement, is_first, draw_beeswarm = input_pa
                site_points$measurement_result + max(0.1, site_points$measurement_result * 0.1)))
     }
   }
-
+  
+  if (!html) {
+    trend_plot <- trend_plot +
+    geom_label(
+      data = filter(site_avgs, plot_date == max(plot_date)),
+      aes(x = plot_date, y = avg_measurement_result,
+          label = sprintf("%3.1f", avg_measurement_result)),
+      color = prismatic::clr_darken(torv_color, .2), label.size = NA,
+      label.padding = unit(.1, "lines"), vjust = .5, hjust = -.25,
+      family = typeface_condensed, fontface = "bold", size = 3,
+      show.legend = FALSE
+    ) +
+    scale_x_date(
+      breaks = date_breaks, limits = plot_range, expand = expansion(mult = c(0, .12)),
+      date_labels = ifelse(year_range[2] - year_range[1] < 2, "%b\n%Y", "%Y")
+    ) +
+    theme(plot.margin = margin(3, 15, 6, 3))
+  }
+  
   trend_plot
 }
 
@@ -265,7 +283,7 @@ cat('<br><details><summary>How to read this chart</summary>')
 ```
 
 ```{r, out.width="67%", include=html}
-knitr::include_graphics(here("report", "figures", "trendlines", "trend_plot_legend.png"))
+knitr::include_graphics(here("report", "figures", "trendlines", "trend_plot_legend_mean.png"))
 ```
 
 ```{r, results='asis', include=html}
