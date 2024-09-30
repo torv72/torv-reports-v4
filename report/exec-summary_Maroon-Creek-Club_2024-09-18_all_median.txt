@@ -1,0 +1,47 @@
+
+  
+### [Green](#green-1)
+        
+* All calculations are based on a monthly maximum of 0.5 lbs of N/M.
+* The average total available Nitrogen is 2.1 ppm. This is below the optimal range of 5 ppm - 10 ppm for soil nitrogen. Consider additional applications of nitrate or ammonium based fertilizers to increase soil nitrogen levels.
+* Deficits were noted in the following 2 measurements: Potassium (ppm) and Phosphorus (ppm). See the "Required element per area" table within the Green section for an indication of how much fertilizer should be added to each sampled area.
+* No other anomalies were highlighted in the analysis.
+  
+### [Tee](#tee-1)
+        
+* All calculations are based on a monthly maximum of 0.5 lbs of N/M.
+* The average total available Nitrogen is 2.3 ppm. This is below the optimal range of 5 ppm - 10 ppm for soil nitrogen. Consider additional applications of nitrate or ammonium based fertilizers to increase soil nitrogen levels.
+* Deficits were noted in the following measurement: Potassium (ppm). See the "Required element per area" table within the Tee section for an indication of how much fertilizer should be added to each sampled area.
+* No other anomalies were highlighted in the analysis.
+  
+### [Fairway](#fairway-1)
+        
+* All calculations are based on a monthly maximum of 0.7 lbs of N/M.
+* The average total available Nitrogen is 5 ppm. This is optimal and is within the ideal range of 5 ppm - 10 ppm for soil nitrogen.
+* No deficits were noted in the values tied to MLSN values.
+* No other anomalies were highlighted in the analysis.
+        
+### [Organic Matter](#om-testing)
+      
+The mean OM measurements can be summarised as follows: 
+
+- Comparing the **GREEN** samples taken on September 18th, 2024 to their most recent previous samples (June 6th, 2024).
+  * At a depth of **0-2 cm**, the OM content increased from 8.11% to 9.98%.
+- The **GREEN** samples taken on September 18th, 2024 were as follows:
+  * At a depth of **2-4 cm**, the OM content was **4.46%**. 
+  * At a depth of **4-6 cm**, the OM content was **1.34%**.
+- Comparing the **ROUGH** samples taken on May 24th, 2023 to their most recent previous samples (October 10th, 2022).
+  * At a depth of **0-2 cm**, the OM content increased from 21.09% to 23.09%. 
+  * At a depth of **2-4 cm**, the OM content decreased from 13.73% to 11.64%. 
+  * At a depth of **4-6 cm**, the OM content decreased from 8.99% to 7.81%.
+- Comparing the **TEE** samples taken on September 18th, 2024 to their most recent previous samples (October 11th, 2023).
+  * At a depth of **0-2 cm**, the OM content increased from 8.26% to 9.79%. 
+  * At a depth of **2-4 cm**, the OM content decreased from 4.6% to 4.39%. 
+  * At a depth of **4-6 cm**, the OM content decreased from 4.42% to 3.81%.
+
+Like calibrating a TDR measurement for soil moisture content based on subjective observations, the OM246 test should be thought of in the same context. Playability and overall green performance should be considered.
+Using a known amount of topdressing applied, we can estimate/calculate the Amount of topdressing needed to maintain, increase, or decrease the organic matter.
+
+- Consider obtaining an accurate topdressing rate per year to make this calculation possible. What is the estimated depth of all topdressing applications applied this year?
+- [This video from the USGA](https://www.asianturfgrass.com/post/sand-topdressing-by-depth) shows how to calculate the depth along with the required conversion equations.
+- Cultural decisions such as aerification, verticutting, topdressing amounts/frequency can be influenced by tracking organic matter over time and established goals for organic matter targets.
