@@ -29,7 +29,7 @@ mlsn_summary <- deficits_graph_data %>%
                                                                  ifelse(abs(aiming_for) < 10,
                                                                         janitor::round_half_up(aiming_for, digits = 1),
                                                                         janitor::round_half_up(aiming_for, digits = 0)),
-                                                                 " ppm for all the samples. [Something along the lines of all is well.]")),
+                                                                 " ppm for all the samples.")),
                                 TRUE ~ str_squish(paste0("The mean ", measurement_name, " measurement is ",
                                                          ifelse(abs(mean_result) < 10,
                                                                 janitor::round_half_up(mean_result, digits = 1),
@@ -38,8 +38,7 @@ mlsn_summary <- deficits_graph_data %>%
                                                          ifelse(abs(aiming_for) < 10,
                                                                 janitor::round_half_up(aiming_for, digits = 1),
                                                                 janitor::round_half_up(aiming_for, digits = 0)),
-                                                         " in ", verbal_proportion, " samples. ",
-                                                         "[Something along the lines of add fertilizer as specified in the table.]")))) %>%
+                                                         " in ", verbal_proportion, " samples. ")))) %>%
   select(sample_description_number_1, measurement_name, mean_result, flag, commentary)
 
 # Create commentary for non-MLSN values ----
@@ -78,46 +77,28 @@ extra_soil_measurements <- filtered_database %>%
                                 measurement_name == "pH" ~
                                   str_squish(paste0("The average pH is ",
                                                     janitor::round_half_up(mean_result, 1),
-                                                    ". This is within the optimum range for soil microbial activity
-                                                    and soil nutrient availability. With the pH is this range,
-                                                    there is a chance of seeing some iron chlorosis. If this does
-                                                    occur, you can fix it by making foliar applications of ferrous
-                                                    sulfate.")),
+                                                    ".")),
                                 measurement_name == "Organic Matter (%)" & mean_result > 4.5 ~
                                   "The average Organic Matter (%) measurement is above 4.5%.",
                                 measurement_name == "Organic Matter (%)" ~
                                   str_squish(paste0("The average Organic Matter is ",
                                                     janitor::round_half_up(mean_result, 1),
-                                                    "%. This is normal and indicates that your current maintenance practices
-                                                    are keeping the organic matter percentage in an ideal range.")),
+                                                    "%.")),
                                 measurement_name == "Total Nitrogen (ppm)" & mean_result < 5 ~
                                   str_squish(paste0("The average total available Nitrogen is ",
-                                                    janitor::round_half_up(mean_result, 1), " ppm.
-                                                    This is below the optimal range of 5 ppm - 10 ppm for soil nitrogen.
-                                                    Consider additional applications of nitrate or ammonium based fertilizers
-                                                    to increase soil nitrogen levels.")),
+                                                    janitor::round_half_up(mean_result, 1), " ppm.")),
                                 measurement_name == "Total Nitrogen (ppm)" & mean_result > 10 ~
                                   str_squish(paste0("The average total available Nitrogen is ",
-                                                    janitor::round_half_up(mean_result, 1), " ppm.
-                                                    This is above the optimal range of 5 ppm - 10 ppm for soil nitrogen.
-                                                    Excessive soil nitrogen may result in unwanted turfgrass growth and
-                                                    increased organic matter.")),
+                                                    janitor::round_half_up(mean_result, 1), " ppm.")),
                                 measurement_name == "Total Nitrogen (ppm)" ~
                                   str_squish(paste0("The average total available Nitrogen is ",
-                                                    janitor::round_half_up(mean_result, 1), " ppm.
-                                                    This is optimal and is within the ideal range of 5 ppm - 10 ppm
-                                                    for soil nitrogen.")),
+                                                    janitor::round_half_up(mean_result, 1), " ppm.")),
                                 measurement_name == "Sodium (ppm)" & mean_result > 110 ~
                                   str_squish(paste0("The average Sodium is ",
-                                                    janitor::round_half_up(mean_result, 0), " ppm.
-                                                    This is above 110 ppm, the beginning threshold for negative effects
-                                                    of sodium on turfgrass.  Excessive sodium in the soil destroys soil
-                                                    structure and may increase osmotic stress to the plant.")),
+                                                    janitor::round_half_up(mean_result, 0), " ppm.")),
                                 measurement_name == "Sodium (ppm)" ~
                                   str_squish(paste0("The average Sodium is ",
-                                                    janitor::round_half_up(mean_result, 0), " ppm.
-                                                    This is below 110 ppm, the beginning threshold for negative effects
-                                                    of sodium on turfgrass.")),
+                                                    janitor::round_half_up(mean_result, 0), " ppm.")),
                                 measurement_name == "Micronutrients" ~ str_squish("All Micronutrients are present and there are no recommendations for
                                                                                   additional applications.")))
 
