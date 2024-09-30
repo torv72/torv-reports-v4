@@ -40,6 +40,7 @@ generate_report <- function(.site_name,
   library(dplyr)
   library(tidyr)
   library(stringr)
+  library(forcats)
   library(ggplot2)
   library(purrr)
   library(vroom)
@@ -53,6 +54,7 @@ generate_report <- function(.site_name,
   library(patchwork) 
   library(flextable)
   library(ftExtra)
+  library(officer)
   library(ggiraph)
   
   options(tigris_use_cache = TRUE)
