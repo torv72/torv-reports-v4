@@ -1,10 +1,6 @@
 
 \newpage
 
-```{r, results='asis'}
-cat(glue("### {{water_description}}"))
-```
-
 ```{r, message=FALSE, warning=FALSE, out.width="900px"}
 clean_water_description <- janitor::make_clean_names("{{water_description}}")
 
