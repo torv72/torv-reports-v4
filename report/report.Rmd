@@ -190,10 +190,7 @@ The ", input_params$om_stats, "OM measurements can be summarised as follows: \n"
       }
       
       # Add note how to interpret average or median
-      if(input_params$om_stats == "average") {
-        cat('\n', '\n', '*The results show ', input_params$om_stats, ' values.', '
-The average, or mean, is the "typical" value in the data and is calculated by adding up all the numbers in a list and then dividing that total by the count of numbers.*', sep = "")
-      } else {
+      if(input_params$om_stats == "median") {
         cat('\n', '\n', '*The results show ', input_params$om_stats, ' values.', '
 The median value is the central point of the data, meaning half of the numbers in a list are smaller and half are larger than the median.*', sep = "")
       }
