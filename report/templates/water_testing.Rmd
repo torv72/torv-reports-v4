@@ -211,6 +211,8 @@ ggsave(here(root_figure_location,  "water_testing", glue::glue(janitor::make_cle
 cat("![](", here(root_figure_location, "water_testing", glue::glue(janitor::make_clean_names("water_plot_{{water_description}})"), ".png")), ")", sep = "")
 ```
 
+\newpage
+
 ```{r, out.width="900px"}
 header_file_create("Water", "{{water_description}}", trends = TRUE)
 knitr::include_graphics(here(root_figure_location,  "headers", glue("water_testing_{clean_water_description}_trends_plot.png")))

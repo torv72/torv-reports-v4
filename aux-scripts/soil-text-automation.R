@@ -78,8 +78,6 @@ extra_soil_measurements <- filtered_database %>%
                                   str_squish(paste0("The average pH is ",
                                                     janitor::round_half_up(mean_result, 1),
                                                     ".")),
-                                measurement_name == "Organic Matter (%)" & mean_result > 4.5 ~
-                                  "The average Organic Matter (%) measurement is above 4.5%.",
                                 measurement_name == "Organic Matter (%)" ~
                                   str_squish(paste0("The average Organic Matter is ",
                                                     janitor::round_half_up(mean_result, 1),
