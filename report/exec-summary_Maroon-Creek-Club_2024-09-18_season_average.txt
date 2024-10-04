@@ -3,27 +3,27 @@
 ### [Green](#green-1)
         
 * All calculations are based on a monthly maximum of 0.5 lbs of N/M.
-* The average total available Nitrogen is 2.1 ppm. This is below the optimal range of 5 ppm - 10 ppm for soil nitrogen. Consider additional applications of nitrate or ammonium based fertilizers to increase soil nitrogen levels.
+* The average total available Nitrogen is 2.1 ppm.
 * Deficits were noted in the following 2 measurements: Potassium (ppm) and Phosphorus (ppm). See the "Required element per area" table within the Green section for an indication of how much fertilizer should be added to each sampled area.
 * No other anomalies were highlighted in the analysis.
   
 ### [Tee](#tee-1)
         
 * All calculations are based on a monthly maximum of 0.5 lbs of N/M.
-* The average total available Nitrogen is 2.3 ppm. This is below the optimal range of 5 ppm - 10 ppm for soil nitrogen. Consider additional applications of nitrate or ammonium based fertilizers to increase soil nitrogen levels.
+* The average total available Nitrogen is 2.3 ppm.
 * Deficits were noted in the following measurement: Potassium (ppm). See the "Required element per area" table within the Tee section for an indication of how much fertilizer should be added to each sampled area.
 * No other anomalies were highlighted in the analysis.
   
 ### [Fairway](#fairway-1)
         
 * All calculations are based on a monthly maximum of 0.7 lbs of N/M.
-* The average total available Nitrogen is 5 ppm. This is optimal and is within the ideal range of 5 ppm - 10 ppm for soil nitrogen.
+* The average total available Nitrogen is 5 ppm.
 * No deficits were noted in the values tied to MLSN values.
 * No other anomalies were highlighted in the analysis.
         
 ### [Organic Matter](#om-testing)
       
-The mean OM measurements can be summarised as follows: 
+The  average OM measurements can be summarised as follows: 
 
 - Comparing the **GREEN** samples taken on September 18th, 2024 to their most recent previous samples (October 11th, 2023).
   * At a depth of **0-2 cm**, the OM content increased from 8.83% to 9.36%. 

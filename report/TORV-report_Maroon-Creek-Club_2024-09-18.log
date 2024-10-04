@@ -1,9 +1,9 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.6.20)  30 SEP 2024 16:26
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.10.1)  4 OCT 2024 11:45
  restricted system commands enabled.
 **"/Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18.tex"
 ("/Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18.tex"
-LaTeX2e <2024-06-01> patch level 1
-L3 programming layer <2024-05-27>
+LaTeX2e <2024-06-01> patch level 2
+L3 programming layer <2024-09-10>
 Lua module: luaotfload 2024-02-14 3.28 Lua based OpenType font support
 Lua module: lualibs 2023-07-13 2.76 ConTeXt Lua standard libraries.
 Lua module: lualibs-extended 2023-07-13 2.76 ConTeXt Lua libraries -- extended collection.
@@ -125,7 +125,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 )) (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
 ) (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math.sty (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2024-05-27 L3 programming layer (loader) 
+Package: expl3 2024-09-10 L3 programming layer (loader) 
 (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
 File: l3backend-luatex.def 2024-05-08 L3 backend support: PDF output (LuaTeX)
 \l__color_backend_stack_int=\count278
@@ -136,9 +136,9 @@ Package: unicode-math 2023/08/13 v0.8r Unicode maths in XeLaTeX and LuaLaTeX
 (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math-luatex.sty
 Package: unicode-math-luatex 2023/08/13 v0.8r Unicode maths in XeLaTeX and LuaLaTeX
 (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2024-05-08 L3 Experimental document command parser
+Package: xparse 2024-08-16 L3 Experimental document command parser
 ) (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
-Package: l3keys2e 2024-05-08 LaTeX2e option processing using LaTeX3 keys
+Package: l3keys2e 2024-08-16 LaTeX2e option processing using LaTeX3 keys
 ) (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.sty
 Package: fontspec 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
 Lua module: fontspec 2024/05/11 2.9e Font selection for XeLaTeX and LuaLaTeX (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec-luatex.sty
@@ -250,7 +250,7 @@ Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
 ) (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 ))) (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
 (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
@@ -258,21 +258,21 @@ Package xcolor Info: Driver file: luatex.def on input line 274.
 (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/latex/graphics-def/luatex.def
 File: luatex.def 2024/04/13 v1.2e Graphics/color driver for luatex
 ) (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
-Package xcolor Info: Model `RGB' extended on input line 1366.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
 ) (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/latex/graphics/dvipsnam.def
 File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
 ) (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/latex/xcolor/svgnam.def
-File: svgnam.def 2023/11/15 v3.01 Predefined colors according to SVG 1.1 (UK)
+File: svgnam.def 2024/09/29 v3.02 Predefined colors according to SVG 1.1 (UK)
 ) (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/latex/xcolor/x11nam.def
-File: x11nam.def 2023/11/15 v3.01 Predefined colors according to Unix/X11 (UK)
+File: x11nam.def 2024/09/29 v3.02 Predefined colors according to Unix/X11 (UK)
 ) (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
 (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty
@@ -541,7 +541,7 @@ Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@dima=\skip58
 \bigstrutjot=\dimen173
 ) (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/latex/colortbl/colortbl.sty
-Package: colortbl 2024/05/26 v1.0h Color table columns (DPC)
+Package: colortbl 2024/07/06 v1.0i Color table columns (DPC)
 (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/latex/tools/array.sty
 Package: array 2024/06/14 v2.6d Tabular extension package (FMi)
 \col@sep=\dimen174
@@ -579,7 +579,7 @@ Package: longtable 2024-04-26 v4.20 Multi-page Table package (DPC)
 \c@LT@chunks=\count315
 \LT@p@ftn=\toks28
 ) (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2024-05-23 v7.01i Hypertext links for LaTeX
+Package: hyperref 2024-07-10 v7.01j Hypertext links for LaTeX
 (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
 ) (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty
@@ -610,13 +610,13 @@ Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 \Hy@linkcounter=\count317
 \Hy@pagecounter=\count318
 (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2024-05-23 v7.01i Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2024-07-10 v7.01j Hyperref: PDFDocEncoding definition (HO)
 ) (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count319
 (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2024-05-23 v7.01i Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2024-07-10 v7.01j Hyperref: PDF Unicode definition (HO)
 )
 Package hyperref Info: Option `unicode' set `true' on input line 4040.
 Package hyperref Info: Hyper figures OFF on input line 4157.
@@ -658,7 +658,7 @@ package with kernel methods
 )
 Package hyperref Info: Driver (autodetected): hluatex.
 (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hluatex.def
-File: hluatex.def 2024-05-23 v7.01i Hyperref driver for luaTeX
+File: hluatex.def 2024-07-10 v7.01j Hyperref driver for luaTeX
 (/Users/ericfoerster/Library/TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
@@ -1038,52 +1038,66 @@ LaTeX Font Info:    Font shape `TU/Rasa(0)/b/n' will be
 (Font)              scaled to size 10.0pt on input line 120.
 LaTeX Font Info:    Font shape `TU/Rasa(0)/b/n' will be
 (Font)              scaled to size 16.0pt on input line 120.
+LaTeX Font Info:    Font shape `TU/Rasa(0)/m/n' will be
+(Font)              scaled to size 7.0pt on input line 158.
+LaTeX Font Info:    Font shape `TU/Rasa(0)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 158.
+LaTeX Font Info:    Font shape `TU/Rasa(0)/m/n' will be
+(Font)              scaled to size 6.0pt on input line 158.
 
 
 [2<./figures/headers/none_testing_executive_summary_plot.png>]
-LaTeX Font Info:    Font shape `TU/Rasa(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 260.
-LaTeX Font Info:    Font shape `TU/Rasa(0)/b/n' will be
-(Font)              scaled to size 9.0pt on input line 260.
-LaTeX Font Info:    Font shape `TU/Rasa(0)/b/it' will be
-(Font)              scaled to size 9.0pt on input line 260.
-LaTeX Font Info:    Font shape `TU/Rasa(0)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 264.
 LaTeX Font Info:    Font shape `TU/Rasa(0)/m/it' will be
-(Font)              scaled to size 8.0pt on input line 264.
+(Font)              scaled to size 10.0pt on input line 263.
+
+Underfull \hbox (badness 10000) in paragraph at lines 341--346
+
+ []
+
 
 
 [3]
-<figures/headers/turf_testing_growth_plot.png, id=40, 404.712pt x 50.589pt>
+LaTeX Font Info:    Font shape `TU/Rasa(0)/m/n' will be
+(Font)              scaled to size 9.0pt on input line 361.
+LaTeX Font Info:    Font shape `TU/Rasa(0)/b/n' will be
+(Font)              scaled to size 9.0pt on input line 361.
+LaTeX Font Info:    Font shape `TU/Rasa(0)/b/it' will be
+(Font)              scaled to size 9.0pt on input line 361.
+LaTeX Font Info:    Font shape `TU/Rasa(0)/m/it' will be
+(Font)              scaled to size 8.0pt on input line 365.
+
+
+[4]
+<figures/headers/turf_testing_growth_plot.png, id=48, 404.712pt x 50.589pt>
 File: figures/headers/turf_testing_growth_plot.png Graphic file (type png)
 <use figures/headers/turf_testing_growth_plot.png>
-Package luatex.def Info: figures/headers/turf_testing_growth_plot.png  used on input line 271.
+Package luatex.def Info: figures/headers/turf_testing_growth_plot.png  used on input line 372.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/turf-growth-interactive-1.png, id=42, 458.6736pt x 242.3454pt>
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/turf-growth-interactive-1.png, id=50, 458.6736pt x 242.3454pt>
 File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/turf-growth-interactive-1.png Graphic file (type png)
 <use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/turf-growth-interactive-1.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/turf-growth-interactive-1.png  used on input line 286.
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/turf-growth-interactive-1.png  used on input line 387.
 (luatex.def)             Requested size: 458.67247pt x 242.3448pt.
 
 
-[4<./figures/headers/turf_testing_growth_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/turf-growth-interactive-1.png>]
-<figures/headers/soil_testing_green_plot.png, id=51, 404.712pt x 50.589pt>
+[5<./figures/headers/turf_testing_growth_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/turf-growth-interactive-1.png>]
+<figures/headers/soil_testing_green_plot.png, id=59, 404.712pt x 50.589pt>
 File: figures/headers/soil_testing_green_plot.png Graphic file (type png)
 <use figures/headers/soil_testing_green_plot.png>
-Package luatex.def Info: figures/headers/soil_testing_green_plot.png  used on input line 294.
+Package luatex.def Info: figures/headers/soil_testing_green_plot.png  used on input line 395.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
 LaTeX Font Info:    Font shape `TU/Rasa(0)/b/n' will be
-(Font)              scaled to size 8.0pt on input line 306.
-<figures/soil_testing/MLSN_deficits_GREEN_plot.png, id=52, 469.755pt x 397.485pt>
+(Font)              scaled to size 8.0pt on input line 407.
+<figures/soil_testing/MLSN_deficits_GREEN_plot.png, id=60, 469.755pt x 397.485pt>
 File: figures/soil_testing/MLSN_deficits_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/MLSN_deficits_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/MLSN_deficits_GREEN_plot.png  used on input line 315.
+Package luatex.def Info: figures/soil_testing/MLSN_deficits_GREEN_plot.png  used on input line 416.
 (luatex.def)             Requested size: 469.75386pt x 397.48402pt.
 
 
-[5<./figures/headers/soil_testing_green_plot.png><./figures/soil_testing/MLSN_deficits_GREEN_plot.png>]
+[6<./figures/headers/soil_testing_green_plot.png><./figures/soil_testing/MLSN_deficits_GREEN_plot.png>]
 LaTeX Font Info:    Font shape `TU/Rasa(0)/b/it' will be
-(Font)              scaled to size 8.0pt on input line 323.
+(Font)              scaled to size 8.0pt on input line 424.
 
 Package fontspec Info: 
 (fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
@@ -1189,9 +1203,9 @@ Package fontspec Info:
 (fontspec)             SemiCondensed/BI:mode=node;script=latn;language=dflt;+tlig;+smcp;"
 
 LaTeX Font Info:    Font shape `TU/GeoramaSemiCondensed(0)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 344.
+(Font)              scaled to size 12.0pt on input line 445.
 LaTeX Font Info:    Font shape `TU/GeoramaSemiCondensed(0)/b/n' will be
-(Font)              scaled to size 12.0pt on input line 344.
+(Font)              scaled to size 12.0pt on input line 445.
 
 Package fontspec Info: 
 (fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
@@ -1209,7 +1223,7 @@ Package fontspec Info:
 (fontspec)             Georama SemiCondensed scale = 1.
 
 LaTeX Font Info:    Font shape `TU/GeoramaSemiCondensed(0)/b/n' will be
-(Font)              scaled to size 8.0pt on input line 344.
+(Font)              scaled to size 8.0pt on input line 445.
 
 Package fontspec Info: 
 (fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
@@ -1493,7 +1507,7 @@ Package fontspec Info:
 (fontspec)             <->s*[1]"name:Georama/BI:mode=node;script=latn;language=dflt;+tlig;+smcp;"
 
 LaTeX Font Info:    Font shape `TU/Georama(0)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 356.
+(Font)              scaled to size 8.0pt on input line 457.
 
 Package fontspec Info: 
 (fontspec)             Georama scale = 0.7509051186017479.
@@ -1535,9 +1549,9 @@ Package fontspec Info:
 (fontspec)             Georama SemiCondensed scale = 1.
 
 LaTeX Font Info:    Font shape `TU/GeoramaSemiCondensed(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 362.
+(Font)              scaled to size 10.0pt on input line 463.
 LaTeX Font Info:    Font shape `TU/GeoramaSemiCondensed(0)/b/n' will be
-(Font)              scaled to size 10.0pt on input line 362.
+(Font)              scaled to size 10.0pt on input line 463.
 
 Package fontspec Info: 
 (fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
@@ -1978,100 +1992,98 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama SemiCondensed scale = 1.
 
-<figures/soil_testing/p_h_GREEN_plot.png, id=58, 72.27pt x 50.589pt>
+<figures/soil_testing/p_h_GREEN_plot.png, id=66, 72.27pt x 50.589pt>
 File: figures/soil_testing/p_h_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/p_h_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/p_h_GREEN_plot.png  used on input line 418.
+Package luatex.def Info: figures/soil_testing/p_h_GREEN_plot.png  used on input line 519.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/organic_matter_GREEN_plot.png, id=59, 72.27pt x 50.589pt>
+<figures/soil_testing/organic_matter_GREEN_plot.png, id=67, 72.27pt x 50.589pt>
 File: figures/soil_testing/organic_matter_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/organic_matter_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/organic_matter_GREEN_plot.png  used on input line 422.
+Package luatex.def Info: figures/soil_testing/organic_matter_GREEN_plot.png  used on input line 523.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/total_nitrogen_GREEN_plot.png, id=60, 72.27pt x 50.589pt>
+<figures/soil_testing/total_nitrogen_GREEN_plot.png, id=68, 72.27pt x 50.589pt>
 File: figures/soil_testing/total_nitrogen_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/total_nitrogen_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/total_nitrogen_GREEN_plot.png  used on input line 426.
+Package luatex.def Info: figures/soil_testing/total_nitrogen_GREEN_plot.png  used on input line 527.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-LaTeX Font Info:    Font shape `TU/Rasa(0)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 429.
-<figures/soil_testing/potassium_GREEN_plot.png, id=61, 72.27pt x 50.589pt>
+<figures/soil_testing/potassium_GREEN_plot.png, id=69, 72.27pt x 50.589pt>
 File: figures/soil_testing/potassium_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/potassium_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/potassium_GREEN_plot.png  used on input line 432.
+Package luatex.def Info: figures/soil_testing/potassium_GREEN_plot.png  used on input line 533.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/phosphorus_GREEN_plot.png, id=62, 72.27pt x 50.589pt>
+<figures/soil_testing/phosphorus_GREEN_plot.png, id=70, 72.27pt x 50.589pt>
 File: figures/soil_testing/phosphorus_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/phosphorus_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/phosphorus_GREEN_plot.png  used on input line 437.
+Package luatex.def Info: figures/soil_testing/phosphorus_GREEN_plot.png  used on input line 538.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/calcium_GREEN_plot.png, id=63, 72.27pt x 50.589pt>
+<figures/soil_testing/calcium_GREEN_plot.png, id=71, 72.27pt x 50.589pt>
 File: figures/soil_testing/calcium_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/calcium_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/calcium_GREEN_plot.png  used on input line 442.
+Package luatex.def Info: figures/soil_testing/calcium_GREEN_plot.png  used on input line 543.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 
 
-[6<./figures/soil_testing/p_h_GREEN_plot.png><./figures/soil_testing/organic_matter_GREEN_plot.png><./figures/soil_testing/total_nitrogen_GREEN_plot.png><./figures/soil_testing/potassium_GREEN_plot.png><./figures/soil_testing/phosphorus_GREEN_plot.png>]
-<figures/soil_testing/magnesium_GREEN_plot.png, id=74, 72.27pt x 50.589pt>
+[7<./figures/soil_testing/p_h_GREEN_plot.png><./figures/soil_testing/organic_matter_GREEN_plot.png><./figures/soil_testing/total_nitrogen_GREEN_plot.png><./figures/soil_testing/potassium_GREEN_plot.png><./figures/soil_testing/phosphorus_GREEN_plot.png>]
+<figures/soil_testing/magnesium_GREEN_plot.png, id=82, 72.27pt x 50.589pt>
 File: figures/soil_testing/magnesium_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/magnesium_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/magnesium_GREEN_plot.png  used on input line 447.
+Package luatex.def Info: figures/soil_testing/magnesium_GREEN_plot.png  used on input line 548.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/sodium_GREEN_plot.png, id=75, 72.27pt x 50.589pt>
+<figures/soil_testing/sodium_GREEN_plot.png, id=83, 72.27pt x 50.589pt>
 File: figures/soil_testing/sodium_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/sodium_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/sodium_GREEN_plot.png  used on input line 452.
+Package luatex.def Info: figures/soil_testing/sodium_GREEN_plot.png  used on input line 553.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/sulfur_GREEN_plot.png, id=76, 72.27pt x 50.589pt>
+<figures/soil_testing/sulfur_GREEN_plot.png, id=84, 72.27pt x 50.589pt>
 File: figures/soil_testing/sulfur_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/sulfur_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/sulfur_GREEN_plot.png  used on input line 456.
+Package luatex.def Info: figures/soil_testing/sulfur_GREEN_plot.png  used on input line 557.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/iron_GREEN_plot.png, id=77, 72.27pt x 50.589pt>
+<figures/soil_testing/iron_GREEN_plot.png, id=85, 72.27pt x 50.589pt>
 File: figures/soil_testing/iron_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/iron_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/iron_GREEN_plot.png  used on input line 461.
+Package luatex.def Info: figures/soil_testing/iron_GREEN_plot.png  used on input line 562.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/manganese_GREEN_plot.png, id=78, 72.27pt x 50.589pt>
+<figures/soil_testing/manganese_GREEN_plot.png, id=86, 72.27pt x 50.589pt>
 File: figures/soil_testing/manganese_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/manganese_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/manganese_GREEN_plot.png  used on input line 466.
+Package luatex.def Info: figures/soil_testing/manganese_GREEN_plot.png  used on input line 567.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/micronutrients_GREEN_plot.png, id=79, 72.27pt x 50.589pt>
+<figures/soil_testing/micronutrients_GREEN_plot.png, id=87, 72.27pt x 50.589pt>
 File: figures/soil_testing/micronutrients_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/micronutrients_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/micronutrients_GREEN_plot.png  used on input line 471.
+Package luatex.def Info: figures/soil_testing/micronutrients_GREEN_plot.png  used on input line 572.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 
 
-[7<./figures/soil_testing/calcium_GREEN_plot.png><./figures/soil_testing/magnesium_GREEN_plot.png><./figures/soil_testing/sodium_GREEN_plot.png><./figures/soil_testing/sulfur_GREEN_plot.png><./figures/soil_testing/iron_GREEN_plot.png><./figures/soil_testing/manganese_GREEN_plot.png><./figures/soil_testing/micronutrients_GREEN_plot.png>]
-<figures/headers/soil_testing_green_trends_plot.png, id=84, 404.712pt x 50.589pt>
+[8<./figures/soil_testing/calcium_GREEN_plot.png><./figures/soil_testing/magnesium_GREEN_plot.png><./figures/soil_testing/sodium_GREEN_plot.png><./figures/soil_testing/sulfur_GREEN_plot.png><./figures/soil_testing/iron_GREEN_plot.png><./figures/soil_testing/manganese_GREEN_plot.png><./figures/soil_testing/micronutrients_GREEN_plot.png>]
+<figures/headers/soil_testing_green_trends_plot.png, id=92, 404.712pt x 50.589pt>
 File: figures/headers/soil_testing_green_trends_plot.png Graphic file (type png)
 <use figures/headers/soil_testing_green_trends_plot.png>
-Package luatex.def Info: figures/headers/soil_testing_green_trends_plot.png  used on input line 478.
+Package luatex.def Info: figures/headers/soil_testing_green_trends_plot.png  used on input line 579.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-171-1.png, id=85, 481.8pt x 447.1104pt>
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-171-1.png, id=93, 481.8pt x 447.1104pt>
 File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-171-1.png Graphic file (type png)
 <use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-171-1.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-171-1.png  used on input line 480.
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-171-1.png  used on input line 581.
 (luatex.def)             Requested size: 469.77148pt x 435.94794pt.
 
 
-[8<./figures/headers/soil_testing_green_trends_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-171-1.png>]
-<figures/headers/soil_testing_tee_plot.png, id=93, 404.712pt x 50.589pt>
+[9<./figures/headers/soil_testing_green_trends_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-171-1.png>]
+<figures/headers/soil_testing_tee_plot.png, id=101, 404.712pt x 50.589pt>
 File: figures/headers/soil_testing_tee_plot.png Graphic file (type png)
 <use figures/headers/soil_testing_tee_plot.png>
-Package luatex.def Info: figures/headers/soil_testing_tee_plot.png  used on input line 490.
+Package luatex.def Info: figures/headers/soil_testing_tee_plot.png  used on input line 591.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
-<figures/soil_testing/MLSN_deficits_TEE_plot.png, id=94, 469.755pt x 397.485pt>
+<figures/soil_testing/MLSN_deficits_TEE_plot.png, id=102, 469.755pt x 397.485pt>
 File: figures/soil_testing/MLSN_deficits_TEE_plot.png Graphic file (type png)
 <use figures/soil_testing/MLSN_deficits_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/MLSN_deficits_TEE_plot.png  used on input line 511.
+Package luatex.def Info: figures/soil_testing/MLSN_deficits_TEE_plot.png  used on input line 612.
 (luatex.def)             Requested size: 469.75386pt x 397.48402pt.
 
 
-[9<./figures/headers/soil_testing_tee_plot.png><./figures/soil_testing/MLSN_deficits_TEE_plot.png>]
+[10<./figures/headers/soil_testing_tee_plot.png><./figures/soil_testing/MLSN_deficits_TEE_plot.png>]
 
 Package fontspec Info: 
 (fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
@@ -2704,98 +2716,98 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama SemiCondensed scale = 1.
 
-<figures/soil_testing/p_h_TEE_plot.png, id=100, 72.27pt x 50.589pt>
+<figures/soil_testing/p_h_TEE_plot.png, id=108, 72.27pt x 50.589pt>
 File: figures/soil_testing/p_h_TEE_plot.png Graphic file (type png)
 <use figures/soil_testing/p_h_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/p_h_TEE_plot.png  used on input line 608.
+Package luatex.def Info: figures/soil_testing/p_h_TEE_plot.png  used on input line 709.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/organic_matter_TEE_plot.png, id=101, 72.27pt x 50.589pt>
+<figures/soil_testing/organic_matter_TEE_plot.png, id=109, 72.27pt x 50.589pt>
 File: figures/soil_testing/organic_matter_TEE_plot.png Graphic file (type png)
 <use figures/soil_testing/organic_matter_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/organic_matter_TEE_plot.png  used on input line 612.
+Package luatex.def Info: figures/soil_testing/organic_matter_TEE_plot.png  used on input line 713.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/total_nitrogen_TEE_plot.png, id=102, 72.27pt x 50.589pt>
+<figures/soil_testing/total_nitrogen_TEE_plot.png, id=110, 72.27pt x 50.589pt>
 File: figures/soil_testing/total_nitrogen_TEE_plot.png Graphic file (type png)
 <use figures/soil_testing/total_nitrogen_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/total_nitrogen_TEE_plot.png  used on input line 616.
+Package luatex.def Info: figures/soil_testing/total_nitrogen_TEE_plot.png  used on input line 717.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/potassium_TEE_plot.png, id=103, 72.27pt x 50.589pt>
+<figures/soil_testing/potassium_TEE_plot.png, id=111, 72.27pt x 50.589pt>
 File: figures/soil_testing/potassium_TEE_plot.png Graphic file (type png)
 <use figures/soil_testing/potassium_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/potassium_TEE_plot.png  used on input line 622.
+Package luatex.def Info: figures/soil_testing/potassium_TEE_plot.png  used on input line 723.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/phosphorus_TEE_plot.png, id=104, 72.27pt x 50.589pt>
+<figures/soil_testing/phosphorus_TEE_plot.png, id=112, 72.27pt x 50.589pt>
 File: figures/soil_testing/phosphorus_TEE_plot.png Graphic file (type png)
 <use figures/soil_testing/phosphorus_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/phosphorus_TEE_plot.png  used on input line 627.
+Package luatex.def Info: figures/soil_testing/phosphorus_TEE_plot.png  used on input line 728.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/calcium_TEE_plot.png, id=105, 72.27pt x 50.589pt>
+<figures/soil_testing/calcium_TEE_plot.png, id=113, 72.27pt x 50.589pt>
 File: figures/soil_testing/calcium_TEE_plot.png Graphic file (type png)
 <use figures/soil_testing/calcium_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/calcium_TEE_plot.png  used on input line 632.
+Package luatex.def Info: figures/soil_testing/calcium_TEE_plot.png  used on input line 733.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 
 
-[10<./figures/soil_testing/p_h_TEE_plot.png><./figures/soil_testing/organic_matter_TEE_plot.png><./figures/soil_testing/total_nitrogen_TEE_plot.png><./figures/soil_testing/potassium_TEE_plot.png><./figures/soil_testing/phosphorus_TEE_plot.png><./figures/soil_testing/calcium_TEE_plot.png>]
-<figures/soil_testing/magnesium_TEE_plot.png, id=113, 72.27pt x 50.589pt>
+[11<./figures/soil_testing/p_h_TEE_plot.png><./figures/soil_testing/organic_matter_TEE_plot.png><./figures/soil_testing/total_nitrogen_TEE_plot.png><./figures/soil_testing/potassium_TEE_plot.png><./figures/soil_testing/phosphorus_TEE_plot.png><./figures/soil_testing/calcium_TEE_plot.png>]
+<figures/soil_testing/magnesium_TEE_plot.png, id=122, 72.27pt x 50.589pt>
 File: figures/soil_testing/magnesium_TEE_plot.png Graphic file (type png)
 <use figures/soil_testing/magnesium_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/magnesium_TEE_plot.png  used on input line 637.
+Package luatex.def Info: figures/soil_testing/magnesium_TEE_plot.png  used on input line 738.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/sodium_TEE_plot.png, id=114, 72.27pt x 50.589pt>
+<figures/soil_testing/sodium_TEE_plot.png, id=123, 72.27pt x 50.589pt>
 File: figures/soil_testing/sodium_TEE_plot.png Graphic file (type png)
 <use figures/soil_testing/sodium_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/sodium_TEE_plot.png  used on input line 642.
+Package luatex.def Info: figures/soil_testing/sodium_TEE_plot.png  used on input line 743.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/sulfur_TEE_plot.png, id=115, 72.27pt x 50.589pt>
+<figures/soil_testing/sulfur_TEE_plot.png, id=124, 72.27pt x 50.589pt>
 File: figures/soil_testing/sulfur_TEE_plot.png Graphic file (type png)
 <use figures/soil_testing/sulfur_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/sulfur_TEE_plot.png  used on input line 646.
+Package luatex.def Info: figures/soil_testing/sulfur_TEE_plot.png  used on input line 747.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/iron_TEE_plot.png, id=116, 72.27pt x 50.589pt>
+<figures/soil_testing/iron_TEE_plot.png, id=125, 72.27pt x 50.589pt>
 File: figures/soil_testing/iron_TEE_plot.png Graphic file (type png)
 <use figures/soil_testing/iron_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/iron_TEE_plot.png  used on input line 651.
+Package luatex.def Info: figures/soil_testing/iron_TEE_plot.png  used on input line 752.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/manganese_TEE_plot.png, id=117, 72.27pt x 50.589pt>
+<figures/soil_testing/manganese_TEE_plot.png, id=126, 72.27pt x 50.589pt>
 File: figures/soil_testing/manganese_TEE_plot.png Graphic file (type png)
 <use figures/soil_testing/manganese_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/manganese_TEE_plot.png  used on input line 656.
+Package luatex.def Info: figures/soil_testing/manganese_TEE_plot.png  used on input line 757.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/micronutrients_TEE_plot.png, id=118, 72.27pt x 50.589pt>
+<figures/soil_testing/micronutrients_TEE_plot.png, id=127, 72.27pt x 50.589pt>
 File: figures/soil_testing/micronutrients_TEE_plot.png Graphic file (type png)
 <use figures/soil_testing/micronutrients_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/micronutrients_TEE_plot.png  used on input line 661.
+Package luatex.def Info: figures/soil_testing/micronutrients_TEE_plot.png  used on input line 762.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 
 
-[11<./figures/soil_testing/magnesium_TEE_plot.png><./figures/soil_testing/sodium_TEE_plot.png><./figures/soil_testing/sulfur_TEE_plot.png><./figures/soil_testing/iron_TEE_plot.png><./figures/soil_testing/manganese_TEE_plot.png><./figures/soil_testing/micronutrients_TEE_plot.png>]
-<figures/headers/soil_testing_tee_trends_plot.png, id=124, 404.712pt x 50.589pt>
+[12<./figures/soil_testing/magnesium_TEE_plot.png><./figures/soil_testing/sodium_TEE_plot.png><./figures/soil_testing/sulfur_TEE_plot.png><./figures/soil_testing/iron_TEE_plot.png><./figures/soil_testing/manganese_TEE_plot.png><./figures/soil_testing/micronutrients_TEE_plot.png>]
+<figures/headers/soil_testing_tee_trends_plot.png, id=132, 404.712pt x 50.589pt>
 File: figures/headers/soil_testing_tee_trends_plot.png Graphic file (type png)
 <use figures/headers/soil_testing_tee_trends_plot.png>
-Package luatex.def Info: figures/headers/soil_testing_tee_trends_plot.png  used on input line 668.
+Package luatex.def Info: figures/headers/soil_testing_tee_trends_plot.png  used on input line 769.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-294-1.png, id=125, 481.8pt x 446.8695pt>
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-294-1.png, id=133, 481.8pt x 446.8695pt>
 File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-294-1.png Graphic file (type png)
 <use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-294-1.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-294-1.png  used on input line 670.
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-294-1.png  used on input line 771.
 (luatex.def)             Requested size: 469.77148pt x 435.71306pt.
 
 
-[12<./figures/headers/soil_testing_tee_trends_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-294-1.png>]
-<figures/headers/soil_testing_fairway_plot.png, id=132, 404.712pt x 50.589pt>
+[13<./figures/headers/soil_testing_tee_trends_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-294-1.png>]
+<figures/headers/soil_testing_fairway_plot.png, id=140, 404.712pt x 50.589pt>
 File: figures/headers/soil_testing_fairway_plot.png Graphic file (type png)
 <use figures/headers/soil_testing_fairway_plot.png>
-Package luatex.def Info: figures/headers/soil_testing_fairway_plot.png  used on input line 680.
+Package luatex.def Info: figures/headers/soil_testing_fairway_plot.png  used on input line 781.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
-<figures/soil_testing/MLSN_deficits_FAIRWAY_plot.png, id=133, 469.755pt x 397.485pt>
+<figures/soil_testing/MLSN_deficits_FAIRWAY_plot.png, id=141, 469.755pt x 397.485pt>
 File: figures/soil_testing/MLSN_deficits_FAIRWAY_plot.png Graphic file (type png)
 <use figures/soil_testing/MLSN_deficits_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/MLSN_deficits_FAIRWAY_plot.png  used on input line 702.
+Package luatex.def Info: figures/soil_testing/MLSN_deficits_FAIRWAY_plot.png  used on input line 803.
 (luatex.def)             Requested size: 469.75386pt x 397.48402pt.
 
 
-[13<./figures/headers/soil_testing_fairway_plot.png><./figures/soil_testing/MLSN_deficits_FAIRWAY_plot.png>]
+[14<./figures/headers/soil_testing_fairway_plot.png><./figures/soil_testing/MLSN_deficits_FAIRWAY_plot.png>]
 
 Package fontspec Info: 
 (fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
@@ -3492,99 +3504,99 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama SemiCondensed scale = 1.
 
-<figures/soil_testing/p_h_FAIRWAY_plot.png, id=139, 72.27pt x 50.589pt>
+<figures/soil_testing/p_h_FAIRWAY_plot.png, id=147, 72.27pt x 50.589pt>
 File: figures/soil_testing/p_h_FAIRWAY_plot.png Graphic file (type png)
 <use figures/soil_testing/p_h_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/p_h_FAIRWAY_plot.png  used on input line 805.
+Package luatex.def Info: figures/soil_testing/p_h_FAIRWAY_plot.png  used on input line 906.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/organic_matter_FAIRWAY_plot.png, id=140, 72.27pt x 50.589pt>
+<figures/soil_testing/organic_matter_FAIRWAY_plot.png, id=148, 72.27pt x 50.589pt>
 File: figures/soil_testing/organic_matter_FAIRWAY_plot.png Graphic file (type png)
 <use figures/soil_testing/organic_matter_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/organic_matter_FAIRWAY_plot.png  used on input line 809.
+Package luatex.def Info: figures/soil_testing/organic_matter_FAIRWAY_plot.png  used on input line 910.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/total_nitrogen_FAIRWAY_plot.png, id=141, 72.27pt x 50.589pt>
+<figures/soil_testing/total_nitrogen_FAIRWAY_plot.png, id=149, 72.27pt x 50.589pt>
 File: figures/soil_testing/total_nitrogen_FAIRWAY_plot.png Graphic file (type png)
 <use figures/soil_testing/total_nitrogen_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/total_nitrogen_FAIRWAY_plot.png  used on input line 813.
+Package luatex.def Info: figures/soil_testing/total_nitrogen_FAIRWAY_plot.png  used on input line 914.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/potassium_FAIRWAY_plot.png, id=142, 72.27pt x 50.589pt>
+<figures/soil_testing/potassium_FAIRWAY_plot.png, id=150, 72.27pt x 50.589pt>
 File: figures/soil_testing/potassium_FAIRWAY_plot.png Graphic file (type png)
 <use figures/soil_testing/potassium_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/potassium_FAIRWAY_plot.png  used on input line 819.
+Package luatex.def Info: figures/soil_testing/potassium_FAIRWAY_plot.png  used on input line 920.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/phosphorus_FAIRWAY_plot.png, id=143, 72.27pt x 50.589pt>
+<figures/soil_testing/phosphorus_FAIRWAY_plot.png, id=151, 72.27pt x 50.589pt>
 File: figures/soil_testing/phosphorus_FAIRWAY_plot.png Graphic file (type png)
 <use figures/soil_testing/phosphorus_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/phosphorus_FAIRWAY_plot.png  used on input line 824.
+Package luatex.def Info: figures/soil_testing/phosphorus_FAIRWAY_plot.png  used on input line 925.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/calcium_FAIRWAY_plot.png, id=144, 72.27pt x 50.589pt>
+<figures/soil_testing/calcium_FAIRWAY_plot.png, id=152, 72.27pt x 50.589pt>
 File: figures/soil_testing/calcium_FAIRWAY_plot.png Graphic file (type png)
 <use figures/soil_testing/calcium_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/calcium_FAIRWAY_plot.png  used on input line 829.
+Package luatex.def Info: figures/soil_testing/calcium_FAIRWAY_plot.png  used on input line 930.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 
 
-[14<./figures/soil_testing/p_h_FAIRWAY_plot.png><./figures/soil_testing/organic_matter_FAIRWAY_plot.png><./figures/soil_testing/total_nitrogen_FAIRWAY_plot.png><./figures/soil_testing/potassium_FAIRWAY_plot.png><./figures/soil_testing/phosphorus_FAIRWAY_plot.png>]
-<figures/soil_testing/magnesium_FAIRWAY_plot.png, id=152, 72.27pt x 50.589pt>
+[15<./figures/soil_testing/p_h_FAIRWAY_plot.png><./figures/soil_testing/organic_matter_FAIRWAY_plot.png><./figures/soil_testing/total_nitrogen_FAIRWAY_plot.png><./figures/soil_testing/potassium_FAIRWAY_plot.png><./figures/soil_testing/phosphorus_FAIRWAY_plot.png>]
+<figures/soil_testing/magnesium_FAIRWAY_plot.png, id=160, 72.27pt x 50.589pt>
 File: figures/soil_testing/magnesium_FAIRWAY_plot.png Graphic file (type png)
 <use figures/soil_testing/magnesium_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/magnesium_FAIRWAY_plot.png  used on input line 834.
+Package luatex.def Info: figures/soil_testing/magnesium_FAIRWAY_plot.png  used on input line 935.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/sodium_FAIRWAY_plot.png, id=153, 72.27pt x 50.589pt>
+<figures/soil_testing/sodium_FAIRWAY_plot.png, id=161, 72.27pt x 50.589pt>
 File: figures/soil_testing/sodium_FAIRWAY_plot.png Graphic file (type png)
 <use figures/soil_testing/sodium_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/sodium_FAIRWAY_plot.png  used on input line 839.
+Package luatex.def Info: figures/soil_testing/sodium_FAIRWAY_plot.png  used on input line 940.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/sulfur_FAIRWAY_plot.png, id=154, 72.27pt x 50.589pt>
+<figures/soil_testing/sulfur_FAIRWAY_plot.png, id=162, 72.27pt x 50.589pt>
 File: figures/soil_testing/sulfur_FAIRWAY_plot.png Graphic file (type png)
 <use figures/soil_testing/sulfur_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/sulfur_FAIRWAY_plot.png  used on input line 843.
+Package luatex.def Info: figures/soil_testing/sulfur_FAIRWAY_plot.png  used on input line 944.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/iron_FAIRWAY_plot.png, id=155, 72.27pt x 50.589pt>
+<figures/soil_testing/iron_FAIRWAY_plot.png, id=163, 72.27pt x 50.589pt>
 File: figures/soil_testing/iron_FAIRWAY_plot.png Graphic file (type png)
 <use figures/soil_testing/iron_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/iron_FAIRWAY_plot.png  used on input line 848.
+Package luatex.def Info: figures/soil_testing/iron_FAIRWAY_plot.png  used on input line 949.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/manganese_FAIRWAY_plot.png, id=156, 72.27pt x 50.589pt>
+<figures/soil_testing/manganese_FAIRWAY_plot.png, id=164, 72.27pt x 50.589pt>
 File: figures/soil_testing/manganese_FAIRWAY_plot.png Graphic file (type png)
 <use figures/soil_testing/manganese_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/manganese_FAIRWAY_plot.png  used on input line 853.
+Package luatex.def Info: figures/soil_testing/manganese_FAIRWAY_plot.png  used on input line 954.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/micronutrients_FAIRWAY_plot.png, id=157, 72.27pt x 50.589pt>
+<figures/soil_testing/micronutrients_FAIRWAY_plot.png, id=165, 72.27pt x 50.589pt>
 File: figures/soil_testing/micronutrients_FAIRWAY_plot.png Graphic file (type png)
 <use figures/soil_testing/micronutrients_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/micronutrients_FAIRWAY_plot.png  used on input line 858.
+Package luatex.def Info: figures/soil_testing/micronutrients_FAIRWAY_plot.png  used on input line 959.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 
 
-[15<./figures/soil_testing/calcium_FAIRWAY_plot.png><./figures/soil_testing/magnesium_FAIRWAY_plot.png><./figures/soil_testing/sodium_FAIRWAY_plot.png><./figures/soil_testing/sulfur_FAIRWAY_plot.png><./figures/soil_testing/iron_FAIRWAY_plot.png><./figures/soil_testing/manganese_FAIRWAY_plot.png><./figures/soil_testing/micronutrients_FAIRWAY_plot.png>]
-<figures/headers/soil_testing_fairway_trends_plot.png, id=162, 404.712pt x 50.589pt>
+[16<./figures/soil_testing/calcium_FAIRWAY_plot.png><./figures/soil_testing/magnesium_FAIRWAY_plot.png><./figures/soil_testing/sodium_FAIRWAY_plot.png><./figures/soil_testing/sulfur_FAIRWAY_plot.png><./figures/soil_testing/iron_FAIRWAY_plot.png><./figures/soil_testing/manganese_FAIRWAY_plot.png><./figures/soil_testing/micronutrients_FAIRWAY_plot.png>]
+<figures/headers/soil_testing_fairway_trends_plot.png, id=170, 404.712pt x 50.589pt>
 File: figures/headers/soil_testing_fairway_trends_plot.png Graphic file (type png)
 <use figures/headers/soil_testing_fairway_trends_plot.png>
-Package luatex.def Info: figures/headers/soil_testing_fairway_trends_plot.png  used on input line 865.
+Package luatex.def Info: figures/headers/soil_testing_fairway_trends_plot.png  used on input line 966.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-417-1.png, id=163, 487.3407pt x 446.8695pt>
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-417-1.png, id=171, 487.3407pt x 446.8695pt>
 File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-417-1.png Graphic file (type png)
 <use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-417-1.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-417-1.png  used on input line 867.
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-417-1.png  used on input line 968.
 (luatex.def)             Requested size: 469.77518pt x 430.7627pt.
 
 
-[16<./figures/headers/soil_testing_fairway_trends_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-417-1.png>]
-<figures/headers/om_testing_green_plot.png, id=170, 404.712pt x 50.589pt>
+[17<./figures/headers/soil_testing_fairway_trends_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-417-1.png>]
+<figures/headers/om_testing_green_plot.png, id=178, 404.712pt x 50.589pt>
 File: figures/headers/om_testing_green_plot.png Graphic file (type png)
 <use figures/headers/om_testing_green_plot.png>
-Package luatex.def Info: figures/headers/om_testing_green_plot.png  used on input line 877.
+Package luatex.def Info: figures/headers/om_testing_green_plot.png  used on input line 978.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 891--894
+Underfull \hbox (badness 10000) in paragraph at lines 992--995
 
  []
 
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-430-1.png, id=171, 471.9231pt x 162.6075pt>
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-430-1.png, id=179, 471.9231pt x 162.6075pt>
 File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-430-1.png Graphic file (type png)
 <use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-430-1.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-430-1.png  used on input line 895.
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-430-1.png  used on input line 996.
 (luatex.def)             Requested size: 469.76884pt x 161.86522pt.
 
 Package fontspec Info: 
@@ -3987,238 +3999,22 @@ Package fontspec Info:
 (fontspec)             Georama SemiCondensed scale = 1.
 
 
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
 
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-
-[17<./figures/headers/om_testing_green_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-430-1.png>]
-<figures/headers/om_testing_tee_plot.png, id=177, 404.712pt x 50.589pt>
+[18<./figures/headers/om_testing_green_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-430-1.png>]
+<figures/headers/om_testing_tee_plot.png, id=185, 404.712pt x 50.589pt>
 File: figures/headers/om_testing_tee_plot.png Graphic file (type png)
 <use figures/headers/om_testing_tee_plot.png>
-Package luatex.def Info: figures/headers/om_testing_tee_plot.png  used on input line 969.
+Package luatex.def Info: figures/headers/om_testing_tee_plot.png  used on input line 1070.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 983--986
+Underfull \hbox (badness 10000) in paragraph at lines 1084--1087
 
  []
 
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-436-1.png, id=178, 471.9231pt x 162.6075pt>
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-436-1.png, id=186, 471.9231pt x 162.6075pt>
 File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-436-1.png Graphic file (type png)
 <use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-436-1.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-436-1.png  used on input line 987.
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-436-1.png  used on input line 1088.
 (luatex.def)             Requested size: 469.76884pt x 161.86522pt.
 
 Package fontspec Info: 
@@ -4621,228 +4417,12 @@ Package fontspec Info:
 (fontspec)             Georama SemiCondensed scale = 1.
 
 
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
 
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-
-[18<./figures/headers/om_testing_tee_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-436-1.png>]
-<figures/headers/om_testing_sand_fraction_plot.png, id=185, 404.712pt x 50.589pt>
+[19<./figures/headers/om_testing_tee_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-436-1.png>]
+<figures/headers/om_testing_sand_fraction_plot.png, id=194, 404.712pt x 50.589pt>
 File: figures/headers/om_testing_sand_fraction_plot.png Graphic file (type png)
 <use figures/headers/om_testing_sand_fraction_plot.png>
-Package luatex.def Info: figures/headers/om_testing_sand_fraction_plot.png  used on input line 1063.
+Package luatex.def Info: figures/headers/om_testing_sand_fraction_plot.png  used on input line 1164.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
 
 Package fontspec Info: 
@@ -4853,9 +4433,9 @@ Package fontspec Info:
 (fontspec)             Georama scale = 1.
 
 LaTeX Font Info:    Font shape `TU/Georama(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 1083.
+(Font)              scaled to size 9.0pt on input line 1184.
 LaTeX Font Info:    Font shape `TU/Georama(0)/b/n' will be
-(Font)              scaled to size 9.0pt on input line 1083.
+(Font)              scaled to size 9.0pt on input line 1184.
 
 Package fontspec Info: 
 (fontspec)             Georama scale = 0.7509062773578623.
@@ -6641,345 +6221,41 @@ Package fontspec Info:
 (fontspec)             Georama scale = 1.
 
 
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509062773578623.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
 
-[19<./figures/headers/om_testing_sand_fraction_plot.png>]
-<figures/headers/none_testing_how_to_read_trend_line_plots_plot.png, id=194, 404.712pt x 50.589pt>
+[20<./figures/headers/om_testing_sand_fraction_plot.png>]
+<figures/headers/none_testing_how_to_read_trend_line_plots_plot.png, id=202, 404.712pt x 50.589pt>
 File: figures/headers/none_testing_how_to_read_trend_line_plots_plot.png Graphic file (type png)
 <use figures/headers/none_testing_how_to_read_trend_line_plots_plot.png>
-Package luatex.def Info: figures/headers/none_testing_how_to_read_trend_line_plots_plot.png  used on input line 1353.
+Package luatex.def Info: figures/headers/none_testing_how_to_read_trend_line_plots_plot.png  used on input line 1454.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
-<figures/trendlines/trend_plot_legend_mean_median.png, id=195, 180.675pt x 144.54pt>
+<figures/trendlines/trend_plot_legend_mean_median.png, id=203, 180.675pt x 144.54pt>
 File: figures/trendlines/trend_plot_legend_mean_median.png Graphic file (type png)
 <use figures/trendlines/trend_plot_legend_mean_median.png>
-Package luatex.def Info: figures/trendlines/trend_plot_legend_mean_median.png  used on input line 1361.
+Package luatex.def Info: figures/trendlines/trend_plot_legend_mean_median.png  used on input line 1462.
 (luatex.def)             Requested size: 180.68282pt x 144.54623pt.
 
 
-[20<./figures/headers/none_testing_how_to_read_trend_line_plots_plot.png><./figures/trendlines/trend_plot_legend_mean_median.png>] (./TORV-report_Maroon-Creek-Club_2024-09-18.aux)
+[21<./figures/headers/none_testing_how_to_read_trend_line_plots_plot.png><./figures/trendlines/trend_plot_legend_mean_median.png>] (./TORV-report_Maroon-Creek-Club_2024-09-18.aux)
  ***********
-LaTeX2e <2024-06-01> patch level 1
-L3 programming layer <2024-05-27>
+LaTeX2e <2024-06-01> patch level 2
+L3 programming layer <2024-09-10>
  ***********
 )
 
 Here is how much of LuaTeX's memory you used:
- 21574 strings out of 475931
- 125086,1977958 words of node,token memory allocated
- 707 words of node memory still in use:
-   8 hlist, 3 vlist, 4 rule, 1 local_par, 5 glue, 5 kern, 1 penalty, 3 glyph, 15 attribute, 67 glue_spec, 15 attribute_list, 1 write, 1 user_defined, 1 pdf_action, 2 pdf_colorstack nodes
-   avail lists: 2:4007,3:790,4:1048,5:1394,6:380,7:7009,8:2,9:3607,10:20,11:444
- 43599 multiletter control sequences out of 65536+600000
- 124 fonts using 31129207 bytes
- 90i,10n,131p,3383b,527s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</Users/ericfoerster/Library/Fonts/Georama-SemiBold.ttf></Users/ericfoerster/Library/Fonts/Georama-Regular.ttf></Users/ericfoerster/Library/Fonts/Georama_SemiCondensed-Medium.ttf></Users/ericfoerster/Library/Fonts/Georama_SemiCondensed-SemiBold.ttf></Users/ericfoerster/Library/Fonts/Rasa-Italic.ttf></Users/ericfoerster/Library/Fonts/Rasa-BoldItalic.ttf></Users/ericfoerster/Library/Fonts/Rasa-Bold.ttf></Users/ericfoerster/Library/Fonts/Rasa-Regular.ttf>
-Output written on TORV-report_Maroon-Creek-Club_2024-09-18.pdf (20 pages, 2103892 bytes).
+ 21598 strings out of 475910
+ 125086,1648299 words of node,token memory allocated
+ 718 words of node memory still in use:
+   8 hlist, 3 vlist, 4 rule, 1 local_par, 6 glue, 5 kern, 1 penalty, 3 glyph, 16 attribute, 67 glue_spec, 16 attribute_list, 1 write, 1 user_defined, 1 pdf_action, 2 pdf_colorstack nodes
+   avail lists: 2:3367,3:644,4:900,5:1751,6:306,7:8650,8:43,9:2929,10:20,11:561
+ 43641 multiletter control sequences out of 65536+600000
+ 126 fonts using 31423715 bytes
+ 90i,10n,131p,2237b,527s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</Users/ericfoerster/Library/Fonts/Georama-SemiBold.ttf></Users/ericfoerster/Library/Fonts/Georama-Regular.ttf></Users/ericfoerster/Library/Fonts/Georama_SemiCondensed-Medium.ttf></Users/ericfoerster/Library/Fonts/Georama_SemiCondensed-SemiBold.ttf></Users/ericfoerster/Library/Fonts/Rasa-BoldItalic.ttf></Users/ericfoerster/Library/Fonts/Rasa-Italic.ttf></Users/ericfoerster/Library/Fonts/Rasa-Bold.ttf></Users/ericfoerster/Library/Fonts/Rasa-Regular.ttf>
+Output written on TORV-report_Maroon-Creek-Club_2024-09-18.pdf (21 pages, 2102639 bytes).
 
-PDF statistics: 326 PDF objects out of 1000 (max. 8388607)
- 217 compressed objects within 3 object streams
- 50 named destinations out of 1000 (max. 131072)
- 185 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 338 PDF objects out of 1000 (max. 8388607)
+ 228 compressed objects within 3 object streams
+ 53 named destinations out of 1000 (max. 131072)
+ 193 words of extra memory for PDF output out of 10000 (max. 100000000)
 
