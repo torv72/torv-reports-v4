@@ -114,7 +114,7 @@ if (testing_report == "No") {
     select(date_sample_submitted, sample_description_number_2) |> 
     unique() |> 
     count(sample_description_number_2) |> 
-    filter(n == max(n)) |> 
+    summarize(n = mean(n)) |> ## > 1 if more than 1 sampling date for any type
     pull(n)
   
   if (n_types == 1 & n_dates > 1) {
