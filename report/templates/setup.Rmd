@@ -72,7 +72,7 @@ branded_table <- function(header_colour = torv_orange,
           align = "center") %>%
     font(part = "all",
          fontname = typeface) %>%
-    color(i = 1, color = header_colour, part = "header") %>%
+    flextable::color(i = 1, color = header_colour, part = "header") %>%
     border(i = 1,
            border.top = officer::fp_border(width = 1.5, color = header_colour), part = "body") %>% 
     {
