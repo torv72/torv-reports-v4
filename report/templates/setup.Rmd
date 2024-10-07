@@ -252,26 +252,26 @@ full_database <- readxl::read_excel(master_database_file,
                                                   "text", # O
                                                   "text", # P
                                                   "numeric" # Q
-                                    )) %>% 
-  filter(rowAny(across(everything(), ~ !is.na(.x)))) %>%   # remove empty rows
-  janitor::clean_names() %>%  # make names r friendly
+                                    )) |> 
+  filter(rowAny(across(everything(), ~ !is.na(.x)))) |>   # remove empty rows
+  janitor::clean_names() |>  # make names r friendly
   # exclude data after the end date (end date defaults to date_sample_submitted unless specified)
-  filter(date_sample_submitted <= param_end_date) %>% 
-  filter(date_sample_submitted >= param_start_date) %>%
+  filter(date_sample_submitted <= param_end_date) |> 
+  filter(date_sample_submitted >= param_start_date) |>
   mutate(measurement_name = case_when(measurement_name == "Sodium Adsorption Ratio" ~ "SAR",
                                       TRUE ~ measurement_name))
 
-nitrogen_sums <- full_database %>%
-  filter(measurement_name %in% c("Ammonium (ppm)", "Nitrate (ppm)")) %>%
+nitrogen_sums <- full_database |>
+  filter(measurement_name %in% c("Ammonium (ppm)", "Nitrate (ppm)")) |>
   group_by(source_filename, date_sample_submitted, sample_type, sample_description_number_1,
-           sample_description_number_2, sample_description_number_3, sample_description_number_4) %>%
-  add_count() %>% # this allows you to look through the data to see where there was only one measurement, if desired
+           sample_description_number_2, sample_description_number_3, sample_description_number_4) |>
+  add_count() |> # this allows you to look through the data to see where there was only one measurement, if desired
   mutate(measurement_result = sum(measurement_result),
-         measurement_name = "Total Nitrogen (ppm)") %>%
-  select(!c(row_number, n)) %>%
+         measurement_name = "Total Nitrogen (ppm)") |>
+  select(!c(row_number, n)) |>
   unique()
 
-full_database <- full_database %>%
+full_database <- full_database |>
   bind_rows(nitrogen_sums)
 
 # Check venue and sample date are in the database; exit with a message if not
@@ -289,7 +289,7 @@ if(!lubridate::ymd(input_params$date_sample_submitted) %in% lubridate::ymd(full_
               \nPlease ensure your database is up to date and check for typos before trying again."))
 }
 
-filtered_database <- full_database %>% 
+filtered_database <- full_database |> 
   filter(site == input_params$site_name,
          date_sample_submitted == param_date_sample_submitted) 
 
@@ -321,10 +321,10 @@ full_database <<- full_database
 ```
 
 ````{r get-types}
-soil_types <- filtered_database %>% 
-  filter(sample_type == "Soil") %>% 
-  filter(sample_description_number_1 != "OM") %>% 
-  pull(sample_description_number_1) %>% 
+soil_types <- filtered_database |> 
+  filter(sample_type == "Soil") |> 
+  filter(sample_description_number_1 != "OM") |> 
+  pull(sample_description_number_1) |> 
   unique() 
 
 # to get them in order and leave room for unanticipated ones
@@ -341,18 +341,18 @@ if(is.na(input_params$warm_or_cool) && length(soil_types > 0)) {
               \nPlease check before trying again.")) 
 }
 
-water_types <- filtered_database %>% 
-  filter(sample_type == "Water") %>% 
-  filter(sample_description_number_1 != "OM") %>% 
-  pull(sample_description_number_1) %>% 
+water_types <- filtered_database |> 
+  filter(sample_type == "Water") |> 
+  filter(sample_description_number_1 != "OM") |> 
+  pull(sample_description_number_1) |> 
   unique() 
 
 water_types <<- water_types
 
-om_types <- filtered_database %>%
+om_types <- filtered_database |>
   filter(sample_description_number_1 == "OM",
-         sample_type %in% c("Soil", "Physical")) %>%
-  pull(sample_description_number_2) %>%
+         sample_type %in% c("Soil", "Physical")) |>
+  pull(sample_description_number_2) |>
   unique() 
 
 # to get them in order and leave room for unanticipated ones
@@ -477,8 +477,8 @@ zipcode_geometry <- tigris::zctas(
   year = 2019 # retrieve border of zip code (from census)
 )
 
-nearest_station_index <- zipcode_geometry %>% 
-  sf::st_transform(crs = 4326) %>% 
+nearest_station_index <- zipcode_geometry |> 
+  sf::st_transform(crs = 4326) |> 
   sf::st_nearest_feature(monthly_normals)
 
 nearest_station_data <<- monthly_normals[nearest_station_index[1],] 
