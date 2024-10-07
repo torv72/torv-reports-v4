@@ -284,16 +284,16 @@ header_file_create("Turf", "growth")
 knitr::include_graphics(here(root_figure_location, "headers", "turf_testing_growth_plot.png"))
 ```
 
-```{r turf-growth-rds, eval=length(soil_types) > 0, include=FALSE}
-if (html) readRDS(here("report", "figures", "growth_potential_plot.Rds")) else knitr::include_graphics(here("report", "figures", "monthly_growth_potential_plot.png"))
-```
-
 ```{r turf-growth-text, eval=(length(soil_types) > 0), results='asis'}
 cat("The temperature data is provided by NOAA using 30-year climate normals and is site-specific to your location. Pace Turf, LLC ([Gelernter and Stowell, 2005](https://www.files.asianturfgrass.com/gelernter_stowell_2005_improved_overseeding_gp.pdf)) developed the growth potential model to explain the myriad of ways in which weather impacts turf growth.\n\nThe model considers <b style='color:#5b921e;'>turf growth to be good when the GP is between 50% and 100%</b> (the best possible growth occurs at a GP of 100%). However, when weather conditions are either too hot or too cold for optimal turf growth, <b style='color:#686617;'>the GP falls below 50%, and turf becomes progressively more stressed</b>. When <b style='color:#7c230d;'>the GP falls to 10% or lower, growth is extremely limited</b>. Appearing below is your model specific to ", input_params$site_name, ".\n\n", sep = "")
 ```
 
-```{r turf-growth-interactive, fig.height=3.5, eval=length(soil_types) > 0}
-if (html) girafe(ggobj = growth_potential_plot) else growth_potential_plot
+```{r turf-growth-rds-html, eval=length(soil_types) > 0, eval=html}
+readRDS(here("report", "figures", "growth_potential_plot.Rds"))
+```
+
+```{r turf-growth-plot-pdf, eval=length(soil_types) > 0, fig.height=4.1, out.width="100%", eval=!html}
+knitr::include_graphics(here("report", "figures", "monthly_growth_potential_plot.png"))
 ```
 
 

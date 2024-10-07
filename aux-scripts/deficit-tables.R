@@ -188,34 +188,55 @@ for(soil_type in soil_types) {
       climate %>%
       mutate(
         condition = case_when(growth_potential >= 50 ~ "good", growth_potential < 10 ~ "limited", TRUE ~ "stressed"),
+        label_a = if_else(round(growth_potential, digits = 1) > 0, paste0(sprintf("%2.1f", growth_potential), "%"), ""),
+        label_b = if_else(round(growth_potential, digits = 1) > 0, paste0("(", condition, ")"), ""),
         tooltip = paste0(sprintf("%2.1f", growth_potential), "%<br><span style='font-size:12pt;'>(", condition, ")</span>")
       ) |> 
       ggplot(aes(x = month, y = round(growth_potential, 0))) +
-      #geom_col_interactive(fill = torv_green2, width = .8, aes(data_id = month, tooltip = paste0(sprintf("%2.1f", growth_potential), "%"))) +
-      geom_hline(yintercept = 10, color = "#f9d4c9", linewidth = .4) +
-      geom_hline(yintercept = 50, color = "#f2f1c6", linewidth = .4) +
+      geom_hline(yintercept = 10, color = "#F9D4C9", linewidth = .4) +
+      geom_hline(yintercept = 50, color = "#F2F1C6", linewidth = .4) +
       geom_col(fill = "white", width = .8) +
       geom_col_interactive(aes(fill = condition, data_id = month, tooltip = tooltip), width = .8) +
       geom_hline(yintercept = 0, color = torv_gray_light, linewidth = .6) +
       coord_cartesian(clip = "off", expand = FALSE) +
-      ## old version with horizontal grid lines and percentage labels on the axis
-      scale_y_continuous(
-        breaks = c(10, 50),
-        labels = scales::percent_format(scale = 1), expand = c(0, 0)
-      ) +
-      #scale_y_continuous(breaks = NULL, guide = "none") +
-      scale_fill_manual(values = c("good" = torv_green2, "stressed" = "#686617", "limited" = "#7c230d"), guide = "none") +
+      scale_fill_manual(values = c("good" = torv_green2, "stressed" = "#686617", "limited" = "#7C230D"), guide = "none") +
       labs(x = NULL, y = NULL, title = "Monthly Growth Potential") +
       theme(
         panel.grid.major.x = element_blank(),
         plot.title = element_text(margin = margin(b = 20), size = 12, family =typeface),
         plot.title.position = "plot",
         axis.text.x = element_text(margin = margin(t = 5)),
-        axis.text.y = element_text(size = rel(.8), color = c("#7c230d", "#686617"))
+        axis.text.y = element_text(size = rel(.8), color = c("#7C230D", "#686617"))
       )
+    
+    if(!html) {
+      growth_potential_plot <-
+        growth_potential_plot + 
+        geom_text(
+          aes(label = label_a, color = condition),
+          family = typeface_condensed, 
+          fontface = "bold", size = 2.7, vjust = -1.5
+        ) + 
+        geom_text(
+          aes(label = label_b),
+          family = typeface, 
+          size = 1.9, vjust = -.7, color = torv_gray,
+        ) +
+        scale_y_continuous(
+          breaks = c(10, 50), labels = scales::percent_format(scale = 1), expand = expansion(add = c(0, 5))
+        ) +
+        scale_color_manual(values = c("good" = "#3C6504", "stressed" = "#494802", "limited" = "#5F1400"), guide = "none") +
+        theme(plot.margin = margin(15, 1, 5, 1))
+    } else {
+      growth_potential_plot <-
+        growth_potential_plot +
+        scale_y_continuous(
+          breaks = c(10, 50),  labels = scales::percent_format(scale = 1), expand = c(0, 0)
+        )
+    }
 
     ggsave(here(root_figure_location, "monthly_growth_potential_plot.png"), 
-           growth_potential_plot, width = 6.5, height = 4, bg = "#ffffff", dpi = 300)
+           growth_potential_plot, width = 6.5, height = 4.1, bg = "#ffffff", dpi = 600)
 
     annual_N_per_1000sqft <- sum(climate$N)
     
