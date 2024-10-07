@@ -56,15 +56,15 @@ if (html) {
 filter(fertilizer_table_all, sample_description_number_1 == "{{sample_description_number_1}}") %>%
   select(Area:Mn) %>%
   branded_table(data = .) %>%
-  flextable::add_footer_lines(values = c("\nThe symbol \"—\" means no deficit was found; an empty cell means no data was provided.\nThe \"Average\" values are the means across all areas where a deficit was found.\n")) %>%
+  add_footer_lines(values = c("\nThe symbol \"—\" means no deficit was found; an empty cell means no data was provided.\nThe \"Average\" values are the means across all areas where a deficit was found.\n")) %>%
   ftExtra::colformat_md(part = "header") %>%
-  flextable::fontsize(size = size_h, part = "header") %>%
-  flextable::fontsize(size = size_b, part = "body") %>%
-  flextable::fontsize(size = size_f, part = "footer") %>%
+  fontsize(size = size_h, part = "header") %>%
+  fontsize(size = size_b, part = "body") %>%
+  fontsize(size = size_f, part = "footer") %>%
   # Specifying font again after adding footnote
-  flextable::font(fontname = typeface_condensed, part = "all") %>%
-  flextable::font(fontname = typeface, part = "footer") %>%
-  flextable::width(width = w)
+  font(fontname = typeface_condensed, part = "all") %>%
+  font(fontname = typeface, part = "footer") %>%
+  width(width = w)
 ```
 
 ```{r}

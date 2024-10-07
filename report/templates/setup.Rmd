@@ -154,12 +154,12 @@ make_trendline_legend <- function(main_color, stat = "average", draw_beeswarm = 
       xend = lubridate::as_date("2021-12-30"), yend = 2.8,
       curvature = -.2, 
       arrow = arrow(length = unit(1.2, "mm"), type = "closed"),
-      color = prismatic::clr_lighten(torv_gray, .6)
+      color = clr_lighten(torv_gray, .6)
     ) +
     
     ## average measurements
     geom_line(
-      color = prismatic::clr_lighten(main_color, .3), 
+      color = clr_lighten(main_color, .3), 
       linewidth = .6, linetype = "solid", alpha = .65 
     ) +
     geom_point(
@@ -178,7 +178,7 @@ make_trendline_legend <- function(main_color, stat = "average", draw_beeswarm = 
       xend = as_date(lubridate::as_date("2020-12-01")), yend = 2.52,
       curvature = .2,
       arrow = arrow(length = unit(1.2, "mm"), type = "closed"),
-      color = prismatic::clr_lighten(main_color, .6)
+      color = clr_lighten(main_color, .6)
     ) +
     
     ## historic average

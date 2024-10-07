@@ -33,8 +33,8 @@ sf_data <-
     measurement_name = stringr::str_replace(measurement_name, " mm$", " mm)"),
     measurement_name = stringr::str_replace(measurement_name, "1 mm", "1.0 mm"),
     measurement_name = stringr::str_replace(measurement_name, "2 mm", "2.0 mm")
-  ) |>
-  filter(month %in% input_params$season)
+  ) #|>
+  #filter(month %in% input_params$season) ## if only seasonal data should be shown
 
 samplings_per_year <- sf_data |> group_by(year) |> summarize(n = length(unique(date_sample_submitted)))
 if(max(samplings_per_year$n) > 1) grp <- "year_month" else grp <- "year"
