@@ -11,7 +11,9 @@
 * 3 green rooting is still shallow but the green continues to perform well.  It may not be worth pursuing "the ideal rootage" whatever that means and instead be aware.  If the green were to underpeform, it can be addressed at that time.
 * The color on all of the greens looked excellent.
 * We've previously discussed the turf growth ratio, now officially called Turf_GvX. Dr. Micah Woods has developed a simple Excel worksheet that calculates Turf_GvX based on your input clipping volume. This tool could be ideal for optimizing nitrogen application rates. I've attached the Excel spreadsheet in the email and included a link to the paceturf.org website for more information.^[(https://www.paceturf.org/reference/Turf_GvX)]
-* Green 5 0-2 cm OM is 6.75%.  It roughly 1-3% below the other greens sampled at the same depth.
+* Green 5 0-2 cm OM is 6.75%.  It is roughly 1-3% below the other greens sampled at the same depth.
+* Green surfaces accumulated organic matter at a rate of 17 g/kg/year in the top 2 cm of depth. Three sand topdressings with a total of 1.6 mm was applied. 
+  * To maintain the current organic matter levels in the 0-2 cm depth, given the same accumulation rate, it is estimated that 2.2 mm of sand topdressing will need to be applied in 2025.
 * No other anomalies were highlighted in the analysis.
   
 ### [Tee](#tee-1)
@@ -21,6 +23,8 @@
 * Deficits were noted in the following measurement: Potassium (ppm). See the "Required element per area" table within the Tee section for an indication of how much fertilizer should be added to each sampled area.
 * 2 and 16 tee were deficient in potassium.  12 tee reported a trace under. 
 * Organic matter has increased slightly since last year. Review this change and determine if any action is needed. Consider the significance, potential causes, and whether adjustments to your practices are necessary.  With that being said the tees still felt good underfoot.
+* Tee surfaces accumlated organic matter at a rate of 33 g/kg/year in the 0-2 cm depth.  Four sand topdressings with a total of 4.63 mm was applied.  
+  * To maintain the current organic matter levels in the 0-2 cm depth, given the same accumulation rate, it is estimated that 4.2 mm of sand topdressing will need to be applied in 2025.
 * No other anomalies were highlighted in the analysis.
   
 ### [Fairway](#fairway-1)
@@ -60,7 +64,7 @@ The  average OM measurements can be summarised as follows:
   * At a depth of **0-2 cm**, the OM content increased from 7.01% to 7.96%. 
   * At a depth of **2-4 cm**, the OM content decreased from 4.41% to 4.18%. 
   * At a depth of **4-6 cm**, the OM content decreased from 3.62% to 3.33%.
-  
+
 Like calibrating a TDR measurement for soil moisture content based on subjective observations, the OM246 test should be thought of in the same context. Playability and overall green performance should be considered.
 Using a known amount of topdressing applied, we can estimate/calculate the Amount of topdressing needed to maintain, increase, or decrease the organic matter.
 

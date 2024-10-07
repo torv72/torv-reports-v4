@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.10.1)  4 OCT 2024 11:45
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.10.1)  6 OCT 2024 08:42
  restricted system commands enabled.
 **"/Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18.tex"
 ("/Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18.tex"
@@ -1048,35 +1048,34 @@ LaTeX Font Info:    Font shape `TU/Rasa(0)/m/n' will be
 
 [2<./figures/headers/none_testing_executive_summary_plot.png>]
 LaTeX Font Info:    Font shape `TU/Rasa(0)/m/it' will be
-(Font)              scaled to size 10.0pt on input line 263.
-
-Underfull \hbox (badness 10000) in paragraph at lines 341--346
-
- []
-
+(Font)              scaled to size 10.0pt on input line 287.
 
 
 [3]
+Underfull \hbox (badness 10000) in paragraph at lines 365--370
+
+ []
+
 LaTeX Font Info:    Font shape `TU/Rasa(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 361.
+(Font)              scaled to size 9.0pt on input line 385.
 LaTeX Font Info:    Font shape `TU/Rasa(0)/b/n' will be
-(Font)              scaled to size 9.0pt on input line 361.
+(Font)              scaled to size 9.0pt on input line 385.
 LaTeX Font Info:    Font shape `TU/Rasa(0)/b/it' will be
-(Font)              scaled to size 9.0pt on input line 361.
+(Font)              scaled to size 9.0pt on input line 385.
 LaTeX Font Info:    Font shape `TU/Rasa(0)/m/it' will be
-(Font)              scaled to size 8.0pt on input line 365.
+(Font)              scaled to size 8.0pt on input line 389.
 
 
 [4]
 <figures/headers/turf_testing_growth_plot.png, id=48, 404.712pt x 50.589pt>
 File: figures/headers/turf_testing_growth_plot.png Graphic file (type png)
 <use figures/headers/turf_testing_growth_plot.png>
-Package luatex.def Info: figures/headers/turf_testing_growth_plot.png  used on input line 372.
+Package luatex.def Info: figures/headers/turf_testing_growth_plot.png  used on input line 396.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
 </Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/turf-growth-interactive-1.png, id=50, 458.6736pt x 242.3454pt>
 File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/turf-growth-interactive-1.png Graphic file (type png)
 <use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/turf-growth-interactive-1.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/turf-growth-interactive-1.png  used on input line 387.
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/turf-growth-interactive-1.png  used on input line 411.
 (luatex.def)             Requested size: 458.67247pt x 242.3448pt.
 
 
@@ -1084,20 +1083,20 @@ Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-r
 <figures/headers/soil_testing_green_plot.png, id=59, 404.712pt x 50.589pt>
 File: figures/headers/soil_testing_green_plot.png Graphic file (type png)
 <use figures/headers/soil_testing_green_plot.png>
-Package luatex.def Info: figures/headers/soil_testing_green_plot.png  used on input line 395.
+Package luatex.def Info: figures/headers/soil_testing_green_plot.png  used on input line 419.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
 LaTeX Font Info:    Font shape `TU/Rasa(0)/b/n' will be
-(Font)              scaled to size 8.0pt on input line 407.
+(Font)              scaled to size 8.0pt on input line 431.
 <figures/soil_testing/MLSN_deficits_GREEN_plot.png, id=60, 469.755pt x 397.485pt>
 File: figures/soil_testing/MLSN_deficits_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/MLSN_deficits_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/MLSN_deficits_GREEN_plot.png  used on input line 416.
+Package luatex.def Info: figures/soil_testing/MLSN_deficits_GREEN_plot.png  used on input line 440.
 (luatex.def)             Requested size: 469.75386pt x 397.48402pt.
 
 
 [6<./figures/headers/soil_testing_green_plot.png><./figures/soil_testing/MLSN_deficits_GREEN_plot.png>]
 LaTeX Font Info:    Font shape `TU/Rasa(0)/b/it' will be
-(Font)              scaled to size 8.0pt on input line 424.
+(Font)              scaled to size 8.0pt on input line 448.
 
 Package fontspec Info: 
 (fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
@@ -1203,9 +1202,9 @@ Package fontspec Info:
 (fontspec)             SemiCondensed/BI:mode=node;script=latn;language=dflt;+tlig;+smcp;"
 
 LaTeX Font Info:    Font shape `TU/GeoramaSemiCondensed(0)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 445.
+(Font)              scaled to size 12.0pt on input line 469.
 LaTeX Font Info:    Font shape `TU/GeoramaSemiCondensed(0)/b/n' will be
-(Font)              scaled to size 12.0pt on input line 445.
+(Font)              scaled to size 12.0pt on input line 469.
 
 Package fontspec Info: 
 (fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
@@ -1223,7 +1222,7 @@ Package fontspec Info:
 (fontspec)             Georama SemiCondensed scale = 1.
 
 LaTeX Font Info:    Font shape `TU/GeoramaSemiCondensed(0)/b/n' will be
-(Font)              scaled to size 8.0pt on input line 445.
+(Font)              scaled to size 8.0pt on input line 469.
 
 Package fontspec Info: 
 (fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
@@ -1507,7 +1506,7 @@ Package fontspec Info:
 (fontspec)             <->s*[1]"name:Georama/BI:mode=node;script=latn;language=dflt;+tlig;+smcp;"
 
 LaTeX Font Info:    Font shape `TU/Georama(0)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 457.
+(Font)              scaled to size 8.0pt on input line 481.
 
 Package fontspec Info: 
 (fontspec)             Georama scale = 0.7509051186017479.
@@ -1549,9 +1548,9 @@ Package fontspec Info:
 (fontspec)             Georama SemiCondensed scale = 1.
 
 LaTeX Font Info:    Font shape `TU/GeoramaSemiCondensed(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 463.
+(Font)              scaled to size 10.0pt on input line 487.
 LaTeX Font Info:    Font shape `TU/GeoramaSemiCondensed(0)/b/n' will be
-(Font)              scaled to size 10.0pt on input line 463.
+(Font)              scaled to size 10.0pt on input line 487.
 
 Package fontspec Info: 
 (fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
@@ -1995,32 +1994,32 @@ Package fontspec Info:
 <figures/soil_testing/p_h_GREEN_plot.png, id=66, 72.27pt x 50.589pt>
 File: figures/soil_testing/p_h_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/p_h_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/p_h_GREEN_plot.png  used on input line 519.
+Package luatex.def Info: figures/soil_testing/p_h_GREEN_plot.png  used on input line 543.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/organic_matter_GREEN_plot.png, id=67, 72.27pt x 50.589pt>
 File: figures/soil_testing/organic_matter_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/organic_matter_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/organic_matter_GREEN_plot.png  used on input line 523.
+Package luatex.def Info: figures/soil_testing/organic_matter_GREEN_plot.png  used on input line 547.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/total_nitrogen_GREEN_plot.png, id=68, 72.27pt x 50.589pt>
 File: figures/soil_testing/total_nitrogen_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/total_nitrogen_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/total_nitrogen_GREEN_plot.png  used on input line 527.
+Package luatex.def Info: figures/soil_testing/total_nitrogen_GREEN_plot.png  used on input line 551.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/potassium_GREEN_plot.png, id=69, 72.27pt x 50.589pt>
 File: figures/soil_testing/potassium_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/potassium_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/potassium_GREEN_plot.png  used on input line 533.
+Package luatex.def Info: figures/soil_testing/potassium_GREEN_plot.png  used on input line 557.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/phosphorus_GREEN_plot.png, id=70, 72.27pt x 50.589pt>
 File: figures/soil_testing/phosphorus_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/phosphorus_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/phosphorus_GREEN_plot.png  used on input line 538.
+Package luatex.def Info: figures/soil_testing/phosphorus_GREEN_plot.png  used on input line 562.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/calcium_GREEN_plot.png, id=71, 72.27pt x 50.589pt>
 File: figures/soil_testing/calcium_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/calcium_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/calcium_GREEN_plot.png  used on input line 543.
+Package luatex.def Info: figures/soil_testing/calcium_GREEN_plot.png  used on input line 567.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 
 
@@ -2028,32 +2027,32 @@ Package luatex.def Info: figures/soil_testing/calcium_GREEN_plot.png  used on in
 <figures/soil_testing/magnesium_GREEN_plot.png, id=82, 72.27pt x 50.589pt>
 File: figures/soil_testing/magnesium_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/magnesium_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/magnesium_GREEN_plot.png  used on input line 548.
+Package luatex.def Info: figures/soil_testing/magnesium_GREEN_plot.png  used on input line 572.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/sodium_GREEN_plot.png, id=83, 72.27pt x 50.589pt>
 File: figures/soil_testing/sodium_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/sodium_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/sodium_GREEN_plot.png  used on input line 553.
+Package luatex.def Info: figures/soil_testing/sodium_GREEN_plot.png  used on input line 577.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/sulfur_GREEN_plot.png, id=84, 72.27pt x 50.589pt>
 File: figures/soil_testing/sulfur_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/sulfur_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/sulfur_GREEN_plot.png  used on input line 557.
+Package luatex.def Info: figures/soil_testing/sulfur_GREEN_plot.png  used on input line 581.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/iron_GREEN_plot.png, id=85, 72.27pt x 50.589pt>
 File: figures/soil_testing/iron_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/iron_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/iron_GREEN_plot.png  used on input line 562.
+Package luatex.def Info: figures/soil_testing/iron_GREEN_plot.png  used on input line 586.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/manganese_GREEN_plot.png, id=86, 72.27pt x 50.589pt>
 File: figures/soil_testing/manganese_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/manganese_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/manganese_GREEN_plot.png  used on input line 567.
+Package luatex.def Info: figures/soil_testing/manganese_GREEN_plot.png  used on input line 591.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/micronutrients_GREEN_plot.png, id=87, 72.27pt x 50.589pt>
 File: figures/soil_testing/micronutrients_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/micronutrients_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/micronutrients_GREEN_plot.png  used on input line 572.
+Package luatex.def Info: figures/soil_testing/micronutrients_GREEN_plot.png  used on input line 596.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 
 
@@ -2061,12 +2060,12 @@ Package luatex.def Info: figures/soil_testing/micronutrients_GREEN_plot.png  use
 <figures/headers/soil_testing_green_trends_plot.png, id=92, 404.712pt x 50.589pt>
 File: figures/headers/soil_testing_green_trends_plot.png Graphic file (type png)
 <use figures/headers/soil_testing_green_trends_plot.png>
-Package luatex.def Info: figures/headers/soil_testing_green_trends_plot.png  used on input line 579.
+Package luatex.def Info: figures/headers/soil_testing_green_trends_plot.png  used on input line 603.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
 </Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-171-1.png, id=93, 481.8pt x 447.1104pt>
 File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-171-1.png Graphic file (type png)
 <use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-171-1.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-171-1.png  used on input line 581.
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-171-1.png  used on input line 605.
 (luatex.def)             Requested size: 469.77148pt x 435.94794pt.
 
 
@@ -2074,12 +2073,12 @@ Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-r
 <figures/headers/soil_testing_tee_plot.png, id=101, 404.712pt x 50.589pt>
 File: figures/headers/soil_testing_tee_plot.png Graphic file (type png)
 <use figures/headers/soil_testing_tee_plot.png>
-Package luatex.def Info: figures/headers/soil_testing_tee_plot.png  used on input line 591.
+Package luatex.def Info: figures/headers/soil_testing_tee_plot.png  used on input line 615.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
 <figures/soil_testing/MLSN_deficits_TEE_plot.png, id=102, 469.755pt x 397.485pt>
 File: figures/soil_testing/MLSN_deficits_TEE_plot.png Graphic file (type png)
 <use figures/soil_testing/MLSN_deficits_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/MLSN_deficits_TEE_plot.png  used on input line 612.
+Package luatex.def Info: figures/soil_testing/MLSN_deficits_TEE_plot.png  used on input line 636.
 (luatex.def)             Requested size: 469.75386pt x 397.48402pt.
 
 
@@ -2719,32 +2718,32 @@ Package fontspec Info:
 <figures/soil_testing/p_h_TEE_plot.png, id=108, 72.27pt x 50.589pt>
 File: figures/soil_testing/p_h_TEE_plot.png Graphic file (type png)
 <use figures/soil_testing/p_h_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/p_h_TEE_plot.png  used on input line 709.
+Package luatex.def Info: figures/soil_testing/p_h_TEE_plot.png  used on input line 733.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/organic_matter_TEE_plot.png, id=109, 72.27pt x 50.589pt>
 File: figures/soil_testing/organic_matter_TEE_plot.png Graphic file (type png)
 <use figures/soil_testing/organic_matter_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/organic_matter_TEE_plot.png  used on input line 713.
+Package luatex.def Info: figures/soil_testing/organic_matter_TEE_plot.png  used on input line 737.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/total_nitrogen_TEE_plot.png, id=110, 72.27pt x 50.589pt>
 File: figures/soil_testing/total_nitrogen_TEE_plot.png Graphic file (type png)
 <use figures/soil_testing/total_nitrogen_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/total_nitrogen_TEE_plot.png  used on input line 717.
+Package luatex.def Info: figures/soil_testing/total_nitrogen_TEE_plot.png  used on input line 741.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/potassium_TEE_plot.png, id=111, 72.27pt x 50.589pt>
 File: figures/soil_testing/potassium_TEE_plot.png Graphic file (type png)
 <use figures/soil_testing/potassium_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/potassium_TEE_plot.png  used on input line 723.
+Package luatex.def Info: figures/soil_testing/potassium_TEE_plot.png  used on input line 747.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/phosphorus_TEE_plot.png, id=112, 72.27pt x 50.589pt>
 File: figures/soil_testing/phosphorus_TEE_plot.png Graphic file (type png)
 <use figures/soil_testing/phosphorus_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/phosphorus_TEE_plot.png  used on input line 728.
+Package luatex.def Info: figures/soil_testing/phosphorus_TEE_plot.png  used on input line 752.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/calcium_TEE_plot.png, id=113, 72.27pt x 50.589pt>
 File: figures/soil_testing/calcium_TEE_plot.png Graphic file (type png)
 <use figures/soil_testing/calcium_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/calcium_TEE_plot.png  used on input line 733.
+Package luatex.def Info: figures/soil_testing/calcium_TEE_plot.png  used on input line 757.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 
 
@@ -2752,32 +2751,32 @@ Package luatex.def Info: figures/soil_testing/calcium_TEE_plot.png  used on inpu
 <figures/soil_testing/magnesium_TEE_plot.png, id=122, 72.27pt x 50.589pt>
 File: figures/soil_testing/magnesium_TEE_plot.png Graphic file (type png)
 <use figures/soil_testing/magnesium_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/magnesium_TEE_plot.png  used on input line 738.
+Package luatex.def Info: figures/soil_testing/magnesium_TEE_plot.png  used on input line 762.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/sodium_TEE_plot.png, id=123, 72.27pt x 50.589pt>
 File: figures/soil_testing/sodium_TEE_plot.png Graphic file (type png)
 <use figures/soil_testing/sodium_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/sodium_TEE_plot.png  used on input line 743.
+Package luatex.def Info: figures/soil_testing/sodium_TEE_plot.png  used on input line 767.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/sulfur_TEE_plot.png, id=124, 72.27pt x 50.589pt>
 File: figures/soil_testing/sulfur_TEE_plot.png Graphic file (type png)
 <use figures/soil_testing/sulfur_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/sulfur_TEE_plot.png  used on input line 747.
+Package luatex.def Info: figures/soil_testing/sulfur_TEE_plot.png  used on input line 771.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/iron_TEE_plot.png, id=125, 72.27pt x 50.589pt>
 File: figures/soil_testing/iron_TEE_plot.png Graphic file (type png)
 <use figures/soil_testing/iron_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/iron_TEE_plot.png  used on input line 752.
+Package luatex.def Info: figures/soil_testing/iron_TEE_plot.png  used on input line 776.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/manganese_TEE_plot.png, id=126, 72.27pt x 50.589pt>
 File: figures/soil_testing/manganese_TEE_plot.png Graphic file (type png)
 <use figures/soil_testing/manganese_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/manganese_TEE_plot.png  used on input line 757.
+Package luatex.def Info: figures/soil_testing/manganese_TEE_plot.png  used on input line 781.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/micronutrients_TEE_plot.png, id=127, 72.27pt x 50.589pt>
 File: figures/soil_testing/micronutrients_TEE_plot.png Graphic file (type png)
 <use figures/soil_testing/micronutrients_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/micronutrients_TEE_plot.png  used on input line 762.
+Package luatex.def Info: figures/soil_testing/micronutrients_TEE_plot.png  used on input line 786.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 
 
@@ -2785,12 +2784,12 @@ Package luatex.def Info: figures/soil_testing/micronutrients_TEE_plot.png  used 
 <figures/headers/soil_testing_tee_trends_plot.png, id=132, 404.712pt x 50.589pt>
 File: figures/headers/soil_testing_tee_trends_plot.png Graphic file (type png)
 <use figures/headers/soil_testing_tee_trends_plot.png>
-Package luatex.def Info: figures/headers/soil_testing_tee_trends_plot.png  used on input line 769.
+Package luatex.def Info: figures/headers/soil_testing_tee_trends_plot.png  used on input line 793.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
 </Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-294-1.png, id=133, 481.8pt x 446.8695pt>
 File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-294-1.png Graphic file (type png)
 <use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-294-1.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-294-1.png  used on input line 771.
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-294-1.png  used on input line 795.
 (luatex.def)             Requested size: 469.77148pt x 435.71306pt.
 
 
@@ -2798,12 +2797,12 @@ Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-r
 <figures/headers/soil_testing_fairway_plot.png, id=140, 404.712pt x 50.589pt>
 File: figures/headers/soil_testing_fairway_plot.png Graphic file (type png)
 <use figures/headers/soil_testing_fairway_plot.png>
-Package luatex.def Info: figures/headers/soil_testing_fairway_plot.png  used on input line 781.
+Package luatex.def Info: figures/headers/soil_testing_fairway_plot.png  used on input line 805.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
 <figures/soil_testing/MLSN_deficits_FAIRWAY_plot.png, id=141, 469.755pt x 397.485pt>
 File: figures/soil_testing/MLSN_deficits_FAIRWAY_plot.png Graphic file (type png)
 <use figures/soil_testing/MLSN_deficits_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/MLSN_deficits_FAIRWAY_plot.png  used on input line 803.
+Package luatex.def Info: figures/soil_testing/MLSN_deficits_FAIRWAY_plot.png  used on input line 827.
 (luatex.def)             Requested size: 469.75386pt x 397.48402pt.
 
 
@@ -3507,32 +3506,32 @@ Package fontspec Info:
 <figures/soil_testing/p_h_FAIRWAY_plot.png, id=147, 72.27pt x 50.589pt>
 File: figures/soil_testing/p_h_FAIRWAY_plot.png Graphic file (type png)
 <use figures/soil_testing/p_h_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/p_h_FAIRWAY_plot.png  used on input line 906.
+Package luatex.def Info: figures/soil_testing/p_h_FAIRWAY_plot.png  used on input line 930.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/organic_matter_FAIRWAY_plot.png, id=148, 72.27pt x 50.589pt>
 File: figures/soil_testing/organic_matter_FAIRWAY_plot.png Graphic file (type png)
 <use figures/soil_testing/organic_matter_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/organic_matter_FAIRWAY_plot.png  used on input line 910.
+Package luatex.def Info: figures/soil_testing/organic_matter_FAIRWAY_plot.png  used on input line 934.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/total_nitrogen_FAIRWAY_plot.png, id=149, 72.27pt x 50.589pt>
 File: figures/soil_testing/total_nitrogen_FAIRWAY_plot.png Graphic file (type png)
 <use figures/soil_testing/total_nitrogen_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/total_nitrogen_FAIRWAY_plot.png  used on input line 914.
+Package luatex.def Info: figures/soil_testing/total_nitrogen_FAIRWAY_plot.png  used on input line 938.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/potassium_FAIRWAY_plot.png, id=150, 72.27pt x 50.589pt>
 File: figures/soil_testing/potassium_FAIRWAY_plot.png Graphic file (type png)
 <use figures/soil_testing/potassium_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/potassium_FAIRWAY_plot.png  used on input line 920.
+Package luatex.def Info: figures/soil_testing/potassium_FAIRWAY_plot.png  used on input line 944.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/phosphorus_FAIRWAY_plot.png, id=151, 72.27pt x 50.589pt>
 File: figures/soil_testing/phosphorus_FAIRWAY_plot.png Graphic file (type png)
 <use figures/soil_testing/phosphorus_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/phosphorus_FAIRWAY_plot.png  used on input line 925.
+Package luatex.def Info: figures/soil_testing/phosphorus_FAIRWAY_plot.png  used on input line 949.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/calcium_FAIRWAY_plot.png, id=152, 72.27pt x 50.589pt>
 File: figures/soil_testing/calcium_FAIRWAY_plot.png Graphic file (type png)
 <use figures/soil_testing/calcium_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/calcium_FAIRWAY_plot.png  used on input line 930.
+Package luatex.def Info: figures/soil_testing/calcium_FAIRWAY_plot.png  used on input line 954.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 
 
@@ -3540,32 +3539,32 @@ Package luatex.def Info: figures/soil_testing/calcium_FAIRWAY_plot.png  used on 
 <figures/soil_testing/magnesium_FAIRWAY_plot.png, id=160, 72.27pt x 50.589pt>
 File: figures/soil_testing/magnesium_FAIRWAY_plot.png Graphic file (type png)
 <use figures/soil_testing/magnesium_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/magnesium_FAIRWAY_plot.png  used on input line 935.
+Package luatex.def Info: figures/soil_testing/magnesium_FAIRWAY_plot.png  used on input line 959.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/sodium_FAIRWAY_plot.png, id=161, 72.27pt x 50.589pt>
 File: figures/soil_testing/sodium_FAIRWAY_plot.png Graphic file (type png)
 <use figures/soil_testing/sodium_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/sodium_FAIRWAY_plot.png  used on input line 940.
+Package luatex.def Info: figures/soil_testing/sodium_FAIRWAY_plot.png  used on input line 964.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/sulfur_FAIRWAY_plot.png, id=162, 72.27pt x 50.589pt>
 File: figures/soil_testing/sulfur_FAIRWAY_plot.png Graphic file (type png)
 <use figures/soil_testing/sulfur_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/sulfur_FAIRWAY_plot.png  used on input line 944.
+Package luatex.def Info: figures/soil_testing/sulfur_FAIRWAY_plot.png  used on input line 968.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/iron_FAIRWAY_plot.png, id=163, 72.27pt x 50.589pt>
 File: figures/soil_testing/iron_FAIRWAY_plot.png Graphic file (type png)
 <use figures/soil_testing/iron_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/iron_FAIRWAY_plot.png  used on input line 949.
+Package luatex.def Info: figures/soil_testing/iron_FAIRWAY_plot.png  used on input line 973.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/manganese_FAIRWAY_plot.png, id=164, 72.27pt x 50.589pt>
 File: figures/soil_testing/manganese_FAIRWAY_plot.png Graphic file (type png)
 <use figures/soil_testing/manganese_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/manganese_FAIRWAY_plot.png  used on input line 954.
+Package luatex.def Info: figures/soil_testing/manganese_FAIRWAY_plot.png  used on input line 978.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 <figures/soil_testing/micronutrients_FAIRWAY_plot.png, id=165, 72.27pt x 50.589pt>
 File: figures/soil_testing/micronutrients_FAIRWAY_plot.png Graphic file (type png)
 <use figures/soil_testing/micronutrients_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/micronutrients_FAIRWAY_plot.png  used on input line 959.
+Package luatex.def Info: figures/soil_testing/micronutrients_FAIRWAY_plot.png  used on input line 983.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 
 
@@ -3573,12 +3572,12 @@ Package luatex.def Info: figures/soil_testing/micronutrients_FAIRWAY_plot.png  u
 <figures/headers/soil_testing_fairway_trends_plot.png, id=170, 404.712pt x 50.589pt>
 File: figures/headers/soil_testing_fairway_trends_plot.png Graphic file (type png)
 <use figures/headers/soil_testing_fairway_trends_plot.png>
-Package luatex.def Info: figures/headers/soil_testing_fairway_trends_plot.png  used on input line 966.
+Package luatex.def Info: figures/headers/soil_testing_fairway_trends_plot.png  used on input line 990.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
 </Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-417-1.png, id=171, 487.3407pt x 446.8695pt>
 File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-417-1.png Graphic file (type png)
 <use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-417-1.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-417-1.png  used on input line 968.
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-417-1.png  used on input line 992.
 (luatex.def)             Requested size: 469.77518pt x 430.7627pt.
 
 
@@ -3586,17 +3585,17 @@ Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-r
 <figures/headers/om_testing_green_plot.png, id=178, 404.712pt x 50.589pt>
 File: figures/headers/om_testing_green_plot.png Graphic file (type png)
 <use figures/headers/om_testing_green_plot.png>
-Package luatex.def Info: figures/headers/om_testing_green_plot.png  used on input line 978.
+Package luatex.def Info: figures/headers/om_testing_green_plot.png  used on input line 1002.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 992--995
+Underfull \hbox (badness 10000) in paragraph at lines 1016--1019
 
  []
 
 </Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-430-1.png, id=179, 471.9231pt x 162.6075pt>
 File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-430-1.png Graphic file (type png)
 <use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-430-1.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-430-1.png  used on input line 996.
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-430-1.png  used on input line 1020.
 (luatex.def)             Requested size: 469.76884pt x 161.86522pt.
 
 Package fontspec Info: 
@@ -4004,17 +4003,17 @@ Package fontspec Info:
 <figures/headers/om_testing_tee_plot.png, id=185, 404.712pt x 50.589pt>
 File: figures/headers/om_testing_tee_plot.png Graphic file (type png)
 <use figures/headers/om_testing_tee_plot.png>
-Package luatex.def Info: figures/headers/om_testing_tee_plot.png  used on input line 1070.
+Package luatex.def Info: figures/headers/om_testing_tee_plot.png  used on input line 1094.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1084--1087
+Underfull \hbox (badness 10000) in paragraph at lines 1108--1111
 
  []
 
 </Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-436-1.png, id=186, 471.9231pt x 162.6075pt>
 File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-436-1.png Graphic file (type png)
 <use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-436-1.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-436-1.png  used on input line 1088.
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-436-1.png  used on input line 1112.
 (luatex.def)             Requested size: 469.76884pt x 161.86522pt.
 
 Package fontspec Info: 
@@ -4422,7 +4421,7 @@ Package fontspec Info:
 <figures/headers/om_testing_sand_fraction_plot.png, id=194, 404.712pt x 50.589pt>
 File: figures/headers/om_testing_sand_fraction_plot.png Graphic file (type png)
 <use figures/headers/om_testing_sand_fraction_plot.png>
-Package luatex.def Info: figures/headers/om_testing_sand_fraction_plot.png  used on input line 1164.
+Package luatex.def Info: figures/headers/om_testing_sand_fraction_plot.png  used on input line 1188.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
 
 Package fontspec Info: 
@@ -4433,9 +4432,9 @@ Package fontspec Info:
 (fontspec)             Georama scale = 1.
 
 LaTeX Font Info:    Font shape `TU/Georama(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 1184.
+(Font)              scaled to size 9.0pt on input line 1208.
 LaTeX Font Info:    Font shape `TU/Georama(0)/b/n' will be
-(Font)              scaled to size 9.0pt on input line 1184.
+(Font)              scaled to size 9.0pt on input line 1208.
 
 Package fontspec Info: 
 (fontspec)             Georama scale = 0.7509062773578623.
@@ -6226,12 +6225,12 @@ Package fontspec Info:
 <figures/headers/none_testing_how_to_read_trend_line_plots_plot.png, id=202, 404.712pt x 50.589pt>
 File: figures/headers/none_testing_how_to_read_trend_line_plots_plot.png Graphic file (type png)
 <use figures/headers/none_testing_how_to_read_trend_line_plots_plot.png>
-Package luatex.def Info: figures/headers/none_testing_how_to_read_trend_line_plots_plot.png  used on input line 1454.
+Package luatex.def Info: figures/headers/none_testing_how_to_read_trend_line_plots_plot.png  used on input line 1478.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
 <figures/trendlines/trend_plot_legend_mean_median.png, id=203, 180.675pt x 144.54pt>
 File: figures/trendlines/trend_plot_legend_mean_median.png Graphic file (type png)
 <use figures/trendlines/trend_plot_legend_mean_median.png>
-Package luatex.def Info: figures/trendlines/trend_plot_legend_mean_median.png  used on input line 1462.
+Package luatex.def Info: figures/trendlines/trend_plot_legend_mean_median.png  used on input line 1486.
 (luatex.def)             Requested size: 180.68282pt x 144.54623pt.
 
 
@@ -6247,12 +6246,12 @@ Here is how much of LuaTeX's memory you used:
  125086,1648299 words of node,token memory allocated
  718 words of node memory still in use:
    8 hlist, 3 vlist, 4 rule, 1 local_par, 6 glue, 5 kern, 1 penalty, 3 glyph, 16 attribute, 67 glue_spec, 16 attribute_list, 1 write, 1 user_defined, 1 pdf_action, 2 pdf_colorstack nodes
-   avail lists: 2:3367,3:644,4:900,5:1751,6:306,7:8650,8:43,9:2929,10:20,11:561
+   avail lists: 2:3367,3:644,4:900,5:1717,6:306,7:8568,8:43,9:2929,10:20,11:544
  43641 multiletter control sequences out of 65536+600000
- 126 fonts using 31423715 bytes
+ 126 fonts using 31423867 bytes
  90i,10n,131p,2237b,527s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/ericfoerster/Library/Fonts/Georama-SemiBold.ttf></Users/ericfoerster/Library/Fonts/Georama-Regular.ttf></Users/ericfoerster/Library/Fonts/Georama_SemiCondensed-Medium.ttf></Users/ericfoerster/Library/Fonts/Georama_SemiCondensed-SemiBold.ttf></Users/ericfoerster/Library/Fonts/Rasa-BoldItalic.ttf></Users/ericfoerster/Library/Fonts/Rasa-Italic.ttf></Users/ericfoerster/Library/Fonts/Rasa-Bold.ttf></Users/ericfoerster/Library/Fonts/Rasa-Regular.ttf>
-Output written on TORV-report_Maroon-Creek-Club_2024-09-18.pdf (21 pages, 2102639 bytes).
+Output written on TORV-report_Maroon-Creek-Club_2024-09-18.pdf (21 pages, 2103338 bytes).
 
 PDF statistics: 338 PDF objects out of 1000 (max. 8388607)
  228 compressed objects within 3 object streams
