@@ -54,6 +54,7 @@ generate_report <- function(.site_name,
   library(lubridate)
   library(glue)
   library(patchwork) 
+  library(prismatic) 
   library(flextable)
   library(ftExtra)
   library(officer)
