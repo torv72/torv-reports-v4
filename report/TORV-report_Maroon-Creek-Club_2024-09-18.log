@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.10.1)  6 OCT 2024 08:42
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.10.1)  8 OCT 2024 13:01
  restricted system commands enabled.
 **"/Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18.tex"
 ("/Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18.tex"
@@ -1072,14 +1072,14 @@ File: figures/headers/turf_testing_growth_plot.png Graphic file (type png)
 <use figures/headers/turf_testing_growth_plot.png>
 Package luatex.def Info: figures/headers/turf_testing_growth_plot.png  used on input line 396.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/turf-growth-interactive-1.png, id=50, 458.6736pt x 242.3454pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/turf-growth-interactive-1.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/turf-growth-interactive-1.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/turf-growth-interactive-1.png  used on input line 411.
-(luatex.def)             Requested size: 458.67247pt x 242.3448pt.
+<figures/monthly_growth_potential_plot.png, id=50, 469.755pt x 296.307pt>
+File: figures/monthly_growth_potential_plot.png Graphic file (type png)
+<use figures/monthly_growth_potential_plot.png>
+Package luatex.def Info: figures/monthly_growth_potential_plot.png  used on input line 411.
+(luatex.def)             Requested size: 469.75386pt x 296.30627pt.
 
 
-[5<./figures/headers/turf_testing_growth_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/turf-growth-interactive-1.png>]
+[5<./figures/headers/turf_testing_growth_plot.png><./figures/monthly_growth_potential_plot.png>]
 <figures/headers/soil_testing_green_plot.png, id=59, 404.712pt x 50.589pt>
 File: figures/headers/soil_testing_green_plot.png Graphic file (type png)
 <use figures/headers/soil_testing_green_plot.png>
@@ -6220,6 +6220,310 @@ Package fontspec Info:
 (fontspec)             Georama scale = 1.
 
 
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509062773578623.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
 
 [20<./figures/headers/om_testing_sand_fraction_plot.png>]
 <figures/headers/none_testing_how_to_read_trend_line_plots_plot.png, id=202, 404.712pt x 50.589pt>
@@ -6242,16 +6546,16 @@ L3 programming layer <2024-09-10>
 )
 
 Here is how much of LuaTeX's memory you used:
- 21598 strings out of 475910
- 125086,1648299 words of node,token memory allocated
+ 21602 strings out of 475910
+ 156366,1648299 words of node,token memory allocated
  718 words of node memory still in use:
    8 hlist, 3 vlist, 4 rule, 1 local_par, 6 glue, 5 kern, 1 penalty, 3 glyph, 16 attribute, 67 glue_spec, 16 attribute_list, 1 write, 1 user_defined, 1 pdf_action, 2 pdf_colorstack nodes
-   avail lists: 2:3367,3:644,4:900,5:1717,6:306,7:8568,8:43,9:2929,10:20,11:544
- 43641 multiletter control sequences out of 65536+600000
- 126 fonts using 31423867 bytes
+   avail lists: 1:4,2:4010,3:790,4:1048,5:1718,6:380,7:8569,8:44,9:3607,10:20,11:544
+ 43645 multiletter control sequences out of 65536+600000
+ 126 fonts using 31448263 bytes
  90i,10n,131p,2237b,527s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/ericfoerster/Library/Fonts/Georama-SemiBold.ttf></Users/ericfoerster/Library/Fonts/Georama-Regular.ttf></Users/ericfoerster/Library/Fonts/Georama_SemiCondensed-Medium.ttf></Users/ericfoerster/Library/Fonts/Georama_SemiCondensed-SemiBold.ttf></Users/ericfoerster/Library/Fonts/Rasa-BoldItalic.ttf></Users/ericfoerster/Library/Fonts/Rasa-Italic.ttf></Users/ericfoerster/Library/Fonts/Rasa-Bold.ttf></Users/ericfoerster/Library/Fonts/Rasa-Regular.ttf>
-Output written on TORV-report_Maroon-Creek-Club_2024-09-18.pdf (21 pages, 2103338 bytes).
+Output written on TORV-report_Maroon-Creek-Club_2024-09-18.pdf (21 pages, 2216218 bytes).
 
 PDF statistics: 338 PDF objects out of 1000 (max. 8388607)
  228 compressed objects within 3 object streams

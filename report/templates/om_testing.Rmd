@@ -30,7 +30,7 @@ om_data <-
     }
   }
 
-torv_color <- torv_green
+torv_color <- prismatic::color(torv_green)
 
 om_avgs <- 
   om_data %>%
@@ -50,7 +50,7 @@ last_two_dates <-
   mutate(
     label_v_align = case_when(is.na(label_v_align) ~ 1 - lead(label_v_align), TRUE ~ label_v_align),
     text_size = case_when(plot_date == max(plot_date) ~ 3.25, TRUE ~ 2.6),
-    text_color = case_when(plot_date == max(plot_date) ~ color(torv_color), TRUE ~ clr_lighten(torv_color, .15))
+    text_color = case_when(plot_date == max(plot_date) ~ torv_color, TRUE ~ prismatic::clr_lighten(torv_color, .15))
   )
 
 # So that the alignment is always above the dot if there is only one date
