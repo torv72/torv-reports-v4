@@ -260,16 +260,14 @@ ggsave(here(root_figure_location, "trendlines", glue::glue(janitor::make_clean_n
        combined_trends, width = 6.5, height = 7, bg = "#ffffff", dpi = 300)
 
 ## interactive version
-tooltip_css <- paste0("background-color:white;padding:8px;border-radius:5px;border-width:2px;color:black;border-style:solid;border-color:", torv_color, ";line-height:1.15;font-family:", typeface_tabular, ";font-size:1.4em;")
-#hover_css <- girafe_css_bicolor(primary = torv_color, secondary = "black")
-#hover_css <- paste0("fill:", torv_color, ";stroke:", torv_color, ";stroke-width:3px;")
+tooltip_css_trend <- paste0("background-color:white;padding:8px;border-radius:5px;border-width:2px;color:black;border-style:solid;border-color:", torv_color, ";line-height:1.15;font-family:", typeface_tabular, ";font-size:1.4em;")
 hover_css <- paste0("fill:", torv_color, ";stroke-width:2.5px;")
 
 if (html) {
   ggiraph::girafe(
     ggobj = combined_trends,
     options = list(
-      opts_tooltip = ggiraph::opts_tooltip(css = tooltip_css, opacity = 1, use_fill = FALSE, offx = 10, offy = 10),
+      opts_tooltip = ggiraph::opts_tooltip(css = tooltip_css_trend, opacity = 1, use_fill = FALSE, offx = 10, offy = 10),
       opts_hover = ggiraph::opts_hover(css = hover_css)
     )
   )
