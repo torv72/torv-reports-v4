@@ -62,7 +62,7 @@ sf_data_add <-
 sf_data_long <-
   sf_data |> 
   bind_rows(sf_data_add) |> 
-  group_by(depth, !!sym(grp), measurement_name) |> 
+  group_by(depth, date_sample_submitted, !!sym(grp), measurement_name) |> 
   summarize(measurement_result = mean(measurement_result)) |> 
   ungroup() |> 
   left_join(usga_specs, by = join_by(measurement_name)) |>
@@ -95,7 +95,7 @@ sf_data_long <-
 
 sf_data_wide <- 
   sf_data_long |> 
-  select(-measurement_result, -usga_value, -usga_direction) |> 
+  select(-measurement_result, -usga_value, -usga_direction, -date_sample_submitted) |> 
   group_by(depth) |>
   pivot_wider(names_from = !!sym(grp), values_from = measurement_result_lab) |>
   ungroup() |>
@@ -104,73 +104,106 @@ sf_data_wide <-
 ```
 
 
-```{r}
-## too high, too low, satisfied, not specified
+```{r, message=FALSE, warning=FALSE, results='asis', fig.width=6.8, fig.height=3.5, out.width="100%"}
+sf_data_bars_red <-
+  sf_data_long |>
+  filter(date_sample_submitted == max(date_sample_submitted)) |> 
+  filter(usga_spec != "" | measurement_name == "Sand") |>
+  mutate(
+    measurement_name = factor(measurement_name, levels = rev(c(
+      "Sand",
+      "Fine Gravel (2.0 mm)",
+      "Fine Gravel + Very Coarse Sand (2.0 mm + 1.0 mm)",
+      "Coarse Sand + Medium Sand (0.5 mm + 0.25 mm)",
+      "Fine Sand (0.15 mm)",
+      "Very Fine Sand + Very Fine Sand (0.106 mm + 0.053 mm)"
+    )))
+  )
+  
+sf_data_bars_red <- 
+  sf_data_bars_red |>   
+  mutate(
+    measurement_name = factor(measurement_name, levels = rev(levels(sf_data_bars_red$measurement_name)),
+                              labels = stringr::str_replace(rev(levels(sf_data_bars_red$measurement_name)), " \\(", "\n(")),
+    usga_value = if_else(usga_value == 999, NA, usga_value),
+    is_satisfied = if_else(usga_direction == 1, measurement_result > usga_value, measurement_result < usga_value),
+    warning_lab = if_else(usga_direction == 1, "too low", "too high"),
+    warning_lab = paste0(warning_lab, "\n", if_else((measurement_result - usga_value) > 0, "+", "-"), sprintf("%.1f", abs(measurement_result - usga_value)), " pp"),
+    warning_lab = if_else(is_satisfied == FALSE, warning_lab, NA_character_),
+    warning_x = if_else(usga_direction == 1, usga_value + 5, measurement_result + 5),
+    xmin = if_else(usga_direction == 1, 0, usga_value),
+    xmax = if_else(usga_direction == 1, usga_value, 100),
+    measurement_result_lab = paste0(sprintf("%.1f", measurement_result), "%")
+  )
 
-# sf_data_bars_red <- 
-#   sf_data_long |> 
-#   filter(usga_spec != "" | measurement_name == "Sand") |>
-#   mutate(
-#     measurement_name = factor(measurement_name, levels = rev(c(
-#       "Sand",
-#       "Fine Gravel (2.0 mm)",
-#       "Fine Gravel + Very Coarse Sand (2.0 mm + 1.0 mm)", 
-#       "Coarse Sand + Medium Sand (0.5 mm + 0.25 mm)",
-#       "Fine Sand (0.15 mm)",
-#       "Very Fine Sand + Very Fine Sand (0.106 mm + 0.053 mm)"
-#     )))
-#   )
-# 
-# sf_data_bars <-
-#   sf_data_bars_red |> 
-#   mutate(
-#     measurement_name = factor(measurement_name, levels = rev(levels(sf_data_bars_red$measurement_name)), 
-#                               labels = stringr::str_replace(rev(levels(sf_data_bars_red$measurement_name)), " \\(", " \n(")),
-#     usga_value = if_else(usga_value == 999, NA, usga_value),
-#     is_satisfied = if_else(usga_direction == 1, measurement_result < usga_value, measurement_result > usga_value),
-#     outcome = case_when(
-#       is_satisfied == TRUE ~ "satisfied",
-#       is_satisfied == FALSE & usga_direction == 1 ~ "too high",
-#       is_satisfied == FALSE & usga_direction == -1 ~ "too low",
-#       TRUE ~ "not specified"
-#     ),
-#     outcome = factor(outcome, levels = c("too high", "too low", "satisfied", "not specified"))
-#   )
-# 
-# sf_data_bars |> 
-#   ggplot(aes(y = fct_rev(measurement_name), x = measurement_result)) +
-#   #geom_line(aes(group = year))
-#   geom_col(aes(x = 100), fill = "grey92", width = .8) +
-#   geom_col(aes(fill = outcome), width = .8) +
-#   geom_segment(
-#     aes(x = usga_value, xend = usga_value,
-#         y = as.numeric(fct_rev(measurement_name)) - .4, yend = as.numeric(fct_rev(measurement_name)) + .4)
-#   ) +
-#   geom_text(
-#     aes(x = 130, color = outcome,
-#         label = paste0(sprintf("%3.1f", measurement_result), "%")), 
-#     family = typeface, size = 2.3, hjust = 1
-#   ) +
-#   geom_vline(xintercept = 0, color = torv_gray) +
-#   facet_wrap(~depth) +
-#   scale_x_continuous(
-#     breaks = 0:4*25,
-#     labels = scales::percent_format(scale = 1),
-#     expand = expansion(add = c(0, 30))
-#   ) +
-#   scale_y_discrete(expand = c(0, 0)) +
-#   scale_fill_manual(
-#     values = c("firebrick", "royalblue", "grey30", "grey60"), name = NULL
-#   ) +
-#   scale_color_manual(
-#     values = c("firebrick", "royalblue", "grey30", "grey60"), name = NULL
-#   ) +
-#   labs(x = NULL, y = NULL) +
-#   theme(strip.text = element_text(face = "bold"),
-#         axis.text.x = element_text(family = typeface_condensed),
-#         panel.grid.major.x = element_line(color = "grey92", linewidth = .3),
-#         panel.grid.major.y = element_blank(),
-#         legend.position = "bottom")
+sf_overview_plot <- 
+  sf_data_bars_red |>
+  ggplot(aes(y = fct_rev(measurement_name), x = measurement_result)) +
+  #geom_line(aes(group = year))
+  geom_col_interactive(aes(x = 100, tooltip = measurement_result_lab, data_id = measurement_name), fill = "grey92", width = .7) +
+  geom_rect(
+    aes(xmin = xmin, ymin = as.numeric(fct_rev(measurement_name)) - .35, 
+        xmax = xmax, ymax = as.numeric(fct_rev(measurement_name)) + .35), 
+    fill = "#F5DBDB"
+  ) +
+  geom_col(fill = "grey92", width = .7) +
+  geom_col_interactive(aes(fill = is_satisfied, tooltip = measurement_result_lab, data_id = measurement_name), width = .7) +
+  geom_segment(
+    aes(x = usga_value, xend = usga_value,
+        y = as.numeric(fct_rev(measurement_name)) - .35, yend = as.numeric(fct_rev(measurement_name)) + .35),
+    linetype = "31", color = "grey20"
+  ) +
+  geom_text(
+    aes(x = warning_x, label = warning_lab),
+    family = typeface_condensed, fontface = "bold", size = 2.3, 
+    hjust = 0, color = "firebrick", lineheight = .9
+  ) +
+  geom_vline(xintercept = 0, color = torv_gray) +
+  facet_wrap(~depth, labeller = labeller(.default = function(x) paste("Soil Depth:", x))) +
+  scale_x_continuous(
+    breaks = 0:4*25,
+    labels = scales::percent_format(scale = 1),
+    expand = expansion(add = c(0, 20))
+  ) +
+  scale_y_discrete(expand = expansion(mult = c(.08, .08))) +
+  scale_fill_manual(
+    values = c("firebrick", "grey60"), na.value = "grey60", guide = "none"
+  ) +
+  scale_color_manual(
+    values = c("firebrick", "grey40"), na.value = "grey40", guide = "none"
+  ) +
+  labs(x = NULL, y = NULL) +
+  theme(strip.text.x = element_text(margin = margin(5, 0, 5, 0)),
+        axis.text.x = element_text(family = typeface_condensed, size = rel(.65)),
+        axis.text.y = element_text(size = rel(.85), hjust = 0),
+        panel.grid.major.x = element_line(color = "grey92", linewidth = .3),
+        panel.grid.major.y = element_blank(),
+        legend.position = "bottom")
+
+if (html) {
+  
+  sf_overview_plot <- 
+    sf_overview_plot +
+    theme(panel.spacing = unit(0, "lines"))
+  
+  tooltip_css_sf <- "background-color:white;padding:8px;border-radius:5px;border-width:2px;color:black;border-style:solid;border-color:black;line-height:1.15;font-family:Georama;font-size:1.4em;"
+  hover_css <- paste0("stroke-width:2.5px;")
+    
+  ggiraph::girafe(
+    ggobj = sf_overview_plot,
+    options = list(
+      opts_tooltip = ggiraph::opts_tooltip(css = tooltip_css_sf, opacity = 1, use_fill = FALSE, offx = 10, offy = 10),
+      opts_hover = ggiraph::opts_hover(css = hover_css)
+    )
+  )
+} else {
+  sf_overview_plot +
+  geom_text(
+    aes(x = 130, color = is_satisfied,
+        label = paste0(sprintf("%3.1f", measurement_result), "%")),
+    family = typeface, size = 2.3, hjust = 1
+  )
+}
 ```
 
 
