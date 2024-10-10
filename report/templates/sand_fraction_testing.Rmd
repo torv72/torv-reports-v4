@@ -104,7 +104,7 @@ sf_data_wide <-
 ```
 
 
-```{r, message=FALSE, warning=FALSE, results='asis', fig.width=6.8, fig.height=3.5, out.width="100%"}
+```{r, message=FALSE, warning=FALSE, results='asis', fig.width=6.8, fig.height=2.8, out.width="100%"}
 sf_data_bars_red <-
   sf_data_long |>
   filter(date_sample_submitted == max(date_sample_submitted)) |> 
@@ -174,7 +174,7 @@ sf_overview_plot <-
   ) +
   labs(x = NULL, y = NULL) +
   theme(strip.text.x = element_text(margin = margin(5, 0, 5, 0)),
-        axis.text.x = element_text(family = typeface_condensed, size = rel(.65)),
+        axis.text.x = element_text(size = rel(.75)),
         axis.text.y = element_text(size = rel(.85), hjust = 0),
         panel.grid.major.x = element_line(color = "grey92", linewidth = .3),
         panel.grid.major.y = element_blank(),
@@ -239,6 +239,10 @@ sf_table <-
   hrule(rule = "atleast")
 ```
 
+```{r, results='asis', include=html}
+cat('<br><details><summary>Expand to see detailed results</summary>')
+```
+
 ```{r, ft.align="left", include=html}
 sf_table |> 
   fontsize(size = 11, part = "all") |>
@@ -246,6 +250,12 @@ sf_table |>
   width(j = 1, width = .67) |>
   width(j = 2, width = 4) |>
   height_all(height = .05)
+```
+
+```{r, results='asis', include=html}
+cat('
+</details>',
+  '<br>', sep = "\n")
 ```
 
 ```{r, ft.align="left", include=!html}
