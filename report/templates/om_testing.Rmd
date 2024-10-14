@@ -244,6 +244,7 @@ cat('
   '<br>', sep = "\n")
 ```
 
+\par
 
 ```{r, warning=FALSE, message=FALSE, ft.align="left", include=!html}
 # Longitudinal table of measurements
@@ -253,7 +254,7 @@ om_longitudinal_table <-
   filter(date_sample_submitted %in% head(sort(unique(om_data$date_sample_submitted)), 8)) %>%
   group_by(date_sample_submitted, depth) %>%
   summarize(
-    avg_measurement_result = mean(measurement_result, na.rm = TRUE),
+    avg_measurement_result = calculate_om_stats(measurement_result),
     torv_avg = mean(torv_avg, na.rm = TRUE), # all values same, take mean to collapse
     .groups = "drop"
   )
@@ -290,7 +291,7 @@ if ("4-6 cm" %in% depths) {
 
 om_longitudinal_table_reduced <- 
   om_longitudinal_table %>%
-  arrange(desc(date_sample_submitted)) %>%
+  arrange(date_sample_submitted) %>%
   group_by(date_sample_submitted) %>%
   mutate(date_id_rev = rev(cur_group_id())) %>%
   ungroup() %>%
