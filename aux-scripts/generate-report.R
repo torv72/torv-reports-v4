@@ -205,7 +205,9 @@ generate_report <- function(.site_name,
     
     filename <- paste0("TORV-report_",
                        gsub(" ", "-", input_params$site_name),
-                       "_", input_params$date_sample_submitted)
+                       "_", input_params$date_sample_submitted,
+                       "_", input_params$om_seasons,
+                       "_", input_params$om_stats)
     
     filename_pdf <- paste0(filename, ".pdf")
     filename_html <- paste0(filename, ".html")
