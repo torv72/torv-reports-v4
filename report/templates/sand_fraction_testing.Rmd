@@ -9,11 +9,11 @@ knitr::include_graphics(here(root_figure_location, "headers", "om_testing_sand_f
 ```{r}
 usga_specs <- tribble(
   ~measurement_name,                                       ~usga_spec, ~usga_value, ~usga_direction,
-  "Coarse Sand + Medium Sand (0.5 mm + 0.25 mm)",          "≥ 60 %",   60,           1,
-  "Fine Gravel (2.0 mm)",                                  "≤ 3 %",     3,          -1,
-  "Fine Gravel + Very Coarse Sand (2.0 mm + 1.0 mm)",      "≤ 10 %",   10,          -1,
-  "Fine Sand (0.15 mm)",                                   "≤ 20 %",   20,          -1,
-  "Very Fine Sand + Very Fine Sand (0.106 mm + 0.053 mm)", "≤ 5 %",     5,          -1
+  "Coarse Sand + Medium Sand (0.5 mm + 0.25 mm)",          "≥ 60%",   60,           1,
+  "Fine Gravel (2.0 mm)",                                  "≤ 3%",     3,          -1,
+  "Fine Gravel + Very Coarse Sand (2.0 mm + 1.0 mm)",      "≤ 10%",   10,          -1,
+  "Fine Sand (0.15 mm)",                                   "≤ 20%",   20,          -1,
+  "Very Fine Sand + Very Fine Sand (0.106 mm + 0.053 mm)", "≤ 5%",     5,          -1
 )
 
 sf_data <- 
@@ -74,7 +74,7 @@ sf_data_long <-
     ## highlight values outside USGA recommendations
     measurement_result_lab = if_else(
       if_else(usga_direction == 1, measurement_result < usga_value, measurement_result > usga_value), 
-      paste0("[", sprintf("%2.1f", measurement_result), "]{.span color='chocolate'}"), 
+      paste0("[", sprintf("%2.1f", measurement_result), "]{.span color='Red'}"), 
       sprintf("%2.1f", measurement_result))
   ) |>
   mutate(
@@ -103,11 +103,10 @@ sf_data_wide <-
   arrange(depth, measurement_name)
 ```
 
-
-```{r, message=FALSE, warning=FALSE, results='asis', fig.width=6.8, fig.height=2.8, out.width="100%"}
+```{r, message=FALSE, warning=FALSE, results='asis', fig.width=6.8, fig.height=3.3, out.width="100%"}
+## bar chart overview latest sand fraction results
 sf_data_bars_red <-
-  sf_data_long |>
-  filter(date_sample_submitted == max(date_sample_submitted)) |> 
+  sf_data_long |> 
   filter(usga_spec != "" | measurement_name == "Sand") |>
   mutate(
     measurement_name = factor(measurement_name, levels = rev(c(
@@ -120,8 +119,9 @@ sf_data_bars_red <-
     )))
   )
   
-sf_data_bars_red <- 
-  sf_data_bars_red |>   
+sf_data_bars_red_latest <- 
+  sf_data_bars_red |>
+  filter(date_sample_submitted == max(date_sample_submitted)) |>   
   mutate(
     measurement_name = factor(measurement_name, levels = rev(levels(sf_data_bars_red$measurement_name)),
                               labels = stringr::str_replace(rev(levels(sf_data_bars_red$measurement_name)), " \\(", "\n(")),
@@ -133,50 +133,58 @@ sf_data_bars_red <-
     warning_x = if_else(usga_direction == 1, usga_value + 5, measurement_result + 5),
     xmin = if_else(usga_direction == 1, 0, usga_value),
     xmax = if_else(usga_direction == 1, usga_value, 100),
-    measurement_result_lab = paste0(sprintf("%.1f", measurement_result), "%")
+    measurement_result_lab = paste0("<span style='font-size:12pt;'>", !!sym(grp), "</span><br><b>", 
+                                    sprintf("%.1f", measurement_result), "%</b>")
   )
 
 sf_overview_plot <- 
-  sf_data_bars_red |>
+  sf_data_bars_red_latest |>
   ggplot(aes(y = fct_rev(measurement_name), x = measurement_result)) +
-  #geom_line(aes(group = year))
-  geom_col_interactive(aes(x = 100, tooltip = measurement_result_lab, data_id = measurement_name), fill = "grey92", width = .7) +
+  geom_col_interactive(
+    aes(x = 100, 
+        tooltip = measurement_result_lab, data_id = measurement_name), 
+    fill = "grey92", width = .7
+  ) +
   geom_rect(
     aes(xmin = xmin, ymin = as.numeric(fct_rev(measurement_name)) - .35, 
         xmax = xmax, ymax = as.numeric(fct_rev(measurement_name)) + .35), 
     fill = "#F5DBDB"
   ) +
   geom_col(fill = "grey92", width = .7) +
-  geom_col_interactive(aes(fill = is_satisfied, tooltip = measurement_result_lab, data_id = measurement_name), width = .7) +
-  geom_segment(
+  geom_col_interactive(
+    aes(fill = is_satisfied, 
+        tooltip = measurement_result_lab, data_id = measurement_name), 
+    width = .7
+  ) +
+  geom_segment_interactive(
     aes(x = usga_value, xend = usga_value,
-        y = as.numeric(fct_rev(measurement_name)) - .35, yend = as.numeric(fct_rev(measurement_name)) + .35),
+        y = as.numeric(fct_rev(measurement_name)) - .35, yend = as.numeric(fct_rev(measurement_name)) + .35,
+        tooltip = paste0("<span style='font-size:12pt;'>USGA specification:</span><br><b>", usga_spec, "</b>"), data_id = measurement_name),
     linetype = "31", color = "grey20"
   ) +
-  geom_text(
-    aes(x = warning_x, label = warning_lab),
+  geom_text_interactive(
+    aes(x = warning_x, label = warning_lab, 
+        tooltip = measurement_result_lab, data_id = measurement_name),
     family = typeface_condensed, fontface = "bold", size = 2.3, 
-    hjust = 0, color = "firebrick", lineheight = .9
+    hjust = 0, color = "#B22222", lineheight = .9
   ) +
   geom_vline(xintercept = 0, color = torv_gray) +
   facet_wrap(~depth, labeller = labeller(.default = function(x) paste("Soil Depth:", x))) +
   scale_x_continuous(
     breaks = 0:4*25,
     labels = scales::percent_format(scale = 1),
-    expand = expansion(add = c(0, 20))
+    expand = expansion(add = c(0, 30))
   ) +
   scale_y_discrete(expand = expansion(mult = c(.08, .08))) +
   scale_fill_manual(
-    values = c("firebrick", "grey60"), na.value = "grey60", guide = "none"
+    values = c("#B22222", "grey60"), na.value = "grey60", guide = "none"
   ) +
   scale_color_manual(
-    values = c("firebrick", "grey40"), na.value = "grey40", guide = "none"
+    values = c("#B22222", "grey40"), na.value = "grey40", guide = "none"
   ) +
-  labs(x = NULL, y = NULL) +
+  labs(x = NULL, y = NULL, caption = "Note: USGA does not provide a specification for Sand.") +
   theme(strip.text.x = element_text(margin = margin(5, 0, 5, 0)),
-        axis.text.x = element_text(size = rel(.75)),
-        axis.text.y = element_text(size = rel(.85), hjust = 0),
-        panel.grid.major.x = element_line(color = "grey92", linewidth = .3),
+        axis.text.y = element_text(hjust = 0, color = "black", size = rel(1.1)),
         panel.grid.major.y = element_blank(),
         legend.position = "bottom")
 
@@ -185,15 +193,12 @@ if (html) {
   sf_overview_plot <- 
     sf_overview_plot +
     theme(panel.spacing = unit(0, "lines"))
-  
-  tooltip_css_sf <- "background-color:white;padding:8px;border-radius:5px;border-width:2px;color:black;border-style:solid;border-color:black;line-height:1.15;font-family:Georama;font-size:1.4em;"
-  hover_css <- paste0("stroke-width:2.5px;")
     
-  ggiraph::girafe(
+  girafe(
     ggobj = sf_overview_plot,
     options = list(
-      opts_tooltip = ggiraph::opts_tooltip(css = tooltip_css_sf, opacity = 1, use_fill = FALSE, offx = 10, offy = 10),
-      opts_hover = ggiraph::opts_hover(css = hover_css)
+      opts_tooltip = opts_tooltip(css = tooltip_css_bw, opacity = 1, use_fill = FALSE, offx = 10, offy = 10),
+      opts_hover = opts_hover(css = "stroke-width:1.5px;")
     )
   )
 } else {
@@ -207,7 +212,18 @@ if (html) {
 ```
 
 
+```{r, results='asis', include=html}
+cat("<br><details><summary style='font-size:22pt;font-weight:600;'>Sand Fraction Table</summary>")
+```
+
+\pagebreak
+
+```{r, results='asis', include=!html}
+cat("### Sand Fraction Table")
+```
+
 ```{r}
+## raw table all sand fraction results
 sf_table_raw <- 
   sf_data_wide |>
   as_grouped_data('depth') |> 
@@ -239,10 +255,6 @@ sf_table <-
   hrule(rule = "atleast")
 ```
 
-```{r, results='asis', include=html}
-cat('<br><details><summary>Expand to see detailed results</summary>')
-```
-
 ```{r, ft.align="left", include=html}
 sf_table |> 
   fontsize(size = 11, part = "all") |>
@@ -250,12 +262,6 @@ sf_table |>
   width(j = 1, width = .67) |>
   width(j = 2, width = 4) |>
   height_all(height = .05)
-```
-
-```{r, results='asis', include=html}
-cat('
-</details>',
-  '<br>', sep = "\n")
 ```
 
 ```{r, ft.align="left", include=!html}
@@ -266,6 +272,12 @@ sf_table |>
   width(j = 3, width = .75) |>
   hrule(rule = "atleast") |>
   height_all(height = 2)
+```
+
+```{r, results='asis', include=html}
+cat('
+</details>',
+  '<br>', sep = "\n")
 ```
 
 
