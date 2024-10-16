@@ -271,16 +271,16 @@ sf_point_plot <-
         data_id = measurement_name), 
     color = clr_lighten(torv_green, .25)
   ) +
-  geom_point(
-    data = filter(sf_data_points_red, date_sample_submitted != max(date_sample_submitted)),
-    aes(group = date_sample_submitted),
-    size = .3, color = torv_gray_light
-  ) +
-  geom_line(
-    data = filter(sf_data_points_red, date_sample_submitted != max(date_sample_submitted)),
-    aes(group = date_sample_submitted),
-    linewidth = .3, color = torv_gray_light
-  ) +
+  # geom_point(
+  #   data = filter(sf_data_points_red, date_sample_submitted != max(date_sample_submitted)),
+  #   aes(group = date_sample_submitted),
+  #   size = .3, color = torv_gray_light
+  # ) +
+  # geom_line(
+  #   data = filter(sf_data_points_red, date_sample_submitted != max(date_sample_submitted)),
+  #   aes(group = date_sample_submitted),
+  #   linewidth = .3, color = torv_gray_light
+  # ) +
   geom_line_interactive(aes(data_id = measurement_name), linewidth = .8, color = torv_gray) +
   geom_point(color = "white", size = 2.5) +
   geom_point_interactive(
