@@ -131,8 +131,7 @@ sf_data_bars_red_latest <-
     warning_lab = paste0(warning_lab, "\n", if_else((measurement_result - usga_value) > 0, "+", "-"), sprintf("%.1f", abs(measurement_result - usga_value)), " pp"),
     warning_lab = if_else(is_satisfied == FALSE, warning_lab, NA_character_),
     warning_x = if_else(usga_direction == 1, usga_value + 5, measurement_result + 5),
-    xmin = if_else(usga_direction == 1, 0, usga_value),
-    xmax = if_else(usga_direction == 1, usga_value, 100),
+    xbegin = if_else(usga_direction == 1, 0, 100),
     measurement_result_lab = paste0("<span style='font-size:12pt;'>", !!sym(grp), "</span><br><b>", 
                                     sprintf("%.1f", measurement_result), "%</b>")
   )
@@ -146,8 +145,8 @@ sf_overview_plot <-
     fill = "grey92", width = .7
   ) +
   geom_rect(
-    aes(xmin = xmin, ymin = as.numeric(fct_rev(measurement_name)) - .35, 
-        xmax = xmax, ymax = as.numeric(fct_rev(measurement_name)) + .35), 
+    aes(xmin = xbegin, ymin = as.numeric(fct_rev(measurement_name)) - .35, 
+        xmax = usga_value, ymax = as.numeric(fct_rev(measurement_name)) + .35), 
     fill = "#F5DBDB"
   ) +
   geom_col(fill = "grey92", width = .7) +
@@ -201,6 +200,7 @@ if (html) {
       opts_hover = opts_hover(css = "stroke-width:1.5px;")
     )
   )
+  
 } else {
   sf_overview_plot +
   geom_text(
