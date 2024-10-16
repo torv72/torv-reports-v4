@@ -119,9 +119,8 @@ sf_data_bars_red <-
     )))
   )
   
-sf_data_bars_red_latest <- 
-  sf_data_bars_red |>
-  filter(date_sample_submitted == max(date_sample_submitted)) |>   
+sf_data_bars_red <- 
+  sf_data_bars_red |>   
   mutate(
     measurement_name = factor(measurement_name, levels = rev(levels(sf_data_bars_red$measurement_name)),
                               labels = stringr::str_replace(rev(levels(sf_data_bars_red$measurement_name)), " \\(", "\n(")),
@@ -137,7 +136,8 @@ sf_data_bars_red_latest <-
   )
 
 sf_overview_plot <- 
-  sf_data_bars_red_latest |>
+  sf_data_bars_red |>
+  filter(date_sample_submitted == max(date_sample_submitted)) |>
   ggplot(aes(y = fct_rev(measurement_name), x = measurement_result)) +
   geom_col_interactive(
     aes(x = 100, 
@@ -181,7 +181,7 @@ sf_overview_plot <-
   scale_color_manual(
     values = c("#B22222", "grey40"), na.value = "grey40", guide = "none"
   ) +
-  labs(x = NULL, y = NULL, caption = "Note: USGA does not provide a specification for Sand.") +
+  labs(x = "Share by weight", y = NULL, caption = "Note: USGA does not provide a specification for Sand.") +
   theme(strip.text.x = element_text(margin = margin(5, 0, 5, 0)),
         axis.text.y = element_text(hjust = 0, color = "black", size = rel(1.1)),
         panel.grid.major.y = element_blank(),
@@ -210,7 +210,120 @@ if (html) {
   )
 }
 ```
+\par \par
 
+```{r, results='asis', include=html}
+cat("<br>")
+```
+
+
+```{r, message=FALSE, warning=FALSE, results='asis', fig.width=6.8, fig.height=3.3, out.width="100%"}
+## profile latest sand fraction results
+sf_data_points_red <-
+  sf_data_bars_red |> 
+  mutate(
+    depth_num = case_when(
+      depth == "0-2 cm" ~ 1,
+      depth == "2-4 cm" ~ 3,
+      depth == "4-6 cm" ~ 5
+    ),
+    xbegin = if_else(usga_value == 60, Inf, -Inf),
+    lwr = case_when(
+      measurement_result > usga_value & usga_value != 60 ~ usga_value - 3, 
+      measurement_result <= usga_value & usga_value != 60 ~ measurement_result - 3,
+      measurement_result > usga_value & usga_value == 60 ~ measurement_result + 3, 
+      measurement_result <= usga_value & usga_value == 60 ~ usga_value + 3,
+      TRUE ~ measurement_result - 3
+    ),
+    lwr = if_else(lwr < 0, 0, lwr),
+    upr = case_when(
+      measurement_result > usga_value & usga_value != 60 ~ measurement_result + 3, 
+      measurement_result <= usga_value & usga_value != 60 ~ usga_value + 3,
+      measurement_result > usga_value & usga_value == 60 ~ usga_value - 3, 
+      measurement_result <= usga_value & usga_value == 60 ~ measurement_result - 3,
+      TRUE ~ measurement_result + 3
+    ),
+    upr = if_else(upr > 100, 100, upr),
+    point_color = case_when(
+      is_satisfied == TRUE ~ torv_green,
+      is_satisfied == FALSE ~ "#B22222",
+      TRUE ~ torv_gray_light
+    )
+  )
+
+sf_point_plot <-  
+  sf_data_points_red |> 
+  filter(date_sample_submitted == max(date_sample_submitted)) |>
+  ggplot(aes(x = depth_num, y = measurement_result)) +
+  ## invisible dots for limits
+  geom_point(aes(y = lwr), alpha = 0) +
+  geom_point(aes(y = upr), alpha = 0) +
+  geom_rect_interactive(
+    aes(ymin = xbegin, xmin = -Inf, 
+        ymax = usga_value, xmax = Inf,
+        tooltip = paste0("<span style='font-size:12pt;'>Recommended</span><br><b style=color:", clr_darken(torv_green, .3), ";>", usga_spec, "</b>"),
+        data_id = measurement_name), 
+    fill = torv_green, alpha = .1, stat = "unique"
+  ) +
+  geom_hline_interactive(
+    aes(yintercept = usga_value,
+        tooltip = paste0("<span style='font-size:12pt;'>Recommended</span><br><b style=color:", clr_darken(torv_green, .3), ";>", usga_spec, "</b>"),
+        data_id = measurement_name), 
+    color = clr_lighten(torv_green, .25)
+  ) +
+  geom_point(
+    data = filter(sf_data_points_red, date_sample_submitted != max(date_sample_submitted)),
+    aes(group = date_sample_submitted),
+    size = .3, color = torv_gray_light
+  ) +
+  geom_line(
+    data = filter(sf_data_points_red, date_sample_submitted != max(date_sample_submitted)),
+    aes(group = date_sample_submitted),
+    linewidth = .3, color = torv_gray_light
+  ) +
+  geom_line_interactive(aes(data_id = measurement_name), linewidth = .8, color = torv_gray) +
+  geom_point(color = "white", size = 2.5) +
+  geom_point_interactive(
+    aes(fill = is_satisfied, color = after_scale(clr_darken(fill, .5)),
+        tooltip = paste0("<span style='font-size:12pt;'>", depth, "</span><br><b style=color:", clr_darken(point_color, .3), ";>", measurement_result, "%</b>"), 
+        data_id = measurement_name),
+    shape = 21, size = 2.5, stroke = .8
+  ) +
+  facet_wrap(~ measurement_name, scales = "free_x", axes = "all_y") +
+  coord_flip(clip = "off") +
+  scale_x_reverse(
+    limits = c(6, 0), expand = c(0, 0), 
+    breaks = 0:3 * 2, labels = scales::number_format(suffix = " cm")
+  ) +
+  scale_y_continuous(expand = c(0, 0), labels = scales::percent_format(scale = 1)) +
+  scale_color_manual(values = c("#B22222", torv_green), na.value = torv_gray_light, guide = "none") +
+  scale_fill_manual(values = c("#B22222", torv_green), na.value = torv_gray_light, guide = "none") +
+  labs(x = "Soil depth", y = "Share by weight", caption = "Note: USGA does not provide a specification for Sand.") +
+  theme(
+    panel.spacing.x = unit(2, "lines"),
+    plot.margin = margin(r = 15),
+    strip.text = element_text(vjust = 1)
+  )
+
+if (html) {
+  
+  girafe(ggobj = sf_point_plot,
+         options = list(
+           opts_tooltip(css = tooltip_css_bw, opacity = 1, use_fill = FALSE, offx = 10, offy = 10),
+           opts_hover(css = "stroke-width:2px;")
+         ))
+  
+} else {
+  
+  sf_point_plot +
+    geom_text(
+      aes(label = paste0(sprintf("%2.1f", measurement_result), "%"),
+          color = stage(is_satisfied, after_scale = clr_darken(color, .5))),
+      hjust = -.5, family = typeface_condensed, fontface = "bold", size = 2.5
+    )
+  
+}
+```
 
 ```{r, results='asis', include=html}
 cat("<br><details><summary style='font-size:22pt;font-weight:600;'>Sand Fraction Table</summary>")
