@@ -18,7 +18,7 @@ params:
 ---
 
 ```{r options, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = NA, dev = "ragg_png", dpi = 300)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = NA, dev = "ragg_png", dpi = 500)
 ```
 
 ```{r setup, include=FALSE, results='hide'}
@@ -192,7 +192,7 @@ The ", input_params$om_stats, "OM measurements can be summarised as follows: \n"
       # Add note how to interpret average or median
       if(input_params$om_stats == "median") {
         cat('\n', '\n', '*The results show ', input_params$om_stats, ' values.', '
-The median value is the central point of the data, meaning half of the numbers in a list are smaller and half are larger than the median.*', sep = "")
+The median value is the central point of the data, meaning half of the numbers in a list are smaller and half are larger than the median.*', '\n', sep = "")
       }
     
       # If there is only one measurement, add in reasons why it's good to measure again
@@ -209,6 +209,9 @@ The median value is the central point of the data, meaning half of the numbers i
     
       if(nrow(om_acc_df) > 0) {
         
+        cat("
+**OM Accumulation Rates:**\n")
+        
         cat("\n", acc_rate_commentary, "\n", sep = "")
         
         for(unique_soil_type in unique(om_acc_df$type)) {
@@ -216,7 +219,7 @@ The median value is the central point of the data, meaning half of the numbers i
           filter(om_acc_df, type == unique_soil_type) %>%
             pull(type) %>%
             unique() %>%
-            cat("\n*", .)
+            cat("\n* **", ., "**", sep = "")
           
            filter(om_acc_df, type == unique_soil_type) %>%
              pull(commentary) %>%
@@ -227,6 +230,9 @@ The median value is the central point of the data, meaning half of the numbers i
     
       if(nrow(sand_req_df) > 0) {
         
+        cat("\n", "
+**Topdressing Recommendations:**\n", sep = "")
+        
         cat("\n", sand_req_commentary, "\n", sep = "")
          
          for(unique_soil_type in unique(sand_req_df$type)) {
@@ -234,7 +240,7 @@ The median value is the central point of the data, meaning half of the numbers i
            filter(sand_req_df, type == unique_soil_type) %>%
              pull(type) %>%
              unique() %>%
-             cat("\n*", .)
+             cat("\n* **", ., "**", sep = "")
         
            filter(sand_req_df, type == unique_soil_type) %>%
              pull(commentary) %>%
@@ -289,7 +295,6 @@ cat("The temperature data is provided by NOAA using 30-year climate normals and 
 ```
 
 ```{r turf-growth-rds-html, eval=length(soil_types) > 0, fig.height=3.5, eval=html}
-#readRDS(here("report", "figures", "growth_potential_plot.Rds"))
 girafe(ggobj = growth_potential_plot)
 ```
 
