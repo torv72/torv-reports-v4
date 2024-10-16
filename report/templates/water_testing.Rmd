@@ -202,7 +202,7 @@ combined_plots <- patchwork::wrap_plots(water_plots) +
   patchwork::plot_layout(ncol = 1, heights = 1)
 
 ggsave(here(root_figure_location,  "water_testing", glue::glue(janitor::make_clean_names("water_plot_{{water_description}}"), ".png")),
-       combined_plots, width = 6.5, height = 6, bg = "#ffffff", dpi = 300)
+       combined_plots, width = 6.5, height = 6, bg = "white", dpi = 500)
 
 cat("![](", here(root_figure_location, "water_testing", glue::glue(janitor::make_clean_names("water_plot_{{water_description}})"), ".png")), ")", sep = "")
 ```

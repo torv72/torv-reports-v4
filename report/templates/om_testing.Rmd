@@ -162,13 +162,8 @@ make_om_plot <- function(plot_measurement_name, plot_depth, draw_beeswarm = inpu
     ) +
     scale_size_identity() +
     scale_color_identity() +
-    labs(y = NULL, title = glue::glue("Soil Depth: {plot_depth}")) +
+    labs(x = NULL, y = NULL, title = glue::glue("Soil Depth: {plot_depth}")) +
     theme(
-      plot.title = element_text(size = 9),
-      axis.title.x = element_blank(),
-      axis.title.y = element_text(size = 7.5),
-      axis.text.x = element_text(size = 7.5, margin = margin(t = 2), color = torv_gray),
-      axis.text.y = element_text(size = 7.5, margin = margin(r = 4), color = torv_gray),
       plot.margin = margin(3, 9, 12, 9),
       panel.grid.major.x = element_blank()
     )
@@ -212,17 +207,17 @@ om_combined_plot <- patchwork::wrap_plots(om_plots, ncol = 3) +
   patchwork::plot_annotation(theme = theme(plot.margin = margin(rep(1, 4))))
 
 ggsave(here(root_figure_location, "organic_matter", "trend_plot_om_{{sample_description_number_2}}.png"),
-       combined_trends, width = 6.5, height = 4.5, bg = "#ffffff", dpi = 300)
+       combined_trends, width = 6.5, height = 4.5, bg = "white", dpi = 500)
 
-tooltip_css_om <- paste0("background-color:white;padding:8px;border-radius:5px;border-width:2px;color:black;border-style:solid;border-color:", torv_color, ";line-height:1.15;font-family:", typeface_tabular, ";font-size:1.4em;")
+tooltip_css_om <- paste0("background-color:white;padding:6px 8px 6px 8px;border-radius:5px;border-width:2px;color:black;border-style:solid;border-color:", torv_color, ";line-height:1.15;font-family:", typeface_tabular, ";font-size:1.4em;")
 hover_css <- paste0("fill:", torv_color, ";stroke-width:2.5px;")
 
 if (html) {
-  ggiraph::girafe(
+  girafe(
     ggobj = om_combined_plot,
     options = list(
-      opts_tooltip = ggiraph::opts_tooltip(css = tooltip_css_om, opacity = 1, use_fill = FALSE, offx = 10, offy = 10),
-      opts_hover = ggiraph::opts_hover(css = hover_css)
+      opts_tooltip = opts_tooltip(css = tooltip_css_om, opacity = 1, use_fill = FALSE, offx = 10, offy = 10),
+      opts_hover = opts_hover(css = hover_css)
     )
   )
 } else {
@@ -265,7 +260,7 @@ if ("0-2 cm" %in% depths) {
   om_range_02 <- range(filter(om_longitudinal_table, depth == "0-2 cm")$avg_measurement_result)
   threshold_02 <- om_range_02[1] + (om_range_02[2] - om_range_02[1]) / 1.4
   colorer_02 <- scales::col_numeric(
-    palette = c("#FFFFFF", torv_color),
+    palette = c("white", torv_color),
     # taking 95% of min as lowest colour so that there is a bit of color even for lowest value (which isn't 0)
     domain = c(0.95 * om_range_02[1], om_range_02[2])
   )
@@ -275,7 +270,7 @@ if ("2-4 cm" %in% depths) {
   om_range_24 <- range(filter(om_longitudinal_table, depth == "2-4 cm")$avg_measurement_result)
   threshold_24 <- om_range_24[1] + (om_range_24[2] - om_range_24[1]) / 1.4
   colorer_24 <- scales::col_numeric(
-    palette = c("#FFFFFF", torv_color),
+    palette = c("white", torv_color),
     domain = c(0.95 * om_range_24[1], om_range_24[2])
   )
 }
@@ -284,7 +279,7 @@ if ("4-6 cm" %in% depths) {
   om_range_46 <- range(filter(om_longitudinal_table, depth == "4-6 cm")$avg_measurement_result)
   threshold_46 <- om_range_46[1] + (om_range_46[2] - om_range_46[1]) / 1.4
   colorer_46 <- scales::col_numeric(
-    palette = c("#FFFFFF", torv_color),
+    palette = c("white", torv_color),
     domain = c(0.95 * om_range_46[1], om_range_46[2])
   )
 }

@@ -152,7 +152,7 @@ plot_test_trend <- function(plot_measurement, is_first, draw_beeswarm = input_pa
     site_avgs %>%
     ggplot(aes(x = plot_date, y = avg_measurement_result)) +
     ## historical average as dashed horizontal line
-    ggiraph::geom_hline_interactive(
+    geom_hline_interactive(
       aes(yintercept = torv_avg, data_id = 1, tooltip = paste0("<span style='font-size:12pt;'>Historic average:</span><br><b>", round(torv_avg, 2), unit, "</b>")),
       linewidth = .4, linetype = "31", color = torv_gray, stat = "unique"
     ) +
@@ -173,7 +173,7 @@ plot_test_trend <- function(plot_measurement, is_first, draw_beeswarm = input_pa
       )
     } +
     ## purple trend line
-    ggiraph::geom_line_interactive(
+    geom_line_interactive(
       aes(data_id = 2, tooltip = "Linear trend"),
       stat = "smooth", method = "lm", formula = y ~ x, se = FALSE,
       linewidth = .8, color = "#8F51C0", alpha = .8
@@ -188,7 +188,7 @@ plot_test_trend <- function(plot_measurement, is_first, draw_beeswarm = input_pa
       color = "white", size = 1.6,
       shape = 21, fill = "white", stroke = .8
     ) +
-    ggiraph::geom_point_interactive(
+    geom_point_interactive(
       aes(x = plot_date, y = avg_measurement_result, data_id = plot_date, tooltip = tooltip),
       color = torv_color, size = 1.6,
       shape = 21, fill = "white", stroke = .8
@@ -199,13 +199,9 @@ plot_test_trend <- function(plot_measurement, is_first, draw_beeswarm = input_pa
       date_labels = ifelse(year_range[2] - year_range[1] < 2, "%b\n%Y", "%Y")
     ) +
     scale_y_continuous(expand = expansion(mult = c(.025, .025))) +
-    labs(title = plot_measurement) +
+    labs(x = NULL, y = NULL, title = plot_measurement) +
     theme(
-      plot.title = element_text(size = 9, family = typeface),
-      axis.title = element_blank(),
-      axis.text.x = element_text(size = 7.5, margin = margin(t = 2), color = torv_gray),
-      axis.text.y = element_text(size = 7.5, margin = margin(r = 4), color = torv_gray),
-      plot.margin = margin(3, 9, 6, 9),
+      plot.margin = margin(3, 9, 12, 9),
       panel.grid.major.x = element_blank()
     )
 
@@ -257,18 +253,18 @@ combined_trends <- patchwork::wrap_plots(greens_ph_trends, ncol = 3, guides = "c
 
 ## save static version
 ggsave(here(root_figure_location, "trendlines", glue::glue(janitor::make_clean_names("trend_plot_{{sample_type}}_{{sample_description}})"), ".png")),
-       combined_trends, width = 6.5, height = 7, bg = "#ffffff", dpi = 300)
+       combined_trends, width = 6.5, height = 7, bg = "white", dpi = 500)
 
 ## interactive version
-tooltip_css_trend <- paste0("background-color:white;padding:8px;border-radius:5px;border-width:2px;color:black;border-style:solid;border-color:", torv_color, ";line-height:1.15;font-family:", typeface_tabular, ";font-size:1.4em;")
+tooltip_css_trend <- paste0("background-color:white;padding:6px 8px 6px 8px;border-radius:5px;border-width:2px;color:black;border-style:solid;border-color:", torv_color, ";line-height:1.15;font-family:", typeface_tabular, ";font-size:1.4em;")
 hover_css <- paste0("fill:", torv_color, ";stroke-width:2.5px;")
 
 if (html) {
-  ggiraph::girafe(
+  girafe(
     ggobj = combined_trends,
     options = list(
-      opts_tooltip = ggiraph::opts_tooltip(css = tooltip_css_trend, opacity = 1, use_fill = FALSE, offx = 10, offy = 10),
-      opts_hover = ggiraph::opts_hover(css = hover_css)
+      opts_tooltip(css = tooltip_css_trend, opacity = 1, use_fill = FALSE, offx = 10, offy = 10),
+      opts_hover(css = hover_css)
     )
   )
 } else {

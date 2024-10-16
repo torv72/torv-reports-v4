@@ -48,12 +48,12 @@ clean_measurement_name <- str_remove("{{measurement_name}}", "(\\(.*\\))") %>%
   janitor::make_clean_names()
 
 ggsave(here(root_figure_location, "soil_testing", glue::glue("{clean_measurement_name}_{{sample_description_number_1}}_plot.png")), 
-       measurement_plot, width = 1, height = .7, bg = "#ffffff", dpi = 300)
+       measurement_plot, width = 1, height = .7, bg = "white", dpi = 500)
 
 ```
 
 ```{r, fig.width=0.75, fig.height=0.75}
-knitr::include_graphics(here(root_figure_location, "soil_testing", glue::glue("{clean_measurement_name}_{{sample_description_number_1}}_plot.png")), dpi = 300)
+knitr::include_graphics(here(root_figure_location, "soil_testing", glue::glue("{clean_measurement_name}_{{sample_description_number_1}}_plot.png")), dpi = 500)
 ```
 
 ```{r, results = "asis"}
@@ -66,13 +66,4 @@ filter(measurement_commentaries,
          measurement_name == "{{measurement_name}}") %>%
   pull(commentary) %>%
   cat()
-```
-
-
-```{r}
-# officer::block_section(
-#   officer::prop_section(
-#     section_columns = officer::section_columns(
-#       widths = c(1,5.5), space = .25, sep = FALSE),
-#     type = "continuous"))
 ```
