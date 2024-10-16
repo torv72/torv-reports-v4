@@ -22,8 +22,15 @@ cat(glue("The following graph shows how the samples taken from each {{sample_des
 - **Orange** dots represent samples which are within 1% of the desired MLSN value
 - **Green** dots indicate that the samples met the MLSN requirements
 
+```{r, results='asis', fig.height=6.2, eval=html, fig.fullwidth=FALSE}
+girafe(ggobj = readRDS(glue(here(root_figure_location, "soil_testing"), "/MLSN_deficits_{{sample_description_number_1}}_plot.Rds")),
+       options = list(
+         opts_tooltip(css = tooltip_css_bw, opacity = 1, use_fill = FALSE, offx = 10, offy = 10),
+         opts_hover(css = "stroke-width:1.5px;")
+       ))
+```
 
-```{r, results='asis', out.width="100%"}
+```{r fig.height=6.2, out.width="100%", eval=!html}
 knitr::include_graphics(glue(here(root_figure_location, "soil_testing"), "/MLSN_deficits_{{sample_description_number_1}}_plot.png"))
 ```
 
@@ -102,15 +109,15 @@ cat('</details>')
 ```
 
 
-```{r, results='asis', include=html}
+```{r, results='asis', include=FALSE}
 cat("<details><summary style='font-size:22pt;font-weight:600;'>Mean measurements</summary>")
 ```
 
-```{r, results='asis', include=!html}
+```{r, results='asis', include=FALSE}
 cat("### Mean measurements")
 ```
 
-```{r, echo=FALSE, results='asis'}
+```{r, echo=FALSE, results='asis', include=FALSE}
 measurement_names <<- c("pH",
                         "Organic Matter (%)",
                         "Total Nitrogen (ppm)",
@@ -132,10 +139,9 @@ src = lapply(measurement_names, function(measurement_name) {
 res <- knitr::knit_child(text = unlist(src), quiet = TRUE)
 
 cat(unlist(res), sep = '\n')
-
 ```
 
-```{r, results='asis', include=html}
+```{r, results='asis', include=FALSE}
 cat('
 </details>',
   '<br>', sep = "\n")
