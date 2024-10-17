@@ -390,7 +390,7 @@ deficits_graph_data <-
                        levels = c("K", "P", "Ca", "Mg", "S", "Fe", "Mn"),
                        labels = c("K<sub>2</sub>O", "P<sub>2</sub>O<sub>5</sub>",
                                   "Ca", "Mg", "S", "Fe", "Mn")),
-    tooltip = paste0("<span style='font-size:12pt;'>", soil_type, " ", sample_description_number_2, "</span><br><b style=color:", clr_darken(point_color, .3), ";>", mean_measurement, "</b>")
+    tooltip = paste0("<span style='font-size:12pt;'>", sample_description_number_1, " ", sample_description_number_2, "</span><br><b style=color:", clr_darken(point_color, .3), ";>", mean_measurement, "</b>")
   )
 
 # Plot MLSN deficits per sample ----
@@ -435,7 +435,7 @@ create_deficits_graph <- function(soil_type) {
     ggtext::geom_textbox(
       aes(x = Inf,
           y = aiming_for,
-          label = glue::glue("<span style=\"font-size:6pt\">MLSN<br></span>**{janitor::round_half_up(aiming_for)}**"),
+          label = glue::glue("<span style='font-size:6pt;'>MLSN<br></span>**{janitor::round_half_up(aiming_for)}**"),
           vjust = case_when(aiming_for > mean_per_soil_type ~ .2, TRUE ~ .9),
           valign = case_when(aiming_for > mean_per_soil_type ~ 0, TRUE ~ 1)),
       hjust = 1.1, halign = .5, stat = "unique",
@@ -445,7 +445,7 @@ create_deficits_graph <- function(soil_type) {
     ggtext::geom_textbox(
       aes(x = Inf,
           y = mean_per_soil_type,
-          label = glue::glue("<span style=\"font-size:6pt\">MEAN<br></span>**{janitor::round_half_up(mean_per_soil_type)}**"),
+          label = glue::glue("<span style='font-size:6pt;'>MEAN<br></span>**{janitor::round_half_up(mean_per_soil_type)}**"),
           color = stage(mean_line_color, after_scale = clr_darken(color, .3)),
           vjust = case_when(aiming_for > mean_per_soil_type ~ .9, TRUE ~ .2),
           valign = case_when(aiming_for > mean_per_soil_type ~ 1, TRUE ~ 0)),
@@ -460,7 +460,7 @@ create_deficits_graph <- function(soil_type) {
     ) +
     scale_x_discrete(
       expand = expansion(mult = c(.05, .2)), position = "top",
-      labels = function(x) glue::glue("<span style=\"font-size:7.5pt\">{soil_type}<br></span>**{x}**")
+      labels = function(x) glue::glue("<span style='font-size:7.5pt;'>{soil_type}<br></span>**{x}**")
     ) +
     scale_y_continuous(
       expand = expansion(mult = 1), position = "right"
