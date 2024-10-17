@@ -108,16 +108,16 @@ calc_green_average <- function(measurement_name) {
 cat('</details>')
 ```
 
-
-```{r, results='asis', include=FALSE}
+<!--
+```{r, results='asis', include=html}
 cat("<details><summary style='font-size:22pt;font-weight:600;'>Mean measurements</summary>")
 ```
 
-```{r, results='asis', include=FALSE}
+```{r, results='asis', include=!html}
 cat("### Mean measurements")
 ```
 
-```{r, echo=FALSE, results='asis', include=FALSE}
+```{r, echo=FALSE, results='asis'}
 measurement_names <<- c("pH",
                         "Organic Matter (%)",
                         "Total Nitrogen (ppm)",
@@ -141,11 +141,12 @@ res <- knitr::knit_child(text = unlist(src), quiet = TRUE)
 cat(unlist(res), sep = '\n')
 ```
 
-```{r, results='asis', include=FALSE}
+```{r, results='asis', include=html}
 cat('
 </details>',
   '<br>', sep = "\n")
 ```
+-->
 
 \newpage
 
