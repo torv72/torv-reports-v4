@@ -200,14 +200,14 @@ for(soil_type in soil_types) {
       geom_col_interactive(aes(fill = condition, data_id = month, tooltip = tooltip), width = .8) +
       geom_hline(yintercept = 0, color = torv_gray_light, linewidth = .6) +
       coord_cartesian(clip = "off", expand = FALSE) +
-      scale_fill_manual(values = c("good" = torv_green2, "stressed" = "#686617", "limited" = "#7C230D"), guide = "none") +
+      scale_fill_manual(values = c("good" = torv_green, "stressed" = "#686617", "limited" = "#7C230D"), guide = "none") +
       labs(x = NULL, y = NULL, title = "Monthly Growth Potential") +
       theme(
         panel.grid.major.x = element_blank(),
         plot.title = element_text(size = rel(.95), margin = margin(5, 0, 10, 0)),
         plot.title.position = "plot",
         axis.text.x = element_text(size = rel(1.2), margin = margin(t = 5)),
-        axis.text.y = element_text(color = c("#7C230D", "#686617", torv_green2))
+        axis.text.y = element_text(color = c("#7C230D", "#686617", torv_green))
       )
     
     if(!html) {
@@ -367,7 +367,7 @@ deficits_graph_data <-
     aiming_for = unique(plus_mlsn_ppm)
   ) %>%
   mutate(point_color = case_when(
-    mean_measurement > aiming_for * 1.01 ~ torv_green,
+    mean_measurement > aiming_for * 1.01 ~ torv_cyan,
     mean_measurement > aiming_for * .99 ~ "#FFBF00",
     TRUE ~ "#B22222")
   ) %>%
@@ -378,7 +378,7 @@ deficits_graph_data <-
   ) %>%
   ungroup() %>%
   mutate(mean_line_color = case_when(
-    mean_per_soil_type > aiming_for * 1.01 ~ torv_green,
+    mean_per_soil_type > aiming_for * 1.01 ~ torv_cyan,
     mean_per_soil_type > aiming_for * .99 ~ "#FFBF00",
     TRUE ~ "#B22222")
   ) %>%

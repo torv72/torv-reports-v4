@@ -30,7 +30,7 @@ om_data <-
     }
   }
 
-torv_color <- prismatic::color(torv_green)
+torv_color <- prismatic::color(torv_cyan)
 
 om_avgs <- 
   om_data %>%
