@@ -17,8 +17,10 @@ torv_gray_light <<- "#B1B1B1"
 is_installed <- sum(grepl(typeface, systemfonts::system_fonts()$family)) != 0
  
 if(is_installed) {
-  typeface_tabular <<- typeface#paste(typeface, "Tabular")
+  typeface_tabular <<- typeface#paste(typeface, "Tabular") ## same now as Georama already has tabular numbers
   typeface_condensed <<- paste(typeface, "SemiCondensed")
+  typeface_medium <<- paste(typeface, "Medium")
+  typeface_condensed_medium <<- paste(typeface, "SemiCondensed Medium")
   
   # systemfonts::register_variant(
   #   family = typeface,
@@ -26,6 +28,19 @@ if(is_installed) {
   #   weight = "normal",
   #   features = font_feature(numbers = "tabular")
   # )
+  
+  systemfonts::register_variant(
+    family = typeface,
+    name = typeface_medium,
+    weight = "medium"
+  )
+  
+  systemfonts::register_variant(
+    family = typeface_condensed,
+    name = typeface_condensed_medium,
+    weight = "medium"
+  )
+  
 } else {
   message("Using system default font as the specified typeface is not installed on your system. Please install the typeface on your system and then restart your R session.")
   typeface <<- ""
@@ -39,15 +54,15 @@ if(html) margin <- margin(5, .5, 5, .5) else margin <- margin(15, .5, 15, .5)
 
 theme_set(theme_minimal(base_family = typeface, base_size = base_size))
 theme_update(
-  axis.text = element_text(family = typeface, color = torv_gray, size = base_size * .55),
-  axis.text.x = element_text(size = base_size * .55, margin = margin(t = 4)),
-  axis.text.y = element_text(size = base_size * .55, margin = margin(r = 4)),
-  axis.title.x = element_text(size = base_size * .55),
-  axis.title.y = element_text(size = base_size * .55),
+  axis.text = element_text(family = typeface, color = torv_gray, size = base_size * .5),
+  axis.text.x = element_text(size = base_size * .5, margin = margin(t = 4)),
+  axis.text.y = element_text(size = base_size * .5, margin = margin(r = 4)),
+  axis.title.x = element_text(size = base_size * .57),
+  axis.title.y = element_text(size = base_size * .57),
   panel.grid.major = element_line(linewidth = .33, color = "grey92"),
   panel.grid.minor = element_blank(),
-  plot.title = element_text(size = base_size * .72),
-  strip.text = element_text(size = base_size * .72),
+  plot.title = element_text(family = typeface_medium, size = base_size * .67),
+  strip.text = element_text(family = typeface_medium, size = base_size * .67),
   strip.text.x = element_text(hjust = 0, margin = margin(3, 0, 3, 0)),
   plot.caption = element_text(size = base_size * .45, color = torv_gray, margin = margin(9, 0, 0, 0), hjust = 0),
   plot.caption.position = "plot",
