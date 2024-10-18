@@ -239,7 +239,11 @@ cat('
   '<br>', sep = "\n")
 ```
 
-\par
+```{r, results='asis', include=!html}
+cat('\\bigskip → [How to read this chart](#how-to-read)')
+```
+
+\bigskip
 
 ```{r, warning=FALSE, message=FALSE, ft.align="left", include=!html}
 # Longitudinal table of measurements
@@ -301,12 +305,14 @@ om_tbl <- om_longitudinal_table_reduced %>%
   border_remove() %>%
   border(part = "body", border.bottom = officer::fp_border(color = "white", width = 1)) %>%
   align(part = "all", align = "center") %>%
-  fontsize(size = 10, part = "all") %>%
+  align(j = 1, part = "all", align = "left") %>%
+  fontsize(size = 7, part = "all") %>%
   colformat_double(big.mark = ",", digits = 2, na_str = "N/A") %>%
   flextable::color(i = 1, color = torv_color, part = "header") %>% 
-  font(fontname = typeface_condensed, part = "all") %>%
+  font(fontname = typeface_condensed_medium, part = "all") %>%
   line_spacing(i = 1, space = 2, part = "header") %>%
-  width(width = .5)
+  width(width = .4) %>%
+  width(j = 1, width = .3)
 
 if ("0-2 cm" %in% depths) {
   om_tbl <- om_tbl %>% 
