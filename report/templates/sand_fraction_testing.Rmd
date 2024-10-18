@@ -2,11 +2,15 @@
 \newpage
 
 ```{r, warning=FALSE, message=FALSE, out.width="900px"}
-header_file_create("OM", "Sand Fraction")
-knitr::include_graphics(here(root_figure_location, "headers", "om_testing_sand_fraction_plot.png"))
+header_file_create("Physical", "Sand Fraction")
+knitr::include_graphics(here(root_figure_location, "headers", "physical_testing_sand_fraction_plot.png"))
 ```
 
-The sand fraction sampling yadda yadda yadda. The recommended ranges are taken from the USGA Recommendations for a Method of Putting Green Construction, 2018 Revision. Note that the USGA does not provide a recommendation for Sand, and thus no recommended ranges are shown in the following charts and tables.
+The sand fraction analysis examines the composition of the golf course greens in the top 6 cm of the surface. The S022 lab test analyzes organic matter samples after they have been ashed from three depths: 0-2 cm, 2-4 cm, and 4-6 cm. These samples are sieved according to the United States Golf Association (USGA) specifications for sand particle sizes, as outlined in "USGA Recommendations for a Method of Putting Green Construction, 2018 Revision."
+
+The results show the distribution of sand fractions at each depth, providing information about the green's physical properties in its upper layer. This data helps in assessing factors such as water movement and surface firmness in the most active part of the green's profile. The analysis offers insights into the surface and near-surface conditions, which is useful for evaluating the current state of the green's top layer and for making informed decisions about its maintenance.
+
+Note that the USGA does not provide a recommendation for Sand, and thus no recommended ranges are shown in the following charts and tables.
 
 ```{r}
 usga_specs <- tribble(
@@ -149,7 +153,7 @@ sf_overview_plot <-
   geom_rect(
     aes(xmin = xbegin, ymin = as.numeric(fct_rev(measurement_name)) - .35, 
         xmax = usga_value, ymax = as.numeric(fct_rev(measurement_name)) + .35), 
-    fill = "#F5DBDB"
+    fill = "#F9DCE0"
   ) +
   geom_col(fill = "grey92", width = .7) +
   geom_col_interactive(
@@ -248,7 +252,7 @@ sf_data_points_red <-
     ),
     upr = if_else(upr > 100, 100, upr),
     point_color = case_when(
-      is_satisfied == TRUE ~ torv_green,
+      is_satisfied == TRUE ~ torv_cyan,
       is_satisfied == FALSE ~ "#B22222",
       TRUE ~ torv_gray_light
     )
@@ -266,15 +270,15 @@ sf_point_plot <-
   geom_rect_interactive(
     aes(ymin = xbegin, xmin = -Inf, 
         ymax = usga_value, xmax = Inf,
-        tooltip = paste0("<span style='font-size:12pt;'>Recommended</span><br><b style=color:", clr_darken(torv_green, .3), ";>", usga_spec, "</b>"),
+        tooltip = paste0("<span style='font-size:12pt;'>Recommended</span><br><b style=color:", clr_darken(torv_cyan, .3), ";>", usga_spec, "</b>"),
         data_id = measurement_name), 
-    fill = torv_green, alpha = .1, stat = "unique"
+    fill = torv_cyan, alpha = .1, stat = "unique"
   ) +
   geom_hline_interactive(
     aes(yintercept = usga_value,
-        tooltip = paste0("<span style='font-size:12pt;'>Recommended</span><br><b style=color:", clr_darken(torv_green, .3), ";>", usga_spec, "</b>"),
+        tooltip = paste0("<span style='font-size:12pt;'>Recommended</span><br><b style=color:", clr_darken(torv_cyan, .3), ";>", usga_spec, "</b>"),
         data_id = measurement_name), 
-    color = clr_lighten(torv_green, .25)
+    color = clr_lighten(torv_cyan, .25)
   ) +
   geom_line_interactive(aes(data_id = measurement_name), linewidth = .8, color = torv_gray) +
   geom_point(color = "white", size = 2.3) +
@@ -291,8 +295,8 @@ sf_point_plot <-
     breaks = 0:3 * 2, labels = scales::number_format(suffix = " cm")
   ) +
   scale_y_continuous(expand = c(0, 0), labels = scales::percent_format(scale = 1)) +
-  scale_color_manual(values = c(`FALSE` = "#B22222", `TRUE` = torv_green), na.value = torv_gray_light, guide = "none") +
-  scale_fill_manual(values = c(`FALSE` = "#B22222", `TRUE` = torv_green), na.value = torv_gray_light, guide = "none") +
+  scale_color_manual(values = c(`FALSE` = "#B22222", `TRUE` = torv_cyan), na.value = torv_gray_light, guide = "none") +
+  scale_fill_manual(values = c(`FALSE` = "#B22222", `TRUE` = torv_cyan), na.value = torv_gray_light, guide = "none") +
   labs(x = "Soil depth", y = "Share by weight") +
   #labs(x = "Soil depth", y = "Share by weight", caption = "Note: USGA does not provide a specification for Sand.") +
   theme(
@@ -380,7 +384,7 @@ if(length(unique(sf_data_long$date_sample_submitted)) > 1) {
       coord_cartesian(clip = "off") +
       scale_x_continuous(expand = expansion(mult = c(.05, .05))) +
       scale_y_continuous(expand = expansion(mult = c(.0, .0))) +
-      scale_color_manual(values = c(`FALSE` = "#B22222", `TRUE` = torv_green), na.value = torv_gray, guide = "none") +
+      scale_color_manual(values = c(`FALSE` = "#B22222", `TRUE` = torv_cyan), na.value = torv_gray, guide = "none") +
       theme_void() +
       theme(plot.margin = margin(6, .5, 6, 2.5))
   }
