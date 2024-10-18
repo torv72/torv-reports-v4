@@ -6,10 +6,11 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = NA, dev = "ragg_p
 
 ```{r variables-and-theme}
 # Colors
-torv_green <<- "#0aa67b"
+torv_cyan <<- "#0aa67b"
 torv_orange <<- "#a67b0a"
 torv_blue <<- "#0a83a6"
-torv_green2 <<- "#5b921e"
+torv_green <<- "#5b921e"
+torv_rose <<- "#9b5b64"
 torv_gray <<- "#808080"
 torv_gray_light <<- "#B1B1B1"
 
@@ -446,7 +447,7 @@ header_file_create <<- function(sampletype, title, trends = FALSE) {
   sym.grob <- grImport2::symbolsGrob(img, x = 0.5, y = 0.5, default.units = "npc", size = 1)
   
   if (sampletype == "OM") {
-    col <- torv_green
+    col <- torv_cyan
     plot_title <- glue("Total Organic Matter | {title}")
   } else if (sampletype == "Soil" & trends == TRUE) {
     col <- torv_orange
@@ -461,12 +462,14 @@ header_file_create <<- function(sampletype, title, trends = FALSE) {
     col <- torv_blue
     plot_title <- glue("Water Testing | {title}")
   } else if (sampletype == "Turf") {
-    col <- torv_green2
+    col <- torv_green
     plot_title <- glue("Turf Growth Potential Model")
+  } else if (sampletype == "Physical") {
+    col <- torv_rose
+    plot_title <- "Sand Fraction"
   } else if (sampletype == "None") {
     col <- torv_gray
     plot_title <- glue("{title}")
-    title <- janitor::make_clean_names(title)
   }
   r <- 0.5
   
