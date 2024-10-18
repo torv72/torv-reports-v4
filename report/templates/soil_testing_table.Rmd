@@ -12,15 +12,15 @@ knitr::include_graphics(here(root_figure_location, "headers", glue("soil_testing
 ```
 
 
-### Measurement results and MLSN values
+<!--### Measurement results and MLSN values-->
 
 ```{r, results='asis'}
 cat(glue("The following graph shows how the samples taken from each {{sample_description_number_1}} compare to the calculated MLSN values and required elemental inputs based on the provided nitrogen input and the Turf Growth Potential Model."))
 ```
 
-- **Red** dots highlight samples where a deficit was found
-- **Orange** dots represent samples which are within 1% of the desired MLSN value
-- **Green** dots indicate that the samples met the MLSN requirements
+- <b style="color:#0AA67B;">Red dots</b> dots highlight samples where a deficit was found.
+- <b style="color:#E3AA04;">Orange dots</b> represent samples which are within 1% of the desired MLSN value.
+- <b style="color:#B22222;">Green dots</b> indicate that the samples met the MLSN requirements.
 
 ```{r, results='asis', fig.height=6.2, eval=html, fig.fullwidth=FALSE}
 girafe(ggobj = readRDS(glue(here(root_figure_location, "soil_testing"), "/MLSN_deficits_{{sample_description_number_1}}_plot.Rds")),
@@ -36,7 +36,7 @@ knitr::include_graphics(glue(here(root_figure_location, "soil_testing"), "/MLSN_
 
 
 ```{r, results='asis', include=html}
-cat("<br><details><summary style='font-size:22pt;font-weight:600;'>Required element per area</summary>")
+cat("<br><details><summary style='font-size:1.95rem;font-weight:500;'>Required element per area</summary>")
 ```
 
 \pagebreak
@@ -56,7 +56,7 @@ if (html) {
 } else {
   size_h <- 11.5
   size_b <- 10.5
-  size_f <- 7.5
+  size_f <- 7
   w <- .5
 }
 
@@ -69,8 +69,9 @@ filter(fertilizer_table_all, sample_description_number_1 == "{{sample_descriptio
   fontsize(size = size_b, part = "body") %>%
   fontsize(size = size_f, part = "footer") %>%
   # Specifying font again after adding footnote
-  font(fontname = typeface_condensed, part = "all") %>%
+  font(fontname = typeface_condensed_medium, part = "all") %>%
   font(fontname = typeface, part = "footer") %>%
+  flextable::color(color = torv_gray, part = "footer") %>%
   width(width = w)
 ```
 
@@ -105,12 +106,14 @@ calc_green_average <- function(measurement_name) {
 ```
 
 ```{r, results='asis', include=html}
-cat('</details>')
+cat('
+</details>',
+  '<br>', sep = "\n")
 ```
 
 <!--
 ```{r, results='asis', include=html}
-cat("<details><summary style='font-size:22pt;font-weight:600;'>Mean measurements</summary>")
+cat("<details><summary style='font-size:1.95rem;font-weight:500;'>Mean measurements</summary>")
 ```
 
 ```{r, results='asis', include=!html}
