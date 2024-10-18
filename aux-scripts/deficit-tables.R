@@ -390,14 +390,16 @@ deficits_graph_data <-
                        levels = c("K", "P", "Ca", "Mg", "S", "Fe", "Mn"),
                        labels = c("K<sub>2</sub>O", "P<sub>2</sub>O<sub>5</sub>",
                                   "Ca", "Mg", "S", "Fe", "Mn")),
-    tooltip = paste0("<span style='font-size:12pt;'>", sample_description_number_1, " ", sample_description_number_2, "</span><br><b style=color:", clr_darken(point_color, .3), ";>", mean_measurement, "</b>")
+    tooltip = paste0("<span style='font-size:12pt;'>", mehlich_3, " at ", sample_description_number_1, " ", sample_description_number_2, "</span><br><b style=color:", clr_darken(point_color, .3), ";>", mean_measurement, "</b>")
   )
 
 # Plot MLSN deficits per sample ----
 create_deficits_graph <- function(soil_type) {
-
+  
   deficit_graph <- 
-    ggplot(filter(deficits_graph_data, sample_description_number_1 == soil_type)) +
+    deficits_graph_data |> 
+    filter(sample_description_number_1 == soil_type) |> 
+    ggplot() +
     geom_segment_interactive(
       aes(x = sample_description_number_2,
           xend = sample_description_number_2,
@@ -459,7 +461,9 @@ create_deficits_graph <- function(soil_type) {
       strip.position = "left"
     ) +
     scale_x_discrete(
-      expand = expansion(mult = c(.05, .2)), position = "top",
+      expand = expansion(mult = c(.1, .25)),
+      #limits = c(.5, max + 1.5), 
+      position = "top",
       labels = function(x) glue::glue("<span style='font-size:7.5pt;'>{soil_type}<br></span>**{x}**")
     ) +
     scale_y_continuous(
