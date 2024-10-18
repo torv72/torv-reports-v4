@@ -287,5 +287,5 @@ cat('
 ```
 
 ```{r, results='asis', include=!html}
-cat('\\par → [How to read this chart](#how-to-read)')
+cat('\\bigskip → [How to read this chart](#how-to-read)')
 ```
