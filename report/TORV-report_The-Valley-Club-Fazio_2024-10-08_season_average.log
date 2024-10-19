@@ -1,7 +1,7 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.10.12)  18 OCT 2024 08:19
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.10.12)  18 OCT 2024 17:05
  restricted system commands enabled.
-**"/Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median.tex"
-("/Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median.tex"
+**"/Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average.tex"
+("/Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average.tex"
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-09-10>
 Lua module: luaotfload 2024-02-14 3.28 Lua based OpenType font support
@@ -708,8 +708,8 @@ File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO)
 \BKM@id=\count330
 ))
 Package hyperref Info: Option `colorlinks' set `true' on input line 99.
-(./TORV-report_Maroon-Creek-Club_2024-09-18_season_median.aux)
-\openout1 = TORV-report_Maroon-Creek-Club_2024-09-18_season_median.aux
+(./TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average.aux)
+\openout1 = TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 105.
 LaTeX Font Info:    ... okay on input line 105.
@@ -1038,8 +1038,17 @@ LaTeX Font Info:    Font shape `TU/Rasa(0)/b/n' will be
 (Font)              scaled to size 10.0pt on input line 120.
 LaTeX Font Info:    Font shape `TU/Rasa(0)/b/n' will be
 (Font)              scaled to size 16.0pt on input line 120.
-LaTeX Font Info:    Font shape `TU/Rasa(0)/m/it' will be
-(Font)              scaled to size 10.0pt on input line 227.
+LaTeX Font Info:    Font shape `TU/Rasa(0)/m/n' will be
+(Font)              scaled to size 7.0pt on input line 138.
+LaTeX Font Info:    Font shape `TU/Rasa(0)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 138.
+LaTeX Font Info:    Font shape `TU/Rasa(0)/m/n' will be
+(Font)              scaled to size 6.0pt on input line 138.
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--171
+
+ []
+
 
 
 [2<./figures/headers/none_testing_executive_summary_plot.png>]
@@ -1049,43 +1058,41 @@ LaTeX Font Info:    Font shape `TU/Rasa(0)/b/n' will be
 (Font)              scaled to size 9.0pt on input line 276.
 LaTeX Font Info:    Font shape `TU/Rasa(0)/b/it' will be
 (Font)              scaled to size 9.0pt on input line 276.
-LaTeX Font Info:    Font shape `TU/Rasa(0)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 280.
 LaTeX Font Info:    Font shape `TU/Rasa(0)/m/it' will be
 (Font)              scaled to size 8.0pt on input line 280.
 
 
 [3]
-<figures/headers/turf_testing_growth_plot.png, id=38, 404.712pt x 50.589pt>
+<figures/headers/turf_testing_growth_plot.png, id=57, 404.712pt x 50.589pt>
 File: figures/headers/turf_testing_growth_plot.png Graphic file (type png)
 <use figures/headers/turf_testing_growth_plot.png>
 Package luatex.def Info: figures/headers/turf_testing_growth_plot.png  used on input line 287.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
-<figures/monthly_growth_potential_plot.png, id=40, 469.755pt x 296.307pt>
+<figures/monthly_growth_potential_plot.png, id=59, 469.755pt x 296.307pt>
 File: figures/monthly_growth_potential_plot.png Graphic file (type png)
 <use figures/monthly_growth_potential_plot.png>
-Package luatex.def Info: figures/monthly_growth_potential_plot.png  used on input line 302.
+Package luatex.def Info: figures/monthly_growth_potential_plot.png  used on input line 303.
 (luatex.def)             Requested size: 469.75386pt x 296.30627pt.
 
 
 [4<./figures/headers/turf_testing_growth_plot.png><./figures/monthly_growth_potential_plot.png>]
-<figures/headers/soil_testing_green_plot.png, id=49, 404.712pt x 50.589pt>
+<figures/headers/soil_testing_green_plot.png, id=68, 404.712pt x 50.589pt>
 File: figures/headers/soil_testing_green_plot.png Graphic file (type png)
 <use figures/headers/soil_testing_green_plot.png>
-Package luatex.def Info: figures/headers/soil_testing_green_plot.png  used on input line 310.
+Package luatex.def Info: figures/headers/soil_testing_green_plot.png  used on input line 311.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
-<figures/soil_testing/MLSN_deficits_GREEN_plot.png, id=50, 469.755pt x 448.074pt>
+<figures/soil_testing/MLSN_deficits_GREEN_plot.png, id=69, 469.755pt x 448.074pt>
 File: figures/soil_testing/MLSN_deficits_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/MLSN_deficits_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/MLSN_deficits_GREEN_plot.png  used on input line 327.
+Package luatex.def Info: figures/soil_testing/MLSN_deficits_GREEN_plot.png  used on input line 328.
 (luatex.def)             Requested size: 469.75386pt x 448.07289pt.
 
 
 [5<./figures/headers/soil_testing_green_plot.png><./figures/soil_testing/MLSN_deficits_GREEN_plot.png>]
 LaTeX Font Info:    Font shape `TU/Rasa(0)/b/n' will be
-(Font)              scaled to size 8.0pt on input line 335.
+(Font)              scaled to size 8.0pt on input line 336.
 LaTeX Font Info:    Font shape `TU/Rasa(0)/b/it' will be
-(Font)              scaled to size 8.0pt on input line 335.
+(Font)              scaled to size 8.0pt on input line 336.
 
 Package fontspec Info: 
 (fontspec)             Georama SemiCondensed Medium scale =
@@ -1145,10 +1152,10 @@ Package fontspec Info:
 (fontspec)             Medium:mode=node;script=latn;language=dflt;+tlig;+smcp;"
 
 LaTeX Font Info:    Font shape `TU/GeoramaSemiCondensedMedium(0)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 356.
+(Font)              scaled to size 12.0pt on input line 357.
 
 LaTeX Font Warning: Font shape `TU/GeoramaSemiCondensedMedium(0)/b/n' undefined
-(Font)              using `TU/GeoramaSemiCondensedMedium(0)/m/n' instead on input line 356.
+(Font)              using `TU/GeoramaSemiCondensedMedium(0)/m/n' instead on input line 357.
 
 
 Package fontspec Info: 
@@ -1160,7 +1167,7 @@ Package fontspec Info:
 (fontspec)             Georama SemiCondensed Medium scale = 1.
 
 LaTeX Font Info:    Font shape `TU/GeoramaSemiCondensedMedium(0)/b/n' will be
-(Font)              scaled to size 12.0pt on input line 356.
+(Font)              scaled to size 12.0pt on input line 357.
 
 Package fontspec Info: 
 (fontspec)             Georama SemiCondensed Medium scale =
@@ -1171,7 +1178,7 @@ Package fontspec Info:
 (fontspec)             Georama SemiCondensed Medium scale = 1.
 
 LaTeX Font Info:    Font shape `TU/GeoramaSemiCondensedMedium(0)/b/n' will be
-(Font)              scaled to size 8.0pt on input line 356.
+(Font)              scaled to size 8.0pt on input line 357.
 
 Package fontspec Info: 
 (fontspec)             Georama SemiCondensed Medium scale =
@@ -1379,8 +1386,6 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama SemiCondensed Medium scale = 1.
 
-LaTeX Font Info:    Font shape `TU/Rasa(0)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 368.
 
 Package fontspec Info: 
 (fontspec)             Georama scale = 0.7509066048391889.
@@ -1480,7 +1485,7 @@ Package fontspec Info:
 (fontspec)             <->s*[1]"name:Georama/BI:mode=node;script=latn;language=dflt;+tlig;+smcp;"
 
 LaTeX Font Info:    Font shape `TU/Georama(0)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 368.
+(Font)              scaled to size 7.0pt on input line 369.
 
 Package fontspec Info: 
 (fontspec)             Georama scale = 0.7509066048391889.
@@ -1523,225 +1528,9 @@ Package fontspec Info:
 (fontspec)             Georama SemiCondensed Medium scale = 1.
 
 LaTeX Font Info:    Font shape `TU/GeoramaSemiCondensedMedium(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 374.
+(Font)              scaled to size 10.0pt on input line 375.
 LaTeX Font Info:    Font shape `TU/GeoramaSemiCondensedMedium(0)/b/n' will be
-(Font)              scaled to size 10.0pt on input line 374.
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
+(Font)              scaled to size 10.0pt on input line 375.
 
 Package fontspec Info: 
 (fontspec)             Georama SemiCondensed Medium scale =
@@ -2024,28 +1813,28 @@ Package fontspec Info:
 
 
 [6]
-<figures/headers/soil_testing_green_trends_plot.png, id=63, 404.712pt x 50.589pt>
+<figures/headers/soil_testing_green_trends_plot.png, id=82, 404.712pt x 50.589pt>
 File: figures/headers/soil_testing_green_trends_plot.png Graphic file (type png)
 <use figures/headers/soil_testing_green_trends_plot.png>
-Package luatex.def Info: figures/headers/soil_testing_green_trends_plot.png  used on input line 430.
+Package luatex.def Info: figures/headers/soil_testing_green_trends_plot.png  used on input line 413.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-151-1.png, id=64, 481.46274pt x 446.19498pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-151-1.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-151-1.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-151-1.png  used on input line 432.
-(luatex.def)             Requested size: 469.77322pt x 435.36174pt.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-151-1.png, id=83, 486.81071pt x 439.83522pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-151-1.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-151-1.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-151-1.png  used on input line 415.
+(luatex.def)             Requested size: 469.77682pt x 424.44504pt.
 
 
-[7<./figures/headers/soil_testing_green_trends_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-151-1.png>]
-<figures/headers/soil_testing_tee_plot.png, id=72, 404.712pt x 50.589pt>
+[7<./figures/headers/soil_testing_green_trends_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-151-1.png>]
+<figures/headers/soil_testing_tee_plot.png, id=91, 404.712pt x 50.589pt>
 File: figures/headers/soil_testing_tee_plot.png Graphic file (type png)
 <use figures/headers/soil_testing_tee_plot.png>
-Package luatex.def Info: figures/headers/soil_testing_tee_plot.png  used on input line 440.
+Package luatex.def Info: figures/headers/soil_testing_tee_plot.png  used on input line 423.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
-<figures/soil_testing/MLSN_deficits_TEE_plot.png, id=73, 469.755pt x 448.074pt>
+<figures/soil_testing/MLSN_deficits_TEE_plot.png, id=92, 469.755pt x 448.074pt>
 File: figures/soil_testing/MLSN_deficits_TEE_plot.png Graphic file (type png)
 <use figures/soil_testing/MLSN_deficits_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/MLSN_deficits_TEE_plot.png  used on input line 457.
+Package luatex.def Info: figures/soil_testing/MLSN_deficits_TEE_plot.png  used on input line 440.
 (luatex.def)             Requested size: 469.75386pt x 448.07289pt.
 
 
@@ -2613,174 +2402,30 @@ Package fontspec Info:
 (fontspec)             Georama SemiCondensed Medium scale = 1.
 
 
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
 
 [9]
-<figures/headers/soil_testing_tee_trends_plot.png, id=84, 404.712pt x 50.589pt>
+<figures/headers/soil_testing_tee_trends_plot.png, id=103, 404.712pt x 50.589pt>
 File: figures/headers/soil_testing_tee_trends_plot.png Graphic file (type png)
 <use figures/headers/soil_testing_tee_trends_plot.png>
-Package luatex.def Info: figures/headers/soil_testing_tee_trends_plot.png  used on input line 554.
+Package luatex.def Info: figures/headers/soil_testing_tee_trends_plot.png  used on input line 525.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-251-1.png, id=85, 481.75182pt x 446.19498pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-251-1.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-251-1.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-251-1.png  used on input line 556.
-(luatex.def)             Requested size: 469.75389pt x 435.0826pt.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-251-1.png, id=104, 486.95526pt x 439.83522pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-251-1.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-251-1.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-251-1.png  used on input line 527.
+(luatex.def)             Requested size: 469.7677pt x 424.3108pt.
 
 
-[10<./figures/headers/soil_testing_tee_trends_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-251-1.png>]
-<figures/headers/soil_testing_fairway_plot.png, id=92, 404.712pt x 50.589pt>
+[10<./figures/headers/soil_testing_tee_trends_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-251-1.png>]
+<figures/headers/soil_testing_fairway_plot.png, id=111, 404.712pt x 50.589pt>
 File: figures/headers/soil_testing_fairway_plot.png Graphic file (type png)
 <use figures/headers/soil_testing_fairway_plot.png>
-Package luatex.def Info: figures/headers/soil_testing_fairway_plot.png  used on input line 564.
+Package luatex.def Info: figures/headers/soil_testing_fairway_plot.png  used on input line 535.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
-<figures/soil_testing/MLSN_deficits_FAIRWAY_plot.png, id=93, 469.755pt x 448.074pt>
+<figures/soil_testing/MLSN_deficits_FAIRWAY_plot.png, id=112, 469.755pt x 448.074pt>
 File: figures/soil_testing/MLSN_deficits_FAIRWAY_plot.png Graphic file (type png)
 <use figures/soil_testing/MLSN_deficits_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/MLSN_deficits_FAIRWAY_plot.png  used on input line 582.
+Package luatex.def Info: figures/soil_testing/MLSN_deficits_FAIRWAY_plot.png  used on input line 553.
 (luatex.def)             Requested size: 469.75386pt x 448.07289pt.
 
 
@@ -3348,251 +2993,35 @@ Package fontspec Info:
 (fontspec)             Georama SemiCondensed Medium scale = 1.
 
 
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
 
 [12]
-<figures/headers/soil_testing_fairway_trends_plot.png, id=105, 404.712pt x 50.589pt>
+<figures/headers/soil_testing_fairway_trends_plot.png, id=124, 404.712pt x 50.589pt>
 File: figures/headers/soil_testing_fairway_trends_plot.png Graphic file (type png)
 <use figures/headers/soil_testing_fairway_trends_plot.png>
-Package luatex.def Info: figures/headers/soil_testing_fairway_trends_plot.png  used on input line 685.
+Package luatex.def Info: figures/headers/soil_testing_fairway_trends_plot.png  used on input line 638.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-351-1.png, id=106, 487.0998pt x 446.19498pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-351-1.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-351-1.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-351-1.png  used on input line 687.
-(luatex.def)             Requested size: 469.75848pt x 430.30992pt.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-351-1.png, id=125, 486.52164pt x 440.55792pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-351-1.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-351-1.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-351-1.png  used on input line 640.
+(luatex.def)             Requested size: 469.77254pt x 425.39117pt.
 
 
-[13<./figures/headers/soil_testing_fairway_trends_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-351-1.png>]
-<figures/headers/om_testing_green_plot.png, id=113, 404.712pt x 50.589pt>
+[13<./figures/headers/soil_testing_fairway_trends_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-351-1.png>]
+<figures/headers/om_testing_green_plot.png, id=132, 404.712pt x 50.589pt>
 File: figures/headers/om_testing_green_plot.png Graphic file (type png)
 <use figures/headers/om_testing_green_plot.png>
-Package luatex.def Info: figures/headers/om_testing_green_plot.png  used on input line 695.
+Package luatex.def Info: figures/headers/om_testing_green_plot.png  used on input line 648.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 709--712
+Underfull \hbox (badness 10000) in paragraph at lines 662--666
 
  []
 
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-364-1.png, id=114, 471.9231pt x 162.75204pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-364-1.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-364-1.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-364-1.png  used on input line 713.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-364-1.png, id=133, 471.9231pt x 162.75204pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-364-1.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-364-1.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-364-1.png  used on input line 667.
 (luatex.def)             Requested size: 469.76884pt x 162.0091pt.
 
 Package fontspec Info: 
@@ -3604,7 +3033,7 @@ Package fontspec Info:
 (fontspec)             Georama SemiCondensed Medium scale = 1.
 
 LaTeX Font Info:    Font shape `TU/GeoramaSemiCondensedMedium(0)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 737.
+(Font)              scaled to size 7.0pt on input line 691.
 
 Package fontspec Info: 
 (fontspec)             Georama SemiCondensed Medium scale =
@@ -3804,737 +3233,26 @@ Package fontspec Info:
 (fontspec)             Georama SemiCondensed Medium scale = 1.
 
 
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
 
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-
-[14<./figures/headers/om_testing_green_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-364-1.png>]
-<figures/headers/om_testing_tee_plot.png, id=122, 404.712pt x 50.589pt>
-File: figures/headers/om_testing_tee_plot.png Graphic file (type png)
-<use figures/headers/om_testing_tee_plot.png>
-Package luatex.def Info: figures/headers/om_testing_tee_plot.png  used on input line 791.
+[14<./figures/headers/om_testing_green_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-364-1.png>]
+<figures/headers/physical_testing_sand_fraction_plot.png, id=141, 404.712pt x 50.589pt>
+File: figures/headers/physical_testing_sand_fraction_plot.png Graphic file (type png)
+<use figures/headers/physical_testing_sand_fraction_plot.png>
+Package luatex.def Info: figures/headers/physical_testing_sand_fraction_plot.png  used on input line 747.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 805--808
-
- []
-
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-371-1.png, id=123, 471.9231pt x 162.75204pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-371-1.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-371-1.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-371-1.png  used on input line 809.
-(luatex.def)             Requested size: 469.76884pt x 162.0091pt.
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale =
-(fontspec)             0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed Medium scale = 1.
-
-
-
-[15<./figures/headers/om_testing_tee_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-371-1.png>]
-<figures/headers/om_testing_sand_fraction_plot.png, id=132, 404.712pt x 50.589pt>
-File: figures/headers/om_testing_sand_fraction_plot.png Graphic file (type png)
-<use figures/headers/om_testing_sand_fraction_plot.png>
-Package luatex.def Info: figures/headers/om_testing_sand_fraction_plot.png  used on input line 889.
-(luatex.def)             Requested size: 404.72954pt x 50.59117pt.
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-394-1.png, id=133, 466.57512pt x 202.78963pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-394-1.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-394-1.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-394-1.png  used on input line 897.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-380-1.png, id=142, 466.57512pt x 202.78963pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-380-1.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-380-1.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-380-1.png  used on input line 768.
 (luatex.def)             Requested size: 466.58821pt x 202.7953pt.
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-396-1.png, id=134, 482.47452pt x 250.19875pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-396-1.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-396-1.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-396-1.png  used on input line 900.
-(luatex.def)             Requested size: 469.75922pt x 243.6049pt.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-382-1.png, id=143, 479.58372pt x 250.19875pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-382-1.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-382-1.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-382-1.png  used on input line 771.
+(luatex.def)             Requested size: 469.76929pt x 245.07855pt.
 
 
-[16<./figures/headers/om_testing_sand_fraction_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-394-1.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-396-1.png>]
+[15<./figures/headers/physical_testing_sand_fraction_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-380-1.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-382-1.png>]
 
 Package fontspec Info: 
 (fontspec)             Georama scale = 0.7509066048391889.
@@ -4544,7 +3262,7 @@ Package fontspec Info:
 (fontspec)             Georama scale = 1.
 
 LaTeX Font Info:    Font shape `TU/Georama(0)/b/n' will be
-(Font)              scaled to size 7.0pt on input line 944.
+(Font)              scaled to size 7.0pt on input line 815.
 
 Package fontspec Info: 
 (fontspec)             Georama scale = 0.7509066048391889.
@@ -4753,10 +3471,10 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama scale = 1.
 
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-1.png, id=139, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-1.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-1.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-1.png  used on input line 980.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-1.png, id=148, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-1.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-1.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-1.png  used on input line 851.
 (luatex.def)             Requested size: 43.36452pt x 21.68225pt.
 
 Package fontspec Info: 
@@ -4798,148 +3516,10 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama scale = 1.
 
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-2.png, id=140, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-2.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-2.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-2.png  used on input line 986.
-(luatex.def)             Requested size: 43.36452pt x 21.68225pt.
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-3.png, id=141, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-3.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-3.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-3.png  used on input line 992.
-(luatex.def)             Requested size: 43.36452pt x 21.68225pt.
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-4.png, id=142, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-4.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-4.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-4.png  used on input line 998.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-2.png, id=149, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-2.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-2.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-2.png  used on input line 857.
 (luatex.def)             Requested size: 43.36452pt x 21.68225pt.
 
 Package fontspec Info: 
@@ -5013,10 +3593,10 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama scale = 1.
 
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-5.png, id=143, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-5.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-5.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-5.png  used on input line 1004.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-3.png, id=150, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-3.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-3.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-3.png  used on input line 863.
 (luatex.def)             Requested size: 43.36452pt x 21.68225pt.
 
 Package fontspec Info: 
@@ -5074,71 +3654,10 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama scale = 1.
 
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-6.png, id=144, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-6.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-6.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-6.png  used on input line 1010.
-(luatex.def)             Requested size: 43.36452pt x 21.68225pt.
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-7.png, id=145, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-7.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-7.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-7.png  used on input line 1016.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-4.png, id=151, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-4.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-4.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-4.png  used on input line 869.
 (luatex.def)             Requested size: 43.36452pt x 21.68225pt.
 
 Package fontspec Info: 
@@ -5212,10 +3731,132 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama scale = 1.
 
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-8.png, id=146, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-8.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-8.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-8.png  used on input line 1022.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-5.png, id=152, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-5.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-5.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-5.png  used on input line 875.
+(luatex.def)             Requested size: 43.36452pt x 21.68225pt.
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-6.png, id=153, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-6.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-6.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-6.png  used on input line 881.
+(luatex.def)             Requested size: 43.36452pt x 21.68225pt.
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-7.png, id=154, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-7.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-7.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-7.png  used on input line 887.
 (luatex.def)             Requested size: 43.36452pt x 21.68225pt.
 
 Package fontspec Info: 
@@ -5289,132 +3930,10 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama scale = 1.
 
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-9.png, id=147, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-9.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-9.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-9.png  used on input line 1028.
-(luatex.def)             Requested size: 43.36452pt x 21.68225pt.
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-10.png, id=148, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-10.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-10.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-10.png  used on input line 1034.
-(luatex.def)             Requested size: 43.36452pt x 21.68225pt.
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-11.png, id=149, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-11.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-11.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-11.png  used on input line 1040.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-8.png, id=155, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-8.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-8.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-8.png  used on input line 893.
 (luatex.def)             Requested size: 43.36452pt x 21.68225pt.
 
 Package fontspec Info: 
@@ -5488,10 +4007,10 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama scale = 1.
 
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-12.png, id=150, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-12.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-12.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-12.png  used on input line 1046.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-9.png, id=156, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-9.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-9.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-9.png  used on input line 899.
 (luatex.def)             Requested size: 43.36452pt x 21.68225pt.
 
 Package fontspec Info: 
@@ -5549,55 +4068,10 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama scale = 1.
 
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-13.png, id=151, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-13.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-13.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-13.png  used on input line 1052.
-(luatex.def)             Requested size: 43.36452pt x 21.68225pt.
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-14.png, id=152, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-14.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-14.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-14.png  used on input line 1058.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-10.png, id=157, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-10.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-10.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-10.png  used on input line 905.
 (luatex.def)             Requested size: 43.36452pt x 21.68225pt.
 
 Package fontspec Info: 
@@ -5655,87 +4129,10 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama scale = 1.
 
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-15.png, id=153, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-15.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-15.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-15.png  used on input line 1064.
-(luatex.def)             Requested size: 43.36452pt x 21.68225pt.
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-16.png, id=154, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-16.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-16.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-16.png  used on input line 1070.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-11.png, id=158, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-11.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-11.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-11.png  used on input line 911.
 (luatex.def)             Requested size: 43.36452pt x 21.68225pt.
 
 Package fontspec Info: 
@@ -5809,10 +4206,10 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama scale = 1.
 
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-17.png, id=155, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-17.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-17.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-17.png  used on input line 1076.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-12.png, id=159, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-12.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-12.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-12.png  used on input line 917.
 (luatex.def)             Requested size: 43.36452pt x 21.68225pt.
 
 Package fontspec Info: 
@@ -5870,10 +4267,10 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama scale = 1.
 
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-18.png, id=156, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-18.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-18.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-18.png  used on input line 1082.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-13.png, id=160, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-13.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-13.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-13.png  used on input line 923.
 (luatex.def)             Requested size: 43.36452pt x 21.68225pt.
 
 Package fontspec Info: 
@@ -5915,103 +4312,10 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama scale = 1.
 
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-19.png, id=157, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-19.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-19.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-19.png  used on input line 1088.
-(luatex.def)             Requested size: 43.36452pt x 21.68225pt.
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-20.png, id=158, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-20.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-20.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-20.png  used on input line 1094.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-14.png, id=161, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-14.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-14.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-14.png  used on input line 929.
 (luatex.def)             Requested size: 43.36452pt x 21.68225pt.
 
 Package fontspec Info: 
@@ -6085,10 +4389,10 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama scale = 1.
 
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-21.png, id=159, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-21.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-21.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-21.png  used on input line 1100.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-15.png, id=162, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-15.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-15.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-15.png  used on input line 935.
 (luatex.def)             Requested size: 43.36452pt x 21.68225pt.
 
 Package fontspec Info: 
@@ -6146,71 +4450,10 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama scale = 1.
 
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-22.png, id=160, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-22.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-22.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-22.png  used on input line 1106.
-(luatex.def)             Requested size: 43.36452pt x 21.68225pt.
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-23.png, id=161, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-23.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-23.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-23.png  used on input line 1112.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-16.png, id=163, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-16.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-16.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-16.png  used on input line 941.
 (luatex.def)             Requested size: 43.36452pt x 21.68225pt.
 
 Package fontspec Info: 
@@ -6284,10 +4527,10 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama scale = 1.
 
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-24.png, id=162, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-24.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-24.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-24.png  used on input line 1118.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-17.png, id=164, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-17.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-17.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-17.png  used on input line 947.
 (luatex.def)             Requested size: 43.36452pt x 21.68225pt.
 
 Package fontspec Info: 
@@ -6345,55 +4588,10 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama scale = 1.
 
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-25.png, id=163, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-25.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-25.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-25.png  used on input line 1124.
-(luatex.def)             Requested size: 43.36452pt x 21.68225pt.
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-26.png, id=164, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-26.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-26.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-26.png  used on input line 1130.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-18.png, id=165, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-18.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-18.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-18.png  used on input line 953.
 (luatex.def)             Requested size: 43.36452pt x 21.68225pt.
 
 Package fontspec Info: 
@@ -6451,87 +4649,10 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama scale = 1.
 
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-27.png, id=165, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-27.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-27.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-27.png  used on input line 1136.
-(luatex.def)             Requested size: 43.36452pt x 21.68225pt.
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-28.png, id=166, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-28.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-28.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-28.png  used on input line 1142.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-19.png, id=166, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-19.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-19.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-19.png  used on input line 959.
 (luatex.def)             Requested size: 43.36452pt x 21.68225pt.
 
 Package fontspec Info: 
@@ -6605,132 +4726,10 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama scale = 1.
 
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-29.png, id=167, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-29.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-29.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-29.png  used on input line 1148.
-(luatex.def)             Requested size: 43.36452pt x 21.68225pt.
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-30.png, id=168, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-30.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-30.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-30.png  used on input line 1154.
-(luatex.def)             Requested size: 43.36452pt x 21.68225pt.
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509066048391889.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-31.png, id=169, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-31.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-31.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-31.png  used on input line 1160.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-20.png, id=167, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-20.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-20.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-20.png  used on input line 965.
 (luatex.def)             Requested size: 43.36452pt x 21.68225pt.
 
 Package fontspec Info: 
@@ -6804,10 +4803,132 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama scale = 1.
 
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-32.png, id=170, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-32.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-32.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-32.png  used on input line 1166.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-21.png, id=168, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-21.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-21.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-21.png  used on input line 971.
+(luatex.def)             Requested size: 43.36452pt x 21.68225pt.
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-22.png, id=169, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-22.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-22.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-22.png  used on input line 977.
+(luatex.def)             Requested size: 43.36452pt x 21.68225pt.
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-23.png, id=170, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-23.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-23.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-23.png  used on input line 983.
 (luatex.def)             Requested size: 43.36452pt x 21.68225pt.
 
 Package fontspec Info: 
@@ -6881,10 +5002,10 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama scale = 1.
 
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-33.png, id=171, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-33.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-33.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-33.png  used on input line 1172.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-24.png, id=171, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-24.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-24.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-24.png  used on input line 989.
 (luatex.def)             Requested size: 43.36452pt x 21.68225pt.
 
 Package fontspec Info: 
@@ -6942,10 +5063,55 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama scale = 1.
 
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-34.png, id=172, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-34.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-34.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-34.png  used on input line 1178.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-25.png, id=172, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-25.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-25.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-25.png  used on input line 995.
+(luatex.def)             Requested size: 43.36452pt x 21.68225pt.
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-26.png, id=173, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-26.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-26.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-26.png  used on input line 1001.
 (luatex.def)             Requested size: 43.36452pt x 21.68225pt.
 
 Package fontspec Info: 
@@ -7003,10 +5169,87 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama scale = 1.
 
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-35.png, id=173, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-35.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-35.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-35.png  used on input line 1184.
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-27.png, id=174, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-27.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-27.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-27.png  used on input line 1007.
+(luatex.def)             Requested size: 43.36452pt x 21.68225pt.
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-28.png, id=175, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-28.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-28.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-28.png  used on input line 1013.
 (luatex.def)             Requested size: 43.36452pt x 21.68225pt.
 
 Package fontspec Info: 
@@ -7080,27 +5323,502 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama scale = 1.
 
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-36.png, id=174, 43.362pt x 21.681pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-36.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-36.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-36.png  used on input line 1190.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-29.png, id=176, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-29.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-29.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-29.png  used on input line 1019.
 (luatex.def)             Requested size: 43.36452pt x 21.68225pt.
-[17</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-1.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-2.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-3.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-4.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-5.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-6.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-7.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-8.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-9.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-10.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-11.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-12.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-13.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-14.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-15.png>] [18</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-16.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-17.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-18.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-19.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-20.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-21.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-22.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-23.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-24.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-25.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-26.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-27.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-28.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-29.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-30.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-31.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-32.png>]
 
-[19</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-33.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-34.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-35.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_season_median_files/figure-latex/unnamed-chunk-402-36.png>]
-<figures/headers/none_testing_how_to_read_trend_line_plots_plot.png, id=227, 404.712pt x 50.589pt>
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-30.png, id=177, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-30.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-30.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-30.png  used on input line 1025.
+(luatex.def)             Requested size: 43.36452pt x 21.68225pt.
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-31.png, id=178, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-31.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-31.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-31.png  used on input line 1031.
+(luatex.def)             Requested size: 43.36452pt x 21.68225pt.
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-32.png, id=179, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-32.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-32.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-32.png  used on input line 1037.
+(luatex.def)             Requested size: 43.36452pt x 21.68225pt.
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-33.png, id=180, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-33.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-33.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-33.png  used on input line 1043.
+(luatex.def)             Requested size: 43.36452pt x 21.68225pt.
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-34.png, id=181, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-34.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-34.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-34.png  used on input line 1049.
+(luatex.def)             Requested size: 43.36452pt x 21.68225pt.
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-35.png, id=182, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-35.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-35.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-35.png  used on input line 1055.
+(luatex.def)             Requested size: 43.36452pt x 21.68225pt.
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 0.7509066048391889.
+
+
+Package fontspec Info: 
+(fontspec)             Georama scale = 1.
+
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-36.png, id=183, 43.362pt x 21.681pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-36.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-36.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-36.png  used on input line 1061.
+(luatex.def)             Requested size: 43.36452pt x 21.68225pt.
+[16</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-1.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-2.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-3.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-4.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-5.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-6.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-7.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-8.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-9.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-10.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-11.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-12.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-13.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-14.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-15.png>] [17</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-16.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-17.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-18.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-19.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-20.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-21.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-22.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-23.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-24.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-25.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-26.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-27.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-28.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-29.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-30.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-31.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-32.png>]
+
+[18</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-33.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-34.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-35.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average_files/figure-latex/unnamed-chunk-388-36.png>]
+<figures/headers/none_testing_how_to_read_trend_line_plots_plot.png, id=237, 404.712pt x 50.589pt>
 File: figures/headers/none_testing_how_to_read_trend_line_plots_plot.png Graphic file (type png)
 <use figures/headers/none_testing_how_to_read_trend_line_plots_plot.png>
-Package luatex.def Info: figures/headers/none_testing_how_to_read_trend_line_plots_plot.png  used on input line 1214.
+Package luatex.def Info: figures/headers/none_testing_how_to_read_trend_line_plots_plot.png  used on input line 1085.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
-<figures/trendlines/trend_plot_legend_mean_median.png, id=228, 180.675pt x 144.54pt>
+<figures/trendlines/trend_plot_legend_mean_median.png, id=238, 180.675pt x 144.54pt>
 File: figures/trendlines/trend_plot_legend_mean_median.png Graphic file (type png)
 <use figures/trendlines/trend_plot_legend_mean_median.png>
-Package luatex.def Info: figures/trendlines/trend_plot_legend_mean_median.png  used on input line 1222.
+Package luatex.def Info: figures/trendlines/trend_plot_legend_mean_median.png  used on input line 1093.
 (luatex.def)             Requested size: 180.68282pt x 144.54623pt.
 
 
-[20<./figures/headers/none_testing_how_to_read_trend_line_plots_plot.png><./figures/trendlines/trend_plot_legend_mean_median.png>] (./TORV-report_Maroon-Creek-Club_2024-09-18_season_median.aux)
+[19<./figures/headers/none_testing_how_to_read_trend_line_plots_plot.png><./figures/trendlines/trend_plot_legend_mean_median.png>] (./TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-09-10>
@@ -7111,19 +5829,19 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 )
 
 Here is how much of LuaTeX's memory you used:
- 21418 strings out of 475910
- 125086,1648299 words of node,token memory allocated
- 709 words of node memory still in use:
-   8 hlist, 3 vlist, 4 rule, 1 local_par, 5 glue, 4 kern, 1 penalty, 1 margin_kern, 4 glyph, 14 attribute, 67 glue_spec, 14 attribute_list, 1 write, 1 user_defined, 1 pdf_action, 2 pdf_colorstack nodes
-   avail lists: 1:1,2:5235,3:1261,4:1187,5:1235,6:459,7:6629,8:2,9:4872,10:20,11:343
+ 21421 strings out of 475910
+ 156364,1648299 words of node,token memory allocated
+ 731 words of node memory still in use:
+   8 hlist, 3 vlist, 4 rule, 1 local_par, 7 glue, 4 kern, 1 penalty, 1 margin_kern, 4 glyph, 16 attribute, 67 glue_spec, 16 attribute_list, 1 write, 1 user_defined, 1 pdf_action, 2 pdf_colorstack nodes
+   avail lists: 1:4,2:5279,3:1261,4:1187,5:1330,6:459,7:6769,8:64,9:4872,10:20,11:427
  43463 multiletter control sequences out of 65536+600000
- 117 fonts using 29885575 bytes
- 90i,10n,131p,2349b,532s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</Users/ericfoerster/Library/Fonts/Georama-SemiBold.ttf></Users/ericfoerster/Library/Fonts/Georama-Regular.ttf></Users/ericfoerster/Library/Fonts/Georama_SemiCondensed-Medium.ttf></Users/ericfoerster/Library/Fonts/Rasa-BoldItalic.ttf></Users/ericfoerster/Library/Fonts/Rasa-Italic.ttf></Users/ericfoerster/Library/Fonts/Rasa-Bold.ttf></Users/ericfoerster/Library/Fonts/Rasa-Regular.ttf>
-Output written on TORV-report_Maroon-Creek-Club_2024-09-18_season_median.pdf (20 pages, 3900919 bytes).
+ 117 fonts using 29867243 bytes
+ 90i,10n,131p,2270b,531s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</Users/ericfoerster/Library/Fonts/Georama-SemiBold.ttf></Users/ericfoerster/Library/Fonts/Georama-Regular.ttf></Users/ericfoerster/Library/Fonts/Georama_SemiCondensed-Medium.ttf></Users/ericfoerster/Library/Fonts/Rasa-Italic.ttf></Users/ericfoerster/Library/Fonts/Rasa-BoldItalic.ttf></Users/ericfoerster/Library/Fonts/Rasa-Bold.ttf></Users/ericfoerster/Library/Fonts/Rasa-Regular.ttf>
+Output written on TORV-report_The-Valley-Club-Fazio_2024-10-08_season_average.pdf (19 pages, 2806814 bytes).
 
-PDF statistics: 338 PDF objects out of 1000 (max. 8388607)
- 195 compressed objects within 2 object streams
- 45 named destinations out of 1000 (max. 131072)
- 145 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 351 PDF objects out of 1000 (max. 8388607)
+ 210 compressed objects within 3 object streams
+ 54 named destinations out of 1000 (max. 131072)
+ 153 words of extra memory for PDF output out of 10000 (max. 100000000)
 

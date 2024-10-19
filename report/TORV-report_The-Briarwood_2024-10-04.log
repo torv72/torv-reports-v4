@@ -1,7 +1,7 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.10.1)  10 OCT 2024 13:47
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.10.1)  11 OCT 2024 10:53
  restricted system commands enabled.
-**"/Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18.tex"
-("/Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18.tex"
+**"/Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Briarwood_2024-10-04.tex"
+("/Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Briarwood_2024-10-04.tex"
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-09-10>
 Lua module: luaotfload 2024-02-14 3.28 Lua based OpenType font support
@@ -708,8 +708,8 @@ File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO)
 \BKM@id=\count330
 ))
 Package hyperref Info: Option `colorlinks' set `true' on input line 99.
-(./TORV-report_Maroon-Creek-Club_2024-09-18.aux)
-\openout1 = TORV-report_Maroon-Creek-Club_2024-09-18.aux
+(./TORV-report_The-Briarwood_2024-10-04.aux)
+\openout1 = TORV-report_The-Briarwood_2024-10-04.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 105.
 LaTeX Font Info:    ... okay on input line 105.
@@ -1038,54 +1038,73 @@ LaTeX Font Info:    Font shape `TU/Rasa(0)/b/n' will be
 (Font)              scaled to size 10.0pt on input line 120.
 LaTeX Font Info:    Font shape `TU/Rasa(0)/b/n' will be
 (Font)              scaled to size 16.0pt on input line 120.
-LaTeX Font Info:    Font shape `TU/Rasa(0)/m/it' will be
-(Font)              scaled to size 10.0pt on input line 227.
-
-
-[2<./figures/headers/none_testing_executive_summary_plot.png>]
+</Users/ericfoerster/Desktop/torv-reports v4/smiley-25523_1280.png, id=15, 1284.8pt x 1278.7775pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/smiley-25523_1280.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/smiley-25523_1280.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/smiley-25523_1280.png  used on input line 135.
+(luatex.def)             Requested size: 32.87665pt x 32.72253pt.
 LaTeX Font Info:    Font shape `TU/Rasa(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 276.
+(Font)              scaled to size 7.0pt on input line 150.
+LaTeX Font Info:    Font shape `TU/Rasa(0)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 150.
+LaTeX Font Info:    Font shape `TU/Rasa(0)/m/n' will be
+(Font)              scaled to size 6.0pt on input line 150.
+
+Overfull \hbox (4.77855pt too wide) in paragraph at lines 150--150
+[][][]\TU/Rasa(0)/m/n/8 ([][]$https://www.semanticscholar.org/paper/Using-Humus-on-Golf-Course-Fairways-to-Alleviate-Zhu-Li/d55b530cb3925dc3bac4e0d3a9bb73828ec45e42$[][])| 
+ []
+
+LaTeX Font Info:    Font shape `TU/Rasa(0)/m/it' will be
+(Font)              scaled to size 10.0pt on input line 154.
+
+
+[2<./figures/headers/none_testing_executive_summary_plot.png></Users/ericfoerster/Desktop/torv-reports v4/smiley-25523_1280.png>]
+</Users/ericfoerster/Desktop/torv-reports v4/clipart1999883.png, id=31, 493.845pt x 580.1675pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/clipart1999883.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/clipart1999883.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/clipart1999883.png  used on input line 295.
+(luatex.def)             Requested size: 32.88474pt x 38.63287pt.
+LaTeX Font Info:    Font shape `TU/Rasa(0)/m/n' will be
+(Font)              scaled to size 9.0pt on input line 320.
 LaTeX Font Info:    Font shape `TU/Rasa(0)/b/n' will be
-(Font)              scaled to size 9.0pt on input line 276.
+(Font)              scaled to size 9.0pt on input line 320.
 LaTeX Font Info:    Font shape `TU/Rasa(0)/b/it' will be
-(Font)              scaled to size 9.0pt on input line 276.
-LaTeX Font Info:    Font shape `TU/Rasa(0)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 280.
+(Font)              scaled to size 9.0pt on input line 320.
 LaTeX Font Info:    Font shape `TU/Rasa(0)/m/it' will be
-(Font)              scaled to size 8.0pt on input line 280.
+(Font)              scaled to size 8.0pt on input line 324.
 
 
-[3]
-<figures/headers/turf_testing_growth_plot.png, id=38, 404.712pt x 50.589pt>
+[3</Users/ericfoerster/Desktop/torv-reports v4/clipart1999883.png>]
+<figures/headers/turf_testing_growth_plot.png, id=42, 404.712pt x 50.589pt>
 File: figures/headers/turf_testing_growth_plot.png Graphic file (type png)
 <use figures/headers/turf_testing_growth_plot.png>
-Package luatex.def Info: figures/headers/turf_testing_growth_plot.png  used on input line 287.
+Package luatex.def Info: figures/headers/turf_testing_growth_plot.png  used on input line 331.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
-<figures/monthly_growth_potential_plot.png, id=40, 469.755pt x 296.307pt>
+<figures/monthly_growth_potential_plot.png, id=44, 469.755pt x 296.307pt>
 File: figures/monthly_growth_potential_plot.png Graphic file (type png)
 <use figures/monthly_growth_potential_plot.png>
-Package luatex.def Info: figures/monthly_growth_potential_plot.png  used on input line 302.
+Package luatex.def Info: figures/monthly_growth_potential_plot.png  used on input line 346.
 (luatex.def)             Requested size: 469.75386pt x 296.30627pt.
 
 
 [4<./figures/headers/turf_testing_growth_plot.png><./figures/monthly_growth_potential_plot.png>]
-<figures/headers/soil_testing_green_plot.png, id=49, 404.712pt x 50.589pt>
+<figures/headers/soil_testing_green_plot.png, id=53, 404.712pt x 50.589pt>
 File: figures/headers/soil_testing_green_plot.png Graphic file (type png)
 <use figures/headers/soil_testing_green_plot.png>
-Package luatex.def Info: figures/headers/soil_testing_green_plot.png  used on input line 310.
+Package luatex.def Info: figures/headers/soil_testing_green_plot.png  used on input line 354.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
 LaTeX Font Info:    Font shape `TU/Rasa(0)/b/n' will be
-(Font)              scaled to size 8.0pt on input line 322.
-<figures/soil_testing/MLSN_deficits_GREEN_plot.png, id=50, 469.755pt x 397.485pt>
+(Font)              scaled to size 8.0pt on input line 366.
+<figures/soil_testing/MLSN_deficits_GREEN_plot.png, id=54, 469.755pt x 397.485pt>
 File: figures/soil_testing/MLSN_deficits_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/MLSN_deficits_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/MLSN_deficits_GREEN_plot.png  used on input line 331.
+Package luatex.def Info: figures/soil_testing/MLSN_deficits_GREEN_plot.png  used on input line 375.
 (luatex.def)             Requested size: 469.75386pt x 397.48402pt.
 
 
 [5<./figures/headers/soil_testing_green_plot.png><./figures/soil_testing/MLSN_deficits_GREEN_plot.png>]
 LaTeX Font Info:    Font shape `TU/Rasa(0)/b/it' will be
-(Font)              scaled to size 8.0pt on input line 339.
+(Font)              scaled to size 8.0pt on input line 383.
 
 Package fontspec Info: 
 (fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
@@ -1191,9 +1210,9 @@ Package fontspec Info:
 (fontspec)             SemiCondensed/BI:mode=node;script=latn;language=dflt;+tlig;+smcp;"
 
 LaTeX Font Info:    Font shape `TU/GeoramaSemiCondensed(0)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 360.
+(Font)              scaled to size 12.0pt on input line 404.
 LaTeX Font Info:    Font shape `TU/GeoramaSemiCondensed(0)/b/n' will be
-(Font)              scaled to size 12.0pt on input line 360.
+(Font)              scaled to size 12.0pt on input line 404.
 
 Package fontspec Info: 
 (fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
@@ -1211,7 +1230,7 @@ Package fontspec Info:
 (fontspec)             Georama SemiCondensed scale = 1.
 
 LaTeX Font Info:    Font shape `TU/GeoramaSemiCondensed(0)/b/n' will be
-(Font)              scaled to size 8.0pt on input line 360.
+(Font)              scaled to size 8.0pt on input line 404.
 
 Package fontspec Info: 
 (fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
@@ -1495,7 +1514,7 @@ Package fontspec Info:
 (fontspec)             <->s*[1]"name:Georama/BI:mode=node;script=latn;language=dflt;+tlig;+smcp;"
 
 LaTeX Font Info:    Font shape `TU/Georama(0)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 372.
+(Font)              scaled to size 8.0pt on input line 416.
 
 Package fontspec Info: 
 (fontspec)             Georama scale = 0.7509051186017479.
@@ -1537,9 +1556,9 @@ Package fontspec Info:
 (fontspec)             Georama SemiCondensed scale = 1.
 
 LaTeX Font Info:    Font shape `TU/GeoramaSemiCondensed(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 378.
+(Font)              scaled to size 10.0pt on input line 422.
 LaTeX Font Info:    Font shape `TU/GeoramaSemiCondensed(0)/b/n' will be
-(Font)              scaled to size 10.0pt on input line 378.
+(Font)              scaled to size 10.0pt on input line 422.
 
 Package fontspec Info: 
 (fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
@@ -1980,1613 +1999,163 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama SemiCondensed scale = 1.
 
-<figures/soil_testing/p_h_GREEN_plot.png, id=56, 72.27pt x 50.589pt>
+
+Package fontspec Info: 
+(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
+
+
+Package fontspec Info: 
+(fontspec)             Georama SemiCondensed scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
+
+
+Package fontspec Info: 
+(fontspec)             Georama SemiCondensed scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
+
+
+Package fontspec Info: 
+(fontspec)             Georama SemiCondensed scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
+
+
+Package fontspec Info: 
+(fontspec)             Georama SemiCondensed scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
+
+
+Package fontspec Info: 
+(fontspec)             Georama SemiCondensed scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
+
+
+Package fontspec Info: 
+(fontspec)             Georama SemiCondensed scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
+
+
+Package fontspec Info: 
+(fontspec)             Georama SemiCondensed scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
+
+
+Package fontspec Info: 
+(fontspec)             Georama SemiCondensed scale = 1.
+
+<figures/soil_testing/p_h_GREEN_plot.png, id=60, 72.27pt x 50.589pt>
 File: figures/soil_testing/p_h_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/p_h_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/p_h_GREEN_plot.png  used on input line 434.
+Package luatex.def Info: figures/soil_testing/p_h_GREEN_plot.png  used on input line 484.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/organic_matter_GREEN_plot.png, id=57, 72.27pt x 50.589pt>
+<figures/soil_testing/organic_matter_GREEN_plot.png, id=61, 72.27pt x 50.589pt>
 File: figures/soil_testing/organic_matter_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/organic_matter_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/organic_matter_GREEN_plot.png  used on input line 438.
+Package luatex.def Info: figures/soil_testing/organic_matter_GREEN_plot.png  used on input line 488.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/total_nitrogen_GREEN_plot.png, id=58, 72.27pt x 50.589pt>
+<figures/soil_testing/total_nitrogen_GREEN_plot.png, id=62, 72.27pt x 50.589pt>
 File: figures/soil_testing/total_nitrogen_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/total_nitrogen_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/total_nitrogen_GREEN_plot.png  used on input line 442.
+Package luatex.def Info: figures/soil_testing/total_nitrogen_GREEN_plot.png  used on input line 492.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-LaTeX Font Info:    Font shape `TU/Rasa(0)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 445.
-<figures/soil_testing/potassium_GREEN_plot.png, id=59, 72.27pt x 50.589pt>
+<figures/soil_testing/potassium_GREEN_plot.png, id=63, 72.27pt x 50.589pt>
 File: figures/soil_testing/potassium_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/potassium_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/potassium_GREEN_plot.png  used on input line 448.
+Package luatex.def Info: figures/soil_testing/potassium_GREEN_plot.png  used on input line 498.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/phosphorus_GREEN_plot.png, id=60, 72.27pt x 50.589pt>
+<figures/soil_testing/phosphorus_GREEN_plot.png, id=64, 72.27pt x 50.589pt>
 File: figures/soil_testing/phosphorus_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/phosphorus_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/phosphorus_GREEN_plot.png  used on input line 453.
+Package luatex.def Info: figures/soil_testing/phosphorus_GREEN_plot.png  used on input line 503.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/calcium_GREEN_plot.png, id=61, 72.27pt x 50.589pt>
+<figures/soil_testing/calcium_GREEN_plot.png, id=65, 72.27pt x 50.589pt>
 File: figures/soil_testing/calcium_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/calcium_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/calcium_GREEN_plot.png  used on input line 458.
+Package luatex.def Info: figures/soil_testing/calcium_GREEN_plot.png  used on input line 508.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 
 
 [6<./figures/soil_testing/p_h_GREEN_plot.png><./figures/soil_testing/organic_matter_GREEN_plot.png><./figures/soil_testing/total_nitrogen_GREEN_plot.png><./figures/soil_testing/potassium_GREEN_plot.png><./figures/soil_testing/phosphorus_GREEN_plot.png>]
-<figures/soil_testing/magnesium_GREEN_plot.png, id=72, 72.27pt x 50.589pt>
+<figures/soil_testing/magnesium_GREEN_plot.png, id=76, 72.27pt x 50.589pt>
 File: figures/soil_testing/magnesium_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/magnesium_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/magnesium_GREEN_plot.png  used on input line 463.
+Package luatex.def Info: figures/soil_testing/magnesium_GREEN_plot.png  used on input line 513.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/sodium_GREEN_plot.png, id=73, 72.27pt x 50.589pt>
+<figures/soil_testing/sodium_GREEN_plot.png, id=77, 72.27pt x 50.589pt>
 File: figures/soil_testing/sodium_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/sodium_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/sodium_GREEN_plot.png  used on input line 468.
+Package luatex.def Info: figures/soil_testing/sodium_GREEN_plot.png  used on input line 518.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/sulfur_GREEN_plot.png, id=74, 72.27pt x 50.589pt>
+<figures/soil_testing/sulfur_GREEN_plot.png, id=78, 72.27pt x 50.589pt>
 File: figures/soil_testing/sulfur_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/sulfur_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/sulfur_GREEN_plot.png  used on input line 472.
+Package luatex.def Info: figures/soil_testing/sulfur_GREEN_plot.png  used on input line 522.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/iron_GREEN_plot.png, id=75, 72.27pt x 50.589pt>
+<figures/soil_testing/iron_GREEN_plot.png, id=79, 72.27pt x 50.589pt>
 File: figures/soil_testing/iron_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/iron_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/iron_GREEN_plot.png  used on input line 477.
+Package luatex.def Info: figures/soil_testing/iron_GREEN_plot.png  used on input line 527.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/manganese_GREEN_plot.png, id=76, 72.27pt x 50.589pt>
+<figures/soil_testing/manganese_GREEN_plot.png, id=80, 72.27pt x 50.589pt>
 File: figures/soil_testing/manganese_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/manganese_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/manganese_GREEN_plot.png  used on input line 482.
+Package luatex.def Info: figures/soil_testing/manganese_GREEN_plot.png  used on input line 532.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/micronutrients_GREEN_plot.png, id=77, 72.27pt x 50.589pt>
+<figures/soil_testing/micronutrients_GREEN_plot.png, id=81, 72.27pt x 50.589pt>
 File: figures/soil_testing/micronutrients_GREEN_plot.png Graphic file (type png)
 <use figures/soil_testing/micronutrients_GREEN_plot.png>
-Package luatex.def Info: figures/soil_testing/micronutrients_GREEN_plot.png  used on input line 487.
+Package luatex.def Info: figures/soil_testing/micronutrients_GREEN_plot.png  used on input line 537.
 (luatex.def)             Requested size: 72.2731pt x 50.59117pt.
 
 
 [7<./figures/soil_testing/calcium_GREEN_plot.png><./figures/soil_testing/magnesium_GREEN_plot.png><./figures/soil_testing/sodium_GREEN_plot.png><./figures/soil_testing/sulfur_GREEN_plot.png><./figures/soil_testing/iron_GREEN_plot.png><./figures/soil_testing/manganese_GREEN_plot.png><./figures/soil_testing/micronutrients_GREEN_plot.png>]
-<figures/headers/soil_testing_green_trends_plot.png, id=82, 404.712pt x 50.589pt>
+<figures/headers/soil_testing_green_trends_plot.png, id=86, 404.712pt x 50.589pt>
 File: figures/headers/soil_testing_green_trends_plot.png Graphic file (type png)
 <use figures/headers/soil_testing_green_trends_plot.png>
-Package luatex.def Info: figures/headers/soil_testing_green_trends_plot.png  used on input line 494.
+Package luatex.def Info: figures/headers/soil_testing_green_trends_plot.png  used on input line 544.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-171-1.png, id=83, 481.8pt x 447.1104pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-171-1.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-171-1.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-171-1.png  used on input line 496.
-(luatex.def)             Requested size: 469.77148pt x 435.94794pt.
-
-
-[8<./figures/headers/soil_testing_green_trends_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-171-1.png>]
-<figures/headers/soil_testing_tee_plot.png, id=91, 404.712pt x 50.589pt>
-File: figures/headers/soil_testing_tee_plot.png Graphic file (type png)
-<use figures/headers/soil_testing_tee_plot.png>
-Package luatex.def Info: figures/headers/soil_testing_tee_plot.png  used on input line 506.
-(luatex.def)             Requested size: 404.72954pt x 50.59117pt.
-<figures/soil_testing/MLSN_deficits_TEE_plot.png, id=92, 469.755pt x 397.485pt>
-File: figures/soil_testing/MLSN_deficits_TEE_plot.png Graphic file (type png)
-<use figures/soil_testing/MLSN_deficits_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/MLSN_deficits_TEE_plot.png  used on input line 527.
-(luatex.def)             Requested size: 469.75386pt x 397.48402pt.
-
-
-[9<./figures/headers/soil_testing_tee_plot.png><./figures/soil_testing/MLSN_deficits_TEE_plot.png>]
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509051186017479.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509051186017479.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509051186017479.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509051186017479.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509051186017479.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-<figures/soil_testing/p_h_TEE_plot.png, id=98, 72.27pt x 50.589pt>
-File: figures/soil_testing/p_h_TEE_plot.png Graphic file (type png)
-<use figures/soil_testing/p_h_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/p_h_TEE_plot.png  used on input line 624.
-(luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/organic_matter_TEE_plot.png, id=99, 72.27pt x 50.589pt>
-File: figures/soil_testing/organic_matter_TEE_plot.png Graphic file (type png)
-<use figures/soil_testing/organic_matter_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/organic_matter_TEE_plot.png  used on input line 628.
-(luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/total_nitrogen_TEE_plot.png, id=100, 72.27pt x 50.589pt>
-File: figures/soil_testing/total_nitrogen_TEE_plot.png Graphic file (type png)
-<use figures/soil_testing/total_nitrogen_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/total_nitrogen_TEE_plot.png  used on input line 632.
-(luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/potassium_TEE_plot.png, id=101, 72.27pt x 50.589pt>
-File: figures/soil_testing/potassium_TEE_plot.png Graphic file (type png)
-<use figures/soil_testing/potassium_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/potassium_TEE_plot.png  used on input line 638.
-(luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/phosphorus_TEE_plot.png, id=102, 72.27pt x 50.589pt>
-File: figures/soil_testing/phosphorus_TEE_plot.png Graphic file (type png)
-<use figures/soil_testing/phosphorus_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/phosphorus_TEE_plot.png  used on input line 643.
-(luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/calcium_TEE_plot.png, id=103, 72.27pt x 50.589pt>
-File: figures/soil_testing/calcium_TEE_plot.png Graphic file (type png)
-<use figures/soil_testing/calcium_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/calcium_TEE_plot.png  used on input line 648.
-(luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-
-
-[10<./figures/soil_testing/p_h_TEE_plot.png><./figures/soil_testing/organic_matter_TEE_plot.png><./figures/soil_testing/total_nitrogen_TEE_plot.png><./figures/soil_testing/potassium_TEE_plot.png><./figures/soil_testing/phosphorus_TEE_plot.png><./figures/soil_testing/calcium_TEE_plot.png>]
-<figures/soil_testing/magnesium_TEE_plot.png, id=111, 72.27pt x 50.589pt>
-File: figures/soil_testing/magnesium_TEE_plot.png Graphic file (type png)
-<use figures/soil_testing/magnesium_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/magnesium_TEE_plot.png  used on input line 653.
-(luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/sodium_TEE_plot.png, id=112, 72.27pt x 50.589pt>
-File: figures/soil_testing/sodium_TEE_plot.png Graphic file (type png)
-<use figures/soil_testing/sodium_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/sodium_TEE_plot.png  used on input line 658.
-(luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/sulfur_TEE_plot.png, id=113, 72.27pt x 50.589pt>
-File: figures/soil_testing/sulfur_TEE_plot.png Graphic file (type png)
-<use figures/soil_testing/sulfur_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/sulfur_TEE_plot.png  used on input line 662.
-(luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/iron_TEE_plot.png, id=114, 72.27pt x 50.589pt>
-File: figures/soil_testing/iron_TEE_plot.png Graphic file (type png)
-<use figures/soil_testing/iron_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/iron_TEE_plot.png  used on input line 667.
-(luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/manganese_TEE_plot.png, id=115, 72.27pt x 50.589pt>
-File: figures/soil_testing/manganese_TEE_plot.png Graphic file (type png)
-<use figures/soil_testing/manganese_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/manganese_TEE_plot.png  used on input line 672.
-(luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/micronutrients_TEE_plot.png, id=116, 72.27pt x 50.589pt>
-File: figures/soil_testing/micronutrients_TEE_plot.png Graphic file (type png)
-<use figures/soil_testing/micronutrients_TEE_plot.png>
-Package luatex.def Info: figures/soil_testing/micronutrients_TEE_plot.png  used on input line 677.
-(luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-
-
-[11<./figures/soil_testing/magnesium_TEE_plot.png><./figures/soil_testing/sodium_TEE_plot.png><./figures/soil_testing/sulfur_TEE_plot.png><./figures/soil_testing/iron_TEE_plot.png><./figures/soil_testing/manganese_TEE_plot.png><./figures/soil_testing/micronutrients_TEE_plot.png>]
-<figures/headers/soil_testing_tee_trends_plot.png, id=122, 404.712pt x 50.589pt>
-File: figures/headers/soil_testing_tee_trends_plot.png Graphic file (type png)
-<use figures/headers/soil_testing_tee_trends_plot.png>
-Package luatex.def Info: figures/headers/soil_testing_tee_trends_plot.png  used on input line 684.
-(luatex.def)             Requested size: 404.72954pt x 50.59117pt.
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-294-1.png, id=123, 481.8pt x 446.8695pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-294-1.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-294-1.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-294-1.png  used on input line 686.
-(luatex.def)             Requested size: 469.77148pt x 435.71306pt.
-
-
-[12<./figures/headers/soil_testing_tee_trends_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-294-1.png>]
-<figures/headers/soil_testing_fairway_plot.png, id=130, 404.712pt x 50.589pt>
-File: figures/headers/soil_testing_fairway_plot.png Graphic file (type png)
-<use figures/headers/soil_testing_fairway_plot.png>
-Package luatex.def Info: figures/headers/soil_testing_fairway_plot.png  used on input line 696.
-(luatex.def)             Requested size: 404.72954pt x 50.59117pt.
-<figures/soil_testing/MLSN_deficits_FAIRWAY_plot.png, id=131, 469.755pt x 397.485pt>
-File: figures/soil_testing/MLSN_deficits_FAIRWAY_plot.png Graphic file (type png)
-<use figures/soil_testing/MLSN_deficits_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/MLSN_deficits_FAIRWAY_plot.png  used on input line 718.
-(luatex.def)             Requested size: 469.75386pt x 397.48402pt.
-
-
-[13<./figures/headers/soil_testing_fairway_plot.png><./figures/soil_testing/MLSN_deficits_FAIRWAY_plot.png>]
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509056986768823.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509051186017479.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509051186017479.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509051186017479.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509051186017479.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 0.7509051186017479.
-
-
-Package fontspec Info: 
-(fontspec)             Georama scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-<figures/soil_testing/p_h_FAIRWAY_plot.png, id=137, 72.27pt x 50.589pt>
-File: figures/soil_testing/p_h_FAIRWAY_plot.png Graphic file (type png)
-<use figures/soil_testing/p_h_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/p_h_FAIRWAY_plot.png  used on input line 821.
-(luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/organic_matter_FAIRWAY_plot.png, id=138, 72.27pt x 50.589pt>
-File: figures/soil_testing/organic_matter_FAIRWAY_plot.png Graphic file (type png)
-<use figures/soil_testing/organic_matter_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/organic_matter_FAIRWAY_plot.png  used on input line 825.
-(luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/total_nitrogen_FAIRWAY_plot.png, id=139, 72.27pt x 50.589pt>
-File: figures/soil_testing/total_nitrogen_FAIRWAY_plot.png Graphic file (type png)
-<use figures/soil_testing/total_nitrogen_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/total_nitrogen_FAIRWAY_plot.png  used on input line 829.
-(luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/potassium_FAIRWAY_plot.png, id=140, 72.27pt x 50.589pt>
-File: figures/soil_testing/potassium_FAIRWAY_plot.png Graphic file (type png)
-<use figures/soil_testing/potassium_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/potassium_FAIRWAY_plot.png  used on input line 835.
-(luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/phosphorus_FAIRWAY_plot.png, id=141, 72.27pt x 50.589pt>
-File: figures/soil_testing/phosphorus_FAIRWAY_plot.png Graphic file (type png)
-<use figures/soil_testing/phosphorus_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/phosphorus_FAIRWAY_plot.png  used on input line 840.
-(luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/calcium_FAIRWAY_plot.png, id=142, 72.27pt x 50.589pt>
-File: figures/soil_testing/calcium_FAIRWAY_plot.png Graphic file (type png)
-<use figures/soil_testing/calcium_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/calcium_FAIRWAY_plot.png  used on input line 845.
-(luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-
-
-[14<./figures/soil_testing/p_h_FAIRWAY_plot.png><./figures/soil_testing/organic_matter_FAIRWAY_plot.png><./figures/soil_testing/total_nitrogen_FAIRWAY_plot.png><./figures/soil_testing/potassium_FAIRWAY_plot.png><./figures/soil_testing/phosphorus_FAIRWAY_plot.png>]
-<figures/soil_testing/magnesium_FAIRWAY_plot.png, id=150, 72.27pt x 50.589pt>
-File: figures/soil_testing/magnesium_FAIRWAY_plot.png Graphic file (type png)
-<use figures/soil_testing/magnesium_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/magnesium_FAIRWAY_plot.png  used on input line 850.
-(luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/sodium_FAIRWAY_plot.png, id=151, 72.27pt x 50.589pt>
-File: figures/soil_testing/sodium_FAIRWAY_plot.png Graphic file (type png)
-<use figures/soil_testing/sodium_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/sodium_FAIRWAY_plot.png  used on input line 855.
-(luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/sulfur_FAIRWAY_plot.png, id=152, 72.27pt x 50.589pt>
-File: figures/soil_testing/sulfur_FAIRWAY_plot.png Graphic file (type png)
-<use figures/soil_testing/sulfur_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/sulfur_FAIRWAY_plot.png  used on input line 859.
-(luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/iron_FAIRWAY_plot.png, id=153, 72.27pt x 50.589pt>
-File: figures/soil_testing/iron_FAIRWAY_plot.png Graphic file (type png)
-<use figures/soil_testing/iron_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/iron_FAIRWAY_plot.png  used on input line 864.
-(luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/manganese_FAIRWAY_plot.png, id=154, 72.27pt x 50.589pt>
-File: figures/soil_testing/manganese_FAIRWAY_plot.png Graphic file (type png)
-<use figures/soil_testing/manganese_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/manganese_FAIRWAY_plot.png  used on input line 869.
-(luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-<figures/soil_testing/micronutrients_FAIRWAY_plot.png, id=155, 72.27pt x 50.589pt>
-File: figures/soil_testing/micronutrients_FAIRWAY_plot.png Graphic file (type png)
-<use figures/soil_testing/micronutrients_FAIRWAY_plot.png>
-Package luatex.def Info: figures/soil_testing/micronutrients_FAIRWAY_plot.png  used on input line 874.
-(luatex.def)             Requested size: 72.2731pt x 50.59117pt.
-
-
-[15<./figures/soil_testing/calcium_FAIRWAY_plot.png><./figures/soil_testing/magnesium_FAIRWAY_plot.png><./figures/soil_testing/sodium_FAIRWAY_plot.png><./figures/soil_testing/sulfur_FAIRWAY_plot.png><./figures/soil_testing/iron_FAIRWAY_plot.png><./figures/soil_testing/manganese_FAIRWAY_plot.png><./figures/soil_testing/micronutrients_FAIRWAY_plot.png>]
-<figures/headers/soil_testing_fairway_trends_plot.png, id=160, 404.712pt x 50.589pt>
-File: figures/headers/soil_testing_fairway_trends_plot.png Graphic file (type png)
-<use figures/headers/soil_testing_fairway_trends_plot.png>
-Package luatex.def Info: figures/headers/soil_testing_fairway_trends_plot.png  used on input line 881.
-(luatex.def)             Requested size: 404.72954pt x 50.59117pt.
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-417-1.png, id=161, 487.3407pt x 446.8695pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-417-1.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-417-1.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-417-1.png  used on input line 883.
-(luatex.def)             Requested size: 469.77518pt x 430.7627pt.
-
-
-[16<./figures/headers/soil_testing_fairway_trends_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-417-1.png>]
-<figures/headers/om_testing_green_plot.png, id=168, 404.712pt x 50.589pt>
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Briarwood_2024-10-04_files/figure-latex/unnamed-chunk-141-1.png, id=87, 487.0998pt x 446.8695pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Briarwood_2024-10-04_files/figure-latex/unnamed-chunk-141-1.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Briarwood_2024-10-04_files/figure-latex/unnamed-chunk-141-1.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Briarwood_2024-10-04_files/figure-latex/unnamed-chunk-141-1.png  used on input line 546.
+(luatex.def)             Requested size: 469.75848pt x 430.96045pt.
+
+
+[8<./figures/headers/soil_testing_green_trends_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Briarwood_2024-10-04_files/figure-latex/unnamed-chunk-141-1.png>]
+<figures/headers/om_testing_green_plot.png, id=95, 404.712pt x 50.589pt>
 File: figures/headers/om_testing_green_plot.png Graphic file (type png)
 <use figures/headers/om_testing_green_plot.png>
-Package luatex.def Info: figures/headers/om_testing_green_plot.png  used on input line 893.
+Package luatex.def Info: figures/headers/om_testing_green_plot.png  used on input line 556.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 907--910
+Underfull \hbox (badness 10000) in paragraph at lines 570--574
 
  []
 
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-430-1.png, id=169, 471.9231pt x 162.6075pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-430-1.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-430-1.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-430-1.png  used on input line 911.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Briarwood_2024-10-04_files/figure-latex/unnamed-chunk-154-1.png, id=96, 471.9231pt x 162.6075pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Briarwood_2024-10-04_files/figure-latex/unnamed-chunk-154-1.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Briarwood_2024-10-04_files/figure-latex/unnamed-chunk-154-1.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Briarwood_2024-10-04_files/figure-latex/unnamed-chunk-154-1.png  used on input line 575.
 (luatex.def)             Requested size: 469.76884pt x 161.86522pt.
 
 Package fontspec Info: 
@@ -3990,434 +2559,16 @@ Package fontspec Info:
 
 
 
-[17<./figures/headers/om_testing_green_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-430-1.png>]
-<figures/headers/om_testing_tee_plot.png, id=175, 404.712pt x 50.589pt>
-File: figures/headers/om_testing_tee_plot.png Graphic file (type png)
-<use figures/headers/om_testing_tee_plot.png>
-Package luatex.def Info: figures/headers/om_testing_tee_plot.png  used on input line 985.
-(luatex.def)             Requested size: 404.72954pt x 50.59117pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 999--1002
-
- []
-
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-436-1.png, id=176, 471.9231pt x 162.6075pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-436-1.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-436-1.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-436-1.png  used on input line 1003.
-(luatex.def)             Requested size: 469.76884pt x 161.86522pt.
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 0.7509078954304216.
-
-
-Package fontspec Info: 
-(fontspec)             Georama SemiCondensed scale = 1.
-
-
-
-[18<./figures/headers/om_testing_tee_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-436-1.png>]
-<figures/headers/om_testing_sand_fraction_plot.png, id=183, 404.712pt x 50.589pt>
+[9<./figures/headers/om_testing_green_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Briarwood_2024-10-04_files/figure-latex/unnamed-chunk-154-1.png>]
+<figures/headers/om_testing_sand_fraction_plot.png, id=103, 404.712pt x 50.589pt>
 File: figures/headers/om_testing_sand_fraction_plot.png Graphic file (type png)
 <use figures/headers/om_testing_sand_fraction_plot.png>
-Package luatex.def Info: figures/headers/om_testing_sand_fraction_plot.png  used on input line 1079.
+Package luatex.def Info: figures/headers/om_testing_sand_fraction_plot.png  used on input line 651.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-456-1.png, id=184, 464.2143pt x 184.2885pt>
-File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-456-1.png Graphic file (type png)
-<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-456-1.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-456-1.png  used on input line 1081.
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Briarwood_2024-10-04_files/figure-latex/unnamed-chunk-168-1.png, id=104, 464.2143pt x 184.2885pt>
+File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Briarwood_2024-10-04_files/figure-latex/unnamed-chunk-168-1.png Graphic file (type png)
+<use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Briarwood_2024-10-04_files/figure-latex/unnamed-chunk-168-1.png>
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Briarwood_2024-10-04_files/figure-latex/unnamed-chunk-168-1.png  used on input line 653.
 (luatex.def)             Requested size: 464.22731pt x 184.29366pt.
 
 Package fontspec Info: 
@@ -4428,9 +2579,9 @@ Package fontspec Info:
 (fontspec)             Georama scale = 1.
 
 LaTeX Font Info:    Font shape `TU/Georama(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 1101.
+(Font)              scaled to size 9.0pt on input line 673.
 LaTeX Font Info:    Font shape `TU/Georama(0)/b/n' will be
-(Font)              scaled to size 9.0pt on input line 1101.
+(Font)              scaled to size 9.0pt on input line 673.
 
 Package fontspec Info: 
 (fontspec)             Georama scale = 0.7509062773578623.
@@ -6519,22 +4670,22 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Georama scale = 1.
 
-[19<./figures/headers/om_testing_sand_fraction_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_Maroon-Creek-Club_2024-09-18_files/figure-latex/unnamed-chunk-456-1.png>]
+[10<./figures/headers/om_testing_sand_fraction_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Briarwood_2024-10-04_files/figure-latex/unnamed-chunk-168-1.png>]
 
-[20]
-<figures/headers/none_testing_how_to_read_trend_line_plots_plot.png, id=197, 404.712pt x 50.589pt>
+[11]
+<figures/headers/none_testing_how_to_read_trend_line_plots_plot.png, id=117, 404.712pt x 50.589pt>
 File: figures/headers/none_testing_how_to_read_trend_line_plots_plot.png Graphic file (type png)
 <use figures/headers/none_testing_how_to_read_trend_line_plots_plot.png>
-Package luatex.def Info: figures/headers/none_testing_how_to_read_trend_line_plots_plot.png  used on input line 1371.
+Package luatex.def Info: figures/headers/none_testing_how_to_read_trend_line_plots_plot.png  used on input line 943.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
-<figures/trendlines/trend_plot_legend_mean_median.png, id=198, 180.675pt x 144.54pt>
+<figures/trendlines/trend_plot_legend_mean_median.png, id=118, 180.675pt x 144.54pt>
 File: figures/trendlines/trend_plot_legend_mean_median.png Graphic file (type png)
 <use figures/trendlines/trend_plot_legend_mean_median.png>
-Package luatex.def Info: figures/trendlines/trend_plot_legend_mean_median.png  used on input line 1379.
+Package luatex.def Info: figures/trendlines/trend_plot_legend_mean_median.png  used on input line 951.
 (luatex.def)             Requested size: 180.68282pt x 144.54623pt.
 
 
-[21<./figures/headers/none_testing_how_to_read_trend_line_plots_plot.png><./figures/trendlines/trend_plot_legend_mean_median.png>] (./TORV-report_Maroon-Creek-Club_2024-09-18.aux)
+[12<./figures/headers/none_testing_how_to_read_trend_line_plots_plot.png><./figures/trendlines/trend_plot_legend_mean_median.png>] (./TORV-report_The-Briarwood_2024-10-04.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-09-10>
@@ -6542,19 +4693,19 @@ L3 programming layer <2024-09-10>
 )
 
 Here is how much of LuaTeX's memory you used:
- 21597 strings out of 475910
- 125086,1648299 words of node,token memory allocated
- 707 words of node memory still in use:
-   8 hlist, 3 vlist, 4 rule, 1 local_par, 5 glue, 5 kern, 1 penalty, 3 glyph, 15 attribute, 67 glue_spec, 15 attribute_list, 1 write, 1 user_defined, 1 pdf_action, 2 pdf_colorstack nodes
-   avail lists: 1:1,2:4045,3:760,4:1036,5:1233,6:378,7:6081,8:2,9:3574,10:20,11:343
- 43639 multiletter control sequences out of 65536+600000
- 125 fonts using 31235387 bytes
- 90i,10n,131p,2237b,527s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 21114 strings out of 475910
+ 125086,1373583 words of node,token memory allocated
+ 718 words of node memory still in use:
+   8 hlist, 3 vlist, 4 rule, 1 local_par, 6 glue, 5 kern, 1 penalty, 3 glyph, 16 attribute, 67 glue_spec, 16 attribute_list, 1 write, 1 user_defined, 1 pdf_action, 2 pdf_colorstack nodes
+   avail lists: 1:1,2:4089,3:761,4:1036,5:1888,6:378,7:8105,8:137,9:3574,10:20,11:674
+ 43272 multiletter control sequences out of 65536+600000
+ 126 fonts using 31314839 bytes
+ 90i,10n,131p,2233b,527s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/ericfoerster/Library/Fonts/Georama-SemiBold.ttf></Users/ericfoerster/Library/Fonts/Georama-Regular.ttf></Users/ericfoerster/Library/Fonts/Georama_SemiCondensed-Medium.ttf></Users/ericfoerster/Library/Fonts/Georama_SemiCondensed-SemiBold.ttf></Users/ericfoerster/Library/Fonts/Rasa-BoldItalic.ttf></Users/ericfoerster/Library/Fonts/Rasa-Italic.ttf></Users/ericfoerster/Library/Fonts/Rasa-Bold.ttf></Users/ericfoerster/Library/Fonts/Rasa-Regular.ttf>
-Output written on TORV-report_Maroon-Creek-Club_2024-09-18.pdf (21 pages, 2285334 bytes).
+Output written on TORV-report_The-Briarwood_2024-10-04.pdf (12 pages, 1258269 bytes).
 
-PDF statistics: 330 PDF objects out of 1000 (max. 8388607)
- 219 compressed objects within 3 object streams
- 51 named destinations out of 1000 (max. 131072)
- 185 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 217 PDF objects out of 1000 (max. 8388607)
+ 146 compressed objects within 2 object streams
+ 31 named destinations out of 1000 (max. 131072)
+ 105 words of extra memory for PDF output out of 10000 (max. 100000000)
 

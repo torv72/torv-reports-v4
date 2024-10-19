@@ -93,7 +93,7 @@ make_om_plot <- function(plot_measurement_name, plot_depth, draw_beeswarm = inpu
     group_by(plot_date) %>%
     mutate(
       n = if_else(n == 1, "1 sample", paste(n, "samples")),
-      tooltip = paste0("<b>", sprintf("%.2f", avg_measurement_result, 2), "%</b><br><span style='font-size:12pt;'>in ", year(plot_date), " (", n, ")</span>")
+      tooltip = paste0("<b>", sprintf("%.2f", avg_measurement_result, 2), "%</b><br><span style='font-size:12pt;'>", format(plot_date, "%B %Y"), " (", n, ")</span>")
     )
 
   check_lims <- slice_tail(data, n = 2)

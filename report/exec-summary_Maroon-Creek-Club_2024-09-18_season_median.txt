@@ -5,15 +5,6 @@
 * All calculations are based on a monthly maximum of 0.5 lbs of N/M.
 * The average total available Nitrogen is 2.1 ppm.
 * Deficits were noted in the following 2 measurements: Potassium (ppm) and Phosphorus (ppm). See the "Required element per area" table within the Green section for an indication of how much fertilizer should be added to each sampled area.
-* For efficiency, apply .66 lbs/M potassium sulfate or similar to ALL greens to correct deficiency.
-* 5 green was deficient in phosphorus.  Apply .25 lbs/M monoammonium phosphate or similar.
-* Organic matter has increased slightly since last year. Review this change and determine if any action is needed. Consider the significance, potential causes, and whether adjustments to your practices are necessary. From a player's perspective I imagine the greens are ideal.
-* 3 green rooting is still shallow but the green continues to perform well.  It may not be worth pursuing "the ideal rootage" whatever that means and instead be aware.  If the green were to underpeform, it can be addressed at that time.
-* The color on all of the greens looked excellent.
-* We've previously discussed the turf growth ratio, now officially called Turf_GvX. Dr. Micah Woods has developed a simple Excel worksheet that calculates Turf_GvX based on your input clipping volume. This tool could be ideal for optimizing nitrogen application rates. I've attached the Excel spreadsheet in the email and included a link to the paceturf.org website for more information.^[(https://www.paceturf.org/reference/Turf_GvX)]
-* Green 5 0-2 cm OM is 6.75%.  It is roughly 1-3% below the other greens sampled at the same depth.
-* Green surfaces accumulated organic matter at a rate of 17 g/kg/year in the top 2 cm of depth. Three sand topdressings with a total of 1.6 mm was applied. 
-  * To maintain the current organic matter levels in the 0-2 cm depth, given the same accumulation rate, it is estimated that 2.2 mm of sand topdressing will need to be applied in 2025.
 * No other anomalies were highlighted in the analysis.
   
 ### [Tee](#tee-1)
@@ -21,10 +12,6 @@
 * All calculations are based on a monthly maximum of 0.5 lbs of N/M.
 * The average total available Nitrogen is 2.3 ppm.
 * Deficits were noted in the following measurement: Potassium (ppm). See the "Required element per area" table within the Tee section for an indication of how much fertilizer should be added to each sampled area.
-* 2 and 16 tee were deficient in potassium.  12 tee reported a trace under. 
-* Organic matter has increased slightly since last year. Review this change and determine if any action is needed. Consider the significance, potential causes, and whether adjustments to your practices are necessary.  With that being said the tees still felt good underfoot.
-* Tee surfaces accumlated organic matter at a rate of 33 g/kg/year in the 0-2 cm depth.  Four sand topdressings with a total of 4.63 mm was applied.  
-  * To maintain the current organic matter levels in the 0-2 cm depth, given the same accumulation rate, it is estimated that 4.2 mm of sand topdressing will need to be applied in 2025.
 * No other anomalies were highlighted in the analysis.
   
 ### [Fairway](#fairway-1)
@@ -32,20 +19,20 @@
 * All calculations are based on a monthly maximum of 0.7 lbs of N/M.
 * The average total available Nitrogen is 5 ppm.
 * No deficits were noted in the values tied to MLSN values.
-* The fairways are "money".  The rigidity of the turf is readily noticable.  Ball lie has to be ideal.
-* I was curious about the dryject application in the approaches and at least for this visit, the approaches looked consistent in color and even moisture distribution.
 * No other anomalies were highlighted in the analysis.
         
 ### [Organic Matter](#om-testing)
       
-Note that in this report the data is now represented as the median.  Prior reports represented the average. Switching to the median may give you a better idea of what is typical in your data.  It is not thrown off by any extreme values that might be skewing the overall picture.  I did calculate the averages for a comparison and they are very similar and have included them below for your reference.   
-
 The  median OM measurements can be summarised as follows: 
 
 - Comparing the **GREEN** samples taken on September 18th, 2024 to their most recent previous samples (October 11th, 2023).
   * At a depth of **0-2 cm**, the OM content increased from 9.32% to 9.98%. 
   * At a depth of **2-4 cm**, the OM content increased from 3.68% to 4.46%. 
   * At a depth of **4-6 cm**, the OM content increased from 1.33% to 1.34%.
+- Comparing the **ROUGH** samples taken on October 10th, 2022 to their most recent previous samples (September 27th, 2021).
+  * At a depth of **0-2 cm**, the OM content increased from 20.28% to 21.09%. 
+  * At a depth of **2-4 cm**, the OM content increased from 13.4% to 13.73%. 
+  * At a depth of **4-6 cm**, the OM content increased from 6.65% to 8.99%.
 - Comparing the **TEE** samples taken on September 18th, 2024 to their most recent previous samples (October 11th, 2023).
   * At a depth of **0-2 cm**, the OM content increased from 8.26% to 9.79%. 
   * At a depth of **2-4 cm**, the OM content decreased from 4.6% to 4.39%. 
@@ -53,31 +40,15 @@ The  median OM measurements can be summarised as follows:
 
 *The results show median values.
 The median value is the central point of the data, meaning half of the numbers in a list are smaller and half are larger than the median.*
+The OM Accumulation Rate was calculated for GREEN and TEE samples.
 
-The  average OM measurements can be summarised as follows: 
+* GREEN
+  - At a depth of 2 cm, from 11th October 2023 to 18th September 2024 the OM content increased from 8.83% to 9.36%. This represents an OM Accumulation Rate of 16.72 g per kg of soil per year.
+* TEE
+  - At a depth of 2 cm, from 11th October 2023 to 18th September 2024 the OM content increased from 7.01% to 7.96%. This represents an OM Accumulation Rate of 32.54 g per kg of soil per year.
+The Sand Requirement, based on the OM Accumulation Rate was calculated for GREEN and TEE samples.
 
-- Comparing the **GREEN** samples taken on September 18th, 2024 to their most recent previous samples (October 11th, 2023).
-  * At a depth of **0-2 cm**, the OM content increased from 8.83% to 9.36%. 
-  * At a depth of **2-4 cm**, the OM content increased from 3.84% to 4.44%. 
-  * At a depth of **4-6 cm**, the OM content increased from 1.29% to 1.38%.
-- Comparing the **TEE** samples taken on September 18th, 2024 to their most recent previous samples (October 11th, 2023).
-  * At a depth of **0-2 cm**, the OM content increased from 7.01% to 7.96%. 
-  * At a depth of **2-4 cm**, the OM content decreased from 4.41% to 4.18%. 
-  * At a depth of **4-6 cm**, the OM content decreased from 3.62% to 3.33%.
-
-Like calibrating a TDR measurement for soil moisture content based on subjective observations, the OM246 test should be thought of in the same context. Playability and overall green performance should be considered.
-Using a known amount of topdressing applied, we can estimate/calculate the Amount of topdressing needed to maintain, increase, or decrease the organic matter.
-
-- Consider obtaining an accurate topdressing rate per year to make this calculation possible. What is the estimated depth of all topdressing applications applied this year?
-- [This video from the USGA](https://www.asianturfgrass.com/post/sand-topdressing-by-depth) shows how to calculate the depth along with the required conversion equations.
-- Cultural decisions such as aerification, verticutting, topdressing amounts/frequency can be influenced by tracking organic matter over time and established goals for organic matter targets.
-
-### Sand Fractions
-        
-- Please note that this HTML report only displays the most recent sand fraction analysis. For comparison, I've attached a PDF version showing both the spring 0-2 cm sand fraction analysis and this fall's analysis side by side. I'm currently working on an updated version of the report that will include all historical data.
-- There were slight changes in the 0-2 cm depth comparison.  However, for all intensive purposes, the sand particle size distribution remained consistent.
-- The sand fraction analysis for the 2-4 cm and 4-6 cm depths has now been established as a baseline. This data will serve as a reference point for future comparisons, allowing us to track changes in the soil profile over time.  
-- The Very Fine Sand fraction (0.106 mm + 0.053 mm) exceeds the USGA specification in all layers, but to varying degrees:
-  * In the 0-2 cm layer, it's 11.5%, more than double the USGA recommended maximum of 5%.
-  * The 2-4 cm layer shows a similar trend at 9.0%.
-  * At 4-6 cm depth, it's 6.6%, only slightly above the USGA spec.  
+* GREEN
+  - Adding **2 mm** of sand to **2 cm** depth by September 18th, 2025 will result in a total organic matter content of **9.36%** if the OM accumulation rate remains at 16.72 g/kg
+* TEE
+  - Adding **4 mm** of sand to **2 cm** depth by September 18th, 2025 will result in a total organic matter content of **7.96%** if the OM accumulation rate remains at 32.54 g/kg
