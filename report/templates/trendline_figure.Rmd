@@ -1,7 +1,6 @@
 
 
 ```{r}
-
 sample_type <- "{{sample_type}}"
 
 if(sample_type == "Soil") {
@@ -15,6 +14,8 @@ if(sample_type == "Soil") {
     filter(sample_type == "Soil",
            sample_description_number_1 == "{{sample_description}}")
   
+  measurement_names <- input_params$measurement_names
+  
 } else if(sample_type == "Water") {
   
   trendline_full_database <- water_mod_full_database %>% 
@@ -25,7 +26,7 @@ if(sample_type == "Soil") {
   
 }
 
-w <- (length(measurement_names) %/% 3) * 1.5 + .5
+fig_h <- ((length(measurement_names) - 1) %/% 3) * 1.7 + 2
 
 ```
 
@@ -39,7 +40,7 @@ w <- (length(measurement_names) %/% 3) * 1.5 + .5
 <!-- ``` -->
 
 
-```{r, message=FALSE, warning=FALSE, results='asis', fig.width=6.8, fig.height=w, out.width="100%"}
+```{r, message=FALSE, warning=FALSE, results='asis', fig.width=6.8, fig.height=fig_h, out.width="100%"}
 year_range <- trendline_full_database %>%
   filter(site == input_params$site_name) %>%
   mutate(year = year(date_sample_submitted)) %>%
@@ -75,24 +76,49 @@ plot_test_trend <- function(plot_measurement, is_first, draw_beeswarm = input_pa
            measurement_name == plot_measurement) %>%
     pull(measurement_result) %>%
     mean(na.rm = TRUE)
-
-  site_avgs <- trendline_full_database %>%
+  
+  use_month <- year_range[2] - year_range[1] < 2
+  
+  site_data <- trendline_full_database %>%
     filter(site == input_params$site_name,
            measurement_name == plot_measurement) %>%
     mutate(year = year(date_sample_submitted),
            year_date = ymd(glue("{year}-01-01")),
            month = month(date_sample_submitted),
-           month_date = ymd(glue("{year}-{month}-01"))) %>%
+           month_date = ymd(glue("{year}-{month}-01")))
+  
+  max_n_dates_per_year <-
+    site_data |>
+    select(date_sample_submitted, year) |> 
+    unique() |> 
+    count(year) |> 
+    summarize(n = mean(n)) |> ## > 1 if more than 1 sampling date for any type
+    pull(n)
+  
+  if(max_n_dates_per_year == 1) {
+    tooltip_date <- function(date) {
+      date_lab <- str_replace(format(date, "%B %e, %Y"), "  ", " ")
+      return(date_lab)
+    }
+  } else {
+     tooltip_date <- function(date) {
+      date_lab <- format(date, "%Y")
+      return(date_lab)
+    }
+  }
+
+  site_avgs <- site_data %>%
+    mutate(date_tooltip = tooltip_date(date_sample_submitted)) %>%
     {
-      if(year_range[2] - year_range[1] < 2) {
-        group_by(., month_date, measurement_name) %>%
+      if(use_month) {
+        group_by(., month_date, date_tooltip, measurement_name) %>%
           rename(., plot_date = month_date)
       } else {
-        group_by(., year_date, measurement_name) %>%
+        group_by(., year_date, date_tooltip, measurement_name) %>%
           rename(., plot_date = year_date)
       }
     } %>%
-    summarize(avg_measurement_result = mean(measurement_result, na.rm = TRUE), n = n(), .groups = "drop") |>
+    summarize(avg_measurement_result = mean(measurement_result, na.rm = TRUE), n = n(), .groups = "drop") %>%
     mutate(
       unit = stringr::str_extract(measurement_name, pattern = "(?<=\\().+?(?=\\))"),
       unit = case_when(
@@ -103,9 +129,8 @@ plot_test_trend <- function(plot_measurement, is_first, draw_beeswarm = input_pa
       n = if_else(n == 1, "1 sample", paste(n, "samples")),
       tooltip = paste0(
         "<b>", sprintf("%.2f", avg_measurement_result, 2), "%</b><br><span style='font-size:12pt;'>", 
-        str_replace(format(as.POSIXct("2024-01-02"), "%B %e, %Y"), "  ", " "), "<br>", n, "</span>"
+        date_tooltip, "<br>", n, "</span>"
       )
-    )
     )
 
   site_points <- trendline_full_database %>%
@@ -257,7 +282,7 @@ combined_trends <- patchwork::wrap_plots(greens_ph_trends, ncol = 3, guides = "c
 
 ## save static version
 ggsave(here(root_figure_location, "trendlines", glue::glue(janitor::make_clean_names("trend_plot_{{sample_type}}_{{sample_description}})"), ".png")),
-       combined_trends, width = 6.5, height = 7, bg = "white", dpi = 500)
+       combined_trends, width = 6.5, height = fig_h, bg = "white", dpi = 500)
 
 ## interactive version
 tooltip_css_trend <- paste0("background-color:white;padding:6px 8px 6px 8px;border-radius:5px;border-width:2px;color:black;border-style:solid;border-color:", torv_color, ";line-height:1.15;font-family:", typeface_tabular, ";font-size:1.4em;")

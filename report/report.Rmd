@@ -249,7 +249,7 @@ The median value is the central point of the data, meaning half of the numbers i
     ")
   
     cat("
-The sand fraction results dummy text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n")
+***The sand fraction results dummy text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.***\n")
   } ## close `if(include_sand_fraction)`
   
   
@@ -258,7 +258,7 @@ The sand fraction results dummy text. Lorem ipsum dolor sit amet, consectetur ad
         
 ### [Water](#water-testing)
 
-* **Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas facilisis sollicitudin magna at condimentum. Vestibulum at aliquam lorem. Aliquam ut nibh pretium, volutpat metus eu, fermentum velit.**")
+* ***The waters results dummy text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas facilisis sollicitudin magna at condimentum. Vestibulum at aliquam lorem. Aliquam ut nibh pretium, volutpat metus eu, fermentum velit.***")
   } ## close `if(length(water_types > 0))`
   sink()
 } else { # if txt_file already exists just source it

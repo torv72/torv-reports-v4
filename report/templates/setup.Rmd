@@ -352,7 +352,8 @@ filtered_database <<- filtered_database
 full_database <<- full_database
 ```
 
-````{r get-types}
+
+```{r get-types}
 soil_types <- filtered_database |> 
   filter(sample_type == "Soil") |> 
   filter(sample_description_number_1 != "OM") |> 
@@ -425,7 +426,7 @@ if(testing_report == "No") {
   
   if(proceed != "c") stop("\n\n❌ Report generation canceled. Please investigate the database before running the report again.\n\n")
 }
-````
+```
 
 ```{r header-file-creator}
 # possible sampletypes: soil, water, turf

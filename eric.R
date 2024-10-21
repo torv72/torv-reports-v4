@@ -43,9 +43,9 @@ source(here::here("aux-scripts/generate-report.R"))
 # the git history cleaner. Once you have completed the arguments in the console, hit ENTER.
 
 # Here's an example:
-generate_report(.site_name = "Chipeta Golf Course",
-                .zip_code = 81503,
-                .date_sample_submitted = "2024-10-09",
+generate_report(.site_name = "Snowmass Club",
+                .zip_code = 81615,
+                .date_sample_submitted = "2024-09-12",
                 .start_date = "2007-01-01",
                 .om_seasons = "all",
                 .warm_or_cool = "cool",
@@ -56,18 +56,24 @@ generate_report(.site_name = "Chipeta Golf Course",
 
 # And another example with a different site, median values, sand fraction results,
 # no beeswarms in the trendline charts, and both HTML and PDF as output:
+<<<<<<< HEAD
 generate_report(.site_name = "Adobe Creek National Golf Course Monument",
                 .zip_code = 81521,
                 .date_sample_submitted = "2024-10-08",
+=======
+generate_report(.site_name = "Maroon Creek Club",
+                .zip_code = 81611,
+                .date_sample_submitted = "2024-09-18",
+>>>>>>> b2b2181ce82c2130874cd5739e989f9a1d1828ab
                 .start_date = "2017-01-01",
                 .om_seasons = "all",
-                .om_stats = "average",
+                .om_stats = "median",
                 .warm_or_cool = "cool",
                 .acid_extract = "Mehlich",
                 .include_results_interpretation = "No",
-                .include_sand_fraction = "No",
-                .draw_beeswarm = "Yes",
-                .output = c("html"))
+                .include_sand_fraction = "Yes",
+                .draw_beeswarm = "No",
+                .output = c("pdf", "html"))
 
 # It will save a file in generated-reports with a filename which includes the site name
 # and the date_sample_submitted argument. If a file with that name already exists, it will
