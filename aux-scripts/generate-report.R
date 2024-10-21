@@ -4,6 +4,19 @@ generate_report <- function(.site_name,
                             .date_sample_submitted,
                             .start_date,
                             .end_date = NULL,
+                            .measurements_add = NULL, 
+                            .measurements_default = c("pH",
+                                                      "Organic Matter (%)",
+                                                      "Total Nitrogen (ppm)",
+                                                      "Potassium (ppm)",
+                                                      "Phosphorus (ppm)", 
+                                                      "Calcium (ppm)",
+                                                      "Magnesium (ppm)",
+                                                      "Sodium (ppm)",
+                                                      "Sulfur (ppm)",
+                                                      "Iron (ppm)",
+                                                      "Manganese (ppm)",
+                                                      "Micronutrients"),
                             .om_seasons = "all",
                             .om_stats = "average",
                             .warm_or_cool,
@@ -63,7 +76,7 @@ generate_report <- function(.site_name,
   options(tigris_use_cache = TRUE)
   options(dplyr.summarise.inform = FALSE)
   
-  ## Define months based on .om_seasons
+  # Define months based on .om_seasons
   if (.om_seasons == "all") season <- 1:12
   if (.om_seasons == "season") {
     month <- month(.date_sample_submitted)
@@ -71,6 +84,13 @@ generate_report <- function(.site_name,
     if (month %in% 6:8) season <- 6:8
     if (month %in% 9:11) season <- 9:11
     if (month %in% c(1, 2, 12)) season <- c(1, 2, 12)
+  }
+  
+  # Update measurement names (if needed)
+  if(is.null(.measurements_add)) {
+    measurement_names <- .measurements_default
+  } else {
+    measurement_names <- unique(c(.measurements_default, .measurements_add))
   }
   
   # Export to global Env so can be used by other scripts
@@ -178,6 +198,7 @@ generate_report <- function(.site_name,
                          zip_code = .zip_code,
                          date_sample_submitted = .date_sample_submitted,
                          start_date = .start_date,
+                         measurement_names = measurement_names,
                          warm_or_cool = .warm_or_cool,
                          acid_extract = .acid_extract,
                          season = season,
