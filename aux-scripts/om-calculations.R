@@ -520,11 +520,11 @@ if (testing_report == "No") {
     } # close `if (max_n_dates_per_sample > 1)`
   } # close `else` for `if (n_types == 1 & n_dates > 1)`
     
-    if (n_dates <= 1) {
-      
-      message("\nI have only found one date for OM data. I will not ask you about the OM accumulation rate.\n")
-      
-    }
+  if (n_dates <= 1) {
+    
+    message("\nI have only found one date for OM data. I will not ask you about the OM accumulation rate.\n")
+    
+  }
   
 } # close `if (testing_report == "No")`
 
