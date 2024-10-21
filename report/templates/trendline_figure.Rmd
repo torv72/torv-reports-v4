@@ -101,7 +101,11 @@ plot_test_trend <- function(plot_measurement, is_first, draw_beeswarm = input_pa
         TRUE ~ paste0(" ", unit)
       ),
       n = if_else(n == 1, "1 sample", paste(n, "samples")),
-      tooltip = paste0("<b>", sprintf("%.2f", avg_measurement_result, 2), unit, "</b><br><span style='font-size:12pt;'>", format(plot_date, "%B %Y"), " (", n, ")</span>")
+      tooltip = paste0(
+        "<b>", sprintf("%.2f", avg_measurement_result, 2), "%</b><br><span style='font-size:12pt;'>", 
+        str_replace(format(as.POSIXct("2024-01-02"), "%B %e, %Y"), "  ", " "), "<br>", n, "</span>"
+      )
+    )
     )
 
   site_points <- trendline_full_database %>%
