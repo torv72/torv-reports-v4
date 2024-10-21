@@ -56,9 +56,9 @@ generate_report(.site_name = "Chipeta Golf Course",
 
 # And another example with a different site, median values, sand fraction results,
 # no beeswarms in the trendline charts, and both HTML and PDF as output:
-generate_report(.site_name = "Chipeta Golf Course",
-                .zip_code = 81503,
-                .date_sample_submitted = "2024-10-09",
+generate_report(.site_name = "Adobe Creek National Golf Course Monument",
+                .zip_code = 81521,
+                .date_sample_submitted = "2024-10-08",
                 .start_date = "2017-01-01",
                 .om_seasons = "all",
                 .om_stats = "average",
