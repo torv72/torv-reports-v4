@@ -45,4 +45,4 @@ monthly_normals <- mly_tavg_normal %>%
   filter(!is.na(lat), !is.na(lon), !is.na(zip_code)) %>%
   st_as_sf(coords = c("lon", "lat"), crs = 4326, remove = FALSE)
 
-write_rds(monthly_normals, "data/monthly_normals_2010.rds")
+saveRDS(monthly_normals, "data/monthly_normals_2010.rds")
