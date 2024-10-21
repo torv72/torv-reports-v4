@@ -144,10 +144,11 @@ if (testing_report == "No") {
           
           new_om_accumulation <- list()
           
-          #new_om_accumulation$type <- sample_description_number_2
-          
           message("\n\nPlease answer the following questions using only numbers:")
           
+          sample_description_number_2 <- unique(all_om_data$sample_description_number_2)
+          
+          new_om_accumulation$type <- sample_description_number_2
           new_om_accumulation$soil_depth <- as.numeric(readline("❓ What is the depth of the soil in cm (type the number)? "))
           new_om_accumulation$starting_om <- as.numeric(readline("❓ What is the starting OM%? "))
           new_om_accumulation$ending_om <- as.numeric(readline("❓ What is the ending OM%? "))
