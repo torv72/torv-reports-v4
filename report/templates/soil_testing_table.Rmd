@@ -121,18 +121,7 @@ cat("### Mean measurements")
 ```
 
 ```{r, echo=FALSE, results='asis'}
-measurement_names <<- c("pH",
-                        "Organic Matter (%)",
-                        "Total Nitrogen (ppm)",
-                        "Potassium (ppm)",
-                        "Phosphorus (ppm)", 
-                        "Calcium (ppm)",
-                        "Magnesium (ppm)",
-                        "Sodium (ppm)",
-                        "Sulfur (ppm)",
-                        "Iron (ppm)",
-                        "Manganese (ppm)",
-                        "Micronutrients")
+measurement_names <- input_params$measurement_names
 
 src = lapply(measurement_names, function(measurement_name) {
   knitr::knit_expand("templates/soil_testing_row.Rmd",
