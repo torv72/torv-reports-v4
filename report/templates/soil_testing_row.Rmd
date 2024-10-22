@@ -53,7 +53,7 @@ ggsave(here(root_figure_location, "soil_testing", glue::glue("{clean_measurement
 ```
 
 ```{r, fig.width=0.75, fig.height=0.75}
-knitr::include_graphics(here(root_figure_location, "soil_testing", glue::glue("{clean_measurement_name}_{{sample_description_number_1}}_plot.png")), dpi = 500)
+knitr::include_graphics(here(root_figure_location, "soil_testing", glue::glue("{clean_measurement_name}_{{sample_description_number_1}}_plot.png")))
 ```
 
 ```{r, results = "asis"}
