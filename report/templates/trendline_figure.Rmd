@@ -128,7 +128,7 @@ plot_test_trend <- function(plot_measurement, is_first, draw_beeswarm = input_pa
       ),
       n = if_else(n == 1, "1 sample", paste(n, "samples")),
       tooltip = paste0(
-        "<b>", sprintf("%.2f", avg_measurement_result, 2), "%</b><br><span style='font-size:12pt;'>", 
+        "<b>", sprintf("%.2f", avg_measurement_result, 2), "</b><br><span style='font-size:12pt;'>", 
         date_tooltip, "<br>", n, "</span>"
       )
     )
