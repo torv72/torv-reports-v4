@@ -56,15 +56,9 @@ generate_report(.site_name = "Snowmass Club",
 
 # And another example with a different site, median values, sand fraction results,
 # no beeswarms in the trendline charts, and both HTML and PDF as output:
-<<<<<<< HEAD
-generate_report(.site_name = "Adobe Creek National Golf Course Monument",
-                .zip_code = 81521,
-                .date_sample_submitted = "2024-10-08",
-=======
 generate_report(.site_name = "Maroon Creek Club",
                 .zip_code = 81611,
                 .date_sample_submitted = "2024-09-18",
->>>>>>> b2b2181ce82c2130874cd5739e989f9a1d1828ab
                 .start_date = "2017-01-01",
                 .om_seasons = "all",
                 .om_stats = "median",
