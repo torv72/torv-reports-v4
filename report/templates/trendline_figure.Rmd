@@ -24,10 +24,11 @@ if(sample_type == "Soil") {
   trendline_filtered_database <- water_mod_filtered_database %>% 
     filter(water_sample_description == "{{sample_description}}")
   
+  measurement_names <- water_measurements_to_plot
+  
 }
 
-fig_h <- ((length(measurement_names) - 1) %/% 3) * 1.7 + 2
-
+fig_h <- (((length(measurement_names) - 1) %/% 3) + 1) * 1.8
 ```
 
 
@@ -302,7 +303,7 @@ if (html) {
 ```
 
 ```{r, results='asis', include=html}
-cat('<br><details><summary>How to read this chart</summary>')
+cat('<details><summary>How to read this chart</summary>')
 ```
 
 ```{r, out.width="67%", include=html}
@@ -316,5 +317,5 @@ cat('
 ```
 
 ```{r, results='asis', include=!html}
-cat('\\bigskip → [How to read this chart](#how-to-read)')
+cat('→ [How to read this chart](#how-to-read)')
 ```
