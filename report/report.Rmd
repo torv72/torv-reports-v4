@@ -221,7 +221,7 @@ The median value is the central point of the data, meaning half of the numbers i
     }
   
     if(nrow(sand_req_df) > 0) {
-      cat("\n", "
+      cat("\n\n", "
 **Topdressing Recommendations:**\n", sep = "")
       
       cat("\n", sand_req_commentary, "\n", sep = "")
