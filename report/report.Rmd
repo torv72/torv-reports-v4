@@ -280,8 +280,6 @@ cat(
 )
 ```
 
-\newpage
-
 ## Turf Growth Potential Model
 
 ```{r interpret-results, eval=input_params$include_results_interpretation, child="templates/how_to_interpret_results.Rmd"}
