@@ -484,10 +484,10 @@ header_file_create <<- function(sampletype, title, trends = FALSE) {
       color = col, fontface = "bold", family = typeface
     ) +
     xlim(c(-0.5, 10)) +
-    ylim(c(-0.5,0.5)) +
+    ylim(c(-0.5, 0.5)) +
     coord_fixed(expand = FALSE) +
     theme_void() +
-    theme(plot.margin = grid::unit(c(0,0,0,0), "null"))
+    theme(plot.margin = grid::unit(c(0, 0, 0,0), "null"))
   
   clean_title <- janitor::make_clean_names(title)
   
