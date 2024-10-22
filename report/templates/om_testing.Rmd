@@ -244,7 +244,7 @@ if (html) {
 ```
 
 ```{r, results='asis', include=html}
-cat('<br><details><summary>How to read this chart</summary>')
+cat('<details><summary>How to read this chart</summary>')
 ```
 
 ```{r, out.width="67%", include=html}
@@ -258,7 +258,7 @@ cat('
 ```
 
 ```{r, results='asis', include=!html}
-cat('\\bigskip → [How to read this chart](#how-to-read)')
+cat('→ [How to read this chart](#how-to-read)')
 ```
 
 \bigskip
@@ -314,7 +314,8 @@ om_longitudinal_table_reduced <-
   ungroup() %>%
   filter(date_id_rev <= 10)
 
-om_tbl <- om_longitudinal_table_reduced %>%
+om_tbl <- 
+  om_longitudinal_table_reduced %>%
   pivot_wider(id_cols = depth, names_from = date_sample_submitted, values_from = avg_measurement_result) %>%
   flextable() %>%
   delete_part(part = "header") %>%
@@ -324,13 +325,13 @@ om_tbl <- om_longitudinal_table_reduced %>%
   border(part = "body", border.bottom = officer::fp_border(color = "white", width = 1)) %>%
   align(part = "all", align = "center") %>%
   align(j = 1, part = "all", align = "left") %>%
-  fontsize(size = 7, part = "all") %>%
+  fontsize(size = 9, part = "all") %>%
   colformat_double(big.mark = ",", digits = 2, na_str = "N/A") %>%
   flextable::color(i = 1, color = torv_color, part = "header") %>% 
   font(fontname = typeface_condensed_medium, part = "all") %>%
   line_spacing(i = 1, space = 2, part = "header") %>%
-  width(width = .4) %>%
-  width(j = 1, width = .3)
+  width(width = .42) %>%
+  width(j = 1, width = .35)
 
 if ("0-2 cm" %in% depths) {
   om_tbl <- om_tbl %>% 
