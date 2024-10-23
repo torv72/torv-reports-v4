@@ -121,7 +121,11 @@ branded_table <- function(header_colour = torv_orange,
 
 ```{r function-make-trendline-legend}
 ## Function to create a how-to plot for the trendline charts
-make_trendline_legend <- function(main_color, stat = "average", draw_beeswarm = input_params$beeswarm) {
+make_trendline_legend <- function(main_color = "grey30", 
+                                  stat = "average", 
+                                  label_stat = "Historic",
+                                  color_stat = torv_gray,
+                                  draw_beeswarm = input_params$beeswarm) {
   
   stable_year_range <- c(year(ymd("2020-01-01")), year(ymd("2021-01-01")), year(ymd("2022-01-01")))
   
@@ -212,13 +216,13 @@ make_trendline_legend <- function(main_color, stat = "average", draw_beeswarm = 
       color = clr_lighten(main_color, .6)
     ) +
     
-    ## historic average
+    ## average
     geom_line(
       aes(y = torv_avg), 
-      linetype = "21", linewidth = .5, color = torv_gray
+      linetype = "21", linewidth = .5, color = color_stat
     ) +
-    geom_label(aes(x = lubridate::as_date("2021-01-01"), y = torv_avg, label = paste("Historic", stat)), 
-      family = typeface, color = torv_gray, size = 7/.pt, label.size = 0, stat = "unique"
+    geom_label(aes(x = lubridate::as_date("2021-01-01"), y = torv_avg, label = paste(label_stat, stat)), 
+      family = typeface, color = color_stat, size = 7/.pt, label.size = 0, stat = "unique"
     ) +
     
     ## styling
@@ -237,12 +241,14 @@ make_trendline_legend <- function(main_color, stat = "average", draw_beeswarm = 
 }
 
 ## how-to-read plots for HTML version (one showing "average" and one for OM using the specified summary stat)
-trend_legend_mean <- make_trendline_legend(main_color = "grey30", draw_beeswarm = input_params$beeswarm)
+trend_legend_mean <- make_trendline_legend()
 
 ggsave(here(root_figure_location, "trendlines", "trend_plot_legend_mean.png"),
        trend_legend_mean, width = 2.5, height = 2, bg = "white", dpi = 500)
 
-trend_legend_om <- make_trendline_legend(main_color = "grey30", stat = input_params$om_stats, draw_beeswarm = input_params$beeswarm)
+trend_legend_om <- make_trendline_legend(stat = input_params$om_stats,
+                                         label_stat = "TORV",
+                                         color_stat = clr_lighten(torv_cyan, .2))
 
 ggsave(here(root_figure_location, "trendlines", "trend_plot_legend_om.png"),
        trend_legend_om, width = 2.5, height = 2, bg = "white", dpi = 500)
