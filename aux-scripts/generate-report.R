@@ -26,7 +26,7 @@ generate_report <- function(.site_name,
                             .draw_beeswarm = "Yes",
                             .typeface = "Georama",
                             .output = "html",
-                            .overwrite_report = "No",
+                            .overwrite = "No",
                             .test = "No") {
 
   # Check function inputs
@@ -35,13 +35,13 @@ generate_report <- function(.site_name,
   if (!.warm_or_cool %in% c("warm", "cool")) stop('.warm_or_cool should be either "warm" or "cool".')
   if (!.acid_extract %in% c("Mehlich", "Olsen")) stop('.acid_extract should be either "Mehlich" or "Olsen".')
   if (!.include_results_interpretation %in% c("Yes", "No")) stop('.include_results_interpretation should be either "Yes" or "No".')
-  if (!.include_sand_fraction %in% c("Yes", "No")) stop('.include_sand_fraction should be either "Yes" or "No".')
-  if (!.draw_beeswarm %in% c("Yes", "No")) stop('.draw_beeswarm should be either "Yes" or "No".')
+  if (!.include_sand_fraction %in% c("Yes", "No", "yes", "no")) stop('.include_sand_fraction should be either "Yes" or "No".')
+  if (!.draw_beeswarm %in% c("Yes", "No", "yes", "no")) stop('.draw_beeswarm should be either "Yes" or "No".')
   if (!is.character(.typeface)) stop('.typeface should be of type character.')
   output <- stringr::str_to_lower(.output)
   if (any(!(output %in% c("html", "pdf") | output == c("pdf", "html") | .output == c("html", "pdf")))) stop('.output should be either "html", "pdf", or c("html", "pdf").')
-  if (!.overwrite_report %in% c("Yes", "No")) stop('.overwrite_report should be either "Yes" or "No".')
-  if (!.test %in% c("Yes", "No")) stop('.test should be either "Yes" or "No".')
+  if (!.overwrite %in% c("Yes", "No", "yes", "no")) stop('.overwrite should be either "Yes" or "No".')
+  if (!.test %in% c("Yes", "No", "yes", "no")) stop('.test should be either "Yes" or "No".')
   
   # Clears the environment, to avoid cross contamination between successive reports!
   rm(list = setdiff(ls(pos = ".GlobalEnv"),
@@ -97,7 +97,7 @@ generate_report <- function(.site_name,
   typeface <<- .typeface
   output_html <<- "html" %in% output
   output_pdf <<- "pdf" %in% output
-  overwrite_report <<- ifelse(.overwrite_report == "Yes", TRUE, FALSE)
+  overwrite_report <<- ifelse(.overwrite %in% c("Yes", "yes"), TRUE, FALSE)
   testing_report <<- .test
   
   # Set up Figure directories if they aren't already there
@@ -204,9 +204,9 @@ generate_report <- function(.site_name,
                          season = season,
                          om_seasons = .om_seasons,
                          om_stats = .om_stats,
-                         include_results_interpretation = ifelse(.include_results_interpretation == "Yes", TRUE, FALSE),
-                         include_sand_fraction = ifelse(.include_sand_fraction == "Yes", TRUE, FALSE),
-                         beeswarm = ifelse(.draw_beeswarm == "Yes", TRUE, FALSE))
+                         include_results_interpretation = ifelse(.include_results_interpretation %in% c("Yes", "yes"), TRUE, FALSE),
+                         include_sand_fraction = ifelse(.include_sand_fraction %in% c("Yes", "yes"), TRUE, FALSE),
+                         beeswarm = ifelse(.draw_beeswarm %in% c("Yes", "yes"), TRUE, FALSE))
   }
 
   # The default is for the end date to be the same as the sample date (so that we're not
