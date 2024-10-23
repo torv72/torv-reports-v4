@@ -123,10 +123,10 @@ make_om_plot <- function(plot_measurement_name, plot_depth, draw_beeswarm = inpu
   
   om_plot <- 
     ggplot(data) +
-    ## historical average as dashed horizontal line
+    ## torv average as dashed horizontal line
     geom_hline_interactive(
-      aes(yintercept = torv_avg, data_id = 1, tooltip = paste0("<span style='font-size:12pt;'>Historic ", input_params$om_stats, ":</span><br><b>", round(torv_avg, 2), "%</b>")),
-      linewidth = .4, linetype = "31", color = torv_gray, stat = "unique"
+      aes(yintercept = torv_avg, data_id = 1, tooltip = paste0("<span style='font-size:12pt;'>TORV ", input_params$om_stats, ":</span><br><b>", round(torv_avg, 2), "%</b>")),
+      linewidth = .4, linetype = "31", color = clr_lighten(torv_cyan, .2), stat = "unique"
     ) +
     { if(draw_beeswarm)
       ## raw measurements as beeswarms to avoid overlaps (varied around x)
