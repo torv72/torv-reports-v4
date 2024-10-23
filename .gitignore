@@ -50,7 +50,7 @@ generated-reports/
 report/exec-summary_*
 longitudinal-summaries/
 report/figures/
-report/assets/*-cairo.svg
+report/assets/*.svg
 data/MASTER_DATABASE_UPDATED*
 data/duplicates.csv
 data-raw/lab-reports/
