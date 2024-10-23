@@ -206,7 +206,8 @@ if (testing_report == "No") {
           bind_rows(new_om_accumulation)
         
         ## Ask about Sand Requirement calculations within the same depth
-        message(glue("\n\n❓ Would you also like to calculate the sand requirement at depth = ",
+        ## Ask about Sand Requirement calculations within the same depth
+        message(glue("\n\n❓ Would you also like to calculate the sand requirement for {sample_description_number_2}s at depth = ",
                      new_om_accumulation$soil_depth,
                      " cm using the OM accumulation rate I've just calculated (",
                      janitor::round_half_up(new_om_accumulation$accum_rate, 1), " g/kg/year)?\n"))
@@ -215,7 +216,7 @@ if (testing_report == "No") {
         
         while (!run_sand_req %in% c("y","n")) {
           
-          message(glue("\n\n❓ I didn't quite get that. Would you like to calculate the sand requirement?\n"))
+          message(glue("\n\n❓ I didn't quite get that. Would you like to calculate the sand requirement for {sample_description_number_2}s?\n"))
           run_sand_req <- readline("Type y for yes or n for no and hit ENTER. ")
           
         }
@@ -234,6 +235,7 @@ if (testing_report == "No") {
             
             message("\n\nPlease answer the following questions using only numbers:\n")
             
+            new_sand_req$type <- sample_description_number_2
             new_sand_req$depth <- as.numeric(new_om_accumulation$soil_depth)
             new_sand_req$om_acc_rate <- new_om_accumulation$accum_rate
             new_sand_req$current_om <- as.numeric(readline("❓ What is the current OM%? "))
@@ -294,7 +296,7 @@ if (testing_report == "No") {
           }
         } # close `else if (run_sand_req == "y")`
         
-        message(glue("\n\n❓ Would you like to add another OM accumulation calculation for a different depth?\n"))
+        message(glue("\n\n❓ Would you like to add another OM accumulation calculation for a different depth within {sample_description_number_2}s?\n"))
         
         add_new_depth <- readline("Type y for yes or n for no and hit ENTER: ")
         
@@ -304,7 +306,7 @@ if (testing_report == "No") {
           
         }
       } # close `while(add_new_depth == "y")`
-    } # `else if (run_om_accumulation == "y")`
+    } # else `if (run_om_accumulation == "y")`
     
   } else {
   
@@ -514,7 +516,7 @@ if (testing_report == "No") {
       
                 }
               } # close `while(add_new_depth == "y")`
-            } # `else if (run_om_accumulation == "y")`
+            } # else `if (run_om_accumulation == "y")`
           } # close `if (n_dates > 1)`
         } # close `for (sample_description_number_2)`
       } # close `else` for `if (run_om_accumulation == "n")`
