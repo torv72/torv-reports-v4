@@ -200,7 +200,7 @@ The median value is the central point of the data, meaning half of the numbers i
     }
   
     if(nrow(om_acc_df) > 0) {
-      cat("
+      cat("\n
 **OM Accumulation Rates:**\n")
       
       cat("\n", acc_rate_commentary, "\n", sep = "")
@@ -306,20 +306,20 @@ knitr::include_graphics(here("report", "figures", "monthly_growth_potential_plot
 ## Soil Testing {#soil-testing}
 
 ```{r soil-results, results='asis', warning=FALSE}
-if(length(soil_types > 0)) {
-
-  map(soil_types, function(soil_type) {
-    knitr::knit_expand("templates/soil_testing_table.Rmd",
-                       sample_type = "Soil",
-                       sample_description_number_1 = soil_type)
-  }) %>%
-    unlist() %>%
-    knitr::knit_child(text = ., quiet = TRUE) %>%
-    unlist() %>%
-    cat(., sep = '\n')
-} else {
-  message("\n\n❗ Soil results not reported. Either no soil data or an error occurred.\n")
-}
+# if(length(soil_types > 0)) {
+# 
+#   map(soil_types, function(soil_type) {
+#     knitr::knit_expand("templates/soil_testing_table.Rmd",
+#                        sample_type = "Soil",
+#                        sample_description_number_1 = soil_type)
+#   }) %>%
+#     unlist() %>%
+#     knitr::knit_child(text = ., quiet = TRUE) %>%
+#     unlist() %>%
+#     cat(., sep = '\n')
+# } else {
+#   message("\n\n❗ Soil results not reported. Either no soil data or an error occurred.\n")
+# }
 ```
 
 
