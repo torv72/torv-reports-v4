@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.10.12)  21 OCT 2024 07:51
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.10.12)  22 OCT 2024 07:21
  restricted system commands enabled.
 **"/Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Club-at-Flying-Horse-North-Course_2024-10-17_season_average.tex"
 ("/Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Club-at-Flying-Horse-North-Course_2024-10-17_season_average.tex"
@@ -1039,37 +1039,35 @@ LaTeX Font Info:    Font shape `TU/Rasa(0)/b/n' will be
 LaTeX Font Info:    Font shape `TU/Rasa(0)/b/n' will be
 (Font)              scaled to size 16.0pt on input line 121.
 LaTeX Font Info:    Font shape `TU/Rasa(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 168.
+(Font)              scaled to size 9.0pt on input line 166.
 LaTeX Font Info:    Font shape `TU/Rasa(0)/b/n' will be
-(Font)              scaled to size 9.0pt on input line 168.
+(Font)              scaled to size 9.0pt on input line 166.
 LaTeX Font Info:    Font shape `TU/Rasa(0)/b/it' will be
-(Font)              scaled to size 9.0pt on input line 168.
+(Font)              scaled to size 9.0pt on input line 166.
 LaTeX Font Info:    Font shape `TU/Rasa(0)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 172.
+(Font)              scaled to size 8.0pt on input line 170.
 LaTeX Font Info:    Font shape `TU/Rasa(0)/m/it' will be
-(Font)              scaled to size 8.0pt on input line 172.
+(Font)              scaled to size 8.0pt on input line 170.
 
 
 [2<./figures/headers/none_testing_executive_summary_plot.png>]
-
-[3]
-<figures/headers/om_testing_green_plot.png, id=32, 404.712pt x 50.589pt>
+<figures/headers/om_testing_green_plot.png, id=27, 404.712pt x 50.589pt>
 File: figures/headers/om_testing_green_plot.png Graphic file (type png)
 <use figures/headers/om_testing_green_plot.png>
-Package luatex.def Info: figures/headers/om_testing_green_plot.png  used on input line 185.
+Package luatex.def Info: figures/headers/om_testing_green_plot.png  used on input line 181.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--203
+Underfull \hbox (badness 10000) in paragraph at lines 195--199
 
  []
 
-</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Club-at-Flying-Horse-North-Course_2024-10-17_season_average_files/figure-latex/unnamed-chunk-16-1.png, id=33, 471.9231pt x 162.75204pt>
+</Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Club-at-Flying-Horse-North-Course_2024-10-17_season_average_files/figure-latex/unnamed-chunk-16-1.png, id=28, 471.9231pt x 162.75204pt>
 File: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Club-at-Flying-Horse-North-Course_2024-10-17_season_average_files/figure-latex/unnamed-chunk-16-1.png Graphic file (type png)
 <use /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Club-at-Flying-Horse-North-Course_2024-10-17_season_average_files/figure-latex/unnamed-chunk-16-1.png>
-Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Club-at-Flying-Horse-North-Course_2024-10-17_season_average_files/figure-latex/unnamed-chunk-16-1.png  used on input line 204.
+Package luatex.def Info: /Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Club-at-Flying-Horse-North-Course_2024-10-17_season_average_files/figure-latex/unnamed-chunk-16-1.png  used on input line 200.
 (luatex.def)             Requested size: 469.76884pt x 162.0091pt.
 LaTeX Font Info:    Font shape `TU/Rasa(0)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 228.
+(Font)              scaled to size 7.0pt on input line 224.
 
 Package fontspec Info: 
 (fontspec)             Georama SemiCondensed Medium scale =
@@ -1129,7 +1127,7 @@ Package fontspec Info:
 (fontspec)             Medium:mode=node;script=latn;language=dflt;+tlig;+smcp;"
 
 LaTeX Font Info:    Font shape `TU/GeoramaSemiCondensedMedium(0)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 228.
+(Font)              scaled to size 7.0pt on input line 224.
 
 Package fontspec Info: 
 (fontspec)             Georama SemiCondensed Medium scale =
@@ -1411,20 +1409,20 @@ Package fontspec Info:
 
 
 
-[4<./figures/headers/om_testing_green_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Club-at-Flying-Horse-North-Course_2024-10-17_season_average_files/figure-latex/unnamed-chunk-16-1.png>]
-<figures/headers/none_testing_how_to_read_trend_line_plots_plot.png, id=45, 404.712pt x 50.589pt>
+[3<./figures/headers/om_testing_green_plot.png></Users/ericfoerster/Desktop/torv-reports v4/generated-reports/TORV-report_The-Club-at-Flying-Horse-North-Course_2024-10-17_season_average_files/figure-latex/unnamed-chunk-16-1.png>]
+<figures/headers/none_testing_how_to_read_trend_line_plots_plot.png, id=40, 404.712pt x 50.589pt>
 File: figures/headers/none_testing_how_to_read_trend_line_plots_plot.png Graphic file (type png)
 <use figures/headers/none_testing_how_to_read_trend_line_plots_plot.png>
-Package luatex.def Info: figures/headers/none_testing_how_to_read_trend_line_plots_plot.png  used on input line 288.
+Package luatex.def Info: figures/headers/none_testing_how_to_read_trend_line_plots_plot.png  used on input line 284.
 (luatex.def)             Requested size: 404.72954pt x 50.59117pt.
-<figures/trendlines/trend_plot_legend_mean_median.png, id=46, 180.675pt x 144.54pt>
+<figures/trendlines/trend_plot_legend_mean_median.png, id=41, 180.675pt x 144.54pt>
 File: figures/trendlines/trend_plot_legend_mean_median.png Graphic file (type png)
 <use figures/trendlines/trend_plot_legend_mean_median.png>
-Package luatex.def Info: figures/trendlines/trend_plot_legend_mean_median.png  used on input line 296.
+Package luatex.def Info: figures/trendlines/trend_plot_legend_mean_median.png  used on input line 292.
 (luatex.def)             Requested size: 180.68282pt x 144.54623pt.
 
 
-[5<./figures/headers/none_testing_how_to_read_trend_line_plots_plot.png><./figures/trendlines/trend_plot_legend_mean_median.png>] (./TORV-report_The-Club-at-Flying-Horse-North-Course_2024-10-17_season_average.aux)
+[4<./figures/headers/none_testing_how_to_read_trend_line_plots_plot.png><./figures/trendlines/trend_plot_legend_mean_median.png>] (./TORV-report_The-Club-at-Flying-Horse-North-Course_2024-10-17_season_average.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-09-10>
@@ -1432,19 +1430,19 @@ L3 programming layer <2024-09-10>
 )
 
 Here is how much of LuaTeX's memory you used:
- 20679 strings out of 475910
+ 20678 strings out of 475910
  125086,1144653 words of node,token memory allocated
- 688 words of node memory still in use:
-   8 hlist, 3 vlist, 4 rule, 1 local_par, 5 glue, 4 kern, 1 penalty, 3 glyph, 13 attribute, 67 glue_spec, 13 attribute_list, 1 write, 1 user_defined, 2 pdf_colorstack nodes
-   avail lists: 2:660,3:164,4:222,5:1166,6:49,7:4585,8:1,9:512,10:20,11:368
+ 704 words of node memory still in use:
+   8 hlist, 3 vlist, 4 rule, 1 local_par, 5 glue, 5 kern, 1 penalty, 1 margin_kern, 4 glyph, 13 attribute, 67 glue_spec, 13 attribute_list, 1 write, 1 user_defined, 2 pdf_colorstack nodes
+   avail lists: 2:660,3:166,4:222,5:1027,6:49,7:3681,8:1,9:512,10:20,11:286
  42919 multiletter control sequences out of 65536+600000
  95 fonts using 25736235 bytes
  90i,7n,131p,1570b,510s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/ericfoerster/Library/Fonts/Georama_SemiCondensed-Medium.ttf></Users/ericfoerster/Library/Fonts/Rasa-Italic.ttf></Users/ericfoerster/Library/Fonts/Rasa-BoldItalic.ttf></Users/ericfoerster/Library/Fonts/Rasa-Bold.ttf></Users/ericfoerster/Library/Fonts/Rasa-Regular.ttf>
-Output written on TORV-report_The-Club-at-Flying-Horse-North-Course_2024-10-17_season_average.pdf (5 pages, 317058 bytes).
+Output written on TORV-report_The-Club-at-Flying-Horse-North-Course_2024-10-17_season_average.pdf (4 pages, 316233 bytes).
 
-PDF statistics: 110 PDF objects out of 1000 (max. 8388607)
- 80 compressed objects within 1 object stream
- 15 named destinations out of 1000 (max. 131072)
+PDF statistics: 105 PDF objects out of 1000 (max. 8388607)
+ 76 compressed objects within 1 object stream
+ 14 named destinations out of 1000 (max. 131072)
  65 words of extra memory for PDF output out of 10000 (max. 100000000)
 

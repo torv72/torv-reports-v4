@@ -56,18 +56,19 @@ generate_report(.site_name = "Snowmass Club",
 
 # And another example with a different site, median values, sand fraction results,
 # no beeswarms in the trendline charts, and both HTML and PDF as output:
-generate_report(.site_name = "Maroon Creek Club",
-                .zip_code = 81611,
-                .date_sample_submitted = "2024-09-18",
+generate_report(.site_name = "Chipeta Golf Course",
+                .zip_code = 81503,
+                .date_sample_submitted = "2024-10-09",
                 .start_date = "2017-01-01",
                 .om_seasons = "all",
-                .om_stats = "median",
+                .om_stats = "average",
                 .warm_or_cool = "cool",
                 .acid_extract = "Mehlich",
                 .include_results_interpretation = "No",
-                .include_sand_fraction = "Yes",
+                .include_sand_fraction = "No",
                 .draw_beeswarm = "No",
-                .output = c("pdf", "html"))
+                .overwrite_report = "No",
+                .output = c("html"))
 
 # It will save a file in generated-reports with a filename which includes the site name
 # and the date_sample_submitted argument. If a file with that name already exists, it will
