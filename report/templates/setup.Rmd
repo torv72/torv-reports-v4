@@ -500,10 +500,10 @@ header_file_create <<- function(sampletype, title, trends = FALSE) {
   # header_plot
   if(trends == TRUE) {
     ggsave(here(root_figure_location, "headers", glue("{clean_sampletype}_testing_{clean_title}_trends_plot.png")),
-           header_plot, width = 5.6, height = 0.7, bg = "white", dpi = 500)
+           header_plot, width = 5.8, height = 0.7, bg = "white", dpi = 500)
   } else {
     ggsave(here(root_figure_location, "headers", glue("{clean_sampletype}_testing_{clean_title}_plot.png")),
-           header_plot, width = 5.6, height = 0.7, bg = "white", dpi = 500)
+           header_plot, width = 5.8, height = 0.7, bg = "white", dpi = 500)
   }
   
 }
