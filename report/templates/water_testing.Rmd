@@ -13,9 +13,9 @@ FAO Handbook 29 is the Food and Agricultural Organization of the United Nations 
 ```{r}
 fao_water_guidelines <- tribble(
   ~measurement_name, ~low_med_cutoff, ~med_high_cutoff,
-  "Conductivity (mmhos/cm)", 0.7, 3.0,
+  "Conductivity (mmhos/cm)", .7, 3.0,
   "Salt Concentration - TDS (ppm)", 450, 2000,
-  "SAR", 0.75, 0.25,
+  "SAR", .75, .25,
   "Sodium (ppm)", 70, 200,
   "Residual Sodium Carbonate (RSC)", 1.25, NA,
   "Total Nitrogen (ppm)", 5, 20,
@@ -63,11 +63,11 @@ make_water_plot <- function(plot_measurement) {
       # Mid-range points are sufficient for this scale.
       mutate(measurement_result_adjusted = case_when(
         # The "high" and "low" cutoff are the other way round compared to the other measurements
-        # because of the nature of the logic. So 0.15 is high and 0.95 is low.
-        between(sar_value, 0, 3) & conductivity_value > 0.7 ~ .95,
-        between(sar_value, 0, 3) & conductivity_value < 0.2 ~ .15,
+        # because of the nature of the logic. So .15 is high and .95 is low.
+        between(sar_value, 0, 3) & conductivity_value > .7 ~ .95,
+        between(sar_value, 0, 3) & conductivity_value < .2 ~ .15,
         between(sar_value, 3.001, 6) & conductivity_value > 1.2 ~ .95,
-        between(sar_value, 3.001, 6) & conductivity_value < 0.3 ~ .15,
+        between(sar_value, 3.001, 6) & conductivity_value < .3 ~ .15,
         between(sar_value, 6.001, 12) & conductivity_value > 1.9 ~ .95,
         between(sar_value, 6.001, 12) & conductivity_value < .5 ~ .15,
         between(sar_value, 12.001, 20) & conductivity_value > 2.9 ~ .95,
@@ -92,18 +92,28 @@ make_water_plot <- function(plot_measurement) {
       label = if_else(abs(measurement_result) > 100,
                       janitor::round_half_up(measurement_result, 0),
                       signif(measurement_result, 3)),
-      outcome_lab = if_else(
-        plot_measurement %in% c("Chloride (ppm)", "Residual Sodium Carbonate (RSC)"),
+      outcome = if_else(
+        !plot_measurement %in% c("Chloride (ppm)", "Residual Sodium Carbonate (RSC)", "SAR"),
         case_when(
-          measurement_result <= low_med_cutoff ~ " (low)",
-          measurement_result > low_med_cutoff ~ " (medium/high)"
+          measurement_result <= low_med_cutoff ~ "low",
+          measurement_result > med_high_cutoff ~ "high",
+          TRUE ~ "medium"
         ),
-        case_when(
-          measurement_result <= low_med_cutoff ~ " (low)",
-          measurement_result > med_high_cutoff ~ " (high)",
-          TRUE ~ " (medium)"
+        if_else(
+          plot_measurement %in% c("Chloride (ppm)", "Residual Sodium Carbonate (RSC)"),
+          case_when(
+            measurement_result <= low_med_cutoff ~ "low",
+            measurement_result > low_med_cutoff ~ " medium/high"
+          ),
+          # reversed logic for SAR
+          case_when(
+            measurement_result > low_med_cutoff ~ "low",
+            measurement_result <= med_high_cutoff ~ "high",
+            TRUE ~ "medium"
+          )
         )
-      )
+      ),
+      outcome_lab = paste0(" (", outcome, ")")
     )
   
   cutoff_distance <- water_plot_data$med_high_cutoff - water_plot_data$low_med_cutoff
@@ -114,16 +124,16 @@ make_water_plot <- function(plot_measurement) {
     ggplot(water_plot_data,
            aes(x = measurement_result_adjusted, y = 0, 
                label = label)) +
-    geom_hline(yintercept = 0, color = "#BFBFBF", size = line_size) +
+    geom_hline(yintercept = 0, color = "grey92", size = line_size) +
     geom_segment(
       aes(x = low_med_cutoff, xend = low_med_cutoff,
           y = -.95, yend = .5), 
-      color = torv_gray_light, linewidth = line_size
+      color = "grey92", linewidth = line_size
     ) +
     geom_segment(
       aes(x = med_high_cutoff, xend = med_high_cutoff,
           y = -.95, yend = .5), 
-      color = torv_gray_light, linewidth = line_size
+      color = "grey92", linewidth = line_size
     ) +
     geom_point(size = 12, color = "white") +
     geom_point_interactive(
@@ -131,13 +141,17 @@ make_water_plot <- function(plot_measurement) {
             "<b>", label, outcome_lab, "</b><br><span style='font-size:12pt;'><b>", plot_measurement, "</b><br>", 
             str_replace(format(date_sample_submitted, "%B %e, %Y"), "  ", " "), "</span><br><b>"
           ), 
-          data_id = label),
+          data_id = label, fill = outcome),
       shape = 21, size = 12, stroke = 1,
-      color = "white", fill = torv_blue
+      color = "white"#, fill = torv_blue
     ) +
     geom_text(
       color = "white", fontface = "bold", 
       family = typeface_condensed, size = 3.3
+    ) +
+    scale_fill_manual(
+      values = c("low" = "#505a8e", "medium" = "#0a83a6", "medium/high" = "#436e98", "high" = "#3fa59b"),
+      guide = "none"
     ) +
     labs(y = str_wrap(plot_measurement, 20)) +
     theme(
@@ -159,16 +173,16 @@ make_water_plot <- function(plot_measurement) {
     plot_post_annotate <- plot_pre_annotate + 
       annotate("text", 
                x = (lower_bound + water_plot_data$low_med_cutoff)/2, # halfway between left edge and cutoff
-               y = -.65, 
-               label = "Low",
-               color = torv_gray,
+               y = -.75, 
+               label = "low",
+               color = "#848CC0", #torv_gray, 
                family = typeface,
                size = label_size) + 
       annotate("text", 
                x = (water_plot_data$low_med_cutoff - lower_bound)/2 + water_plot_data$low_med_cutoff, # halfway between right edge and cutoff
-               y = -.65, 
-               label = "Medium/High",
-               color = torv_gray,
+               y = -.75, 
+               label = "medium/high",
+               color = "#779CC6", #torv_gray,
                family = typeface,
                size = label_size)
     
@@ -181,16 +195,16 @@ make_water_plot <- function(plot_measurement) {
     plot_post_annotate <- plot_pre_annotate + 
       annotate("text", 
                x = (lower_bound + water_plot_data$low_med_cutoff)/2, # halfway between left edge and cutoff
-               y = -.65, 
-               label = "Low",
-               color = torv_gray,
+               y = -.75, 
+               label = "low",
+               color = "#848CC0", #torv_gray, 
                family = typeface,
                size = label_size) + 
       annotate("text", 
                x = (water_plot_data$low_med_cutoff - lower_bound)/2 + water_plot_data$low_med_cutoff, # halfway between right edge and cutoff
-               y = -.65, 
-               label = "Medium/High",
-               color = torv_gray,
+               y = -.75, 
+               label = "medium/high",
+               color = "#779CC6", #torv_gray,
                family = typeface,
                size = label_size)
     
@@ -203,22 +217,22 @@ make_water_plot <- function(plot_measurement) {
       annotate("text", 
                x = water_plot_data$low_med_cutoff - (cutoff_distance)/2,
                y = -.75, 
-               label = "Low",
-               color = torv_gray, 
+               label = "low",
+               color = "#848CC0", #torv_gray, 
                family = typeface,
                size = label_size) +
       annotate("text", 
                x = water_plot_data$low_med_cutoff + (cutoff_distance)/2,
                y = -.75, 
-               label = "Medium",
-               color = torv_gray, 
+               label = "medium",
+               color = "#5AADD1", #torv_gray, 
                family = typeface,
                size = label_size) + 
       annotate("text", 
                x = water_plot_data$med_high_cutoff + (cutoff_distance)/2,
                y = -.75, 
-               label = "High",
-               color = torv_gray, 
+               label = "high",
+               color = "#6AC7BD", #torv_gray, 
                family = typeface,
                size = label_size)
     
