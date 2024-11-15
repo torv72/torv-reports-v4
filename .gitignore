@@ -47,21 +47,29 @@ vignettes/*.pdf
 temp.R
 temp.png
 generated-reports/
+report/exec-summary_*
 longitudinal-summaries/
 report/figures/
-report/assets/*-cairo.svg
 data/MASTER_DATABASE_UPDATED*
 data/duplicates.csv
 data-raw/lab-reports/
 *monthly_growth_potential_plot.png
+*.log
 
 # Exclude the newly generated test reports and pngs, 
 # but not the ones we're comparing them to
-tests/test-reports/*/*.docx
+tests/test-reports/*/*.html
+tests/test-reports/*/*.pdf
 tests/test-reports/*/*/*/*.png
-!tests/test-reports/*/*_ref.docx
+!tests/test-reports/*/*_ref.html
+!tests/test-reports/*/*_ref.pdf
+!tests/test-reports/*/*_ref.log
 !tests/test-reports/*/*/*/*_ref.png
 
 # DS Store
-*.DS_Store
+.DS_Store
+
 .quarto
+
+# Do not update SVG files every time
+report/assets/*.svg
