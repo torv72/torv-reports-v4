@@ -1,0 +1,17 @@
+\usepackage{xcolor,sectsty,fontspec,multicol}
+\usepackage[dvipsnames]{xcolor}
+
+\definecolor{white}{RGB}{255,255,255}
+\definecolor{gray}{RGB}{77,77,77}
+
+\setmainfont{Rasa}
+
+\sectionfont{\color{white}\fontsize{1}{1}\selectfont}
+\subsectionfont{\color{white}\fontsize{1}{1}\selectfont}
+\subsubsectionfont{\fontsize{16}{20}\selectfont}
+
+\makeatletter
+\renewcommand{\title}[1]{\renewcommand{\@title}{\color{\@titlecolor}#1}}
+\newcommand{\@titlecolor}{white}
+\newcommand{\titlecolor}[1]{\renewcommand{\@titlecolor}{#1}}
+\makeatother

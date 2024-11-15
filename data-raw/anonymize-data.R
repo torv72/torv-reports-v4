@@ -1,9 +1,3 @@
-library(tidyverse) # for ease of loading ggplot functions and pipe
-library(here) # set file paths relative to .Rproj file
-library(lubridate)
-library(glue)
-library(patchwork) # works if load all up to this one
-
 
 rowAny <- function(x) rowSums(x) > 0
 full_database <<- readxl::read_excel(here("data", params$database_name),

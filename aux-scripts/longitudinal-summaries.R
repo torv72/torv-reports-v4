@@ -9,12 +9,6 @@ if (!fs::dir_exists("longitudinal-summaries")) {
 
 # Load Data ---------------------------------------------------------------
 
-library(tidyverse)
-library(lubridate)
-library(here)
-library(glue)
-
-
 # function to automate the excel file creation
 excel_file_creator <- function(site_list, database) {
 

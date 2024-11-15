@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Georama:ital,wght@0,100..900;1,100..900&family=Rasa:ital,wght@0,300..700;1,300..700&display=swap');
+
+body {
+  font-family: "Rasa" !important;
+  background-color: #FFFFFF;
+}
+
+p {
+  font-family: "Rasa" !important;
+  font-size: 1.55rem;
+}
+
+h1, h2 {
+  color: #FFFFFFFF;
+  font-size: 0pt !important;
+}
+
+h2 {
+  margin-top: 60px; 
+} 
+
+h3 {
+  font-size: 2.2rem; 
+  font-weight: 500;
+  margin-block-end: .5em;
+}
+
+summary {
+  font-size: 1.55rem;
+}
+
+ol, ul {
+  margin-block-start: .5em;
+} 
+
+ol ol, ul ul {
+  width: 85%;
+}
+
+li, li>li, li>li>li {
+  font-size: 1.55rem;
+}
+
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+  background-color: #0aa67b;
+  border-color: #0aa67b;
+}

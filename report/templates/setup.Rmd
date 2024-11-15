@@ -1,0 +1,576 @@
+
+
+```{r libraries, include=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = NA, dev = "ragg_png", dpi = 500)
+```
+
+```{r variables-and-theme}
+# Colors
+torv_cyan <<- "#0aa67b"
+torv_orange <<- "#a67b0a"
+torv_blue <<- "#0a83a6"
+torv_green <<- "#5b921e"
+torv_rose <<- "#9b5b64"
+torv_purple <<- "#8F51C0"
+torv_gray <<- "#808080"
+torv_gray_light <<- "#B1B1B1"
+
+# Typeface
+is_installed <- sum(grepl(typeface, systemfonts::system_fonts()$family)) != 0
+ 
+if(is_installed) {
+  typeface_tabular <<- typeface#paste(typeface, "Tabular") ## same now as Georama already has tabular numbers
+  typeface_condensed <<- paste(typeface, "SemiCondensed")
+  typeface_medium <<- paste(typeface, "Medium")
+  typeface_ultrabold <<- paste(typeface, "ultrabold")
+  typeface_condensed_medium <<- paste(typeface, "SemiCondensed Medium")
+  
+  # systemfonts::register_variant(
+  # family = typeface,
+  # name = typeface_tabular,
+  # weight = "normal",
+  # features = font_feature(numbers = "tabular")
+  # )
+  
+  systemfonts::register_variant(
+    family = typeface,
+    name = typeface_ultrabold,
+    weight = "ultrabold"
+  )
+  
+  systemfonts::register_variant(
+    family = typeface,
+    name = typeface_medium,
+    weight = "medium"
+  )
+  
+  systemfonts::register_variant(
+    family = typeface_condensed,
+    name = typeface_condensed_medium,
+    weight = "medium"
+  )
+  
+} else {
+  message("Using system default font as the specified typeface is not installed on your system. Please install the typeface on your system and then restart your R session.")
+  typeface <<- ""
+  typeface_tabular <<- ""
+  typeface_condensed <<- ""
+}
+
+# Plot Theme
+base_size <- 12
+if(html) margin <- margin(5, .5, 5, .5) else margin <- margin(15, .5, 15, .5)
+
+theme_gray_lines <<- "gray92"
+theme_gray_boxes <<- "gray96"
+
+theme_set(theme_minimal(base_family = typeface, base_size = base_size))
+theme_update(
+  axis.text = element_text(family = typeface, color = torv_gray, size = base_size * .5),
+  axis.text.x = element_text(size = base_size * .5, margin = margin(t = 4)),
+  axis.text.y = element_text(size = base_size * .5, margin = margin(r = 4)),
+  axis.title.x = element_text(size = base_size * .57),
+  axis.title.y = element_text(size = base_size * .57),
+  panel.grid.major = element_line(linewidth = .33, color = theme_gray_lines),
+  panel.grid.minor = element_blank(),
+  plot.title = element_text(family = typeface_medium, size = base_size * .67),
+  strip.text = element_text(family = typeface_medium, size = base_size * .67),
+  strip.text.x = element_text(hjust = 0, margin = margin(3, 0, 3, 0)),
+  plot.caption = element_text(size = base_size * .45, color = torv_gray, margin = margin(9, 0, 0, 0), hjust = 0),
+  plot.caption.position = "plot",
+  plot.margin = margin
+)
+
+if (html) {
+  # Tooltip Theme
+  tooltip_css_fill <<- paste0("background-color:white;padding:8px 10px 8px 10px;border-radius:5px;border-width:2px;color:white;border-style:solid;border-color:white;line-height:1.15;font-family:", typeface_tabular, ";font-size:1.4em;")
+  
+  set_girafe_defaults(
+    opts_tooltip = opts_tooltip(css = tooltip_css_fill, opacity = 1, use_fill = TRUE, offx = 10, offy = 10),
+    opts_hover = opts_hover(css = "stroke-width:2;"),
+    opts_hover_inv = opts_hover_inv(css = "opacity:.5;"),
+    opts_sizing = opts_sizing(rescale = TRUE),
+    opts_toolbar = opts_toolbar(saveaspng = TRUE, delay_mouseout = 5000)
+  )
+  
+  # Tooltip Theme for white boxes (use_fill = FALSE)
+  tooltip_css_bw <<- paste0("background-color:white;padding:6px 8px 6px 8px;border-radius:5px;border-width:2px;color:black;border-style:solid;border-color:black;line-height:1.15;font-family:", typeface_tabular, ";font-size:1.4em;")
+}
+```
+
+
+
+```{r function-table-formatting}
+# Function to format deficit tables as desired
+branded_table <- function(header_colour = torv_orange, 
+                          body_colour = "#f6cba2", #80% light on torv_orange colour
+                          data) {
+  data %>%
+    flextable() %>%
+    bold(part = "header") %>%
+    border_remove() %>%
+    width(j = 1:7, # revise to add area column
+          width = 0.89) %>%
+    align(part = "all",
+          align = "center") %>%
+    font(part = "all",
+         fontname = typeface) %>%
+    flextable::color(i = 1, color = header_colour, part = "header") %>%
+    border(i = 1,
+           border.top = officer::fp_border(width = 1.5, color = header_colour), part = "body") %>% 
+    {
+      if("Area" %in% names (data)) {
+        bold(., j = "Area", part = "body") %>%
+          border(., i = ~ `Area` == "Average",
+                 border.top = officer::fp_border(width = 1.5, color = torv_gray), part = "body") %>%
+          bold(., i = ~ `Area` == "Average")
+      } else {
+        .
+      }
+    }
+}
+```
+
+```{r function-make-trendline-legend}
+font_size <- if(html) 7/.pt else 6/.pt
+
+## Function to create a how-to plot for the trendline charts
+make_trendline_legend <- function(main_color = "grey30", 
+                                  stat = "average", 
+                                  label_stat = "Historic",
+                                  color_stat = torv_gray,
+                                  draw_beeswarm = input_params$beeswarm) {
+  
+  stable_year_range <- c(year(ymd("2020-01-01")), year(ymd("2021-01-01")), year(ymd("2022-01-01")))
+  
+  legend_plot_data <- tibble(year = stable_year_range, avg_measurement_result = c(2.15, 2.5, 2.4))
+  torv_avg <- 2.1
+  
+  legend_plot_points <- tibble(
+    year = rep(stable_year_range, each = 5),
+    measurement_result = c(
+      2, 2.05, 2.2, 2.2, 2.3, 
+      2.15, 2.45, 2.45, 2.55, 2.9,
+      2.2, 2.35, 2.35, 2.35, 2.75
+   ))
+
+  ggplot(legend_plot_data,
+         aes(x = lubridate::as_date(lubridate::date_decimal(stable_year_range)), 
+             y = avg_measurement_result)) +
+    
+    ## trend line
+    geom_smooth(
+      data = legend_plot_points,
+      aes(y = measurement_result,
+          x = lubridate::as_date(lubridate::date_decimal(year))),
+      method = "lm", formula = y ~ x, se = FALSE, 
+      linewidth = .8, color = torv_purple, alpha = .8
+    ) + 
+    geom_label(
+      data = legend_plot_points,
+      aes(x = lubridate::as_date("2021-01-01"), y = 2.35, label = "Trend"), 
+      family = typeface, color = torv_purple, size = font_size, label.size = 0, angle = 10, stat = "unique"
+    ) +
+    
+    ## all measurements 
+    { if(draw_beeswarm)
+      ## as beeswarms to avoid overlaps (varied around x)
+      ggbeeswarm::geom_beeswarm(
+        data = legend_plot_points,
+        aes(x = rep(lubridate::as_date(lubridate::date_decimal(stable_year_range)), each = 5), 
+            y = measurement_result),
+        shape = 21, color = "transparent", fill = torv_gray, size = 1, alpha = .35, cex = 2
+      )
+    } +
+    { if(!draw_beeswarm)
+      ## as dot strips (centered x)
+      geom_point(
+        data = legend_plot_points,
+        aes(x = rep(lubridate::as_date(lubridate::date_decimal(stable_year_range)), each = 5), 
+            y = measurement_result),
+        shape = 21, color = "transparent", fill = torv_gray, size = 1.3, alpha = .25
+      )
+    } +
+    annotate(
+      geom = "text", 
+      x = lubridate::as_date("2021-10-01"), y = 2.95,
+      label = "All samples",
+      hjust = 1, family = typeface, color = torv_gray, size = font_size
+    ) +
+    annotate(
+      geom = "curve",
+      x = lubridate::as_date("2021-10-15"), y = 2.94,
+      xend = lubridate::as_date("2021-12-30"), yend = 2.8,
+      curvature = -.2, 
+      arrow = arrow(length = unit(1.2, "mm"), type = "closed"),
+      color = clr_lighten(torv_gray, .6)
+    ) +
+    
+    ## average measurements
+    geom_line(
+      color = clr_lighten(main_color, .3), 
+      linewidth = .6, linetype = "solid", alpha = .65 
+    ) +
+    geom_point(
+      color = main_color, size = 1.6, 
+      shape = 21, fill = "white", stroke = .8
+    ) +
+    annotate(
+      geom = "text", 
+      x = lubridate::as_date("2021-06-01"), y = 2.7,
+      label = paste(str_to_sentence(stat), "measurement"),
+      hjust = 1, family = typeface, color = main_color, size = font_size
+    ) +
+    annotate(
+      geom = "curve",
+      x = as_date(lubridate::as_date("2020-08 -15")), y = 2.63,
+      xend = as_date(lubridate::as_date("2020-12-01")), yend = 2.52,
+      curvature = .2,
+      arrow = arrow(length = unit(1.2, "mm"), type = "closed"),
+      color = clr_lighten(main_color, .6)
+    ) +
+    
+    ## average
+    geom_line(
+      aes(y = torv_avg), 
+      linetype = "21", linewidth = .5, color = color_stat
+    ) +
+    annotate(
+      geom = "label", 
+      x = lubridate::as_date("2021-01-01"), y = torv_avg, 
+      label = paste(label_stat, stat), 
+      family = typeface, color = color_stat, 
+      size = font_size, label.size = 0
+    ) +
+    
+    ## styling
+    coord_cartesian(clip = "off") +
+    scale_x_date(expand = c(.012, .012)) +
+    scale_y_continuous(limits = c(2, 3), expand = expansion(mult = c(.025, .025))) +
+    labs(x = "Dates", y = "Values") + #, title = "How to read:") +
+    theme(
+      axis.text.x = element_blank(),
+      axis.text.y = element_blank(),
+      axis.title = element_text(size = font_size),
+      plot.margin = margin(6, 12, 12, 6),
+      panel.grid.major.x = element_blank()
+    )
+}
+
+## how-to-read plots for HTML version (one showing "average" and one for OM using the specified summary stat)
+trend_legend_mean <- make_trendline_legend()
+
+ggsave(here(root_figure_location, "trendlines", "trend_plot_legend_mean.png"),
+       trend_legend_mean, width = 2.5, height = 2, bg = "white", dpi = 500)
+
+trend_legend_om <- make_trendline_legend(stat = input_params$om_stats,
+                                         label_stat = "TORV",
+                                         color_stat = clr_lighten(torv_cyan, .2))
+
+ggsave(here(root_figure_location, "trendlines", "trend_plot_legend_om.png"),
+       trend_legend_om, width = 2.5, height = 2, bg = "white", dpi = 500)
+
+## how-to-read plots for PDF version (single chart stating both, mean and median combined)
+trend_legend_mean_median <- 
+  make_trendline_legend(main_color = "grey30", stat = "mean/ median", draw_beeswarm = input_params$beeswarm) +
+    ## TORV average
+    geom_hline(
+      aes(yintercept = 2.2), 
+      linetype = "21", linewidth = .5, color = torv_cyan
+    ) +
+    annotate(
+      geom = "label", x = lubridate::as_date("2021-01-01"), y = 2.2, label = "TORV average", 
+      family = typeface, color = torv_cyan, size = font_size, label.size = 0
+    ) 
+
+ggsave(here(root_figure_location, "trendlines", "trend_plot_legend_mean_median.png"),
+       trend_legend_mean_median, width = 2.5, height = 2, bg = "white", dpi = 500)
+```
+
+```{r get-filtered-database}
+param_date_sample_submitted <- lubridate::ymd(input_params$date_sample_submitted)
+param_start_date <- lubridate::ymd(input_params$start_date)
+param_end_date <- lubridate::ymd(input_params$end_date)
+
+rowAny <- function(x) rowSums(x) > 0
+
+master_database_file <- here("data", database_name)
+
+full_database <- readxl::read_excel(master_database_file,
+                                    range = readxl::cell_cols("A:Q"),
+                                    col_types = c("numeric", # A
+                                                  "text", # B
+                                                  "text", # C
+                                                  "text", # D
+                                                  "date", # E
+                                                  "text", # F
+                                                  "text", # G
+                                                  "text", # H
+                                                  "text", # I
+                                                  "text", # J
+                                                  "text", # K
+                                                  "text", # L
+                                                  "text", # M
+                                                  "text", # N
+                                                  "text", # O
+                                                  "text", # P
+                                                  "numeric" # Q
+                                    )) |> 
+  filter(rowAny(across(everything(), ~ !is.na(.x)))) |>   # remove empty rows
+  janitor::clean_names() |>  # make names r friendly
+  # exclude data after the end date (end date defaults to date_sample_submitted unless specified)
+  filter(date_sample_submitted <= param_end_date) |> 
+  filter(date_sample_submitted >= param_start_date) |>
+  mutate(measurement_name = case_when(measurement_name == "Sodium Adsorption Ratio" ~ "SAR",
+                                      TRUE ~ measurement_name))
+
+nitrogen_sums <- full_database |>
+  filter(measurement_name %in% c("Ammonium (ppm)", "Nitrate (ppm)")) |>
+  group_by(source_filename, date_sample_submitted, sample_type, sample_description_number_1,
+           sample_description_number_2, sample_description_number_3, sample_description_number_4) |>
+  add_count() |> # this allows you to look through the data to see where there was only one measurement, if desired
+  mutate(measurement_result = sum(measurement_result),
+         measurement_name = "Total Nitrogen (ppm)") |>
+  select(!c(row_number, n)) |>
+  unique()
+
+full_database <- full_database |>
+  bind_rows(nitrogen_sums)
+
+# Check venue and sample date are in the database; exit with a message if not
+if(!input_params$site_name %in% full_database$site) {
+  stop(paste0("\nIn generate_report(), you specified the site_name variable as ",
+              input_params$site_name, 
+              ". \nI couldn't find any data corresponding to that site name so I can't compile the report.
+              \nPlease ensure your database is up to date and check for typos before trying again."))
+}
+
+if(!lubridate::ymd(input_params$date_sample_submitted) %in% lubridate::ymd(full_database$date_sample_submitted)) {
+  stop(paste0("\nIn generate_report(), you specified the date_sample_submitted variable as ",
+              input_params$date_sample_submitted, 
+              ". \nI couldn't find any data corresponding to that date so I can't compile the report.
+              \nPlease ensure your database is up to date and check for typos before trying again."))
+}
+
+filtered_database <- full_database |> 
+  filter(site == input_params$site_name,
+         date_sample_submitted == param_date_sample_submitted) 
+
+if(nrow(filtered_database) == 0){
+  stop(paste0("\nIn generate_report(), you specified the site_name variable as ", input_params$site_name, 
+              ", and the date_sample_submitted variable as ", input_params$date_sample_submitted,
+              ". \nI couldn't find any data corresponding to that combination of site and date, so I can't compile the report.
+              \nPlease ensure your database is up to date and check for typos before trying again."))
+}
+
+monthly_normals <- readRDS(here("data", "monthly_normals_2010.rds"))
+
+# Check additional YAML variables
+if(!tolower(input_params$acid_extract) %in% c("mehlich", "olsen")) {
+  stop(paste0("\nIn generate_report(), you specified the acid_extract variable as ", input_params$acid_extract, 
+              ". It needs to be either Mehlich or Olsen.
+              \nPlease check for typos before trying again.")) 
+}
+
+if(!is.na(input_params$warm_or_cool) && !tolower(input_params$warm_or_cool) %in% c("warm", "cool")) {
+  stop(paste0("\nIn generate_report(), you specified the warm_or_cool variable as ", input_params$warm_or_cool, 
+              ". It needs to be either warm or cool.
+              \nPlease check for typos before trying again.")) 
+}
+
+# Bump object to parent environment so they can be accessed by child knit scripts
+filtered_database <<- filtered_database
+full_database <<- full_database
+```
+
+
+```{r get-types}
+soil_types <- filtered_database |> 
+  filter(sample_type == "Soil") |> 
+  filter(sample_description_number_1 != "OM") |> 
+  pull(sample_description_number_1) |> 
+  unique() 
+
+# to get them in order and leave room for unanticipated ones
+soil_types <- c(intersect(c("GREEN", "TEE", "FAIRWAY", "ROUGH"), soil_types), 
+                sort(setdiff(soil_types, intersect(c("GREEN", "TEE", "FAIRWAY", "ROUGH"), soil_types))))
+
+# for accessibility by other scripts
+soil_types <<- soil_types
+
+# check that warm_or_cool has been specified of there are soil samples to analyse
+if(is.na(input_params$warm_or_cool) && length(soil_types > 0)) {
+  stop(paste0("\nIn generate_report(), you specified the warm_or_cool variable as NA.", 
+              "\nIt needs to be either warm or cool in order to analyse the soil samples in the data.
+              \nPlease check before trying again.")) 
+}
+
+water_types <- filtered_database |> 
+  filter(sample_type == "Water") |> 
+  filter(sample_description_number_1 != "OM") |> 
+  pull(sample_description_number_1) |> 
+  unique() 
+
+water_types <<- water_types
+
+om_types <- filtered_database |>
+  filter(sample_description_number_1 == "OM",
+         sample_type %in% c("Soil", "Physical")) |>
+  pull(sample_description_number_2) |>
+  unique() 
+
+# to get them in order and leave room for unanticipated ones
+om_types <- c(intersect(c("GREEN", "TEE", "FAIRWAY", "ROUGH"), om_types), 
+              sort(setdiff(om_types, intersect(c("GREEN", "TEE", "FAIRWAY", "ROUGH"), om_types))))
+
+# for accessibility by other scripts
+om_types <<- om_types
+
+
+if(length(soil_types) == 0) {
+  message("\n❗ I didn't find any soil types in the database.")
+} else {
+  message(paste0("\n🗂️ I found the following soil types in the database: ", 
+                 paste(unique(soil_types), collapse = ", "),
+                 ".")) 
+}
+
+if(length(water_types) == 0) {
+  message("❗ I didn't find any water types in the database.")
+} else {
+  message(paste0("🗂️ I found the following water types in the database: ", 
+                 paste(unique(water_types), collapse = ", "),
+                 "."))
+}
+
+if(length(om_types) == 0) {
+  message("❗ I didn't find any OM types in the database.")
+} else {
+  message(paste0("🗂️ I found the following OM types in the database: ", 
+                 paste(unique(om_types), collapse = ", "),
+                 "."))
+}
+
+message("\n❓ Does that seem correct, or do you want to exit to investigate the database before running the rest of the report?")
+proceed <- readline("Type c for correct and hit ENTER to proceed, or hit any other key followed by ENTER to exit now.")
+
+if(proceed != "c") stop("\n\n❌ Report generation canceled. Please investigate the database before running the report again.\n\n")
+```
+
+```{r header-file-creator}
+# possible sampletypes: soil, water, turf
+header_file_create <<- function(sampletype, title, trends = FALSE) {
+  clean_sampletype <- str_to_lower(sampletype)
+  if (trends == FALSE) {
+    rsvg::rsvg_svg(
+      here(glue("report/assets/{clean_sampletype}-icon.svg")),
+      here(glue("report/assets/{clean_sampletype}-icon-cairo.svg"))
+    )
+  } else {
+    rsvg::rsvg_svg(
+      here(glue("report/assets/soil-icon.svg")),
+      here(glue("report/assets/soil-icon-cairo.svg"))
+    )
+  }
+  
+  img <- grImport2::readPicture(here(glue("report/assets/{clean_sampletype}-icon-cairo.svg")))
+  sym.grob <- grImport2::symbolsGrob(img, x = 0.5, y = 0.5, default.units = "npc", size = 1)
+  
+  if (sampletype == "OM") {
+    col <- torv_cyan
+    plot_title <- glue("Total Organic Matter | {title}")
+  } else if (sampletype == "Soil" & trends == TRUE) {
+    col <- torv_orange
+    plot_title <- glue("Trends Over Time | {title}")
+  } else if (sampletype == "Soil") {
+    col <- torv_orange
+    plot_title <- glue("Soil Testing | {title}")
+  } else if (sampletype == "Water" & trends == TRUE) {
+    col <- torv_blue
+    plot_title <- glue("Trends Over Time | {title}")
+  } else if (sampletype == "Water" & trends == FALSE) {
+    col <- torv_blue
+    plot_title <- glue("Water Testing | {title}")
+  } else if (sampletype == "Turf") {
+    col <- torv_green
+    plot_title <- glue("Turf Growth Potential Model")
+  } else if (sampletype == "Physical") {
+    col <- torv_rose
+    plot_title <- "Sand Fraction"
+  } else if (sampletype == "None") {
+    col <- torv_gray
+    plot_title <- glue("{title}")
+  }
+  r <- 0.5
+  
+  header_plot <- ggplot() +
+    #ggforce::geom_circle(aes(x0 = 0, y0 = 0, r = r), fill = col, color = NA) +
+    geom_point(aes(x = 0, y = 0), color = col, size = 17) +
+    annotation_custom(sym.grob, xmin = -0.5, xmax = 0.5, ymin = -0.5, ymax = 0.5) +
+    annotate(
+      "text", x = r + 0.5, y = 0, hjust = 0,
+      label = plot_title, size = 6.7,
+      color = col, fontface = "bold", family = typeface
+    ) +
+    xlim(c(-0.5, 10)) +
+    ylim(c(-0.5, 0.5)) +
+    coord_fixed(expand = FALSE) +
+    theme_void() +
+    theme(plot.margin = grid::unit(c(0, 0, 0,0), "null"))
+  
+  clean_title <- janitor::make_clean_names(title)
+  
+  # header_plot
+  if(trends == TRUE) {
+    ggsave(here(root_figure_location, "headers", glue("{clean_sampletype}_testing_{clean_title}_trends_plot.png")),
+           header_plot, width = 5.8, height = 0.7, bg = "white", dpi = 500)
+  } else {
+    ggsave(here(root_figure_location, "headers", glue("{clean_sampletype}_testing_{clean_title}_plot.png")),
+           header_plot, width = 5.8, height = 0.7, bg = "white", dpi = 500)
+  }
+  
+}
+```
+
+```{r station-data}
+zip_code_list <- tibble::tribble(
+  ~site_name,          ~zip_code,  
+  "Maroon Creek Club", 81615,
+  
+)
+
+
+# retrieve temperatures
+zipcode_geometry <- tigris::zctas(
+  cb = TRUE, 
+  starts_with = input_params$zip_code, 
+  progress_bar = FALSE,
+  year = 2019 # retrieve border of zip code (from census)
+)
+
+nearest_station_index <- zipcode_geometry |> 
+  sf::st_transform(crs = 4326) |> 
+  sf::st_nearest_feature(monthly_normals)
+
+nearest_station_data <<- monthly_normals[nearest_station_index[1],] 
+```
+
+```{r prepare-element-tables-auto-comments-tiny-charts}
+# This script asks for climate values input for the soil analysis, if there are soil types to analyse
+# It then prepares the overall deficits table, for subsetting by soil type and pulling into the report below
+
+if(length(om_types > 0)) {
+  source(here("aux-scripts", "om-calculations.R"))
+  source(here("aux-scripts", "om-text-automation.R"))
+}
+
+if(length(soil_types > 0)) {
+  source(here("aux-scripts", "deficit-tables.R"))
+  source(here("aux-scripts", "soil-text-automation.R"))
+  invisible(source(here("aux-scripts", "soil-tiny-charts.R")))
+ invisible(source(here("aux-scripts", "required_element_table.R")))
+}
+
+message("\n\n💪 Perfect, we're all set up! I'll compile the rest of the report now, wait a moment.\n\n\n")
+```
+

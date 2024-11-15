@@ -1,19 +1,7 @@
 
-\newpage
-
-
-```{r how_to_header}
+```{r how_to_header, out.width="900px"}
 header_file_create("None", "How to interpret these results")
-# in testing, id value of cairo svg gets updated with surface+5 every time (starts at 1, then 6, 11, etc)
-
-header_width <- 8
-header_height <- 1
-
-officer::fpar(
-  officer::external_img(here(root_figure_location, "headers", glue("none_testing_how_to_interpret_these_results_plot.png")), 
-                        height = header_height, width = header_width),
-  fp_p = officer::fp_par(text.align = "left")
-)
+knitr::include_graphics(here(root_figure_location, "headers", "none_testing_how_to_interpret_these_results_plot.png"))
 ```
 
 The Minimum Levels for Sustainable Nutrition (MLSN) guidelines are applied in this report. These guidelines are developed and based on two key principles (Global Soil Survey):

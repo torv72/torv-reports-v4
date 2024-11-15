@@ -1,23 +1,23 @@
 
 # Create and load the function
-update_database <- function(.test = FALSE) {
+update_database <- function() {
 
-  library(tidyverse)
+  library(dplyr)
+  library(tibble)
+  library(tidyr)
+  library(stringr)
+  library(purrr)
   library(readxl)
+  library(writexl)
   library(janitor)
   library(here)
   library(glue)
   library(lubridate)
+  library(patchwork)
 
-  # Add flexibility for tests
-  if(.test == TRUE) {
-    master_database_file <- here::here("tests/test-master-database/", "MASTER_DATABASE.xlsx")
-    raw_files_location <- here::here("tests/test-lab-data/")
-  } else {
-    master_database_file <- here::here("data", "MASTER_DATABASE.xlsx")
-    raw_files_location <- here::here("data-raw/lab-reports/")
-  }
-
+  master_database_file <- here("data", "MASTER_DATABASE.xlsx")
+  raw_files_location <- here("data-raw/lab-reports/")
+  
   # Read in manually compiled database ----------------------------
   rowAny <- function(x) rowSums(x) > 0
   original_database <- read_excel(master_database_file,
@@ -45,21 +45,21 @@ update_database <- function(.test = FALSE) {
     clean_names() # make names r friendly
 
   # Read in site codes ----
-  client_codes <- readxl::read_excel(here("data", "code_book.xlsx"),
-                                     sheet = "client_list") %>%
+  client_codes <- read_excel(here("data", "code_book.xlsx"),
+                             sheet = "client_list") %>%
     clean_names() %>%
     mutate(client_number = as.character(client_number))
 
-  site_codes <- readxl::read_excel(here("data", "code_book.xlsx"),
-                                     sheet = "site_codes") %>%
+  site_codes <- read_excel(here("data", "code_book.xlsx"),
+                           sheet = "site_codes") %>%
     clean_names()
 
-  test_codes <- readxl::read_excel(here("data", "code_book.xlsx"),
-                                   sheet = "catalog") %>%
+  test_codes <- read_excel(here("data", "code_book.xlsx"),
+                           sheet = "catalog") %>%
     clean_names()
 
-  measurement_codes <- readxl::read_excel(here("data", "code_book.xlsx"),
-                                          sheet = "measurement_names") %>%
+  measurement_codes <- read_excel(here("data", "code_book.xlsx"),
+                                  sheet = "measurement_names") %>%
     clean_names()
 
   # Set up functions and empty list to use later ----
@@ -77,23 +77,16 @@ update_database <- function(.test = FALSE) {
   # Get file names in lab-reports folder ----------------------------
   raw_data_list <- grep("xls",
                         list.files(raw_files_location),
-                        value = T) %>%
+                        value = TRUE) %>%
     data.frame(file_name = .)
-
-  if(.test == TRUE){
-    testthat::expect_identical(intersect(gsub("\"|.xlsx|.xls", "", raw_data_list$file_name), original_database$source_filename),
-                               "EnvGeneral_87118_EE549_Environmental_011122",
-                               label = "Duplicated file name")
-  }
 
   # Check files that have already been added, to avoid duplication
   if(any(gsub("\"|.xlsx|.xls", "", raw_data_list$file_name) %in% original_database$source_filename)) {
 
-    if(.test != TRUE){
-      message("\n\n* The following datasets are already in the MASTER_DATABASE.xlsx file. *",
-              paste0("\n - ", intersect(gsub("\"|.xlsx|.xls", "", raw_data_list$file_name), original_database$source_filename)),
-              "\nI will skip those to avoid overriding any manual changes you had previously made to them in MASTER_DATABASE.xlsx!\n\n")
-    }
+    message("\n\n* The following datasets are already in the MASTER_DATABASE.xlsx file. *",
+            paste0("\n - ", intersect(gsub("\"|.xlsx|.xls", "", raw_data_list$file_name), original_database$source_filename)),
+            "\nI will skip those to avoid overriding any manual changes you had previously made to them in MASTER_DATABASE.xlsx!\n\n")
+    
     raw_data_list <- raw_data_list %>%
       filter(!gsub("\"|.xlsx|.xls", "", raw_data_list$file_name) %in%
                original_database$source_filename)
@@ -288,24 +281,22 @@ I will therefore not create a new MASTER_DATABASE_UPDATED_[date].xlsx.")
   duplicates <- bind_rows(datasets_parsed) %>%
     filter(duplicated(.))
 
-  if(.test != TRUE) {
-    if(nrow(duplicates != 0)) {
-      write.csv(duplicates, row.names = F, here::here("data/duplicates.csv"))
+  if(nrow(duplicates != 0)) {
+    write.csv(duplicates, row.names = F, here("data/duplicates.csv"))
 
-      message("*** \nI found duplicate rows in the following files and have removed them.
+    message("*** \nI found duplicate rows in the following files and have removed them.
 Only the unique rows of data from those files have been kept and added to the database.")
 
-      message(paste0("\n- ", unique(duplicates$source_filename)))
+    message(paste0("\n- ", unique(duplicates$source_filename)))
 
-      message("\nI have created a file called `duplicates.csv` in the `data` folder,
+    message("\nI have created a file called `duplicates.csv` in the `data` folder,
 containing the data I excluded. Please take a look at these and at the original data
 to confirm these were indeed duplicates.
 ***\n\n")
-    }
   }
 
   data_to_add_to_db <- bind_rows(datasets_parsed) %>%
-    # TODO check if we want to keep this
+    # TODO: check if we want to keep this
     filter(!duplicated(.)) %>%
     # Create dummy columns necessary for the following bits of logic if the columns don't already exist
     {
@@ -334,96 +325,90 @@ to confirm these were indeed duplicates.
                                                    TRUE ~ sample_location)) %>%
     select(intersect(c(names(original_database), "client_number"), names(.)))
 
+  message("\n\n --- Please help me match up the clients and their sites --- \n\n")
 
+  existing_sites <- original_database %>%
+    select(client_name, site) %>%
+    unique() %>%
+    full_join(client_codes)
 
-  if(.test != TRUE){
-    # Will update tests once we're happy with the way this works
+  correct_sites <- tibble()
 
-    message("\n\n --- Please help me match up the clients and their sites --- \n\n")
+  for(filename in unique(data_to_add_to_db$source_filename)){
 
-    existing_sites <- original_database %>%
-      select(client_name, site) %>%
+    happy_with_input <- "n"
+
+    site_matches <- filter(data_to_add_to_db, source_filename == filename) %>%
+      select(source_filename, client_number, client_name) %>%
       unique() %>%
-      full_join(client_codes)
-
-    correct_sites <- tibble()
-
-    for(filename in unique(data_to_add_to_db$source_filename)){
-
-      happy_with_input <- "n"
-
-      site_matches <- filter(data_to_add_to_db, source_filename == filename) %>%
-        select(source_filename, client_number, client_name) %>%
-        unique() %>%
-        left_join(existing_sites)
+      left_join(existing_sites)
 
 
-      while(happy_with_input != "y") {
+    while(happy_with_input != "y") {
 
-        if(length(site_matches$site) > 0) {
+      if(length(site_matches$site) > 0) {
 
-          # print matches, ask for selection or 0 to type in a new one;
-          # left join the selection (filter so it matches the site / create new cell value based on input)
+        # print matches, ask for selection or 0 to type in a new one;
+        # left join the selection (filter so it matches the site / create new cell value based on input)
 
-          message(paste(filename, "\nI found", verbaliseR::pluralise("site", length(site_matches$site)),
-                        "corresponding to this client in the database:"))
+        message(paste(filename, "\nI found", verbaliseR::pluralise("site", length(site_matches$site)),
+                      "corresponding to this client in the database:"))
 
-          message(paste0("\n     ", (1:length(site_matches$site)), ". ", site_matches$site))
+        message(paste0("\n     ", (1:length(site_matches$site)), ". ", site_matches$site))
 
-          message("\nPlease type the number corresponding to the site you want to select, or type in a new site name, then hit ENTER.")
+        message("\nPlease type the number corresponding to the site you want to select, or type in a new site name, then hit ENTER.")
 
-          site_entered <- readline("Answer: ")
+        site_entered <- readline("Answer: ")
 
-          if(!is.na(suppressMessages(as.numeric(site_entered)))) {
+        if(!is.na(suppressMessages(as.numeric(site_entered)))) {
 
-            while(!between(as.numeric(site_entered), 1, length(site_matches$site))) {
+          while(!between(as.numeric(site_entered), 1, length(site_matches$site))) {
 
-              message("!! The number you entered was not one of the options!! Please try again.")
+            message("!! The number you entered was not one of the options!! Please try again.")
 
-              message(paste("\n", filename, "\nI found", verbaliseR::pluralise("site", length(site_matches$site)),
-                            "corresponding to this client in the database:"))
+            message(paste("\n", filename, "\nI found", verbaliseR::pluralise("site", length(site_matches$site)),
+                          "corresponding to this client in the database:"))
 
-              message(paste0("\n     ", (1:length(site_matches$site)), ". ", site_matches$site))
+            message(paste0("\n     ", (1:length(site_matches$site)), ". ", site_matches$site))
 
-              message("\nPlease type the number corresponding to the site you want to select, or type in a new site name, then hit ENTER.")
+            message("\nPlease type the number corresponding to the site you want to select, or type in a new site name, then hit ENTER.")
 
 
-              site_entered <- readline("Answer: ")
-
-            }
-            site_to_use <- site_matches$site[as.numeric(site_entered)]
-
-            print(site_to_use)
-
-          } else {
-
-            site_to_use <- site_entered
+            site_entered <- readline("Answer: ")
 
           }
+          site_to_use <- site_matches$site[as.numeric(site_entered)]
+
+          print(site_to_use)
+
         } else {
 
-          message("I did not find any sites corresponding to that client number. Please type in the site name, then hit ENTER.")
-          site_entered <- readline("Answer: ")
+          site_to_use <- site_entered
 
         }
+      } else {
 
-        message(paste0("For the data corresponding to file ", filename, ", I will use this site: ", site_to_use))
-
-        happy_with_input <- readline("Is that correct? (y/n):")
-
-        if(happy_with_input == "n") message("No problem, let's try that one again!\n")
+        message("I did not find any sites corresponding to that client number. Please type in the site name, then hit ENTER.")
+        site_entered <- readline("Answer: ")
 
       }
 
-      correct_sites <- correct_sites %>%
-        rbind(tibble(source_filename = filename,
-                     site = site_to_use))
+      message(paste0("For the data corresponding to file ", filename, ", I will use this site: ", site_to_use))
+
+      happy_with_input <- readline("Is that correct? (y/n):")
+
+      if(happy_with_input == "n") message("No problem, let's try that one again!\n")
 
     }
 
-    data_to_add_to_db <- left_join(data_to_add_to_db,
-                                   correct_sites)
+    correct_sites <- correct_sites %>%
+      rbind(tibble(source_filename = filename,
+                   site = site_to_use))
+
   }
+
+  data_to_add_to_db <- left_join(data_to_add_to_db,
+                                 correct_sites)
 
   # TODO: add site - type match-up? Could use site codes or info from within the database (latter is easier to maintain)
 
@@ -433,42 +418,18 @@ to confirm these were indeed duplicates.
                                 data_to_add_to_db)
 
 
-  if(.test == TRUE){
-    # load reference file containing updated master database and just update section
-    for(tested_data in gsub("_ref$", "", grep("_ref",
-                                              ls(pos = ".GlobalEnv"),
-                                              value = T))) {
-      testthat::expect_equal(eval(parse(text = tested_data)),
-                             eval(parse(text = paste0(tested_data, "_ref"))),
-                             label = paste0("*", gsub("_ref", "", tested_data),
-                                            "* does not match its expected value --"))
-    }
+  write_xlsx(updated_database, here("data", paste0("MASTER_DATABASE_UPDATED_", Sys.Date(), ".xlsx")))
 
-  } else {
-
-    writexl::write_xlsx(updated_database, here("data",
-                                               paste0("MASTER_DATABASE_UPDATED_", Sys.Date(), ".xlsx")))
-
-    message("\n\n***",
-            "\nI have finished updating the database!",
-            "\nPlease search for \"\\??\\\" to find values I wasn't able to establish programmatically,
+  message("\n\n***",
+          "\nI have finished updating the database!",
+          "\nPlease search for \"\\??\\\" to find values I wasn't able to establish programmatically,
 update any other values as required, and replace the data/MASTER_DATABASE.xlsx file
 with the one I've just created!
 
 Once you've done that, also consider updating data/site_codes.csv to add in codes for
 any new sites I should be able to match up next time!
 ***\n\n")
-
-  }
 }
-
-# Test the function
-# Suppressing warnings because they're all about NAs and the renaming of columns
-suppressWarnings(
-  suppressMessages(
-    update_database(.test = TRUE)
-  )
-)
 
 # Run the function
 update_database()

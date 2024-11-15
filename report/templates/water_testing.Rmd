@@ -1,22 +1,11 @@
 
 \newpage
 
-
-```{r, message=FALSE, warning=FALSE}
-
+```{r, message=FALSE, warning=FALSE, out.width="900px"}
 clean_water_description <- janitor::make_clean_names("{{water_description}}")
 
 header_file_create("Water", "{{water_description}}")
-
-header_width <- 8
-header_height <- 1
-
-officer::fpar(
-  officer::external_img(here(root_figure_location,  "headers",
-                             glue::glue("water_testing_{clean_water_description}_plot.png")), 
-               height = header_height, width = header_width),
-  fp_p = officer::fp_par(text.align = "left")
-)
+knitr::include_graphics(here(root_figure_location,  "headers", glue("water_testing_{clean_water_description}_plot.png")))
 ```
 
 FAO Handbook 29 is the Food and Agricultural Organization of the United Nations and widely is recognized as the leading source for irrigation water quality guidelines. Below are the water sample results as shown in comparison to the FAO guidelines for likelihood of soil problems.
@@ -24,106 +13,191 @@ FAO Handbook 29 is the Food and Agricultural Organization of the United Nations 
 ```{r}
 fao_water_guidelines <- tribble(
   ~measurement_name, ~low_med_cutoff, ~med_high_cutoff,
-  "Conductivity (mmhos/cm)", 0.7, 3.0,
+  "Conductivity (mmhos/cm)", .7, 3.0,
   "Salt Concentration - TDS (ppm)", 450, 2000,
-  "SAR", 0.75, 0.25,
-  "Sodium (ppm)", 70, 200,
+  "SAR", .75, .25,
+  "Sodium (ppm)", 70, 400,
   "Residual Sodium Carbonate (RSC)", 1.25, NA,
   "Total Nitrogen (ppm)", 5, 20,
   "Ammonium (ppm)", 5, 20,
-  "Boron (ppm)", 0.5, 3,
+  "Boron (ppm)", .5, 3,
   "Bicarbonate (ppm)", 92, 520,
-  "Chloride (ppm)", 105, NA
+  "Chloride (ppm)", 105, 400
 ) 
 
-  
-  measurement_names <<- fao_water_guidelines$measurement_name
-
+measurement_names <<- fao_water_guidelines$measurement_name
 ```
 
 
 ```{r eval = TRUE}
 make_water_plot <- function(plot_measurement) {
   
-  plot_measurement_value <- water_mod_filtered_database %>% 
+  plot_measurement_value <- 
+    water_mod_filtered_database %>% 
     filter(sample_type == "{{sample_type}}",
            water_sample_description == "{{water_description}}",
            measurement_name == plot_measurement) %>% 
-    select(measurement_name, measurement_result)
+    select(measurement_name, measurement_result, date_sample_submitted)
   
   if (plot_measurement == "SAR") {
   
-    conductivity_value <- water_mod_filtered_database %>%
+    conductivity_value <- 
+      water_mod_filtered_database %>%
       filter(sample_type == "{{sample_type}}",
              water_sample_description == "{{water_description}}",
              measurement_name == "Conductivity (mmhos/cm)") %>% 
       pull(measurement_result)
     
-    sar_value <- plot_measurement_value %>%
+    sar_value <- 
+      plot_measurement_value %>%
       pull(measurement_result)
     
-    water_plot_data <- fao_water_guidelines %>% 
+    water_plot_data <- 
+      fao_water_guidelines %>% 
       left_join(plot_measurement_value, by = "measurement_name") %>% 
       filter(measurement_name == plot_measurement) %>% 
       
-      # Adjust SAR values as necessary; see logic in reference-docs/torv-reports-etc/fao-water-ranges.xls
-      # e.g. IF the SAR value is 0-3 and the EC is greater than .7, then it is LOW.
-      # Setting high and low values based on logic in document and defaulting to mid.
-      # Mid-range points are sufficient for this scale.
-      
-      
-      mutate(measurement_result_adjusted = case_when(
-        # The "high" and "low" cutoff are the other way round compared to the other measurements
-        # because of the nature of the logic. So 0.15 is high and 0.95 is low.
-        between(sar_value, 0, 3) & conductivity_value > 0.7 ~ .95,
-        between(sar_value, 0, 3) & conductivity_value < 0.2 ~ .15,
-        between(sar_value, 3.001, 6) & conductivity_value > 1.2 ~ .95,
-        between(sar_value, 3.001, 6) & conductivity_value < 0.3 ~ .15,
-        between(sar_value, 6.001, 12) & conductivity_value > 1.9 ~ .95,
-        between(sar_value, 6.001, 12) & conductivity_value < 0.5 ~ .15,
-        between(sar_value, 12.001, 20) & conductivity_value > 2.9 ~ .95,
-        between(sar_value, 12.001, 20) & conductivity_value < 1.3 ~ .15,
-        # Half way between the two cutoffs
-        TRUE ~ 0.5
-      ))
-      
+      # Adjust SAR values as necessary
+      mutate(
+        measurement_result_adjusted = case_when(
+          between(sar_value, 0, 3) & conductivity_value > .7 ~ .95,
+          between(sar_value, 0, 3) & conductivity_value < .2 ~ .15,
+          between(sar_value, 3.001, 6) & conductivity_value > 1.2 ~ .95,
+          between(sar_value, 3.001, 6) & conductivity_value < .3 ~ .15,
+          between(sar_value, 6.001, 12) & conductivity_value > 1.9 ~ .95,
+          between(sar_value, 6.001, 12) & conductivity_value < .5 ~ .15,
+          between(sar_value, 12.001, 20) & conductivity_value > 2.9 ~ .95,
+          between(sar_value, 12.001, 20) & conductivity_value < 1.3 ~ .15,
+          TRUE ~ .5
+        ),
+        outcome = case_when(
+          measurement_result_adjusted >= .95 ~ "low",
+          measurement_result_adjusted <= .15 ~ "high",
+          TRUE ~ "medium"
+        ),
+        outcome_lab = paste0(" (", outcome, ")")
+      )
   
   } else {
     
-    water_plot_data <- fao_water_guidelines %>% 
+    water_plot_data <- 
+      fao_water_guidelines %>% 
       left_join(plot_measurement_value, by = "measurement_name") %>% 
       filter(measurement_name == plot_measurement) %>% 
       mutate(measurement_result_adjusted = measurement_result)
   }
   
+ water_plot_data <- 
+  water_plot_data %>%
+  mutate(
+    label = if_else(abs(measurement_result) > 100,
+                    janitor::round_half_up(measurement_result, 0),
+                    signif(measurement_result, 3)))
+
+if (plot_measurement != "SAR") {
+  water_plot_data <- 
+    water_plot_data %>%
+    mutate(
+      outcome = if_else(
+        !plot_measurement %in% c("Chloride (ppm)", "Residual Sodium Carbonate (RSC)"),
+        case_when(
+          measurement_result <= low_med_cutoff ~ "low",
+          measurement_result > med_high_cutoff ~ "high",
+          TRUE ~ "medium"
+        ),
+        if_else(
+          plot_measurement %in% c("Chloride (ppm)", "Residual Sodium Carbonate (RSC)"),
+          case_when(
+            measurement_result <= low_med_cutoff ~ "low",
+            measurement_result > low_med_cutoff ~ " medium/high"
+          ),
+          case_when(
+            measurement_result > low_med_cutoff ~ "low",
+            measurement_result <= med_high_cutoff ~ "high",
+            TRUE ~ "medium"
+          )
+        )
+      ),
+      outcome_lab = paste0(" (", outcome, ")")
+    )
+}
+  
   cutoff_distance <- water_plot_data$med_high_cutoff - water_plot_data$low_med_cutoff
-  label_size <- 8/.pt
+  label_size <- 2.7
   line_size <- .5
   
-  plot_pre_annotate <- water_plot_data %>% 
-    ggplot(aes(x = measurement_result_adjusted, y = 0, 
-               label = ifelse(abs(measurement_result) > 100,
-                                  janitor::round_half_up(measurement_result, 0),
-                                  signif(measurement_result, 3)))) +
-    geom_hline(yintercept = 0, color = "#BFBFBF",
-               size = line_size) +
-    geom_segment(aes(x = low_med_cutoff, xend = low_med_cutoff,
-                     y = -0.5, yend = 0.5), 
-                 color = "#BFBFBF",
-                 size = line_size) +
-    geom_segment(aes(x = med_high_cutoff, xend = med_high_cutoff,
-                     y = -0.5, yend = 0.5), 
-                 color = "#BFBFBF",
-                 size = line_size) +
-    geom_point(size = 10, color = "#119AD6") +
-    geom_text(color = "white", fontface = "bold", family = "Lato",
-              size = 8/.pt) +
+plot_pre_annotate <-
+    ggplot(water_plot_data,
+           aes(x = measurement_result_adjusted, y = 0, 
+               label = label)) +
+    geom_hline(yintercept = 0, color = "grey92", size = line_size) +
+    {if (plot_measurement == "Chloride (ppm)") {
+      geom_segment(
+        data = water_plot_data,
+        aes(x = low_med_cutoff, xend = low_med_cutoff,
+            y = -.95, yend = .5), 
+        color = "grey92", linewidth = line_size
+      )
+    } else if (plot_measurement == "Sodium (ppm)") {
+      list(
+        geom_segment(
+          data = water_plot_data,
+          aes(x = low_med_cutoff, xend = low_med_cutoff,
+              y = -.95, yend = .5), 
+          color = "grey92", linewidth = line_size
+        ),
+        geom_segment(
+          data = water_plot_data,
+          aes(x = med_high_cutoff, xend = med_high_cutoff,
+              y = -.95, yend = .5), 
+          color = "grey92", linewidth = line_size
+        )
+      )
+    } else {
+      list(
+        geom_segment(
+          aes(x = low_med_cutoff, xend = low_med_cutoff,
+              y = -.95, yend = .5), 
+          color = "grey92", linewidth = line_size
+        ),
+        geom_segment(
+          aes(x = med_high_cutoff, xend = med_high_cutoff,
+              y = -.95, yend = .5), 
+          color = "grey92", linewidth = line_size
+        )
+      )
+    }} +
+    geom_point(size = 12, color = "white") +
+    geom_point_interactive(
+      aes(tooltip = paste0(
+            "<b>", label, outcome_lab, "</b><br><span style='font-size:12pt;'><b>", plot_measurement, "</b><br>", 
+            str_replace(format(date_sample_submitted, "%B %e, %Y"), "  ", " "), "</span><br><b>"
+          ), 
+          data_id = label, fill = outcome),
+      shape = 21, size = 12, stroke = 1,
+      color = "white"
+    ) +
+    geom_text(
+      color = "white", fontface = "bold", 
+      family = typeface_condensed, size = 3.3
+    ) +
+    scale_fill_manual(
+      values = c("low" = "#505a8e", "medium" = "#0a83a6", "medium/high" = "#436e98", "high" = "#3fa59b"),
+      guide = "none"
+    ) +
     labs(y = str_wrap(plot_measurement, 20)) +
-    theme_void() +
-    theme(text = element_text(family = "Lato"),
-          axis.title.y = element_text(size = 8))
+    theme(
+      panel.grid.major = element_blank(),
+      axis.text.x = element_blank(),
+      axis.text.y = element_blank(),
+      axis.title.x = element_blank(),
+      axis.title.y = element_text(hjust = 0, vjust = .5, angle = 0, 
+                                  size = rel(.7), family = typeface_medium),
+      plot.margin = margin(8, .5, 8, .5)
+    )
   
   if (plot_measurement == "Residual Sodium Carbonate (RSC)") {
+    
     lower_bound <- min(water_plot_data$measurement_result, -5)
     
     xrange <- c(lower_bound, water_plot_data$low_med_cutoff + (water_plot_data$low_med_cutoff - lower_bound))
@@ -131,113 +205,203 @@ make_water_plot <- function(plot_measurement) {
     plot_post_annotate <- plot_pre_annotate + 
       annotate("text", 
                x = (lower_bound + water_plot_data$low_med_cutoff)/2, # halfway between left edge and cutoff
-               y = -0.5, 
-               label = "Low",
-               color = "#626262",
-               family = "Lato",
+               y = -.75, 
+               label = "low",
+               color = "#848CC0", #torv_gray, 
+               family = typeface,
                size = label_size) + 
       annotate("text", 
                x = (water_plot_data$low_med_cutoff - lower_bound)/2 + water_plot_data$low_med_cutoff, # halfway between right edge and cutoff
-               y = -0.5, 
-               label = "Medium/High",
-               color = "#626262",
-               family = "Lato",
+               y = -.75, 
+               label = "medium/high",
+               color = "#779CC6", #torv_gray,
+               family = typeface,
                size = label_size)
-  } else if (plot_measurement == "Chloride (ppm)") {
+    
+} else if (plot_measurement == "Chloride (ppm)") {
     lower_bound <- 0
+    cutoff <- water_plot_data$low_med_cutoff  # This is 105
+    max_value <- water_plot_data$measurement_result  # This is 357 for Exit
     
-    xrange <- c(lower_bound, water_plot_data$low_med_cutoff + (water_plot_data$low_med_cutoff - lower_bound)) # make cutoff in center of plot
+    if (max_value > cutoff * 2) {
+      # For high values like 357
+      xrange <- c(0, 400)
+      upper_bound <- 400  # Define upper_bound for label positioning
+    } else {
+      # For lower values
+      xrange <- c(0, cutoff * 2)
+      upper_bound <- cutoff * 2  # Define upper_bound for label positioning
+    }
+    
+    # Force the outcome categorization for Chloride
+    water_plot_data <- water_plot_data %>%
+      mutate(
+        outcome = if_else(
+          measurement_result <= low_med_cutoff,
+          "low",
+          "medium/high"
+        ),
+        outcome_lab = paste0(" (", outcome, ")")
+      )
     
     plot_post_annotate <- plot_pre_annotate + 
+      # Make sure the fill colors are explicitly set
+      scale_fill_manual(
+        values = c(
+          "low" = "#505a8e",
+          "medium/high" = "#436e98"
+        ),
+        guide = "none"
+      ) +
       annotate("text", 
-               x = (lower_bound + water_plot_data$low_med_cutoff)/2, # halfway between left edge and cutoff
-               y = -0.5, 
-               label = "Low",
-               color = "#626262",
-               family = "Lato",
+               x = (lower_bound + water_plot_data$low_med_cutoff)/2,
+               y = -.75, 
+               label = "low",
+               color = "#848CC0",
+               family = typeface,
                size = label_size) + 
       annotate("text", 
-               x = (water_plot_data$low_med_cutoff - lower_bound)/2 + water_plot_data$low_med_cutoff, # halfway between right edge and cutoff
-               y = -0.5, 
-               label = "Medium/High",
-               color = "#626262",
-               family = "Lato",
+               x = (water_plot_data$low_med_cutoff + upper_bound)/2,
+               y = -.75, 
+               label = "medium/high",
+               color = "#779CC6",
+               family = typeface,
                size = label_size)
+} else {
+    cutoff_distance <- water_plot_data$med_high_cutoff - water_plot_data$low_med_cutoff
     
-    
-  } else {
-    xrange <- c(water_plot_data$low_med_cutoff - cutoff_distance * 2/3,
-                water_plot_data$med_high_cutoff + cutoff_distance * 2/3)
-    
-    plot_post_annotate <- plot_pre_annotate + 
-      annotate("text", 
-               x = water_plot_data$low_med_cutoff - (cutoff_distance)/2,
-               y = -0.5, 
-               label = "Low",
-               color = "#626262",
-               family = "Lato",
-               size = label_size) +
-      annotate("text", 
-               x = water_plot_data$low_med_cutoff + (cutoff_distance)/2,
-               y = -0.5, 
-               label = "Medium",
-               color = "#626262",
-               family = "Lato",
-               size = label_size) + 
-      annotate("text", 
-               x = water_plot_data$med_high_cutoff + (cutoff_distance)/2,
-               y = -0.5, 
-               label = "High",
-               color = "#626262",
-               family = "Lato",
-               size = label_size)
+    if (plot_measurement == "Sodium (ppm)") {
+      low_cutoff <- water_plot_data$low_med_cutoff  # 70
+      high_cutoff <- water_plot_data$med_high_cutoff  # 200
+      max_value <- water_plot_data$measurement_result
+      
+      if (max_value > high_cutoff * 1.5) {
+        # Special handling for very high values (like 373)
+        xrange <- c(0, 450)  # Fixed scale for high values
+        
+        plot_post_annotate <- plot_pre_annotate + 
+          annotate("text", 
+                   x = 35,  # Position labels at fixed points
+                   y = -.75, 
+                   label = "low",
+                   color = "#848CC0",
+                   family = typeface,
+                   size = label_size) +
+          annotate("text", 
+                   x = 135,
+                   y = -.75, 
+                   label = "medium",
+                   color = "#5AADD1",
+                   family = typeface,
+                   size = label_size) + 
+          annotate("text", 
+                   x = 300,
+                   y = -.75, 
+                   label = "high",
+                   color = "#6AC7BD",
+                   family = typeface,
+                   size = label_size)
+      } else {
+        # Original calculation for lower values
+        xrange <- c(
+          low_cutoff - cutoff_distance * 2/3,
+          high_cutoff + cutoff_distance * 2/3
+        )
+        
+        plot_post_annotate <- plot_pre_annotate + 
+          annotate("text", 
+                   x = water_plot_data$low_med_cutoff - (cutoff_distance)/2,
+                   y = -.75, 
+                   label = "low",
+                   color = "#848CC0",
+                   family = typeface,
+                   size = label_size) +
+          annotate("text", 
+                   x = water_plot_data$low_med_cutoff + (cutoff_distance)/2,
+                   y = -.75, 
+                   label = "medium",
+                   color = "#5AADD1",
+                   family = typeface,
+                   size = label_size) + 
+          annotate("text", 
+                   x = water_plot_data$med_high_cutoff + (cutoff_distance)/2,
+                   y = -.75, 
+                   label = "high",
+                   color = "#6AC7BD",
+                   family = typeface,
+                   size = label_size)
+      }
+    } else {
+      # Original calculation for other measurements
+      xrange <- c(water_plot_data$low_med_cutoff - cutoff_distance * 2/3,
+                  water_plot_data$med_high_cutoff + cutoff_distance * 2/3)
+      
+      plot_post_annotate <- plot_pre_annotate + 
+        annotate("text", 
+                 x = water_plot_data$low_med_cutoff - (cutoff_distance)/2,
+                 y = -.75, 
+                 label = "low",
+                 color = "#848CC0",
+                 family = typeface,
+                 size = label_size) +
+        annotate("text", 
+                 x = water_plot_data$low_med_cutoff + (cutoff_distance)/2,
+                 y = -.75, 
+                 label = "medium",
+                 color = "#5AADD1",
+                 family = typeface,
+                 size = label_size) + 
+        annotate("text", 
+                 x = water_plot_data$med_high_cutoff + (cutoff_distance)/2,
+                 y = -.75, 
+                 label = "high",
+                 color = "#6AC7BD",
+                 family = typeface,
+                 size = label_size)
+    }
   }
   
   plot_post_annotate +
     coord_cartesian(xlim = xrange, 
                     ylim = c(-1, 1), clip = "off")
 }
+
+if(html) fig_w <- 7 else fig_w <- 8.1
 ```
 
-```{r, message=FALSE, warning=FALSE, fig.width=6.5, results='asis'}
-water_measurements_to_plot <- c("Conductivity (mmhos/cm)",
-                                "Salt Concentration - TDS (ppm)",
-                                "SAR",
-                                "Sodium (ppm)",
-                                "Residual Sodium Carbonate (RSC)",
-                                "Boron (ppm)",
-                                "Bicarbonate (ppm)",
-                                "Chloride (ppm)")
+```{r, message=FALSE, warning=FALSE, results='asis', fig.width=6.8, fig.height=fig_w, out.width="100%"}
+water_measurements_to_plot <<- c("Conductivity (mmhos/cm)",
+                                 "Salt Concentration - TDS (ppm)",
+                                 "SAR",
+                                 "Sodium (ppm)",
+                                 "Residual Sodium Carbonate (RSC)",
+                                 "Boron (ppm)",
+                                 "Bicarbonate (ppm)",
+                                 "Chloride (ppm)")
 
 water_plots <- map(water_measurements_to_plot, make_water_plot)
 
-combined_plots <- patchwork::wrap_plots(water_plots) +
+water_combined_plot <- patchwork::wrap_plots(water_plots) +
   patchwork::plot_layout(ncol = 1, heights = 1)
 
-ggsave(here(root_figure_location,  "water_testing", glue::glue(janitor::make_clean_names("water_plot_{{water_description}}"), ".png")),
-       combined_plots, bg = "#ffffff",
-       device = png(width = 6.5, height = 6, units = "in", type = "cairo", res = 144))
+#ggsave(here(root_figure_location,  "water_testing", glue::glue(janitor::make_clean_names("water_plot_{{water_description}}"), ".png")),
+#       water_combined_plot, width = 6.8, height = 6, bg = "white", dpi = 500)
 
-cat("![](", here::here(root_figure_location, "water_testing", glue::glue(janitor::make_clean_names("water_plot_{{water_description}})"), ".png")), ")", sep = "")
+#cat("![](", here(root_figure_location, "water_testing", glue::glue(janitor::make_clean_names("water_plot_{{water_description}})"), ".png")), ")", sep = "")
+#knitr::include_graphics(here(root_figure_location, "water_testing", glue::glue(janitor::make_clean_names("water_plot_{{water_description}})"), ".png")))
+
+if (html) {
+  girafe(ggobj = water_combined_plot)
+} else {
+  water_combined_plot
+}
 ```
-
-
 
 \newpage
 
-
-```{r}
+```{r, out.width="900px"}
 header_file_create("Water", "{{water_description}}", trends = TRUE)
-
-header_width <- 8
-header_height <- 1
-
-officer::fpar(
-  officer::external_img(here(root_figure_location,  "headers",
-                             glue::glue("water_testing_{clean_water_description}_trends_plot.png")), 
-               height = header_height, width = header_width),
-  fp_p = officer::fp_par(text.align = "left")
-)
+knitr::include_graphics(here(root_figure_location,  "headers", glue("water_testing_{clean_water_description}_trends_plot.png")))
 ```
 
 ```{r, results='asis', warning=FALSE, message=FALSE}

@@ -1,0 +1,494 @@
+
+\newpage
+
+```{r, warning=FALSE, message=FALSE, out.width="900px"}
+header_file_create("Physical", "Sand Fraction")
+knitr::include_graphics(here(root_figure_location, "headers", "physical_testing_sand_fraction_plot.png"))
+```
+
+The sand fraction analysis examines the composition of the golf course greens in the top 6 cm of the surface. The S022 lab test analyzes organic matter samples after they have been ashed from three depths: 0-2 cm, 2-4 cm, and 4-6 cm. These samples are sieved according to the United States Golf Association (USGA) specifications for sand particle sizes, as outlined in "USGA Recommendations for a Method of Putting Green Construction, 2018 Revision."
+
+The results show the distribution of sand fractions at each depth, providing information about the green's physical properties in its upper layer. This data helps in assessing factors such as water movement and surface firmness in the most active part of the green's profile. The analysis offers insights into the surface and near-surface conditions, which is useful for evaluating the current state of the green's top layer and for making informed decisions about its maintenance.
+
+Note that the USGA does not provide a recommendation for Sand, and thus no recommended ranges are shown in the following charts and tables.
+
+```{r}
+usga_specs <- tribble(
+  ~measurement_name,                                       ~usga_spec, ~usga_value, ~usga_direction,
+  "Coarse Sand + Medium Sand (0.5 mm + 0.25 mm)",          "≥ 60%",   60,           1,
+  "Fine Gravel (2.0 mm)",                                  "≤ 3%",     3,          -1,
+  "Fine Gravel + Very Coarse Sand (2.0 mm + 1.0 mm)",      "≤ 10%",   10,          -1,
+  "Fine Sand (0.15 mm)",                                   "≤ 20%",   20,          -1,
+  "Very Fine Sand + Very Fine Sand (0.106 mm + 0.053 mm)", "≤ 5%",     5,          -1
+)
+
+sf_data <- 
+  full_database |>
+  filter(site == input_params$site_name) |>
+  filter(sample_description_number_1 == "SF") |>
+  mutate(
+    depth = ifelse(str_detect(sample_description_number_3, "[0-9]-[0-9]"), # depth info either in desc3 or desc4 column
+                   sample_description_number_3,
+                   sample_description_number_4),
+    year = lubridate::year(date_sample_submitted),
+    month = lubridate::month(date_sample_submitted),
+    year_month = lubridate::format_ISO8601(date_sample_submitted, precision = "ym"), #paste0(year, "\n", month),
+    depth = as.character(glue::glue("{depth} cm")),
+    measurement_name = str_remove_all(measurement_name, " \\(%\\)"),
+    measurement_name = str_replace(measurement_name, " - ", " ("),
+    measurement_name = str_replace(measurement_name, " mm$", " mm)"),
+    measurement_name = str_replace(measurement_name, "1 mm", "1.0 mm"),
+    measurement_name = str_replace(measurement_name, "2 mm", "2.0 mm")
+  ) #|>
+  #filter(month %in% input_params$season) ## if only seasonal data should be shown
+
+samplings_per_year <- sf_data |> group_by(year) |> summarize(n = length(unique(date_sample_submitted)))
+if(max(samplings_per_year$n) > 1) grp <- "year_month" else grp <- "year"
+
+sf_data <- 
+  sf_data |> 
+  select(depth, date_sample_submitted, !!sym(grp), measurement_name, measurement_result)
+
+sf_data_add <-
+  sf_data |> 
+  mutate(
+    ## align particle names with those provided by USGA
+    measurement_name = case_when(
+      measurement_name %in% c("Fine Gravel (2.0 mm)", "Very Coarse Sand (1.0 mm)") ~ "Fine Gravel + Very Coarse Sand (2.0 mm + 1.0 mm)",
+      measurement_name %in% c("Coarse Sand (0.5 mm)", "Medium Sand (0.25 mm)") ~ "Coarse Sand + Medium Sand (0.5 mm + 0.25 mm)",
+      measurement_name %in% c("Very Fine Sand (0.106 mm)", "Very Fine Sand (0.053 mm)") ~ "Very Fine Sand + Very Fine Sand (0.106 mm + 0.053 mm)",
+      TRUE ~ "drop"
+    )
+  ) |>
+  filter(measurement_name != "drop") |> 
+  group_by(depth, date_sample_submitted, !!sym(grp), measurement_name) |>
+  summarize(measurement_result = sum(measurement_result, na.rm = TRUE)) |> 
+  ungroup()
+
+sf_data_long <-
+  sf_data |> 
+  bind_rows(sf_data_add) |> 
+  group_by(depth, date_sample_submitted, !!sym(grp), measurement_name) |> 
+  summarize(measurement_result = mean(measurement_result)) |> 
+  ungroup() |> 
+  left_join(usga_specs, by = join_by(measurement_name)) |>
+  mutate(
+    ## placeholders for particles not featured in USGA recommendations
+    usga_spec = if_else(is.na(usga_spec), "", usga_spec),
+    usga_value = if_else(is.na(usga_value), 999, usga_value),
+    usga_direction = if_else(is.na(usga_direction), 0, usga_direction),
+    ## highlight values outside USGA recommendations
+    measurement_result_lab = if_else(
+      if_else(usga_direction == 1, measurement_result < usga_value, measurement_result > usga_value), 
+      paste0("[", sprintf("%2.1f", measurement_result), "]{.span color='#C43636'}"), 
+      sprintf("%2.1f", measurement_result))
+  ) |>
+  mutate(
+    measurement_name = str_replace(measurement_name, " \\(", "\n("),
+    measurement_name = factor(measurement_name, levels = c(
+      "Sand",
+      "Fine Gravel\n(2.0 mm)",
+      "Very Coarse Sand\n(1.0 mm)",
+      "Fine Gravel + Very Coarse Sand\n(2.0 mm + 1.0 mm)", 
+      "Coarse Sand\n(0.5 mm)",
+      "Medium Sand\n(0.25 mm)",
+      "Coarse Sand + Medium Sand\n(0.5 mm + 0.25 mm)",
+      "Fine Sand\n(0.15 mm)",
+      "Very Fine Sand\n(0.106 mm)",
+      "Very Fine Sand\n(0.053 mm)",
+      "Very Fine Sand + Very Fine Sand\n(0.106 mm + 0.053 mm)"
+    ))
+  )
+
+sf_data_wide <- 
+  sf_data_long |> 
+  select(-measurement_result, -usga_value, -usga_direction, -date_sample_submitted) |> 
+  group_by(depth) |>
+  pivot_wider(names_from = !!sym(grp), values_from = measurement_result_lab) |>
+  ungroup() |>
+  select(depth, measurement_name, usga_spec, everything()) |> 
+  arrange(depth, measurement_name)
+```
+
+```{r, message=FALSE, warning=FALSE, results='asis', fig.width=6.8, fig.height=3.3, out.width="100%"}
+## bar chart overview latest sand fraction results
+sf_data_bars_red <-
+  sf_data_long |> 
+  filter(usga_spec != "" | measurement_name == "Sand") |>
+  mutate(
+    measurement_name = factor(measurement_name, levels = rev(c(
+      "Sand",
+      "Fine Gravel\n(2.0 mm)",
+      "Fine Gravel + Very Coarse Sand\n(2.0 mm + 1.0 mm)",
+      "Coarse Sand + Medium Sand\n(0.5 mm + 0.25 mm)",
+      "Fine Sand\n(0.15 mm)",
+      "Very Fine Sand + Very Fine Sand\n(0.106 mm + 0.053 mm)"
+    )))
+  )
+  
+sf_data_bars_red <- 
+  sf_data_bars_red |>   
+  mutate(
+    measurement_name = factor(measurement_name, levels = rev(levels(sf_data_bars_red$measurement_name))),
+    usga_value = if_else(usga_value == 999, NA, usga_value),
+    is_satisfied = if_else(usga_direction == 1, measurement_result > usga_value, measurement_result < usga_value),
+    warning_lab = if_else(usga_direction == 1, "too low", "too high"),
+    warning_lab = paste0(warning_lab, "\n", if_else((measurement_result - usga_value) > 0, "+", "-"), sprintf("%.1f", abs(measurement_result - usga_value)), " pp"),
+    warning_lab = if_else(is_satisfied == FALSE, warning_lab, NA_character_),
+    warning_x = if_else(usga_direction == 1, usga_value + 5, measurement_result + 5),
+    xbegin = if_else(usga_direction == 1, 0, 100),
+    measurement_result_lab = paste0("<span style='font-size:12pt;'>", !!sym(grp), "</span><br><b>", 
+                                    sprintf("%.1f", measurement_result), "%</b>")
+  )
+
+sf_overview_plot <- 
+  sf_data_bars_red |>
+  filter(date_sample_submitted == max(date_sample_submitted)) |>
+  ggplot(aes(y = fct_rev(measurement_name), x = measurement_result)) +
+  geom_col_interactive(
+    aes(x = 100, 
+        tooltip = measurement_result_lab, data_id = measurement_name), 
+    fill = theme_gray_lines, width = .7
+  ) +
+  geom_rect(
+    aes(xmin = xbegin, ymin = as.numeric(fct_rev(measurement_name)) - .35, 
+        xmax = usga_value, ymax = as.numeric(fct_rev(measurement_name)) + .35), 
+    fill = "#F9DCE0"
+  ) +
+  geom_col(fill = theme_gray_lines, width = .7) +
+  geom_col_interactive(
+    aes(fill = is_satisfied, 
+        tooltip = measurement_result_lab, data_id = measurement_name), 
+    width = .7
+  ) +
+  geom_segment_interactive(
+    aes(x = usga_value, xend = usga_value,
+        y = as.numeric(fct_rev(measurement_name)) - .35, yend = as.numeric(fct_rev(measurement_name)) + .35,
+        tooltip = paste0("<span style='font-size:12pt;'>USGA specification:</span><br><b>", usga_spec, "</b>"), data_id = measurement_name),
+    linetype = "31", color = "grey20"
+  ) +
+  geom_text_interactive(
+    aes(x = warning_x, label = warning_lab, 
+        tooltip = measurement_result_lab, data_id = measurement_name),
+    family = typeface_condensed, fontface = "bold", size = 2.1, 
+    hjust = 0, color = "#B22222", lineheight = .8
+  ) +
+  geom_vline(xintercept = 0, color = torv_gray) +
+  facet_wrap(~depth, labeller = labeller(.default = function(x) paste("Soil Depth:", x))) +
+  scale_x_continuous(
+    breaks = 0:4*25,
+    labels = scales::percent_format(scale = 1),
+    expand = expansion(add = c(0, 30))
+  ) +
+  scale_y_discrete(expand = expansion(mult = c(.08, .08))) +
+  scale_fill_manual(
+    values = c("#B22222", "grey60"), na.value = "grey60", guide = "none"
+  ) +
+  scale_color_manual(
+    values = c("#B22222", "grey40"), na.value = "grey40", guide = "none"
+  ) +
+  labs(x = "Share by weight", y = NULL) +
+  #labs(x = "Share by weight", y = NULL, caption = "Note: USGA does not provide a specification for Sand.") +
+  theme(strip.text.x = element_text(margin = margin(5, 0, 5, 0)),
+        axis.text.y = element_text(hjust = 0, color = "black", size = rel(1.1)),
+        axis.title.x = element_text(hjust = .075),
+        panel.grid.major.y = element_blank(),
+        legend.position = "bottom")
+
+if (html) {
+  
+  sf_overview_plot <- 
+    sf_overview_plot +
+    theme(panel.spacing = unit(0, "lines"))
+    
+  girafe(
+    ggobj = sf_overview_plot,
+    options = list(
+      opts_tooltip = opts_tooltip(css = tooltip_css_bw, opacity = 1, use_fill = FALSE, offx = 10, offy = 10),
+      opts_hover = opts_hover(css = "stroke-width:1.5px;")
+    )
+  )
+  
+} else {
+  sf_overview_plot +
+  geom_text(
+    aes(x = 130, color = is_satisfied,
+        label = paste0(sprintf("%3.1f", measurement_result), "%")),
+    family = typeface_medium, size = 2.3, hjust = 1
+  )
+}
+```
+\bigbreak
+
+```{r, results='asis', include=html}
+cat("<br>")
+```
+
+
+```{r, message=FALSE, warning=FALSE, results='asis', fig.width=6.8, fig.height=3.5, out.width="100%"}
+## profile latest sand fraction results
+sf_data_points_red <-
+  sf_data_bars_red |> 
+  mutate(
+    depth_num = case_when(
+      depth == "0-2 cm" ~ 1,
+      depth == "2-4 cm" ~ 3,
+      depth == "4-6 cm" ~ 5
+    ),
+    xbegin = if_else(usga_value == 60, Inf, -Inf),
+    lwr = case_when(
+      measurement_result > usga_value & usga_value != 60 ~ usga_value - 3, 
+      measurement_result <= usga_value & usga_value != 60 ~ measurement_result - 3,
+      measurement_result > usga_value & usga_value == 60 ~ measurement_result + 3, 
+      measurement_result <= usga_value & usga_value == 60 ~ usga_value + 3,
+      TRUE ~ measurement_result - 3
+    ),
+    lwr = if_else(lwr < 0, 0, lwr),
+    upr = case_when(
+      measurement_result > usga_value & usga_value != 60 ~ measurement_result + 3, 
+      measurement_result <= usga_value & usga_value != 60 ~ usga_value + 3,
+      measurement_result > usga_value & usga_value == 60 ~ usga_value - 3, 
+      measurement_result <= usga_value & usga_value == 60 ~ measurement_result - 3,
+      TRUE ~ measurement_result + 3
+    ),
+    upr = if_else(upr > 100, 100, upr),
+    point_color = case_when(
+      is_satisfied == TRUE ~ torv_cyan,
+      is_satisfied == FALSE ~ "#B22222",
+      TRUE ~ torv_gray_light
+    )
+  )
+
+sf_point_plot <-  
+  sf_data_points_red |> 
+  filter(date_sample_submitted == max(date_sample_submitted)) |>
+  ggplot(aes(x = depth_num, y = measurement_result)) +
+  
+  ## invisible dots for limits
+  geom_point(aes(y = lwr), alpha = 0) +
+  geom_point(aes(y = upr), alpha = 0) +
+  
+  geom_rect_interactive(
+    aes(ymin = xbegin, xmin = -Inf, 
+        ymax = usga_value, xmax = Inf,
+        tooltip = paste0("<span style='font-size:12pt;'>Recommended</span><br><b style=color:", clr_darken(torv_cyan, .3), ";>", usga_spec, "</b>"),
+        data_id = measurement_name), 
+    fill = torv_cyan, alpha = .1, stat = "unique"
+  ) +
+  geom_hline_interactive(
+    aes(yintercept = usga_value,
+        tooltip = paste0("<span style='font-size:12pt;'>Recommended</span><br><b style=color:", clr_darken(torv_cyan, .3), ";>", usga_spec, "</b>"),
+        data_id = measurement_name), 
+    color = clr_lighten(torv_cyan, .25)
+  ) +
+  geom_line_interactive(aes(data_id = measurement_name), linewidth = .8, color = torv_gray) +
+  geom_point(color = "white", size = 2.3) +
+  geom_point_interactive(
+    aes(fill = is_satisfied, color = after_scale(clr_darken(fill, .5)),
+        tooltip = paste0("<span style='font-size:12pt;'>", depth, "</span><br><b style=color:", clr_darken(point_color, .3), ";>", measurement_result, "%</b>"), 
+        data_id = measurement_name),
+    shape = 21, size = 2.3, stroke = .8
+  ) +
+  facet_wrap(~ measurement_name, scales = "free_x") + #, axes = "all_y"
+  coord_flip(clip = "off") +
+  scale_x_reverse(
+    limits = c(6, 0), expand = c(0, 0), 
+    breaks = 0:3 * 2, labels = scales::number_format(suffix = " cm")
+  ) +
+  scale_y_continuous(expand = c(0, 0), labels = scales::percent_format(scale = 1)) +
+  scale_color_manual(values = c(`FALSE` = "#B22222", `TRUE` = torv_cyan), na.value = torv_gray_light, guide = "none") +
+  scale_fill_manual(values = c(`FALSE` = "#B22222", `TRUE` = torv_cyan), na.value = torv_gray_light, guide = "none") +
+  labs(x = "Soil depth", y = "Share by weight") +
+  #labs(x = "Soil depth", y = "Share by weight", caption = "Note: USGA does not provide a specification for Sand.") +
+  theme(
+    axis.title.x = element_text(hjust = .1),
+    axis.title.y = element_text(hjust = .85),
+    panel.spacing.x = unit(1.4, "lines"),
+    panel.spacing.y = unit(.8, "lines"),
+    plot.margin = margin(r = 15),
+    strip.text = element_text(vjust = 1)
+  )
+
+if (html) {
+  
+  girafe(ggobj = sf_point_plot,
+         options = list(
+           opts_tooltip(css = tooltip_css_bw, opacity = 1, use_fill = FALSE, offx = 10, offy = 10),
+           opts_hover(css = "stroke-width:2px;")
+         ))
+  
+} else {
+  
+  sf_point_plot +
+    geom_text(
+      aes(label = paste0(sprintf("%2.1f", measurement_result), "%"),
+          color = stage(is_satisfied, after_scale = clr_darken(color, .5))),
+      hjust = -.33, family = typeface_condensed, fontface = "bold", size = 2.5
+    )
+  
+}
+```
+
+```{r, results='asis', include=html}
+cat("<br><br><details><summary style='font-size:1.95rem;font-weight:500;'>Sand Fraction Table</summary>")
+```
+
+```{r, results='asis', include=!html}
+cat("\\pagebreak")
+cat("### Sand Fraction Table")
+```
+
+The table shows the detailed results of the OM 246 Sand Fractions sampling including all particle classes. 
+
+```{r, results='asis', include=length(unique(sf_data_long$date_sample_submitted)) > 1}
+cat('
+The line in the "Trend" column shows the change of the shares by weight over time.
+
+- <b style="color:#0AA67B;">Green dots</b> dots represent samples that meet USGA recommendations.
+- <b style="color:#B22222;">Red dots</b> represent samples that do not satisfy USGA recommendations.
+- <b style="color:#808080;">Gray dots</b> represent cases where no USGA recommendations are available for comparison.
+
+The filled dots indicate the latest sample, the circles previous samples.
+')
+```
+
+```{r, results='hide', message=FALSE}
+## raw table all sand fraction results
+if(html) w <- .94 else w <- .45 ## width of result column(s)
+if(html) f <- 2.3 else f <- .6 ## width of figure column
+if(html) s <- 4 else s <- 2  ## size of dots
+
+if(length(unique(sf_data_long$date_sample_submitted)) > 1) {
+  plot_sparkline <- function(level, class) {
+    df <- 
+      sf_data_long |> 
+      filter(depth == level, measurement_name == class) |> 
+      mutate(
+        usga_value = if_else(usga_value == 999, NA, usga_value),
+        is_satisfied = if_else(usga_direction == 1, measurement_result > usga_value, measurement_result < usga_value)
+      )
+    
+    if(length(unique(df$date_sample_submitted)) > 1) show_point <- 1 else show_point <- 0
+      
+    ggplot(df, aes(x = date_sample_submitted, y = measurement_result)) +
+      geom_line(aes(group = 1), color = torv_gray, alpha = .67) +
+      geom_point(
+        data = filter(df, date_sample_submitted != max(date_sample_submitted)),
+        aes(color = is_satisfied), 
+        size = s / 2, shape = 21, fill = "white",stroke = .7, alpha = show_point
+      ) +
+      geom_point(
+        data = filter(df, date_sample_submitted == max(date_sample_submitted)),
+        aes(color = is_satisfied),
+        size = s, alpha = show_point
+      ) +
+      coord_cartesian(clip = "off") +
+      scale_x_continuous(expand = expansion(mult = c(.05, .05))) +
+      scale_y_continuous(expand = expansion(mult = c(.0, .0))) +
+      scale_color_manual(values = c(`FALSE` = "#B22222", `TRUE` = torv_cyan), na.value = torv_gray, guide = "none") +
+      theme_void() +
+      theme(plot.margin = margin(6, 1.2, 6, 2.5))
+  }
+  sf_data_wide <-
+    sf_data_wide |> 
+    group_by(depth, measurement_name) |> 
+    mutate(gg = map2(depth, measurement_name, ~plot_sparkline(.x, .y))) |>
+    ungroup()
+}
+
+sf_table_raw <- 
+  sf_data_wide |> 
+  as_grouped_data('depth') |> 
+  flextable() #|> 
+  #merge_v(j = 1)
+
+if(length(unique(sf_data_long$date_sample_submitted)) > 1) {
+  
+  sink("/dev/null")
+  
+  sf_table <- 
+    sf_table_raw |> 
+    mk_par(
+      j = "gg",
+      value = as_paragraph(
+        gg_chunk(value = gg, width = f, height = .3)
+      )
+    ) |>
+    set_header_labels(
+      depth = 'Depth',
+      measurement_name = 'Particle Size',
+      usga_spec = 'USGA Spec',
+      gg = 'Trend'
+    ) |>
+    add_header_row(
+      values = c('','%Retained', ''), top = FALSE,
+      colwidths = c(3, ncol_keys(sf_table_raw) - 4, 1)  # Adjust colwidths based on actual number of columns
+    ) |>
+    width(width = w) |>
+    width(j = ncol_keys(sf_table_raw), width = f) |>
+    align(j = 3:ncol_keys(sf_table_raw) - 1, align = "right", part = "all") |>
+    align(j = ncol_keys(sf_table_raw), align = "center", part = "all")
+    
+    sink()
+  
+} else {
+  
+  sf_table <- 
+    sf_table_raw |>
+    set_header_labels(
+      depth = 'Depth',
+      measurement_name = 'Particle Size',
+      usga_spec = 'USGA Spec',
+      trend = 'Trend'
+    ) |>
+    add_header_row(
+      values = c("",'%Retained'), top = FALSE,
+      colwidths = c(3, ncol_keys(sf_table_raw) - 3)  # Adjust colwidths based on actual number of columns
+    ) |>
+    width(width = w) |>
+    align(j = 3:ncol_keys(sf_table_raw), align = "right", part = "all")
+  
+}
+
+sf_table <-
+  sf_table|>
+  add_header_lines(values = c('OM 246 Sand Fractions')) |>
+  #border_outer_h(border = fp_border(color = torv_gray, width = .8), part = "header") |> 
+  border_inner_h(border = fp_border(color = torv_gray, width = .8), part = "header") |> 
+  hline(i = c(12, 24), border = fp_border(color = torv_gray_light, width = .6), part = "body") |> 
+  colformat_double(big.mark = ",", digits = 1, na_str = "") |>
+  ftExtra::colformat_md() |> 
+  font(fontname = typeface, part = "all") |>
+  bold(bold = TRUE, part = "header") |>
+  bold(j = 1, bold = TRUE, part = "body") |>
+  align(i = 3, j = 3:ncol_keys(sf_table_raw), align = "center", part = "header") |>
+  align(j = 2, align = "left", part = "all") |> 
+  valign(valign = "top", part = "body") |> 
+  line_spacing(i = 1, space = 1.3, part = "header") |>
+  hrule(rule = "atleast")
+```
+
+```{r, ft.align="left", include=html}
+sf_table |> 
+  fontsize(size = 12, part = "all") |>
+  width(j = 1, width = .8) |>
+  width(j = 2, width = 2.6) |>
+  height_all(height = .1)
+```
+
+```{r, message=FALSE, ft.align="left", include=!html}
+sf_table |> 
+  fontsize(size = 7, part = "all") |>
+  width(j = 2, width = 1.5) |>
+  width(j = 3, width = .7) |>
+  hrule(rule = "atleast") |>
+  height_all(height = .05)
+```
+
+```{r, results='asis', include=html}
+cat('
+</details>',
+  '<br>', sep = "\n")
+```
+
+

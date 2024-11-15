@@ -6,7 +6,5 @@ The TORV average line in the Organic Matter graphics represent the average of al
 - Calculate the organic matter accumulated or lost over a known period.
 - Using a known amount of topdressing applied, we can estimate/calculate the Amount of topdressing needed to maintain, increase, or decrease the organic matter.
 - Consider obtaining an accurate topdressing rate per year to make this calculation possible. What is the estimated depth of all topdressing applications applied this year?
-- [This video from the USGA](https://www.asianturfgrass.com/post/sand-topdressing-by-depth/) shows how to calculate the depth along with the required conversion equations.
+- [This video from the USGA](https://www.asianturfgrass.com/post/sand-topdressing-by-depth)  shows how to calculate the depth along with the required conversion equations.
 - Cultural decisions such as aerification, verticutting, topdressing amounts/frequency can be influenced by tracking organic matter over time and established goals for organic matter targets.
-
-[TODO: Additional comments]

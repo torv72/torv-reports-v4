@@ -43,14 +43,32 @@ source(here::here("aux-scripts/generate-report.R"))
 # the git history cleaner. Once you have completed the arguments in the console, hit ENTER.
 
 # Here's an example:
-generate_report(.site_name = "Maroon Creek Club",
-                .zip_code = 81611,
-                .date_sample_submitted = "2023-05-24",
-                .start_date = "2018-01-01",
+generate_report(.site_name = "Snowmass Club",
+                .zip_code = 81615,
+                .date_sample_submitted = "2024-09-12",
+                .start_date = "2007-01-01",
+                .om_seasons = "all",
                 .warm_or_cool = "cool",
                 .acid_extract = "Mehlich",
-                .include_results_interpretation = FALSE)
+                .include_results_interpretation = "No",
+                .include_sand_fraction = "No",
+                .output = "html")
 
+# And another example with a different site, median values, sand fraction results,
+# no beeswarms in the trendline charts, and both HTML and PDF as output:
+
+generate_report(.site_name = "Maroon Creek Club",
+                .zip_code = 81611,
+                .date_sample_submitted = "2024-09-18",
+                .start_date = "1997-01-01",
+                .om_seasons = "season",
+                .om_stats = "median",
+                .warm_or_cool = "cool",
+                .acid_extract = "Mehlich",
+                .include_results_interpretation = "No",
+                .include_sand_fraction = "Yes",
+                .draw_beeswarm = "No",
+                .output = c("pdf","html"))
 
 # It will save a file in generated-reports with a filename which includes the site name
 # and the date_sample_submitted argument. If a file with that name already exists, it will
@@ -73,7 +91,7 @@ generate_report(.site_name = "Maroon Creek Club",
 # You can generate a longitudinal summary for any club using the code below.
 # First, source this file to load the generate_longitudinal_summary() function into the environment.
 
-source(here::here("aux-scripts/longitudinal-summaries.R"))
+source(here("aux-scripts/longitudinal-summaries.R"))
 
 # Then, adjust the .site_name and .start_date arguments and run the code to generate your data.
 # The data will live in the longitudinal-summaries folder. Same as with generate_report(), the
@@ -86,7 +104,7 @@ generate_longitudinal_summary(.site_name = "Bartlett Hills Golf Course",
 # Testing for unintended consequences -------------------------------------
 
 # You can test that the code produces expected outputs based on known inputs by running:
-testthat::test_file(here::here("tests/test-scripts/run-all-tests.R"))
+testthat::test_file(here("tests/test-scripts/run-all-tests.R"))
 # It will result in an output in the console which will show only count of passing and
 # failing tests (and warnings). If anything fails, it prints what the fail corresponds to
 # for further investigations. This series of tests relies on known past data (the Master

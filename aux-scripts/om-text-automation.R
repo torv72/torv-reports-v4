@@ -1,14 +1,21 @@
 
 # Add commentary for OM measurements ----
 
-om_no_additional_analyses_commentary <- read_lines(here::here("aux-scripts/om-no-additional-analyses.txt"))
+om_no_additional_analyses_commentary <- readLines(here("aux-scripts/om-no-additional-analyses.txt"))
 
 # Only add OM commentary if there are OM measurements in this report
-if(length(unique(all_om_data$date_sample_submitted)) == 1) {
 
-  all_om_data_comms <- all_om_longitudinal_table %>%
+sample_dates_per_type <- 
+  all_om_data %>% 
+  summarize(n = length(unique(date_sample_submitted)), .by = sample_description_number_2) %>%
+  summarize(n = mean(n))
+
+if(sample_dates_per_type$n == 1) {
+
+  all_om_data_comms <- 
+    all_om_longitudinal_table %>%
     group_by(sample_description_number_2, depth) %>%
-    mutate(reference_only = case_when(date_sample_submitted == max(date_sample_submitted) ~ "",
+    mutate(reference_only = case_when(max(date_sample_submitted, na.rm = TRUE) == as_date(input_params$date_sample_submitted) ~ "",
                                       TRUE ~ "for reference")) %>%
     rowwise() %>%
     mutate(type_date = paste0(case_when(reference_only == "for reference" ~ paste0("\n- Just for reference, since no **",
@@ -21,15 +28,16 @@ if(length(unique(all_om_data$date_sample_submitted)) == 1) {
 
 
   # If there is only one OM measurement, read in text about benefits of repeating the measurement
-  om_single_measure_commentary <- read_lines(here::here("aux-scripts/om-single-test-summary.txt"))
+  om_single_measure_commentary <- readLines(here("aux-scripts/om-single-test-summary.txt"))
 
 } else {
 
-  all_om_data_comms <- all_om_longitudinal_table %>%
+  all_om_data_comms <- 
+    all_om_longitudinal_table %>%
     group_by(sample_description_number_2, depth) %>%
     mutate(date_rank = paste0("date_", rank(date_sample_submitted))) %>%
     pivot_wider(names_from = date_rank, values_from = c(sample_description_number_2, date_sample_submitted, depth, avg_measurement_result)) %>%
-    mutate(reference_only = case_when(date_sample_submitted_date_2 == max(date_sample_submitted_date_2, na.rm = TRUE) ~ "",
+    mutate(reference_only = case_when(max(date_sample_submitted_date_2, na.rm = TRUE) == as_date(input_params$date_sample_submitted) ~ "",
                                       is.na(date_sample_submitted_date_2) ~ "",
                                       TRUE ~ "for reference")) %>%
     rowwise() %>%
@@ -43,25 +51,25 @@ if(length(unique(all_om_data$date_sample_submitted)) == 1) {
                               case_when(!is.na(date_sample_submitted_date_2) ~ paste0("omparing the **", sample_description_number_2_date_1,
                                                                                       "** samples taken on ", verbaliseR::prettify_date(date_sample_submitted_date_2, "US"),
                                                                                       " to their most recent previous samples (",
-                                                                                      verbaliseR::prettify_date(date_sample_submitted_date_1, "US"), ")"),
+                                                                                      verbaliseR::prettify_date(date_sample_submitted_date_1, "US"), ")."),
                                         TRUE ~ "")),
-           difference = paste0("\n  - At a depth of **", depth_date_1, "**, the OM content ",
+           difference = paste0("\n  * At a depth of **", depth_date_1, "**, the OM content ",
                                case_when(
                                  is.na(date_sample_submitted_date_2) ~ paste0("was **", janitor::round_half_up(avg_measurement_result_date_1, 2), "%**."),
                                  janitor::round_half_up(avg_measurement_result_date_1, 2) - janitor::round_half_up(avg_measurement_result_date_2, 2)  > 0 ~
                                            paste0("decreased from ",
                                                   janitor::round_half_up(avg_measurement_result_date_1, 2),
                                                   "% to ",
-                                                  janitor::round_half_up(avg_measurement_result_date_2, 2), "%"),
+                                                  janitor::round_half_up(avg_measurement_result_date_2, 2), "%."),
                                          janitor::round_half_up(avg_measurement_result_date_1, 2) - janitor::round_half_up(avg_measurement_result_date_2, 2) < 0 ~
                                            paste0("increased from ",
                                                   janitor::round_half_up(avg_measurement_result_date_1, 2),
                                                   "% to ",
-                                                  janitor::round_half_up(avg_measurement_result_date_2, 2), "%"),
+                                                  janitor::round_half_up(avg_measurement_result_date_2, 2), "%."),
                                          janitor::round_half_up(avg_measurement_result_date_1, 2) == janitor::round_half_up(avg_measurement_result_date_2, 2)  ~
                                            paste0("was stable at ",
                                                   janitor::round_half_up(unique(avg_measurement_result_date_1,
-                                                         avg_measurement_result_date_2), 2), "%"))),
+                                                         avg_measurement_result_date_2), 2), "%."))),
            commentary = case_when(is.na(date_sample_submitted_date_2) ~ paste0(difference, "."),
                                   TRUE ~ paste0(difference, ", a change of **", janitor::round_half_up(avg_measurement_result_date_2 - avg_measurement_result_date_1, 2), "%**.")))
 

@@ -1,9 +1,3 @@
-library(here)
-library(vroom)
-library(sf)
-library(tidyverse)
-library(rvest)
-library(janitor)
 
 # data retrieved from https://www.ncei.noaa.gov/data/normals-monthly/1991-2020/archive/
 mly_normal_all_all <- vroom(file = "data-raw/mly-normal-allall.csv")
@@ -51,4 +45,4 @@ monthly_normals <- mly_tavg_normal %>%
   filter(!is.na(lat), !is.na(lon), !is.na(zip_code)) %>%
   st_as_sf(coords = c("lon", "lat"), crs = 4326, remove = FALSE)
 
-write_rds(monthly_normals, "data/monthly_normals_2010.rds")
+saveRDS(monthly_normals, "data/monthly_normals_2010.rds")
