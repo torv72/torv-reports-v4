@@ -4,3 +4,33 @@ Using a known amount of topdressing applied, we can estimate/calculate the amoun
 - Consider obtaining an accurate topdressing rate per year to make this calculation possible. What is the estimated depth of all topdressing applications applied this year?
 - [This video from the USGA](https://www.asianturfgrass.com/post/sand-topdressing-by-depth) shows how to calculate the depth along with the required conversion equations.
 - Cultural decisions such as aerification, verticutting, topdressing amounts/frequency can be influenced by tracking organic matter over time and established goals for organic matter targets.
+
+**Understanding Sand Topdressing Measurements**
+
+The measurement of sand topdressing applications is fundamental to effective organic matter (OM) management. Quantifying topdressing depth provides essential objective data that guides management decisions and helps optimize turf performance.
+
+**Basic Principles**: Sand topdressing depth is best expressed in millimeters (mm) for standardized measurement across all facilities. Annual applications typically range from 0-35 mm (equivalent to about 115 ft³/1000 ft²). Accurate measurements enable data-driven adjustments to OM management programs.
+
+**Required Equipment**: Catch pan with rim (standard baking sheet works effectively), Enkamat or carpet liner (prevents sand bounce during collection), Scale measuring in grams, Calculator, Measuring tape/ruler for pan dimensions.
+
+**Calculation Method**: The depth of sand applied is calculated using three key measurements: 1) Mass of sand (grams), 2) Bulk density of sand (Turfgrass sand-based rootzones: 1.5 g/cm³; Civil engineering standard: 1.63 g/cm³), and 3) Area of application (cm²).
+
+The formula for calculating sand topdressing depth is:
+$$ 10(\frac{\text{mass}}{\text{bulk density} \times \text{area}}) = \text{sand depth in mm} $$
+
+**Practical Example**:
+Given: Mass of sand collected: 400 grams, Area covered: 2,000 square centimeters (cm²), Bulk density of sand: 1.5 grams per cubic centimeter (g/cm³)
+
+Calculation: 1) Bulk density × Area = 1.5 × 2,000 = 3,000, 2) Mass fraction: 400/3,000 = 0.13, 3) Convert to mm: 0.13 × 10 = 1.3
+
+Final result: $$ 10(\frac{400}{1.5 \times 2000}) = 1.3 \text{ mm} $$
+
+**Measurement Protocol**: Weigh empty pan with liner before collection, Place collection pan in topdresser path, Verify uniform distribution by measuring both center and edge of spreading pattern, Multiple passes should yield consistent measurements (±20g).
+
+**FAQ**: 
+
+- **Why measure in millimeters?** Provides standardized measurement for easy comparison across facilities.
+- **How accurate is this method?** Highly consistent when properly implemented (±20g across passes).
+- **What about different sand types?** Bulk density adjustment (1.5-1.63 g/cm³) accounts for variations (<10% difference).
+
+**Important Application Notes**: Regular depth verification ensures accurate rates, Record individual depths for annual totals, Use measurements to inform OM management, Maintain consistent methods, Document applications for OM test correlation.

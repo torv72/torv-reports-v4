@@ -14,7 +14,6 @@ source(here::here("aux-scripts/generate-report.R"))
 generate_report(
   .site_name = "Maroon Creek Club",
   .site_name_abbr = "35873-maroon-creek",
-  .zip_code = 81611,
   .date_sample_submitted = "2024-09-18",
   .start_date = "2017-01-01",
   .om_seasons = "season",
@@ -22,7 +21,7 @@ generate_report(
   .acid_extract = "Mehlich",
   .include_results_interpretation = "No",
   .include_sand_fraction = "Yes",
-  .output = "html"
+  .output = c("pdf","html")
 )
 
 
