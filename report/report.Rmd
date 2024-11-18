@@ -41,9 +41,9 @@ html <<- params$html
 zip_code_list <<- tibble::tribble(
   ~site_name,          ~zip_code,  
   "Adobe Creek National Golf Course", 81521,
-  "Adobe CreeK National Golf Course Desert", 81521,
-  "Adobe CreeK National Golf Course Mesa", 81521,
-  "Adobe CreeK National Golf Course Monument", 81521,
+  "Adobe Creek National Golf Course Desert", 81521,
+  "Adobe Creek National Golf Course Mesa", 81521,
+  "Adobe Creek National Golf Course Monument", 81521,
   "Aspen Golf Club", 81611,
   "Bartlett Hills Golf Course", 60103,
   "Catamount Ranch and Club", 80477,
