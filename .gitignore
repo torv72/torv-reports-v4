@@ -70,6 +70,3 @@ tests/test-reports/*/*/*/*.png
 .DS_Store
 
 .quarto
-
-# Do not update SVG files every time
-report/assets/*.svg
