@@ -533,17 +533,16 @@ header_file_create <<- function(sampletype, title, trends = FALSE) {
 ```
 
 ```{r station-data}
-zip_code_list <- tibble::tribble(
-  ~site_name,          ~zip_code,  
-  "Maroon Creek Club", 81615,
-  
-)
-
-
 # retrieve temperatures
+zipcode <- zip_code_list |> filter(site_name == input_params$site_name) |> pull(zip_code)
+
+if(is.null(zipcode)) {
+  stop("\n❌ Cancelling report generation as I couldn't find the site name in the ZIP code table.\n❗ Please add the site to the zip_code_list specified in report.Rmd and rerun the report generation.")
+}
+
 zipcode_geometry <- tigris::zctas(
   cb = TRUE, 
-  starts_with = input_params$zip_code, 
+  starts_with = zipcode, 
   progress_bar = FALSE,
   year = 2019 # retrieve border of zip code (from census)
 )

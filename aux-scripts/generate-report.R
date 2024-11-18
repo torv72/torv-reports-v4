@@ -1,7 +1,6 @@
 
 generate_report <- function(.site_name,
                             .site_name_abbr = NULL,
-                            .zip_code,
                             .date_sample_submitted,
                             .start_date,
                             .end_date = NULL,
@@ -126,7 +125,6 @@ generate_report <- function(.site_name,
 
   # List of input parameters to be used to generate the report later
   input_params <- list(site_name = .site_name,
-                       zip_code = .zip_code,
                        date_sample_submitted = .date_sample_submitted,
                        start_date = .start_date,
                        measurement_names = measurement_names,

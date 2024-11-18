@@ -91,9 +91,6 @@ means you never need to edit the YAML in the `report.Rmd` file.
   *(str, optional)* An abbreviated version of the site name that includes the 
   site ID, formatted as `"id-abbreviation"`. Default is `NULL`.  
 
-- **`.zip_code`**:  
-  *(str)* The postal code of the site location.  
-
 - **`.date_sample_submitted`**:  
   *(str)* The date the soil samples were submitted for analysis in `YYYY-MM-DD` format.  
 
@@ -196,7 +193,7 @@ means you never need to edit the YAML in the `report.Rmd` file.
 
 - **Generating an HTML report for Snowmass Club**:  
   This example generates an HTML report using average results across all seasons 
-  for Organic Matter (OM). The raw data values in the trendline charts are 
+  for Organic Matter (OM). The raw data values in the trend line charts are 
   represented as beeswarms. The sand fraction section and the interpretation 
   of the results are excluded. These settings are the defaults, so they don't 
   need to be specified in the function call. For an example that explicitly 
@@ -205,7 +202,7 @@ means you never need to edit the YAML in the `report.Rmd` file.
   ```{r}
   generate_report(
     .site_name = "Snowmass Club", 
-    .zip_code = 81615,
+    .site_name_abbr = "12345-snowmass",
     .date_sample_submitted = "2024-09-12", 
     .start_date = "2007-01-01",
     .warm_or_cool = "cool", 
@@ -218,12 +215,12 @@ means you never need to edit the YAML in the `report.Rmd` file.
   This example generates both a PDF and an HTML report using median values for 
   the respective season (here "Spring", automatically determined from the 
   `.date_sample_submitted value`). It includes the sand fraction results and 
-  does not use beeswarms for the raw data values in the trendline charts.
+  does not use beeswarms for the raw data values in the trend line charts.
 
   ```{r}
   generate_report(
     .site_name = "Maroon Creek Club", 
-    .zip_code = 81611,
+    .site_name_abbr = "35873-maroon-creek",
     .date_sample_submitted = "2024-09-18", 
     .start_date = "1997-01-01",
     .om_seasons = "season", 

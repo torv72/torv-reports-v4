@@ -36,6 +36,38 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = NA, dev = "ragg_p
 ```{r setup, include=FALSE, results='hide'}
 database_name <<- params$database_name
 html <<- params$html
+
+## look-up table for zip codes
+zip_code_list <<- tibble::tribble(
+  ~site_name,          ~zip_code,  
+  "Adobe Creek National Golf Course", 81521,
+  "Adobe CreeK National Golf Course Desert", 81521,
+  "Adobe CreeK National Golf Course Mesa", 81521,
+  "Adobe CreeK National Golf Course Monument", 81521,
+  "Aspen Golf Club", 81611,
+  "Bartlett Hills Golf Course", 60103,
+  "Catamount Ranch and Club", 80477,
+  "Chipeta Golf Course", 81503,
+  "CommonGround Golf Course", 80010,
+  "Copper Creek Golf Course", 80443,
+  "Dominion Meadows Golf Club", 99114,
+  "Greeley Country Club", 80634,
+  "Hemingway Golf Club", 80649,
+  "Maroon Creek Club", 81611,
+  "Snowmass Club", 81615,
+  "Sonnenalp Golf Club", 81632,
+  "The Briarwood", 59101,
+  "The Broadmoor East", 80906,
+  "The Broadmoor West", 80906,
+  "The Club at Flying Horse Club", 80921,
+  "The Club at Flying Horse North", 80921,
+  "The Valley Club Irwin", 83333,
+  "The Valley Club Fazio", 83333,
+  "Three Crowns Golf Club", 82604,
+  "Wellshire Golf Club", 80222
+  ## add more site-zip combinations in case you'll get new clients
+)
+
 knitr::knit("templates/setup.Rmd")
 ```
 
