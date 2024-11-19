@@ -202,7 +202,7 @@ means you never need to edit the YAML in the `report.Rmd` file.
   ```{r}
   generate_report(
     .site_name = "Snowmass Club", 
-    .site_name_abbr = "12345-snowmass",
+    .site_name_abbr = "36644-snowmass",
     .date_sample_submitted = "2024-09-12", 
     .start_date = "2007-01-01",
     .warm_or_cool = "cool", 
