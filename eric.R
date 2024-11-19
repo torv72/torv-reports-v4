@@ -21,7 +21,7 @@ generate_report(
   .acid_extract = "Mehlich",
   .include_results_interpretation = "No",
   .include_sand_fraction = "Yes",
-  .output = c("pdf","html")
+  .output = c("pdf", "html")
 )
 
 
