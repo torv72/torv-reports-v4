@@ -148,12 +148,13 @@ generate_report <- function(.site_name,
   
   # Set up report directory and filenames
   report_name_folder <<- paste0(
-    input_params$date_sample_submitted, "-", .site_name_abbr
+    "report-",
+    input_params$date_sample_submitted, "-", .site_name_abbr, "-complete"
   )
   
   report_name_file <<- paste0(
     "report-",
-    report_name_folder, "-",
+    input_params$date_sample_submitted, "-", .site_name_abbr, "-",
     input_params$om_seasons, "-",
     input_params$om_stats
   )
