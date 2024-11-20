@@ -73,7 +73,7 @@ knitr::knit("templates/setup.Rmd")
 
 <!-- report starts here -->
 
-```{r logo-header, out.width="100%"}
+```{r logo-header, out.width="80%", fig.align='center'}
 knitr::include_graphics(here("report", "assets", "torv-logo-wide.png"))
 ```
 
