@@ -12,6 +12,19 @@ source(here::here("aux-scripts/generate-report.R"))
 
 # ... and now run the function with the custom inputs:
 generate_report(
+  .site_name = "Maroon Creek Club",
+  .site_name_abbr = "35873-maroon",
+  .date_sample_submitted = "2024-09-18",
+  .start_date = "2017-01-01",
+  .om_seasons = "season",
+  .om_stats = "median",
+  .warm_or_cool = "cool",
+  .acid_extract = "Mehlich",
+  .include_results_interpretation = "No",
+  .include_sand_fraction = "Yes",
+  .output = c("pdf", "html")
+)
+generate_report(
   .site_name = "Snowmass Club",
   .site_name_abbr = "36644-snowmass",
   .date_sample_submitted = "2024-09-12",
