@@ -20,6 +20,7 @@ header-includes:
   - \definecolor{deficitred}{HTML}{B22222}
   - \definecolor{warningorange}{HTML}{E3AA04}
   - \definecolor{successgreen}{HTML}{0AA67B}
+  - \definecolor{customgray}{HTML}{808080}
   - \usepackage{fancyhdr}
   - \usepackage{lipsum}
   - \pagestyle{fancy}
@@ -27,6 +28,8 @@ header-includes:
   - \fancyhead[L]{\textcolor{gray}{Agronomic Survey Report}}
   - \fancyfoot[L]{\textcolor{gray}{TORV, LLC • 260 Woodruff Road, Glenwood Springs, CO 81601 • +1.970.409.9874 • eric@torv.me}}
   - \fancyfoot[R]{\textcolor{gray}{\thepage}}
+  - \usepackage{eso-pic}
+  - \usepackage{transparent}
 ---
 
 ```{r options, include=FALSE}
@@ -105,6 +108,18 @@ cat(
   sep = "\n"
 )
 ```
+
+```{=latex}
+\clearpage
+\AddToShipoutPictureFG{%
+  \AtPageCenter{%
+    \makebox[0pt]{%
+      \transparent{0.2}\includegraphics[width=4in]{/Users/ericfoerster/Desktop/torv-reports v4/report/assets/torv-logo.png}%
+    }%
+  }%
+}
+```
+
 
 <!-- header section HTML -->
 
