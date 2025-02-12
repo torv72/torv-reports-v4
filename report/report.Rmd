@@ -16,6 +16,8 @@ params:
   database_name: MASTER_DATABASE.xlsx
   html: true
 header-includes:
+  - \usepackage{graphicx}  # Ensure image handling is included
+  - \graphicspath{{report/assets/}} #Tell LaTex where to look for images 
   - \usepackage{xcolor}
   - \definecolor{deficitred}{HTML}{B22222}
   - \definecolor{warningorange}{HTML}{E3AA04}
@@ -109,12 +111,17 @@ cat(
 )
 ```
 
+```{r}
+invisible(file.copy(here::here("report", "assets", "torv-logo.png"), "torv-logo.png", overwrite = TRUE))
+```
+
+
 ```{=latex}
 \clearpage
 \AddToShipoutPictureFG{%
   \AtPageCenter{%
     \makebox[0pt]{%
-      \transparent{0.2}\includegraphics[width=4in]{/Users/ericfoerster/Desktop/torv-reports v4/report/assets/torv-logo.png}%
+      \transparent{0.2}\includegraphics[width=4in]{torv-logo.png}%
     }%
   }%
 }
