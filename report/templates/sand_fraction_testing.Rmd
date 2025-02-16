@@ -170,7 +170,7 @@ sf_overview_plot <-
     aes(x = warning_x, label = warning_lab, 
         tooltip = measurement_result_lab, data_id = measurement_name),
     family = typeface_condensed, fontface = "bold", size = 2.1, 
-    hjust = 0, color = "#B22222", lineheight = .8
+    hjust = 0, color = "#a65d57", lineheight = .8
   ) +
   geom_vline(xintercept = 0, color = torv_gray) +
   facet_wrap(~depth, labeller = labeller(.default = function(x) paste("Soil Depth:", x))) +
@@ -181,10 +181,10 @@ sf_overview_plot <-
   ) +
   scale_y_discrete(expand = expansion(mult = c(.08, .08))) +
   scale_fill_manual(
-    values = c("#B22222", "grey60"), na.value = "grey60", guide = "none"
+    values = c("#a65d57", "grey60"), na.value = "grey60", guide = "none"
   ) +
   scale_color_manual(
-    values = c("#B22222", "grey40"), na.value = "grey40", guide = "none"
+    values = c("#a65d57", "grey40"), na.value = "grey40", guide = "none"
   ) +
   labs(x = "Share by weight", y = NULL) +
   #labs(x = "Share by weight", y = NULL, caption = "Note: USGA does not provide a specification for Sand.") +
@@ -253,7 +253,7 @@ sf_data_points_red <-
     upr = if_else(upr > 100, 100, upr),
     point_color = case_when(
       is_satisfied == TRUE ~ torv_cyan,
-      is_satisfied == FALSE ~ "#B22222",
+      is_satisfied == FALSE ~ "#a65d57",
       TRUE ~ torv_gray_light
     )
   )
@@ -295,8 +295,8 @@ sf_point_plot <-
     breaks = 0:3 * 2, labels = scales::number_format(suffix = " cm")
   ) +
   scale_y_continuous(expand = c(0, 0), labels = scales::percent_format(scale = 1)) +
-  scale_color_manual(values = c(`FALSE` = "#B22222", `TRUE` = torv_cyan), na.value = torv_gray_light, guide = "none") +
-  scale_fill_manual(values = c(`FALSE` = "#B22222", `TRUE` = torv_cyan), na.value = torv_gray_light, guide = "none") +
+  scale_color_manual(values = c(`FALSE` = "#a65d57", `TRUE` = torv_cyan), na.value = torv_gray_light, guide = "none") +
+  scale_fill_manual(values = c(`FALSE` = "#a65d57", `TRUE` = torv_cyan), na.value = torv_gray_light, guide = "none") +
   labs(x = "Soil depth", y = "Share by weight") +
   #labs(x = "Soil depth", y = "Share by weight", caption = "Note: USGA does not provide a specification for Sand.") +
   theme(
@@ -345,8 +345,8 @@ cat(glue("The line in the \"Trend\" column shows the change of the shares by wei
 
 ```{r, results='asis'}
 if(html) {
-  cat("- <b style='color:#0AA67B;'>Green dots</b> dots represent samples that meet USGA recommendations.\n")
-  cat("- <b style='color:#B22222;'>Red dots</b> represent samples that do not satisfy USGA recommendations.\n")
+  cat("- <b style='color:#698960;'>Green dots</b> dots represent samples that meet USGA recommendations.\n")
+  cat("- <b style='color:#a65d57;'>Red dots</b> represent samples that do not satisfy USGA recommendations.\n")
   cat("- <b style='color:#808080;'>Gray dots</b> represent cases where no USGA recommendations are available for comparison.\n")
 } else {
   cat("- \\textcolor{successgreen}{Green dots} represent samples that meet USGA recommendations.\n")
@@ -392,7 +392,7 @@ if(length(unique(sf_data_long$date_sample_submitted)) > 1) {
       coord_cartesian(clip = "off") +
       scale_x_continuous(expand = expansion(mult = c(.05, .05))) +
       scale_y_continuous(expand = expansion(mult = c(.0, .0))) +
-      scale_color_manual(values = c(`FALSE` = "#B22222", `TRUE` = torv_cyan), na.value = torv_gray, guide = "none") +
+      scale_color_manual(values = c(`FALSE` = "#a65d57", `TRUE` = torv_cyan), na.value = torv_gray, guide = "none") +
       theme_void() +
       theme(plot.margin = margin(6, 1.2, 6, 2.5))
   }

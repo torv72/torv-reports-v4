@@ -6,14 +6,14 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = NA, dev = "ragg_p
 
 ```{r variables-and-theme}
 # Colors
-torv_cyan <<- "#0aa67b"
-torv_orange <<- "#a67b0a"
-torv_blue <<- "#0a83a6"
-torv_green <<- "#5b921e"
-torv_rose <<- "#9b5b64"
-torv_purple <<- "#8F51C0"
-torv_gray <<- "#808080"
-torv_gray_light <<- "#B1B1B1"
+torv_cyan <<- "#728c7c"
+torv_orange <<- "#c88544"
+torv_blue <<- "#147891"
+torv_green <<- "#6b7f52"
+torv_rose <<- "#96644a"
+torv_purple <<- "#756b96"
+torv_gray <<- "#595959"
+torv_gray_light <<- "#b0b0b0"
 
 # Typeface
 is_installed <- sum(grepl(typeface, systemfonts::system_fonts()$family)) != 0

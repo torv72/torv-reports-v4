@@ -20,9 +20,9 @@ cat(glue("The following graph shows how the samples taken from each {{sample_des
 
 ```{r, results='asis'}
 if(html) {
-  cat("- <b style='color:#B22222;'>Red dots</b> dots highlight samples where a deficit was found.\n")
-  cat("- <b style='color:#E3AA04;'>Orange dots</b> represent samples which are within 1% of the desired MLSN value.\n")
-  cat("- <b style='color:#0AA67B;'>Green dots</b> indicate that the samples met the MLSN requirements.\n")
+  cat("- <b style='color:#a65d57;'>Red dots</b> dots highlight samples where a deficit was found.\n")
+  cat("- <b style='color:#d08c47;'>Orange dots</b> represent samples which are within 1% of the desired MLSN value.\n")
+  cat("- <b style='color:#698960;'>Green dots</b> indicate that the samples met the MLSN requirements.\n")
 } else {
   cat("- \\textcolor{deficitred}{Red dots} dots highlight samples where a deficit was found.\n")
   cat("- \\textcolor{warningorange}{Orange dots} represent samples which are within 1% of the desired MLSN value.\n")

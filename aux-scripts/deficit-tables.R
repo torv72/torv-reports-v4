@@ -316,9 +316,9 @@ deficits_graph_data <-
     aiming_for = unique(plus_mlsn_ppm)
   ) %>%
   mutate(point_color = case_when(
-    mean_measurement > aiming_for * 1.01 ~ torv_cyan,
-    mean_measurement > aiming_for * .99 ~ "#FFBF00",
-    TRUE ~ "#B22222")
+    mean_measurement > aiming_for * 1.01 ~ "#698960",
+    mean_measurement > aiming_for * .99 ~ "#d08c47",
+    TRUE ~ "#a65d57")
   ) %>%
   group_by(sample_description_number_1, mehlich_3) %>%
   mutate(
@@ -327,9 +327,9 @@ deficits_graph_data <-
   ) %>%
   ungroup() %>%
   mutate(mean_line_color = case_when(
-    mean_per_soil_type > aiming_for * 1.01 ~ torv_cyan,
-    mean_per_soil_type > aiming_for * .99 ~ "#FFBF00",
-    TRUE ~ "#B22222")
+    mean_per_soil_type > aiming_for * 1.01 ~ "#698960",
+    mean_per_soil_type > aiming_for * .99 ~ "#d08c47",
+    TRUE ~ "#a65d57")
   ) %>%
   arrange(mixedrank(sample_description_number_2)) %>%
   mutate(
