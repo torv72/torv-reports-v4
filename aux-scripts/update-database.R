@@ -435,4 +435,4 @@ any new sites I should be able to match up next time!
 ***\n\n")
 
 # Run the function
-try(suppressWarnings(update_database()))
+(update_database())
