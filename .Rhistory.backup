@@ -1,0 +1,512 @@
+.include_results_interpretation = "No",
+.include_sand_fraction = "No",
+.output = c("pdf")
+)
+# Step 2: Generate Report ------------------------------------------------------
+# First, source the file to load the generate_report() function...
+source(here::here("aux-scripts/generate-report.R"))
+generate_report(
+.site_name = "The Valley Club Fazio",
+.site_name_abbr = "89973-valley-fazio",
+.date_sample_submitted = "2024-10-08",
+.start_date = "2017-01-01",
+.om_seasons = "season",
+.om_stats = "average",
+.warm_or_cool = "cool",
+.acid_extract = "Mehlich",
+.include_results_interpretation = "No",
+.include_sand_fraction = "No",
+.output = c("pdf")
+)
+# Step 2: Generate Report ------------------------------------------------------
+# First, source the file to load the generate_report() function...
+source(here::here("aux-scripts/generate-report.R"))
+generate_report(
+.site_name = "The Valley Club Fazio",
+.site_name_abbr = "89973-valley-fazio",
+.date_sample_submitted = "2024-10-08",
+.start_date = "2017-01-01",
+.om_seasons = "season",
+.om_stats = "average",
+.warm_or_cool = "cool",
+.acid_extract = "Mehlich",
+.include_results_interpretation = "No",
+.include_sand_fraction = "No",
+.output = c("pdf")
+)
+generate_report(
+.site_name = "The Valley Club Fazio",
+.site_name_abbr = "89973-valley-fazio",
+.date_sample_submitted = "2024-10-08",
+.start_date = "2017-01-01",
+.om_seasons = "season",
+.om_stats = "average",
+.warm_or_cool = "cool",
+.acid_extract = "Mehlich",
+.include_results_interpretation = "No",
+.include_sand_fraction = "Yes",
+.output = c("pdf")
+)
+generate_report(
+.site_name = "Snowmass Club",
+.site_name_abbr = "36644-snowmass",
+.date_sample_submitted = "2024-09-12",
+.start_date = "2017-01-01",
+.om_seasons = "season",
+.warm_or_cool = "cool",
+.acid_extract = "Mehlich",
+.include_results_interpretation = "No",
+.include_sand_fraction = "Yes",
+.output = c("pdf", "html")
+)
+generate_report(
+.site_name = "Snowmass Club",
+.site_name_abbr = "36644-snowmass",
+.date_sample_submitted = "2024-09-12",
+.start_date = "2017-01-01",
+.om_seasons = "season",
+.warm_or_cool = "cool",
+.acid_extract = "Mehlich",
+.include_results_interpretation = "No",
+.include_sand_fraction = "Yes",
+.output = c("pdf", "html")
+)
+generate_report(
+.site_name = "Snowmass Club",
+.site_name_abbr = "36644-snowmass",
+.date_sample_submitted = "2024-09-12",
+.start_date = "2017-01-01",
+.om_seasons = "season",
+.warm_or_cool = "cool",
+.acid_extract = "Mehlich",
+.include_results_interpretation = "No",
+.include_sand_fraction = "Yes",
+.output = c("pdf", "html")
+)
+# Step 2: Generate Report ------------------------------------------------------
+# First, source the file to load the generate_report() function...
+source(here::here("aux-scripts/generate-report.R"))
+generate_report(
+.site_name = "The Valley Club Fazio",
+.site_name_abbr = "89973-valley-fazio",
+.date_sample_submitted = "2024-10-08",
+.start_date = "2017-01-01",
+.om_seasons = "season",
+.om_stats = "average",
+.warm_or_cool = "cool",
+.acid_extract = "Mehlich",
+.include_results_interpretation = "No",
+.include_sand_fraction = "Yes",
+.output = c("pdf")
+)
+# Step 2: Generate Report ------------------------------------------------------
+# First, source the file to load the generate_report() function...
+source(here::here("aux-scripts/generate-report.R"))
+generate_report(
+.site_name = "The Valley Club Fazio",
+.site_name_abbr = "89973-valley-fazio",
+.date_sample_submitted = "2024-10-08",
+.start_date = "2017-01-01",
+.om_seasons = "season",
+.om_stats = "average",
+.warm_or_cool = "cool",
+.acid_extract = "Mehlich",
+.include_results_interpretation = "No",
+.include_sand_fraction = "No",
+.output = c("pdf")
+)
+# Step 2: Generate Report ------------------------------------------------------
+# First, source the file to load the generate_report() function...
+source(here::here("aux-scripts/generate-report.R"))
+generate_report(
+.site_name = "The Valley Club Fazio",
+.site_name_abbr = "89973-valley-fazio",
+.date_sample_submitted = "2024-10-08",
+.start_date = "2017-01-01",
+.om_seasons = "season",
+.om_stats = "average",
+.warm_or_cool = "cool",
+.acid_extract = "Mehlich",
+.include_results_interpretation = "No",
+.include_sand_fraction = "No",
+.output = c("pdf")
+)
+# Step 2: Generate Report ------------------------------------------------------
+# First, source the file to load the generate_report() function...
+source(here::here("aux-scripts/generate-report.R"))
+generate_report(
+.site_name = "The Valley Club Fazio",
+.site_name_abbr = "89973-valley-fazio",
+.date_sample_submitted = "2024-10-08",
+.start_date = "2017-01-01",
+.om_seasons = "season",
+.om_stats = "average",
+.warm_or_cool = "cool",
+.acid_extract = "Mehlich",
+.include_results_interpretation = "No",
+.include_sand_fraction = "No",
+.output = c("pdf")
+)
+# Step 2: Generate Report ------------------------------------------------------
+# First, source the file to load the generate_report() function...
+source(here::here("aux-scripts/generate-report.R"))
+generate_report(
+.site_name = "The Valley Club Fazio",
+.site_name_abbr = "89973-valley-fazio",
+.date_sample_submitted = "2024-10-08",
+.start_date = "2017-01-01",
+.om_seasons = "season",
+.om_stats = "average",
+.warm_or_cool = "cool",
+.acid_extract = "Mehlich",
+.include_results_interpretation = "No",
+.include_sand_fraction = "No",
+.output = c("pdf")
+)
+# Step 2: Generate Report ------------------------------------------------------
+# First, source the file to load the generate_report() function...
+source(here::here("aux-scripts/generate-report.R"))
+generate_report(
+.site_name = "The Valley Club Fazio",
+.site_name_abbr = "89973-valley-fazio",
+.date_sample_submitted = "2024-10-08",
+.start_date = "2017-01-01",
+.om_seasons = "season",
+.om_stats = "average",
+.warm_or_cool = "cool",
+.acid_extract = "Mehlich",
+.include_results_interpretation = "No",
+.include_sand_fraction = "No",
+.output = c("pdf")
+)
+# Step 2: Generate Report ------------------------------------------------------
+# First, source the file to load the generate_report() function...
+source(here::here("aux-scripts/generate-report.R"))
+generate_report(
+.site_name = "The Valley Club Fazio",
+.site_name_abbr = "89973-valley-fazio",
+.date_sample_submitted = "2024-10-08",
+.start_date = "2017-01-01",
+.om_seasons = "season",
+.om_stats = "average",
+.warm_or_cool = "cool",
+.acid_extract = "Mehlich",
+.include_results_interpretation = "No",
+.include_sand_fraction = "No",
+.output = c("pdf")
+)
+# Step 2: Generate Report ------------------------------------------------------
+# First, source the file to load the generate_report() function...
+source(here::here("aux-scripts/generate-report.R"))
+generate_report(
+.site_name = "The Valley Club Fazio",
+.site_name_abbr = "89973-valley-fazio",
+.date_sample_submitted = "2024-10-08",
+.start_date = "2017-01-01",
+.om_seasons = "season",
+.om_stats = "average",
+.warm_or_cool = "cool",
+.acid_extract = "Mehlich",
+.include_results_interpretation = "No",
+.include_sand_fraction = "No",
+.output = c("pdf")
+)
+# Step 2: Generate Report ------------------------------------------------------
+# First, source the file to load the generate_report() function...
+source(here::here("aux-scripts/generate-report.R"))
+generate_report(
+.site_name = "The Valley Club Fazio",
+.site_name_abbr = "89973-valley-fazio",
+.date_sample_submitted = "2024-10-08",
+.start_date = "2017-01-01",
+.om_seasons = "season",
+.om_stats = "average",
+.warm_or_cool = "cool",
+.acid_extract = "Mehlich",
+.include_results_interpretation = "No",
+.include_sand_fraction = "No",
+.output = c("pdf")
+)
+# Step 2: Generate Report ------------------------------------------------------
+# First, source the file to load the generate_report() function...
+source(here::here("aux-scripts/generate-report.R"))
+generate_report(
+.site_name = "The Valley Club Fazio",
+.site_name_abbr = "89973-valley-fazio",
+.date_sample_submitted = "2024-10-08",
+.start_date = "2017-01-01",
+.om_seasons = "season",
+.om_stats = "average",
+.warm_or_cool = "cool",
+.acid_extract = "Mehlich",
+.include_results_interpretation = "No",
+.include_sand_fraction = "No",
+.output = c("pdf")
+)
+# Step 2: Generate Report ------------------------------------------------------
+# First, source the file to load the generate_report() function...
+source(here::here("aux-scripts/generate-report.R"))
+generate_report(
+.site_name = "The Valley Club Fazio",
+.site_name_abbr = "89973-valley-fazio",
+.date_sample_submitted = "2024-10-08",
+.start_date = "2017-01-01",
+.om_seasons = "season",
+.om_stats = "average",
+.warm_or_cool = "cool",
+.acid_extract = "Mehlich",
+.include_results_interpretation = "No",
+.include_sand_fraction = "No",
+.output = c("pdf")
+)
+# Step 2: Generate Report ------------------------------------------------------
+# First, source the file to load the generate_report() function...
+source(here::here("aux-scripts/generate-report.R"))
+generate_report(
+.site_name = "Snowmass Club",
+.site_name_abbr = "36644-snowmass",
+.date_sample_submitted = "2024-09-12",
+.start_date = "2017-01-01",
+.om_seasons = "season",
+.warm_or_cool = "cool",
+.acid_extract = "Mehlich",
+.include_results_interpretation = "No",
+.include_sand_fraction = "Yes",
+.output = c("pdf", "html")
+)
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+# Step 1: Update Database ------------------------------------------------------
+# Run the follopwing code to update your database.
+source(here::here("aux-scripts/update-database.R"))
+renv::status()
+R--vanilla
+# First load these
+library(dplyr)
+library(readxl)
+library(janitor)
+# Define the rowAny function
+rowAny <- function(x) rowSums(x) > 0
+# Then try reading just the master database
+original_database <- read_excel(master_database_file,
+range = cell_cols("A:Q"),
+col_types = c("numeric", "text", "text", "text", "date",
+"text", "text", "text", "text", "text",
+"text", "text", "text", "text", "text",
+"text", "numeric")) %>%
+filter(rowAny(across(everything(), ~ !is.na(.x)))) %>%
+clean_names()
+# First load these
+library(dplyr)
+library(readxl)
+library(janitor)
+# Define the rowAny function
+rowAny <- function(x) rowSums(x) > 0
+# Then try reading just the master database
+original_database <- read_excel(MASTER_DATABASE,
+range = cell_cols("A:Q"),
+col_types = c("numeric", "text", "text", "text", "date",
+"text", "text", "text", "text", "text",
+"text", "text", "text", "text", "text",
+"text", "numeric")) %>%
+filter(rowAny(across(everything(), ~ !is.na(.x)))) %>%
+clean_names()
+# First load these
+library(dplyr)
+library(readxl)
+library(janitor)
+# Define the rowAny function
+rowAny <- function(x) rowSums(x) > 0
+# Then try reading just the master database
+original_database <- read_excel(MASTER_DATABASE.xlsx,
+range = cell_cols("A:Q"),
+col_types = c("numeric", "text", "text", "text", "date",
+"text", "text", "text", "text", "text",
+"text", "text", "text", "text", "text",
+"text", "numeric")) %>%
+filter(rowAny(across(everything(), ~ !is.na(.x)))) %>%
+clean_names()
+packageVersion("yaml")
+renv::record("yaml@2.3.8")
+renv::repair()
+renv::snapshot(packages = "yaml")
+libPaths()
+.libPaths()
+renv::restore()
+renv::status()
+# Step 2: Generate Report ------------------------------------------------------
+# First, source the file to load the generate_report() function...
+source(here::here("aux-scripts/generate-report.R"))
+generate_report(
+.site_name = "The Valley Club Fazio",
+.site_name_abbr = "89973-valley-fazio",
+.date_sample_submitted = "2024-10-08",
+.start_date = "2017-01-01",
+.om_seasons = "season",
+.om_stats = "average",
+.warm_or_cool = "cool",
+.acid_extract = "Mehlich",
+.include_results_interpretation = "No",
+.include_sand_fraction = "No",
+.output = c("pdf")
+)
+packageVersion("yaml")
+renv::("yaml")
+renv::remove("yaml"")
+renv::remove("yaml")
+renv::install("yaml@2.3.10")
+renv::repair()
