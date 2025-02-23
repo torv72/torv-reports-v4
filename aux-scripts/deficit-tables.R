@@ -56,7 +56,6 @@ while (!happy_with_input %in% c("y", "n")) {
 
 if (happy_with_input == "n") message("\n🔁 No problem, let's try that again!")
   
-
 # Use these values and the values in the database to recreate all the rest! ----
 
 # Hard coded values
