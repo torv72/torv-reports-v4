@@ -19,29 +19,22 @@ torv_gray_light <<- "#b0b0b0"
 is_installed <- sum(grepl(typeface, systemfonts::system_fonts()$family)) != 0
  
 if(is_installed) {
-  typeface_tabular <<- typeface#paste(typeface, "Tabular") ## same now as Georama already has tabular numbers
-  typeface_condensed <<- paste(typeface, "SemiCondensed")
+  typeface_tabular <<- typeface
+  typeface_condensed <<- paste(typeface, "Condensed")  # Changed from SemiCondensed
   typeface_medium <<- paste(typeface, "Medium")
-  typeface_ultrabold <<- paste(typeface, "ultrabold")
-  typeface_condensed_medium <<- paste(typeface, "SemiCondensed Medium")
-  
-  # systemfonts::register_variant(
-  # family = typeface,
-  # name = typeface_tabular,
-  # weight = "normal",
-  # features = font_feature(numbers = "tabular")
-  # )
+  typeface_ultrabold <<- paste(typeface, "ExtraBold")  # Changed from ultrabold
+  typeface_condensed_medium <<- paste(typeface, "Condensed Medium")
   
   systemfonts::register_variant(
     family = typeface,
     name = typeface_ultrabold,
-   weight = "ultrabold"
+    weight = "bold"  # Changed from ultrabold
   )
   
   systemfonts::register_variant(
     family = typeface,
     name = typeface_medium,
-   weight = "medium"
+    weight = "medium"
   )
   
   systemfonts::register_variant(
