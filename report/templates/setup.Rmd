@@ -35,13 +35,13 @@ if(is_installed) {
   systemfonts::register_variant(
     family = typeface,
     name = typeface_ultrabold,
-    weight = "ultrabold"
+   weight = "ultrabold"
   )
   
   systemfonts::register_variant(
     family = typeface,
     name = typeface_medium,
-    weight = "medium"
+   weight = "medium"
   )
   
   systemfonts::register_variant(
@@ -49,7 +49,7 @@ if(is_installed) {
     name = typeface_condensed_medium,
     weight = "medium"
   )
-  
+
 } else {
   message("Using system default font as the specified typeface is not installed on your system. Please install the typeface on your system and then restart your R session.")
   typeface <<- ""
