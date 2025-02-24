@@ -1,7 +1,7 @@
 
 \newpage
 
-```{r, warning=FALSE, message=FALSE, out.width="900px"}
+```{r, warning=FALSE, message=FALSE, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.7in" else NULL}
 header_file_create("OM", glue::glue("{{sample_description_number_2}}"))
 knitr::include_graphics(here(root_figure_location, "headers",
                              glue::glue("om_testing_{{sample_description_number_2}}_plot.png")))

@@ -1,6 +1,6 @@
 \newpage
 
-```{r, warning=FALSE, message=FALSE, out.width="900px"}
+```{r, warning=FALSE, message=FALSE, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.7in" else NULL}
 header_file_create("Physical", "Sand Fraction")
 knitr::include_graphics(here(root_figure_location, "headers", "physical_testing_sand_fraction_plot.png"))
 ```

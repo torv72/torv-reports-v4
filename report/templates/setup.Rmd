@@ -25,6 +25,13 @@ if(is_installed) {
   typeface_ultrabold <<- paste(typeface, "ExtraBold")  # Changed from ultrabold
   typeface_condensed_medium <<- paste(typeface, "Condensed Medium")
   
+  # systemfonts::register_variant(
+  # family = typeface,
+  # name = typeface_tabular,
+  # weight = "normal",
+  # features = font_feature(numbers = "tabular")
+  # )
+  
   systemfonts::register_variant(
     family = typeface,
     name = typeface_ultrabold,

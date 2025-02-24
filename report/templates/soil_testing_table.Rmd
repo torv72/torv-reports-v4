@@ -6,7 +6,7 @@ cat("## ", "{{sample_description_number_1}}", "{#soil-", "{{str_to_lower(sample_
 ```
 
 
-```{r, warning=FALSE, message=FALSE, out.width="900px"}
+```{r, warning=FALSE, message=FALSE, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.7in" else NULL}
 header_file_create("Soil", glue("{{sample_description_number_1}}"))
 knitr::include_graphics(here(root_figure_location, "headers", glue("soil_testing_{{sample_description_number_1}}_plot.png")))
 ```
@@ -148,7 +148,7 @@ cat("### Mean measurements")
 -->
 \newpage
 
-```{r, out.width="900px"}
+```{r, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.7in" else NULL}
 header_file_create("Soil", glue("{{sample_description_number_1}}"), trends = TRUE)
 knitr::include_graphics(here(root_figure_location, "headers", glue("soil_testing_{{sample_description_number_1}}_trends_plot.png")))
 ```

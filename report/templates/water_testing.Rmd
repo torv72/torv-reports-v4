@@ -1,7 +1,7 @@
 
 \newpage
 
-```{r, message=FALSE, warning=FALSE, out.width="900px"}
+```{r, message=FALSE, warning=FALSE, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.7in" else NULL}
 clean_water_description <- janitor::make_clean_names("{{water_description}}")
 
 header_file_create("Water", "{{water_description}}")
@@ -399,7 +399,7 @@ if (html) {
 
 \newpage
 
-```{r, out.width="900px"}
+```{r, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.7in" else NULL}
 header_file_create("Water", "{{water_description}}", trends = TRUE)
 knitr::include_graphics(here(root_figure_location,  "headers", glue("water_testing_{clean_water_description}_trends_plot.png")))
 ```

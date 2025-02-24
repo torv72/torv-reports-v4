@@ -11,7 +11,7 @@ output:
     includes:
       in_header: theme/template.tex
 urlcolor: Blue
-linkcolor: CustomGreen
+linkcolor: PineGreen
 params:
   database_name: MASTER_DATABASE.xlsx
   html: true
@@ -166,7 +166,7 @@ cat(
 
 ## Executive Summary
 
-```{r exec-summary-header, out.width="900px"}
+```{r exec-summary-header, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.7in" else NULL}
 header_file_create("None","Executive Summary")
 knitr::include_graphics(here(root_figure_location, "headers", "none_testing_executive_summary_plot.png"))
 ```
@@ -383,7 +383,7 @@ cat(
 ```{r interpret-results, eval=input_params$include_results_interpretation, child="templates/how_to_interpret_results.Rmd"}
 ```
 
-```{r turf-growth-header, eval=length(soil_types) > 0, out.width="900px"}
+```{r turf-growth-header, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.7in" else NULL}
 header_file_create("Turf", "growth")
 knitr::include_graphics(here(root_figure_location, "headers", "turf_testing_growth_plot.png"))
 ```
@@ -404,7 +404,7 @@ knitr::include_graphics(here("report", "figures", "monthly_growth_potential_plot
 
 ## How to Read Trend Line Plots {#how-to-read}
 
-```{r how-to-header, include=!html}
+```{r r how-to-header, include=!html, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.7in" else NULL}
 header_file_create("None", "How to Read Trend Line Plots")
 knitr::include_graphics(here(root_figure_location, "headers", "none_testing_how_to_read_trend_line_plots_plot.png"))
 ```
@@ -417,7 +417,7 @@ cat("The trend line plots show the raw sampling values (small grey dots) and the
     \\newline For reference, the grey dotted line indicates the historic average. The plots in the Organic Matter section show the TORV average as a cyan dotted line instead.")
 ```
 \columnbreak
-```{r how-to-graphic, out.width="300%", include=!html}
+```{r how-to-graphic, out.width="100%", include=!html}
 knitr::include_graphics(here(root_figure_location, "trendlines", "trend_plot_legend_mean_median.png"))
 ```
 \end{multicols}
