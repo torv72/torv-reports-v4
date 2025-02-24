@@ -36,7 +36,7 @@ generate_report(
   .acid_extract = "Mehlich",
   .include_results_interpretation = "No",
   .include_sand_fraction = "No",
-  .output = c("html")
+  .output = c("pdf")
 )
 generate_report(
   .site_name = "Maroon Creek Club",
@@ -61,7 +61,7 @@ generate_report(
   .acid_extract = "Mehlich",
   .include_results_interpretation = "No",
   .include_sand_fraction = "Yes",
-  .output = c("pdf", "html")
+  .output = c("pdf","html")
 )
 
 
