@@ -128,7 +128,6 @@ invisible(file.copy(here::here("report", "assets", "torv-logo.png"), "torv-logo.
 }
 ```
 
-
 <!-- header section HTML -->
 
 ```{r header-html, results='asis', include=html}
@@ -378,12 +377,12 @@ cat(
 )
 ```
 
-## Turf Growth Potential Model
+`r if(length(soil_types) > 0) {"## Turf Growth Potential Model"}`
 
-```{r interpret-results, eval=input_params$include_results_interpretation, child="templates/how_to_interpret_results.Rmd"}
+```{r interpret-results, eval=(length(soil_types) > 0 && input_params$include_results_interpretation), child="templates/how_to_interpret_results.Rmd"}
 ```
 
-```{r turf-growth-header, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.7in" else NULL}
+```{r turf-growth-header, eval=(length(soil_types) > 0), out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.7in" else NULL}
 header_file_create("Turf", "growth")
 knitr::include_graphics(here(root_figure_location, "headers", "turf_testing_growth_plot.png"))
 ```
@@ -392,11 +391,11 @@ knitr::include_graphics(here(root_figure_location, "headers", "turf_testing_grow
 cat("The temperature data is provided by NOAA using 30-year climate normals and is site-specific to your location. Pace Turf, LLC ([Gelernter and Stowell, 2005](https://www.files.asianturfgrass.com/gelernter_stowell_2005_improved_overseeding_gp.pdf)) developed the growth potential model to explain the myriad of ways in which weather impacts turf growth.\n\nThe model considers <b style='color:#6b7f52;'>turf growth to be good when the GP is between 50% and 100%</b> (the best possible growth occurs at a GP of 100%). However, when weather conditions are either too hot or too cold for optimal turf growth, <b style='color:#686617;'>the GP falls below 50%, and turf becomes progressively more stressed</b>. When <b style='color:#7c230d;'>the GP falls to 10% or lower, growth is extremely limited</b>. Appearing below is your model specific to ", input_params$site_name, ".\n\n", sep = "")
 ```
 
-```{r turf-growth-rds-html, fig.height=3.5, eval=length(soil_types) > 0 & html}
+```{r turf-growth-rds-html, fig.height=3.5, eval=(length(soil_types) > 0 && html)}
 girafe(ggobj = growth_potential_plot)
 ```
 
-```{r turf-growth-plot-pdf, fig.height=4.1, out.width="100%", eval=length(soil_types) > 0 & !html}
+```{r turf-growth-plot-pdf, fig.height=4.1, out.width="100%", eval=(length(soil_types) > 0 && !html)}
 knitr::include_graphics(here("report", "figures", "monthly_growth_potential_plot.png"))
 ```
 
@@ -422,9 +421,6 @@ knitr::include_graphics(here(root_figure_location, "trendlines", "trend_plot_leg
 ```
 \end{multicols}
 
-
-## Soil Testing {#soil-testing}
-
 ```{r soil-results, results='asis', warning=FALSE}
 if(length(soil_types > 0)) {
  
@@ -443,7 +439,7 @@ if(length(soil_types > 0)) {
 ```
 
 
-## Total Organic Matter Testing {#om-testing}
+`r if(length(om_types) > 0) {"## Total Organic Matter Testing {#om-testing}"}`
 
 ```{r om-results, results='asis', warning=FALSE}
 if(length(om_types > 0)) { # So the section only shows up if there are OM results to report
@@ -463,7 +459,7 @@ if(length(om_types > 0)) { # So the section only shows up if there are OM result
 ```
 
 
-## Sand Fraction Testing {#sand-fraction-testing}
+`r if(input_params$include_sand_fraction && any(filtered_database$test_short_name == "S022")) {"## Sand Fraction Testing {#sand-fraction-testing}"}`
 
 ```{r sf-results, eval=input_params$include_sand_fraction, results='asis'}
 if(any(filtered_database$test_short_name == "S022")) { # So the section only shows up if there are SF results to report
@@ -476,7 +472,7 @@ if(any(filtered_database$test_short_name == "S022")) { # So the section only sho
 ```
 
 
-## Water Testing {#water-testing}
+`r if(length(water_types) > 0) {"## Water Testing {#water-testing}"}`
 
 ```{r water-results, results='asis', warning=FALSE}
 if(length(water_types > 0)) { # So the section only shows up if there are Water results to report

@@ -98,8 +98,6 @@ if (html) {
 }
 ```
 
-
-
 ```{r function-table-formatting}
 # Function to format deficit tables as desired
 branded_table <- function(header_colour = torv_orange, 
