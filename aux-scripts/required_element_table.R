@@ -1,6 +1,5 @@
 # Define branded_table function at the top
-branded_table <- function(header_colour = torv_orange, 
-                          body_colour = "#f6cba2",
+branded_table <- function(header_colour = torv_orange,
                           data) {
   data %>%
     flextable() %>%
