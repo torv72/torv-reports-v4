@@ -19,36 +19,65 @@ torv_gray_light <<- "#b0b0b0"
 is_installed <- sum(grepl(typeface, systemfonts::system_fonts()$family)) != 0
 
 if(is_installed) {
-  typeface_tabular <<- typeface#paste(typeface, "Tabular") ## same now as Georama already has tabular numbers
-  typeface_condensed <<- paste(typeface, "SemiCondensed")
-  typeface_medium <<- paste(typeface, "Medium")
-  typeface_ultrabold <<- paste(typeface, "ultrabold")
-  typeface_condensed_medium <<- paste(typeface, "SemiCondensed Medium")
   
-  # systemfonts::register_variant(
-  # family = typeface,
-  # name = typeface_tabular,
-  # weight = "normal",
-  # features = font_feature(numbers = "tabular")
-  # )
-  
-  systemfonts::register_variant(
-      family = typeface,
-      name = typeface_ultrabold,
-      weight = "ultrabold"
-  )
-  
-  systemfonts::register_variant(
-      family = typeface,
-      name = typeface_medium,
-      weight = "medium"
-  )
-  
-  systemfonts::register_variant(
-      family = typeface_condensed,
-      name = typeface_condensed_medium,
-      weight = "medium"
-  )
+  if(typeface == "Georama") {
+    typeface_tabular <<- typeface#paste(typeface, "Tabular") ## same now as Georama already has tabular numbers
+    typeface_condensed <<- paste(typeface, "SemiCondensed")
+    typeface_medium <<- paste(typeface, "Medium")
+    typeface_ultrabold <<- paste(typeface, "ultrabold")
+    typeface_condensed_medium <<- paste(typeface, "SemiCondensed Medium")
+    
+    # systemfonts::register_variant(
+    # family = typeface,
+    # name = typeface_tabular,
+    # weight = "normal",
+    # features = font_feature(numbers = "tabular")
+    # )
+    
+    systemfonts::register_variant(
+        family = typeface,
+        name = typeface_ultrabold,
+        weight = "ultrabold"
+    )
+    
+    systemfonts::register_variant(
+        family = typeface,
+        name = typeface_medium,
+        weight = "medium"
+    )
+    
+    systemfonts::register_variant(
+        family = typeface_condensed,
+        name = typeface_condensed_medium,
+        weight = "medium"
+    )
+  } else {
+    ## if not Georama, simply use plain and bold styles
+    ## (no semi-condensed / medium / ultrabold variants)
+    typeface_tabular <<- typeface
+    typeface_condensed <<- typeface
+    typeface_medium <<- paste(typeface, "Bold")
+    typeface_ultrabold <<- paste(typeface, "Bold")
+    typeface_condensed_medium <<- paste(typeface, "Bold")
+    
+    systemfonts::register_variant(
+        family = typeface,
+        name = typeface_ultrabold,
+        weight = "bold"
+    )
+    
+    systemfonts::register_variant(
+        family = typeface,
+        name = typeface_medium,
+        weight = "bold"
+    )
+    
+    systemfonts::register_variant(
+        family = typeface_condensed,
+        name = typeface_condensed_medium,
+        weight = "bold"
+    )
+  }
   
 } else {
   message("Using system default font as the specified typeface is not installed on your system. Please install the typeface on your system and then restart your R session.")
@@ -73,8 +102,8 @@ theme_update(
   axis.title.y = element_text(size = base_size * .57),
   panel.grid.major = element_line(linewidth = .33, color = theme_gray_lines),
   panel.grid.minor = element_blank(),
-  plot.title = element_text(family = typeface_medium, size = base_size * .67),
-  strip.text = element_text(family = typeface_medium, size = base_size * .67),
+  plot.title = element_text(family = typeface, face = "bold", size = base_size * .67),
+  strip.text = element_text(family = typeface, face = "bold", size = base_size * .67),
   strip.text.x = element_text(hjust = 0, margin = margin(3, 0, 3, 0)),
   plot.caption = element_text(size = base_size * .45, color = torv_gray, margin = margin(9, 0, 0, 0), hjust = 0),
   plot.caption.position = "plot",
@@ -101,7 +130,6 @@ if (html) {
 ```{r function-table-formatting}
 # Function to format deficit tables as desired
 branded_table <- function(header_colour = torv_orange, 
-                          body_colour = prismatic::clr_lighten(torv_orange, .63),
                           data) {
   data %>%
     flextable() %>%
