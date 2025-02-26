@@ -101,7 +101,7 @@ if (html) {
 ```{r function-table-formatting}
 # Function to format deficit tables as desired
 branded_table <- function(header_colour = torv_orange, 
-                          body_colour = "#f6cba2", #80% light on torv_orange colour
+                          body_colour = prismatic::clr_lighten(torv_orange, .63),
                           data) {
   data %>%
     flextable() %>%
