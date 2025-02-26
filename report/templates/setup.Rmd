@@ -17,13 +17,13 @@ torv_gray_light <<- "#b0b0b0"
 
 # Typeface
 is_installed <- sum(grepl(typeface, systemfonts::system_fonts()$family)) != 0
- 
+
 if(is_installed) {
-  typeface_tabular <<- typeface
-  typeface_condensed <<- paste(typeface, "Condensed")  # Changed from SemiCondensed
+  typeface_tabular <<- typeface#paste(typeface, "Tabular") ## same now as Georama already has tabular numbers
+  typeface_condensed <<- paste(typeface, "SemiCondensed")
   typeface_medium <<- paste(typeface, "Medium")
-  typeface_ultrabold <<- paste(typeface, "ExtraBold")  # Changed from ultrabold
-  typeface_condensed_medium <<- paste(typeface, "Condensed Medium")
+  typeface_ultrabold <<- paste(typeface, "ultrabold")
+  typeface_condensed_medium <<- paste(typeface, "SemiCondensed Medium")
   
   # systemfonts::register_variant(
   # family = typeface,
@@ -33,23 +33,23 @@ if(is_installed) {
   # )
   
   systemfonts::register_variant(
-    family = typeface,
-    name = typeface_ultrabold,
-    weight = "bold"  # Changed from ultrabold
+      family = typeface,
+      name = typeface_ultrabold,
+      weight = "ultrabold"
   )
   
   systemfonts::register_variant(
-    family = typeface,
-    name = typeface_medium,
-    weight = "medium"
+      family = typeface,
+      name = typeface_medium,
+      weight = "medium"
   )
   
   systemfonts::register_variant(
-    family = typeface_condensed,
-    name = typeface_condensed_medium,
-    weight = "medium"
+      family = typeface_condensed,
+      name = typeface_condensed_medium,
+      weight = "medium"
   )
-
+  
 } else {
   message("Using system default font as the specified typeface is not installed on your system. Please install the typeface on your system and then restart your R session.")
   typeface <<- ""
