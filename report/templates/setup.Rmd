@@ -533,8 +533,8 @@ header_file_create <<- function(sampletype, title, trends = FALSE) {
   }
   r <- 0.5
   
-  header_plot <- ggplot() +
-    #ggforce::geom_circle(aes(x0 = 0, y0 = 0, r = r), fill = col, color = NA) +
+  header_plot <- 
+    ggplot() +
     geom_point(aes(x = 0, y = 0), color = col, size = 17) +
     annotation_custom(sym.grob, xmin = -0.5, xmax = 0.5, ymin = -0.5, ymax = 0.5) +
     annotate(
