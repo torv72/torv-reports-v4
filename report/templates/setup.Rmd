@@ -21,6 +21,7 @@ is_installed <- sum(grepl(typeface, systemfonts::system_fonts()$family)) != 0
 if(is_installed) {
   
   if(typeface == "Georama") {
+    
     typeface_tabular <<- typeface#paste(typeface, "Tabular") ## same now as Georama already has tabular numbers
     typeface_condensed <<- paste(typeface, "SemiCondensed")
     typeface_medium <<- paste(typeface, "Medium")
@@ -51,9 +52,12 @@ if(is_installed) {
         name = typeface_condensed_medium,
         weight = "medium"
     )
+    
   } else {
     ## if not Georama, simply use plain and bold styles
     ## (no semi-condensed / medium / ultrabold variants)
+    message("Using a non-corporate typeface as specified. Note that only the regular and bold variants are used.\nTo use the corporate typeface, please install all font files from the folder report/assets/fonts/ and use the default setting for the .typeface argument.")
+    
     typeface_tabular <<- typeface
     typeface_condensed <<- typeface
     typeface_medium <<- paste(typeface, "Bold")
@@ -80,7 +84,7 @@ if(is_installed) {
   }
   
 } else {
-  message("Using system default font as the specified typeface is not installed on your system. Please install the typeface on your system and then restart your R session.")
+  message("Using system default fonts as the specified typefac is not installed on your system. Please install the typeface on your system and then restart your R session.")
   typeface <<- ""
   typeface_tabular <<- ""
   typeface_condensed <<- ""
