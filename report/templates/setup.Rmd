@@ -19,37 +19,70 @@ torv_gray_light <<- "#b0b0b0"
 is_installed <- sum(grepl(typeface, systemfonts::system_fonts()$family)) != 0
 
 if(is_installed) {
-  typeface_tabular <<- typeface#paste(typeface, "Tabular") ## same now as Georama already has tabular numbers
-  typeface_condensed <<- paste(typeface, "SemiCondensed")
-  typeface_medium <<- paste(typeface, "Medium")
-  typeface_ultrabold <<- paste(typeface, "ultrabold")
-  typeface_condensed_medium <<- paste(typeface, "SemiCondensed Medium")
   
-  # systemfonts::register_variant(
-  # family = typeface,
-  # name = typeface_tabular,
-  # weight = "normal",
-  # features = font_feature(numbers = "tabular")
-  # )
-  
-  systemfonts::register_variant(
+  if(typeface == "Georama") {
+    
+   typeface_tabular <<- typeface#paste(typeface, "Tabular") ## same now as Georama already has tabular numbers
+   typeface_condensed <<- paste(typeface, "SemiCondensed")
+   typeface_medium <<- paste(typeface, "Medium")
+   typeface_ultrabold <<- paste(typeface, "ultrabold")
+   typeface_condensed_medium <<- paste(typeface, "SemiCondensed Medium")
+   
+   # systemfonts::register_variant(
+   # family = typeface,
+   # name = typeface_tabular,
+   # weight = "normal",
+   # features = font_feature(numbers = "tabular")
+   # )
+   
+   systemfonts::register_variant(
+       family = typeface,
+       name = typeface_ultrabold,
+       weight = "ultrabold"
+   )
+   
+   systemfonts::register_variant(
+       family = typeface,
+       name = typeface_medium,
+       weight = "medium"
+   )
+   
+   systemfonts::register_variant(
+       family = typeface_condensed,
+       name = typeface_condensed_medium,
+       weight = "medium"
+   )
+   
+  } else {
+    ## if not Georama, simply use plain and bold styles
+    ## (no semi-condensed / medium / ultrabold variants)
+   message("Using a non-corporate typeface as specificed.  Note that only regular and bold variants are used. \nTo use the corporate typeface, please install the typeface on your system and then restart your R session.")
+   
+    typeface_tabular <<- typeface
+    typeface_condensed <<- typeface
+    typeface_medium <<- paste(typeface, "Bold")
+    typeface_ultrabold <<- paste(typeface, "Bold")
+    typeface_condensed_medium <<- paste(typeface, "Bold")
+    
+    system_fonts::register_variant(
       family = typeface,
       name = typeface_ultrabold,
-      weight = "ultrabold"
-  )
-  
-  systemfonts::register_variant(
+      weight = "bold"
+    )
+    
+        system_fonts::register_variant(
       family = typeface,
       name = typeface_medium,
-      weight = "medium"
-  )
-  
-  systemfonts::register_variant(
+      weight = "bold"
+    )  
+   
+        system_fonts::register_variant(
       family = typeface_condensed,
       name = typeface_condensed_medium,
-      weight = "medium"
-  )
-  
+      weight = "bold"
+    )  
+  }
+
 } else {
   message("Using system default font as the specified typeface is not installed on your system. Please install the typeface on your system and then restart your R session.")
   typeface <<- ""
@@ -73,8 +106,8 @@ theme_update(
   axis.title.y = element_text(size = base_size * .57),
   panel.grid.major = element_line(linewidth = .33, color = theme_gray_lines),
   panel.grid.minor = element_blank(),
-  plot.title = element_text(family = typeface_medium, size = base_size * .67),
-  strip.text = element_text(family = typeface_medium, size = base_size * .67),
+  plot.title = element_text(family = typeface, face = "bold", size = base_size * .67),
+  strip.text = element_text(family = typeface, face = "bold", size = base_size * .67),
   strip.text.x = element_text(hjust = 0, margin = margin(3, 0, 3, 0)),
   plot.caption = element_text(size = base_size * .45, color = torv_gray, margin = margin(9, 0, 0, 0), hjust = 0),
   plot.caption.position = "plot",
@@ -501,8 +534,8 @@ header_file_create <<- function(sampletype, title, trends = FALSE) {
   }
   r <- 0.5
   
-  header_plot <- ggplot() +
-    #ggforce::geom_circle(aes(x0 = 0, y0 = 0, r = r), fill = col, color = NA) +
+  header_plot <- 
+    ggplot() +
     geom_point(aes(x = 0, y = 0), color = col, size = 17) +
     annotation_custom(sym.grob, xmin = -0.5, xmax = 0.5, ymin = -0.5, ymax = 0.5) +
     annotate(
