@@ -16,13 +16,14 @@ torv_gray <<- "#595959"
 torv_gray_light <<- "#b0b0b0"
 
 # Typeface
+
 is_installed <- sum(grepl(typeface, systemfonts::system_fonts()$family)) != 0
 
 if(is_installed) {
   
   if(typeface == "Georama") {
     
-   typeface_tabular <<- typeface#paste(typeface, "Tabular") ## same now as Georama already has tabular numbers
+   typeface_tabular <<- typeface #paste(typeface, "Tabular") ## same now as Georama already has tabular numbers
    typeface_condensed <<- paste(typeface, "SemiCondensed")
    typeface_medium <<- paste(typeface, "Medium")
    typeface_ultrabold <<- paste(typeface, "ultrabold")
@@ -64,19 +65,19 @@ if(is_installed) {
     typeface_ultrabold <<- paste(typeface, "Bold")
     typeface_condensed_medium <<- paste(typeface, "Bold")
     
-    system_fonts::register_variant(
+    systemfonts::register_variant(
       family = typeface,
       name = typeface_ultrabold,
       weight = "bold"
     )
     
-        system_fonts::register_variant(
+        systemfonts::register_variant(
       family = typeface,
       name = typeface_medium,
       weight = "bold"
     )  
    
-        system_fonts::register_variant(
+        systemfonts::register_variant(
       family = typeface_condensed,
       name = typeface_condensed_medium,
       weight = "bold"
