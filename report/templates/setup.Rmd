@@ -16,14 +16,13 @@ torv_gray <<- "#595959"
 torv_gray_light <<- "#b0b0b0"
 
 # Typeface
-
 is_installed <- sum(grepl(typeface, systemfonts::system_fonts()$family)) != 0
 
 if(is_installed) {
   
-  if(typeface == "Comic Sans MS") {
+  if(typeface == "Georama") {
     
-   typeface_tabular <<- typeface #paste(typeface, "Tabular") ## same now as Georama already has tabular numbers
+   typeface_tabular <<- typeface ## same now as Georama already has tabular numbers
    typeface_condensed <<- paste(typeface, "SemiCondensed")
    typeface_medium <<- paste(typeface, "Medium")
    typeface_ultrabold <<- paste(typeface, "ultrabold")
@@ -54,37 +53,6 @@ if(is_installed) {
        weight = "medium"
    )
    
-    typeface_tabular <<- typeface ## same now as Georama already has tabular numbers
-    typeface_condensed <<- paste(typeface, "SemiCondensed")
-    typeface_medium <<- paste(typeface, "Medium")
-    typeface_ultrabold <<- paste(typeface, "ultrabold")
-    typeface_condensed_medium <<- paste(typeface, "SemiCondensed Medium")
-    
-    # systemfonts::register_variant(
-    # family = typeface,
-    # name = typeface_tabular,
-    # weight = "normal",
-    # features = font_feature(numbers = "tabular")
-    # )
-    
-    systemfonts::register_variant(
-      family = typeface,
-      name = typeface_ultrabold,
-      weight = "ultrabold"
-    )
-    
-    systemfonts::register_variant(
-      family = typeface,
-      name = typeface_medium,
-      weight = "medium"
-    )
-    
-    systemfonts::register_variant(
-      family = typeface_condensed,
-      name = typeface_condensed_medium,
-      weight = "medium"
-    )
-    
   } else {
     ## if not Georama, simply use plain and bold styles
     ## (no semi-condensed / medium / ultrabold variants)
@@ -96,7 +64,6 @@ if(is_installed) {
     typeface_ultrabold <<- paste(typeface, "Bold")
     typeface_condensed_medium <<- paste(typeface, "Bold")
     
-   
     systemfonts::register_variant(
       family = typeface,
       name = typeface_ultrabold,
@@ -117,7 +84,7 @@ if(is_installed) {
   }
   
 } else {
-  message("Using system default fonts as the specified typefac is not installed on your system. Please install the typeface on your system and then restart your R session.")
+  message("Using system default fonts as the specified typeface is not installed on your system. Please install the typeface on your system and then restart your R session.")
   typeface <<- ""
   typeface_tabular <<- ""
   typeface_condensed <<- ""
