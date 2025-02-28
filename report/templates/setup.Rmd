@@ -23,7 +23,6 @@ if(is_installed) {
   
   if(typeface == "Comic Sans MS") {
     
-<<<<<<< HEAD
    typeface_tabular <<- typeface #paste(typeface, "Tabular") ## same now as Georama already has tabular numbers
    typeface_condensed <<- paste(typeface, "SemiCondensed")
    typeface_medium <<- paste(typeface, "Medium")
@@ -55,7 +54,6 @@ if(is_installed) {
        weight = "medium"
    )
    
-=======
     typeface_tabular <<- typeface ## same now as Georama already has tabular numbers
     typeface_condensed <<- paste(typeface, "SemiCondensed")
     typeface_medium <<- paste(typeface, "Medium")
@@ -87,7 +85,6 @@ if(is_installed) {
       weight = "medium"
     )
     
->>>>>>> 2a328a644d1f36bb980679e432c338f3fde19320
   } else {
     ## if not Georama, simply use plain and bold styles
     ## (no semi-condensed / medium / ultrabold variants)
@@ -98,11 +95,8 @@ if(is_installed) {
     typeface_medium <<- paste(typeface, "Bold")
     typeface_ultrabold <<- paste(typeface, "Bold")
     typeface_condensed_medium <<- paste(typeface, "Bold")
-<<<<<<< HEAD
     
-=======
    
->>>>>>> 2a328a644d1f36bb980679e432c338f3fde19320
     systemfonts::register_variant(
       family = typeface,
       name = typeface_ultrabold,
@@ -113,13 +107,8 @@ if(is_installed) {
       family = typeface,
       name = typeface_medium,
       weight = "bold"
-<<<<<<< HEAD
     )  
    
-=======
-    )
-    
->>>>>>> 2a328a644d1f36bb980679e432c338f3fde19320
     systemfonts::register_variant(
       family = typeface_condensed,
       name = typeface_condensed_medium,
