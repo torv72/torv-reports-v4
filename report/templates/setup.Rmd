@@ -36,21 +36,21 @@ if(is_installed) {
     # )
     
     systemfonts::register_variant(
-        family = typeface,
-        name = typeface_ultrabold,
-        weight = "ultrabold"
+      family = typeface,
+      name = typeface_ultrabold,
+      weight = "ultrabold"
     )
     
     systemfonts::register_variant(
-        family = typeface,
-        name = typeface_medium,
-        weight = "medium"
+      family = typeface,
+      name = typeface_medium,
+      weight = "medium"
     )
     
     systemfonts::register_variant(
-        family = typeface_condensed,
-        name = typeface_condensed_medium,
-        weight = "medium"
+      family = typeface_condensed,
+      name = typeface_condensed_medium,
+      weight = "medium"
     )
     
   } else {
@@ -65,21 +65,21 @@ if(is_installed) {
     typeface_condensed_medium <<- paste(typeface, "Bold")
    
     systemfonts::register_variant(
-        family = typeface,
-        name = typeface_ultrabold,
-        weight = "bold"
+      family = typeface,
+      name = typeface_ultrabold,
+      weight = "bold"
     )
     
     systemfonts::register_variant(
-        family = typeface,
-        name = typeface_medium,
-        weight = "bold"
+      family = typeface,
+      name = typeface_medium,
+      weight = "bold"
     )
     
     systemfonts::register_variant(
-        family = typeface_condensed,
-        name = typeface_condensed_medium,
-        weight = "bold"
+      family = typeface_condensed,
+      name = typeface_condensed_medium,
+      weight = "bold"
     )
   }
   
