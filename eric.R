@@ -13,7 +13,7 @@ source(here::here("aux-scripts/generate-report.R"))
 # ... and now run the function with the custom inputs:
 generate_report(
   .site_name = "CommonGround Golf Course",
-  .site_name_abbr = "48231-commonground",
+  .site_name_abbr = "48321-commonground",
   .date_sample_submitted = "2025-02-23",
   .start_date = "2017-01-01",
   .om_seasons = "season",
@@ -24,7 +24,6 @@ generate_report(
   .include_sand_fraction = "No",
   .output = c("html","pdf")
 )
-
 generate_report(
   .site_name = "The Valley Club Irwin",
   .site_name_abbr = "89973-valley-irwin",
@@ -36,7 +35,7 @@ generate_report(
   .acid_extract = "Mehlich",
   .include_results_interpretation = "No",
   .include_sand_fraction = "No",
-  .output = c("pdf")
+  .output = c("html")
 )
 generate_report(
   .site_name = "Maroon Creek Club",

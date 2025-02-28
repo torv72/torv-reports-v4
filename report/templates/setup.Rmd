@@ -23,6 +23,7 @@ if(is_installed) {
   
   if(typeface == "Comic Sans MS") {
     
+<<<<<<< HEAD
    typeface_tabular <<- typeface #paste(typeface, "Tabular") ## same now as Georama already has tabular numbers
    typeface_condensed <<- paste(typeface, "SemiCondensed")
    typeface_medium <<- paste(typeface, "Medium")
@@ -54,6 +55,39 @@ if(is_installed) {
        weight = "medium"
    )
    
+=======
+    typeface_tabular <<- typeface ## same now as Georama already has tabular numbers
+    typeface_condensed <<- paste(typeface, "SemiCondensed")
+    typeface_medium <<- paste(typeface, "Medium")
+    typeface_ultrabold <<- paste(typeface, "ultrabold")
+    typeface_condensed_medium <<- paste(typeface, "SemiCondensed Medium")
+    
+    # systemfonts::register_variant(
+    # family = typeface,
+    # name = typeface_tabular,
+    # weight = "normal",
+    # features = font_feature(numbers = "tabular")
+    # )
+    
+    systemfonts::register_variant(
+      family = typeface,
+      name = typeface_ultrabold,
+      weight = "ultrabold"
+    )
+    
+    systemfonts::register_variant(
+      family = typeface,
+      name = typeface_medium,
+      weight = "medium"
+    )
+    
+    systemfonts::register_variant(
+      family = typeface_condensed,
+      name = typeface_condensed_medium,
+      weight = "medium"
+    )
+    
+>>>>>>> 2a328a644d1f36bb980679e432c338f3fde19320
   } else {
     ## if not Georama, simply use plain and bold styles
     ## (no semi-condensed / medium / ultrabold variants)
@@ -64,7 +98,11 @@ if(is_installed) {
     typeface_medium <<- paste(typeface, "Bold")
     typeface_ultrabold <<- paste(typeface, "Bold")
     typeface_condensed_medium <<- paste(typeface, "Bold")
+<<<<<<< HEAD
     
+=======
+   
+>>>>>>> 2a328a644d1f36bb980679e432c338f3fde19320
     systemfonts::register_variant(
       family = typeface,
       name = typeface_ultrabold,
@@ -75,17 +113,22 @@ if(is_installed) {
       family = typeface,
       name = typeface_medium,
       weight = "bold"
+<<<<<<< HEAD
     )  
    
+=======
+    )
+    
+>>>>>>> 2a328a644d1f36bb980679e432c338f3fde19320
     systemfonts::register_variant(
       family = typeface_condensed,
       name = typeface_condensed_medium,
       weight = "bold"
-    )  
+    )
   }
-
+  
 } else {
-  message("Using system default font as the specified typeface is not installed on your system. Please install the typeface on your system and then restart your R session.")
+  message("Using system default fonts as the specified typefac is not installed on your system. Please install the typeface on your system and then restart your R session.")
   typeface <<- ""
   typeface_tabular <<- ""
   typeface_condensed <<- ""
@@ -135,7 +178,6 @@ if (html) {
 ```{r function-table-formatting}
 # Function to format deficit tables as desired
 branded_table <- function(header_colour = torv_orange, 
-                          body_colour = "#f6cba2", #80% light on torv_orange colour
                           data) {
   data %>%
     flextable() %>%
