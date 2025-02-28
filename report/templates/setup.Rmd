@@ -21,7 +21,7 @@ is_installed <- sum(grepl(typeface, systemfonts::system_fonts()$family)) != 0
 
 if(is_installed) {
   
-  if(typeface == "Georama") {
+  if(typeface == "Comic Sans MS") {
     
    typeface_tabular <<- typeface #paste(typeface, "Tabular") ## same now as Georama already has tabular numbers
    typeface_condensed <<- paste(typeface, "SemiCondensed")
@@ -71,13 +71,13 @@ if(is_installed) {
       weight = "bold"
     )
     
-        systemfonts::register_variant(
+    systemfonts::register_variant(
       family = typeface,
       name = typeface_medium,
       weight = "bold"
     )  
    
-        systemfonts::register_variant(
+    systemfonts::register_variant(
       family = typeface_condensed,
       name = typeface_condensed_medium,
       weight = "bold"
