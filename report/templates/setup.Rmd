@@ -36,27 +36,27 @@ if(is_installed) {
    # )
    
    systemfonts::register_variant(
-       family = typeface,
-       name = typeface_ultrabold,
-       weight = "ultrabold"
+     family = typeface,
+     name = typeface_ultrabold,
+     weight = "ultrabold"
    )
    
    systemfonts::register_variant(
-       family = typeface,
-       name = typeface_medium,
-       weight = "medium"
+     family = typeface,
+     name = typeface_medium,
+     weight = "medium"
    )
    
    systemfonts::register_variant(
-       family = typeface_condensed,
-       name = typeface_condensed_medium,
-       weight = "medium"
+     family = typeface_condensed,
+     name = typeface_condensed_medium,
+     weight = "medium"
    )
    
   } else {
     ## if not Georama, simply use plain and bold styles
     ## (no semi-condensed / medium / ultrabold variants)
-   message("Using a non-corporate typeface as specificed.  Note that only regular and bold variants are used. \nTo use the corporate typeface, please install the typeface on your system and then restart your R session.")
+    message("\n❗ Using a non-corporate typeface as specificed. Note that only regular and bold variants are used. To use the corporate typeface, please install the typeface on your system and then restart your R session.")
    
     typeface_tabular <<- typeface
     typeface_condensed <<- typeface
@@ -84,7 +84,7 @@ if(is_installed) {
   }
   
 } else {
-  message("Using system default fonts as the specified typeface is not installed on your system. Please install the typeface on your system and then restart your R session.")
+  message("\n❗ Using system default fonts as the specified typeface is not installed on your system. Please install the typeface on your system and then restart your R session.")
   typeface <<- ""
   typeface_tabular <<- ""
   typeface_condensed <<- ""
