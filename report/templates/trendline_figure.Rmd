@@ -286,7 +286,7 @@ ggsave(here(root_figure_location, "trendlines", glue::glue(janitor::make_clean_n
        combined_trends, width = 6.5, height = fig_h, bg = "white", dpi = 500)
 
 ## interactive version
-tooltip_css_trend <- paste0("background-color:white;padding:6px 8px 6px 8px;border-radius:5px;border-width:2px;color:black;border-style:solid;border-color:", torv_color, ";line-height:1.15;font-family:", typeface_tabular, ";font-size:1.4em;")
+tooltip_css_trend <- paste0("background-color:white;padding:6px 8px 6px 8px;border-radius:5px;border-width:2px;color:black;border-style:solid;border-color:", torv_color, ";line-height:1.15;font-family:", typeface, ";font-size:1.4em;")
 hover_css <- paste0("fill:", torv_color, ";stroke-width:2.5px;")
 
 if (html) {

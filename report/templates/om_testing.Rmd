@@ -227,7 +227,7 @@ om_combined_plot <- patchwork::wrap_plots(om_plots, ncol = 3) +
 ggsave(here(root_figure_location, "organic_matter", "trend_plot_om_{{sample_description_number_2}}.png"),
        om_combined_plot, width = 6.5, height = 4.5, bg = "white", dpi = 500)
 
-tooltip_css_om <- paste0("background-color:white;padding:6px 8px 6px 8px;border-radius:5px;border-width:2px;color:black;border-style:solid;border-color:", torv_color, ";line-height:1.15;font-family:", typeface_tabular, ";font-size:1.4em;")
+tooltip_css_om <- paste0("background-color:white;padding:6px 8px 6px 8px;border-radius:5px;border-width:2px;color:black;border-style:solid;border-color:", torv_color, ";line-height:1.15;font-family:", typeface, ";font-size:1.4em;")
 hover_css <- paste0("fill:", torv_color, ";stroke-width:2.5px;")
 
 if (html) {
