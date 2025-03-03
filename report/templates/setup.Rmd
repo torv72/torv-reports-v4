@@ -56,13 +56,14 @@ if(is_installed) {
     weight = style
   )
   
-  ## semicondensed, medium weight
+  ## semicondensed variants
   typeface_condensed <<- paste(typeface, "SemiCondensed")
   
   if(nrow(filter(list_fonts, family == typeface_condensed)) > 0) {
     typeface_condensed_medium <<- paste(typeface_condensed, "Medium")
     style <- "medium"
     
+    ## medium weight
     if(nrow(filter(list_fonts, family == typeface_condensed, weight == "medium")) == 0) {
       typeface_condensed_medium <<- typeface_medium
       style <- "normal"
@@ -79,37 +80,8 @@ if(is_installed) {
     typeface_condensed <<- typeface
     typeface_condensed_medium <<- typeface_medium
   }
-    
-  # } else {
-  #   ## if not Georama, simply use plain and bold styles
-  #   ## (no semi-condensed / medium / ultrabold variants)
-  #   message("\n❗ Using a non-corporate typeface as specificed. Note that only regular and bold variants are used. To use the corporate typeface, please install the typeface on your system and then restart your R session.")
-  #  
-  #   typeface_condensed <<- typeface
-  #   typeface_medium <<- paste(typeface, "Bold")
-  #   typeface_ultrabold <<- paste(typeface, "Bold")
-  #   typeface_condensed_medium <<- paste(typeface, "Bold")
-  #   
-  #   systemfonts::register_variant(
-  #     family = typeface,
-  #     name = typeface_ultrabold,
-  #     weight = "bold"
-  #   )
-  #   
-  #   systemfonts::register_variant(
-  #     family = typeface,
-  #     name = typeface_medium,
-  #     weight = "bold"
-  #   )  
-  #  
-  #   systemfonts::register_variant(
-  #     family = typeface_condensed,
-  #     name = typeface_condensed_medium,
-  #     weight = "bold"
-  #   )
-  # }
   
-} else {
+} else { ## if specified typeface is not installed
   message("\n❗ Using system default fonts as the specified typeface is not installed on your system. Please install the typeface on your system and then restart your R session.")
   typeface <<- ""
   typeface_medium <<- ""
