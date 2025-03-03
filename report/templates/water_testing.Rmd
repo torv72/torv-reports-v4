@@ -192,7 +192,7 @@ plot_pre_annotate <-
       axis.text.y = element_blank(),
       axis.title.x = element_blank(),
       axis.title.y = element_text(hjust = 0, vjust = .5, angle = 0, 
-                                  size = rel(.7), family = typeface_condensed_medium),
+                                  size = rel(.75), family = typeface_condensed_medium),
       plot.margin = margin(8, .5, 8, .5)
     )
   
