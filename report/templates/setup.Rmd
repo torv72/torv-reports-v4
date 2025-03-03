@@ -16,79 +16,109 @@ torv_gray <<- "#595959"
 torv_gray_light <<- "#b0b0b0"
 
 # Typeface
-is_installed <- sum(grepl(typeface, systemfonts::system_fonts()$family)) != 0
+is_installed <- sum(grepl(typeface, systemfonts::system_fonts()$family)) > 0
 
 if(is_installed) {
   
-  if(typeface == "Georama") {
+  message("\n🔤 Checking typeface availability and registering font variants.")
+  
+  if(typeface != "Georama") message("❗ Using a non-corporate typeface as specificed.")
     
-   typeface_tabular <<- typeface ## same now as Georama already has tabular numbers
-   typeface_condensed <<- paste(typeface, "SemiCondensed")
-   typeface_medium <<- paste(typeface, "Medium")
-   typeface_ultrabold <<- paste(typeface, "ultrabold")
-   typeface_condensed_medium <<- paste(typeface, "SemiCondensed Medium")
-   
-   # systemfonts::register_variant(
-   # family = typeface,
-   # name = typeface_tabular,
-   # weight = "normal",
-   # features = font_feature(numbers = "tabular")
-   # )
-   
-   systemfonts::register_variant(
-     family = typeface,
-     name = typeface_ultrabold,
-     weight = "ultrabold"
-   )
-   
-   systemfonts::register_variant(
-     family = typeface,
-     name = typeface_medium,
-     weight = "medium"
-   )
-   
-   systemfonts::register_variant(
-     family = typeface_condensed,
-     name = typeface_condensed_medium,
-     weight = "medium"
-   )
-   
-  } else {
-    ## if not Georama, simply use plain and bold styles
-    ## (no semi-condensed / medium / ultrabold variants)
-    message("\n❗ Using a non-corporate typeface as specificed. Note that only regular and bold variants are used. To use the corporate typeface, please install the typeface on your system and then restart your R session.")
-   
-    typeface_tabular <<- typeface
-    typeface_condensed <<- typeface
-    typeface_medium <<- paste(typeface, "Bold")
-    typeface_ultrabold <<- paste(typeface, "Bold")
-    typeface_condensed_medium <<- paste(typeface, "Bold")
+  list_fonts <- filter(systemfonts::system_fonts(), str_detect(family, typeface), italic == FALSE)
+  
+  ## medium weight
+  typeface_medium <<- paste(typeface, "Medium")
+  style <- "medium"
+  
+  if(nrow(filter(list_fonts, family == typeface, weight == "medium")) == 0) {
+    style <- "normal"
+    message("❗ Medium font weight of ", typeface,  " not available. Using the regular weight as fallback.")
+  }
+  
+  systemfonts::register_variant(
+    family = typeface,
+    name = typeface_medium,
+    weight = style
+  )
+  
+  ## ultrabold weight
+  typeface_ultrabold <<- paste(typeface, "Ultrabold")
+  style <- "ultrabold"
+  
+  if(nrow(filter(list_fonts, family == typeface, weight == "ultrabold")) == 0) {
+    style <- "bold"
+    message("❗ Ultrabold (ExtraBold) font weight of ", typeface,  " not available. Using the bold weight as fallback.")
+  }
+  
+  systemfonts::register_variant(
+    family = typeface,
+    name = typeface_ultrabold,
+    weight = style
+  )
+  
+  ## semicondensed, medium weight
+  typeface_condensed <<- paste(typeface, "SemiCondensed")
+  
+  if(nrow(filter(list_fonts, family == typeface_condensed)) > 0) {
+    typeface_condensed_medium <<- paste(typeface_condensed, "Medium")
+    style <- "medium"
     
-    systemfonts::register_variant(
-      family = typeface,
-      name = typeface_ultrabold,
-      weight = "bold"
-    )
+    if(nrow(filter(list_fonts, family == typeface_condensed, weight == "medium")) == 0) {
+      typeface_condensed_medium <<- typeface_medium
+      style <- "normal"
+      message("❗ Medium font weight of ", typeface_condensed, " not available. Using the regular weight as fallback.")
+    }
     
-    systemfonts::register_variant(
-      family = typeface,
-      name = typeface_medium,
-      weight = "bold"
-    )  
-   
     systemfonts::register_variant(
       family = typeface_condensed,
       name = typeface_condensed_medium,
-      weight = "bold"
+      weight = style
     )
+  } else { ## if Georama SemiCondensed is missing
+    message("❗ The typeface ", typeface_condensed, " is not available. Using regularly spaced alternatives.")
+    typeface_condensed <<- typeface
+    typeface_condensed_medium <<- typeface_medium
   }
+    
+  # } else {
+  #   ## if not Georama, simply use plain and bold styles
+  #   ## (no semi-condensed / medium / ultrabold variants)
+  #   message("\n❗ Using a non-corporate typeface as specificed. Note that only regular and bold variants are used. To use the corporate typeface, please install the typeface on your system and then restart your R session.")
+  #  
+  #   typeface_condensed <<- typeface
+  #   typeface_medium <<- paste(typeface, "Bold")
+  #   typeface_ultrabold <<- paste(typeface, "Bold")
+  #   typeface_condensed_medium <<- paste(typeface, "Bold")
+  #   
+  #   systemfonts::register_variant(
+  #     family = typeface,
+  #     name = typeface_ultrabold,
+  #     weight = "bold"
+  #   )
+  #   
+  #   systemfonts::register_variant(
+  #     family = typeface,
+  #     name = typeface_medium,
+  #     weight = "bold"
+  #   )  
+  #  
+  #   systemfonts::register_variant(
+  #     family = typeface_condensed,
+  #     name = typeface_condensed_medium,
+  #     weight = "bold"
+  #   )
+  # }
   
 } else {
   message("\n❗ Using system default fonts as the specified typeface is not installed on your system. Please install the typeface on your system and then restart your R session.")
   typeface <<- ""
-  typeface_tabular <<- ""
+  typeface_medium <<- ""
+  typeface_ultrabold <<- ""
   typeface_condensed <<- ""
+  typeface_condensed_medium <<- ""
 }
+
+message("")
 
 # Plot Theme
 base_size <- 12
@@ -116,7 +146,7 @@ theme_update(
 
 if (html) {
   # Tooltip Theme
-  tooltip_css_fill <<- paste0("background-color:white;padding:8px 10px 8px 10px;border-radius:5px;border-width:2px;color:white;border-style:solid;border-color:white;line-height:1.15;font-family:", typeface_tabular, ";font-size:1.4em;")
+  tooltip_css_fill <<- paste0("background-color:white;padding:8px 10px 8px 10px;border-radius:5px;border-width:2px;color:white;border-style:solid;border-color:white;line-height:1.15;font-family:", typeface, ";font-size:1.4em;")
   
   set_girafe_defaults(
     opts_tooltip = opts_tooltip(css = tooltip_css_fill, opacity = 1, use_fill = TRUE, offx = 10, offy = 10),
@@ -127,7 +157,7 @@ if (html) {
   )
   
   # Tooltip Theme for white boxes (use_fill = FALSE)
-  tooltip_css_bw <<- paste0("background-color:white;padding:6px 8px 6px 8px;border-radius:5px;border-width:2px;color:black;border-style:solid;border-color:black;line-height:1.15;font-family:", typeface_tabular, ";font-size:1.4em;")
+  tooltip_css_bw <<- paste0("background-color:white;padding:6px 8px 6px 8px;border-radius:5px;border-width:2px;color:black;border-style:solid;border-color:black;line-height:1.15;font-family:", typeface, ";font-size:1.4em;")
 }
 ```
 
