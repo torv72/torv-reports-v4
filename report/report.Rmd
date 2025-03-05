@@ -399,28 +399,6 @@ girafe(ggobj = growth_potential_plot)
 knitr::include_graphics(here("report", "figures", "monthly_growth_potential_plot.png"))
 ```
 
-\newpage
-
-## How to Read Trend Line Plots {#how-to-read}
-
-```{r r how-to-header, include=!html, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.7in" else NULL}
-header_file_create("None", "How to Read Trend Line Plots")
-knitr::include_graphics(here(root_figure_location, "headers", "none_testing_how_to_read_trend_line_plots_plot.png"))
-```
-
-\par
-
-\begin{multicols}{2}
-```{r how-to-text, results='asis', include=!html}
-cat("The trend line plots show the raw sampling values (small grey dots) and the averages per sampling date (large colored points). The purple line indicates a linear fitting across all sampling dates This method is a general indicator of the trend of the average values across time. However, note that a linear fitting is not always suitable (i.e., be careful in case the distance between averages and the trendline is high).  
-    \\newline For reference, the grey dotted line indicates the historic average. The plots in the Organic Matter section show the TORV average as a cyan dotted line instead.")
-```
-\columnbreak
-```{r how-to-graphic, out.width="100%", include=!html}
-knitr::include_graphics(here(root_figure_location, "trendlines", "trend_plot_legend_mean_median.png"))
-```
-\end{multicols}
-
 ```{r soil-results, results='asis', warning=FALSE}
 if(length(soil_types > 0)) {
  
@@ -511,3 +489,24 @@ if(length(water_types > 0)) { # So the section only shows up if there are Water 
 ```
 
 
+\newpage
+
+## How to Read Trend Line Plots {#how-to-read}
+
+```{r r how-to-header, include=!html, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.7in" else NULL}
+header_file_create("None", "How to Read Trend Line Plots")
+knitr::include_graphics(here(root_figure_location, "headers", "none_testing_how_to_read_trend_line_plots_plot.png"))
+```
+
+\par
+
+\begin{multicols}{2}
+```{r how-to-text, results='asis', include=!html}
+cat("The trend line plots show the raw sampling values (small grey dots) and the averages per sampling date (large colored points). The purple line indicates a linear fitting across all sampling dates This method is a general indicator of the trend of the average values across time. However, note that a linear fitting is not always suitable (i.e., be careful in case the distance between averages and the trendline is high).  
+    \\newline For reference, the grey dotted line indicates the historic average. The plots in the Organic Matter section show the TORV average as a cyan dotted line instead.")
+```
+\columnbreak
+```{r how-to-graphic, out.width="100%", include=!html}
+knitr::include_graphics(here(root_figure_location, "trendlines", "trend_plot_legend_mean_median.png"))
+```
+\end{multicols}
