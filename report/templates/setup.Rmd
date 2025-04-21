@@ -1,5 +1,3 @@
-
-
 ```{r libraries, include=FALSE, message=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = NA, dev = "ragg_png", dpi = 500)
 ```
@@ -604,4 +602,3 @@ if(length(soil_types > 0)) {
 
 message("\n\n💪 Perfect, we're all set up! I'll compile the rest of the report now, wait a moment.\n\n\n")
 ```
-

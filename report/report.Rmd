@@ -56,6 +56,7 @@ zip_code_list <<- tibble::tribble(
   "Chipeta Golf Course", 81503,
   "CommonGround Golf Course", 80010,
   "Copper Creek Golf Course", 80443,
+  "Crown Mountain Park", 81623,
   "Dominion Meadows Golf Club", 99114,
   "Greeley Country Club", 80634,
   "Hemingway Golf Club", 80649,
@@ -70,6 +71,7 @@ zip_code_list <<- tibble::tribble(
   "The Valley Club Irwin", 83333,
   "The Valley Club Fazio", 83333,
   "Three Crowns Golf Club", 82604,
+  "Town of Basalt", 81621,
   "Wellshire Golf Club", 80222
   ## add more site-zip combinations in case you'll get new clients
 )
