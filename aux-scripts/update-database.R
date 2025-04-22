@@ -316,18 +316,13 @@ data_to_add_to_db <- bind_rows(datasets_parsed) %>%
                                                  TRUE ~ ""),
          sample_description_number_3 = case_when(sample_type_raw %in% c("OM", "Physical") ~ sample_description_number_1,
                                                  TRUE ~ ""),
-         sample_description_number_2 = case_when(
-           grepl("PHYSb", source_filename) ~ sample_location,  # Put location here for PHYSb/OM files
-           TRUE ~ ""),  # Empty for all other cases
-         sample_description_number_1 = case_when(
-           grepl("PHYSb", source_filename) ~ "OM",  # Put OM for PHYSb files
-           sample_type_raw == "OM" ~ "-",  # For other OM cases
-           TRUE ~ sample_location)) %>%
-  # Fix the measurement name format
-  mutate(measurement_name = case_when(
-    grepl("PHYSb", source_filename) ~ paste0("OM ", gsub('^" "', "", measurement_name)),  # Remove quotes and add OM
-    TRUE ~ measurement_name)) %>%
-  select(intersect(c(names(original_database), "client_number"), names(.)))
+         sample_description_number_2 = case_when(sample_type_raw %in% c("OM", "Physical") ~ gsub(" OM", "",
+   sample_location),
+                                                TRUE ~ sample_description_number_1),
+         sample_description_number_1 = case_when(sample_type_raw %in% c("OM", "Physical") ~ ifelse(grepl("PHYSb",
+   source_filename), "OM", "-"),
+                                                TRUE ~ sample_location)) %>% 
+   select(intersect(c(names(original_database), "client_number"), names(.)))
 
 message("\n\n --- Please help me match up the clients and their sites --- \n\n")
 
@@ -433,7 +428,3 @@ with the one I've just created!
 Once you've done that, also consider updating data/site_codes.csv to add in codes for
 any new sites I should be able to match up next time!
 ***\n\n")
-
-
-# Run the function
-update_database()
