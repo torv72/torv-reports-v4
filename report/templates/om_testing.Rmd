@@ -34,11 +34,16 @@ if(use_month | input_params$om_seasons == "season") {
 
 om_data <- 
   om_data %>%
-  mutate(
-    plot_date = as.Date(date_sample_submitted),
-    date_tooltip = tooltip_date(date_sample_submitted)
-  ) %>%
-  group_by(plot_date, date_tooltip, measurement_name, depth)
+  mutate(date_tooltip = tooltip_date(date_sample_submitted)) %>%
+  {
+    if(use_month) {
+      group_by(., month_date, date_tooltip, measurement_name, depth) %>%
+        rename(., plot_date = month_date)
+    } else {
+      group_by(., year_date, date_tooltip, measurement_name, depth) %>%
+        rename(., plot_date = year_date)
+    }
+  }
 
 torv_color <- prismatic::color(torv_cyan)
 
