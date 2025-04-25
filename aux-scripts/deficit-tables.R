@@ -383,7 +383,8 @@ create_deficits_graph <- function(soil_type) {
     geom_point_interactive(
       aes(x = sample_description_number_2, y = mean_measurement, 
           fill = point_color, color = after_scale(clr_darken(fill, .3)),
-          tooltip = tooltip, data_id = mehlich_3),
+         # tooltip = tooltip,
+         data_id = mehlich_3),
       shape = 21, size = 2.5, stroke = .8
     ) +
     geom_text(
