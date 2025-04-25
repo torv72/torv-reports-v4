@@ -255,15 +255,32 @@ plot_test_trend <- function(plot_measurement, is_first, draw_beeswarm = input_pa
     }
   }
   
-  if (!html) {
-    trend_plot <- trend_plot +
+if (!html) {
+  trend_plot <- trend_plot +
+    
+    # Label for most recent data point (larger font)
     geom_label(
-      data = filter(site_avgs, plot_date == max(plot_date)),
+      data = site_avgs %>%
+        filter(plot_date == max(plot_date)),
       aes(x = plot_date, y = avg_measurement_result,
           label = sprintf("%3.1f", avg_measurement_result)),
       color = clr_darken(torv_color, .2), label.size = NA,
       label.padding = unit(.1, "lines"), vjust = .5, hjust = -.25,
       family = typeface_condensed, fontface = "bold", size = 3,
+      show.legend = FALSE
+    ) +
+
+    # Label for second-to-last data point (smaller font)
+    geom_label(
+      data = site_avgs %>%
+        arrange(plot_date) %>%
+        slice_tail(n = 2) %>%
+        slice_head(n = 1),
+      aes(x = plot_date, y = avg_measurement_result,
+          label = sprintf("%3.1f", avg_measurement_result)),
+      color = clr_darken(torv_color, .2), label.size = NA,
+      label.padding = unit(.1, "lines"), vjust = .5, hjust = -.25,
+      family = typeface_condensed, fontface = "bold", size = 2.5,
       show.legend = FALSE
     ) +
     scale_x_date(

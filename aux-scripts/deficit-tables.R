@@ -386,6 +386,12 @@ create_deficits_graph <- function(soil_type) {
           tooltip = tooltip, data_id = mehlich_3),
       shape = 21, size = 2.5, stroke = .8
     ) +
+    geom_text(
+      aes(x = sample_description_number_2, y = mean_measurement, 
+          label = round(mean_measurement, 1)),
+      family = typeface_condensed, fontface = "bold",
+      size = 2.7, vjust = -1.1, color = torv_gray
+    ) +
     ggtext::geom_textbox(
       aes(x = Inf,
           y = aiming_for,
