@@ -13,6 +13,49 @@ source(here::here("aux-scripts/generate-report.R"))
 # ... and now run the function with the custom inputs:
 
 generate_report(
+  .site_name = "The Valley Club Fazio",
+  .site_name_abbr = "89973-valley-fazio",
+  .date_sample_submitted = "2025-05-07",
+  .start_date = "2017-01-01",
+  .om_seasons = "season",
+  .om_stats = "average",
+  .warm_or_cool = "cool",
+  .acid_extract = "Mehlich",
+  .include_results_interpretation = "No",
+  .include_sand_fraction = "No",
+  .output = c("html","pdf")
+)
+
+
+generate_report(
+  .site_name = "The Valley Club Irwin",
+  .site_name_abbr = "89973-valley-irwin",
+  .date_sample_submitted = "2025-05-07",
+  .start_date = "2017-01-01",
+  .om_seasons = "season",
+  .om_stats = "average",
+  .warm_or_cool = "cool",
+  .acid_extract = "Mehlich",
+  .include_results_interpretation = "No",
+  .include_sand_fraction = "No",
+  .output = c("html","pdf")
+)
+
+generate_report(
+  .site_name = "The Briarwood",
+  .site_name_abbr = "84398-briarwood",
+  .date_sample_submitted = "2025-05-07",
+  .start_date = "2017-01-01",
+  .om_seasons = "season",
+  .om_stats = "average",
+  .warm_or_cool = "cool",
+  .acid_extract = "Mehlich",
+  .include_results_interpretation = "No",
+  .include_sand_fraction = "No",
+  .output = c("pdf")
+)
+
+generate_report(
   .site_name = "Hemingway Golf Course",
   .site_name_abbr = "34498-hemingway",
   .date_sample_submitted = "2025-04-21",
