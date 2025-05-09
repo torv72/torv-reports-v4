@@ -344,10 +344,15 @@ deficits_graph_data <-
 # Plot MLSN deficits per sample ----
 create_deficits_graph <- function(soil_type) {
   
-  deficits_graph_data_type <- 
-    deficits_graph_data |> 
-    filter(sample_description_number_1 == soil_type)
-    
+  deficits_graph_data_type <- deficits_graph_data |> 
+    filter(sample_description_number_1 == soil_type) |>
+    mutate(
+      label_vjust = case_when(
+        mean_measurement >= aiming_for ~ -1.3,  # place above point
+        TRUE ~ 2.5                              # place below point
+      )
+    )
+  
   n <- length(unique(deficits_graph_data_type$sample_description_number_2))
     
   deficit_graph <-
@@ -388,10 +393,14 @@ create_deficits_graph <- function(soil_type) {
       shape = 21, size = 2.5, stroke = .8
     ) +
     geom_text(
-      aes(x = sample_description_number_2, y = mean_measurement, 
-          label = round(mean_measurement, 1)),
-      family = typeface_condensed, fontface = "bold",
-      size = 2.7, vjust = -1.1, color = torv_gray
+      aes(x = sample_description_number_2, 
+          y = mean_measurement, 
+          label = round(mean_measurement, 1),
+          vjust = label_vjust),
+      family = typeface_condensed, 
+      fontface = "bold",
+      size = 2.7,
+      color = torv_gray
     ) +
     ggtext::geom_textbox(
       aes(x = Inf,
