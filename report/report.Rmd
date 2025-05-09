@@ -61,6 +61,7 @@ zip_code_list <<- tibble::tribble(
   "Greeley Country Club", 80634,
   "Hemingway Golf Club", 80649,
   "Maroon Creek Club", 81611,
+  "Rifle Creek Golf Course", 81650,
   "Snowmass Club", 81615,
   "Sonnenalp Golf Club", 81632,
   "The Briarwood", 59101,
