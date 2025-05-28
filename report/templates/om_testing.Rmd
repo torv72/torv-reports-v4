@@ -264,32 +264,41 @@ cat('→ [How to read this chart](#how-to-read)')
 \bigskip
 
 ```{r, warning=FALSE, message=FALSE, ft.align="left", include=!html}
-# Longitudinal table of measurements
+# Step 1: Resolve which plot_dates to keep
+recent_plot_dates <- tail(sort(unique(om_data$plot_date)), 24)
+
+# Step 2: Get matching sample submission dates for those plot_dates
+submission_dates_to_keep <- om_data %>%
+  filter(plot_date %in% recent_plot_dates) %>%
+  pull(date_sample_submitted) %>%
+  unique()
+
+# Step 3: Create the longitudinal table
 om_longitudinal_table <- 
   om_data %>%
   filter(measurement_name == "OM 440 As Rcvd (%)") %>%
-  filter(date_sample_submitted %in% head(sort(unique(om_data$date_sample_submitted)), 8)) %>%
+  filter(date_sample_submitted %in% submission_dates_to_keep) %>%
   group_by(date_sample_submitted, depth) %>%
   summarize(
     avg_measurement_result = calculate_om_stats(measurement_result),
-    torv_avg = mean(torv_avg, na.rm = TRUE), # all values same, take mean to collapse
+    torv_avg = mean(torv_avg, na.rm = TRUE),
     .groups = "drop"
-  )
+  ) %>%
+  tidyr::complete(date_sample_submitted, depth, fill = list(avg_measurement_result = NA))
 
 depths <- unique(om_longitudinal_table$depth)
 
 if ("0-2 cm" %in% depths) {
-  om_range_02 <- range(filter(om_longitudinal_table, depth == "0-2 cm")$avg_measurement_result)
+  om_range_02 <- range(filter(om_longitudinal_table, depth == "0-2 cm")$avg_measurement_result, na.rm = TRUE)
   threshold_02 <- om_range_02[1] + (om_range_02[2] - om_range_02[1]) / 1.4
   colorer_02 <- scales::col_numeric(
     palette = c("white", torv_color),
-    # taking 95% of min as lowest colour so that there is a bit of color even for lowest value (which isn't 0)
     domain = c(0.95 * om_range_02[1], om_range_02[2])
   )
 }
 
 if ("2-4 cm" %in% depths) {
-  om_range_24 <- range(filter(om_longitudinal_table, depth == "2-4 cm")$avg_measurement_result)
+  om_range_24 <- range(filter(om_longitudinal_table, depth == "2-4 cm")$avg_measurement_result, na.rm = TRUE)
   threshold_24 <- om_range_24[1] + (om_range_24[2] - om_range_24[1]) / 1.4
   colorer_24 <- scales::col_numeric(
     palette = c("white", torv_color),
@@ -298,7 +307,7 @@ if ("2-4 cm" %in% depths) {
 }
 
 if ("4-6 cm" %in% depths) {
-  om_range_46 <- range(filter(om_longitudinal_table, depth == "4-6 cm")$avg_measurement_result)
+  om_range_46 <- range(filter(om_longitudinal_table, depth == "4-6 cm")$avg_measurement_result, na.rm = TRUE)
   threshold_46 <- om_range_46[1] + (om_range_46[2] - om_range_46[1]) / 1.4
   colorer_46 <- scales::col_numeric(
     palette = c("white", torv_color),
@@ -312,22 +321,21 @@ om_longitudinal_table_reduced <-
   group_by(date_sample_submitted) %>%
   mutate(date_id_rev = rev(cur_group_id())) %>%
   ungroup() %>%
-  filter(date_id_rev <= 10)
+  filter(date_id_rev <= 24)
 
 om_tbl <- 
   om_longitudinal_table_reduced %>%
   pivot_wider(id_cols = depth, names_from = date_sample_submitted, values_from = avg_measurement_result) %>%
   flextable() %>%
   delete_part(part = "header") %>%
-  colformat_num(suffix = "%") %>%
+  colformat_double(digits = 2, suffix = "%", na_str = "N/A") %>%
   add_header_row(values = c("", gsub(" ", "\n", paste(zoo::as.yearmon(unique(om_longitudinal_table_reduced$date_sample_submitted)))))) %>%
   border_remove() %>%
   border(part = "body", border.bottom = officer::fp_border(color = "white", width = 1)) %>%
   align(part = "all", align = "center") %>%
   align(j = 1, part = "all", align = "left") %>%
   fontsize(size = 9, part = "all") %>%
-  colformat_double(big.mark = ",", digits = 2, na_str = "N/A") %>%
-  flextable::color(i = 1, color = torv_color, part = "header") %>% 
+  flextable::color(i = 1, color = torv_color, part = "header") %>%
   font(fontname = typeface_condensed_medium, part = "all") %>%
   line_spacing(i = 1, space = 2, part = "header") %>%
   width(width = .42) %>%
