@@ -33,6 +33,7 @@ header-includes:
   - \fancyfoot[R]{\textcolor{gray}{\thepage}}
   - \usepackage{eso-pic}
   - \usepackage{transparent}
+  - \usepackage{tikz}
 ---
 
 ```{r options, include=FALSE}

@@ -89,8 +89,8 @@ generate_report <- function(.site_name,
     # if (month %in% 9:11) season <- 9:11
     # if (month %in% c(1, 2, 12)) season <- c(1, 2, 12)
     ## two-period logic
-    if (month %in% 2:7) season <- 2:7
-    if (month %in% c(1, 8:12)) season <- c(1, 8:12)
+    if (month %in% 2:8) season <- 2:7
+    if (month %in% c(1, 9:12)) season <- c(1, 8:12)
   }
   
   # Update measurement names (if needed)

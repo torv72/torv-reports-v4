@@ -13,6 +13,187 @@ source(here::here("aux-scripts/generate-report.R"))
 # ... and now run the function with the custom inputs:
 
 generate_report(
+  .site_name = "The Valley Club Irwin",
+  .site_name_abbr = "89973-valley-irwin",
+  .date_sample_submitted = "2025-10-02",
+  .start_date = "2017-01-01",
+  .om_seasons = "season",
+  .om_stats = "average",
+  .warm_or_cool = "cool",
+  .acid_extract = "Mehlich",
+  .include_results_interpretation = "No",
+  .include_sand_fraction = "Yes",
+  .output = c("html","pdf")
+)
+
+generate_report(
+  .site_name = "The Valley Club Fazio",
+  .site_name_abbr = "89973-valley-fazio",
+  .date_sample_submitted = "2025-10-02",
+  .start_date = "2017-01-01",
+  .om_seasons = "season",
+  .om_stats = "average",
+  .warm_or_cool = "cool",
+  .acid_extract = "Mehlich",
+  .include_results_interpretation = "No",
+  .include_sand_fraction = "Yes",
+  .output = c("html","pdf")
+)
+
+generate_report(
+  .site_name = "The Briarwood",
+  .site_name_abbr = "84398-briarwood",
+  .date_sample_submitted = "2025-10-02",
+  .start_date = "2017-01-01",
+  .om_seasons = "season",
+  .om_stats = "average",
+  .warm_or_cool = "cool",
+  .acid_extract = "Mehlich",
+  .include_results_interpretation = "No",
+  .include_sand_fraction = "Yes",
+  .output = c("pdf")
+)
+
+generate_report(
+  .site_name = "The Club at Flying Horse Club Course",
+  .site_name_abbr = "43142-flying-horse-club",
+  .date_sample_submitted = "2025-09-19",
+  .start_date = "2017-01-01",
+  .om_stats = "average",
+  .om_seasons = "season",
+  .warm_or_cool = "cool",
+  .acid_extract = "Mehlich",
+  .include_results_interpretation = "Yes",
+  .include_sand_fraction = "Yes",
+  .output = c("pdf")
+)
+
+generate_report(
+  .site_name = "The Club at Flying Horse North Course",
+  .site_name_abbr = "43142-flying-horse-north",
+  .date_sample_submitted = "2025-09-19",
+  .start_date = "2017-01-01",
+  .om_stats = "average",
+  .om_seasons = "season",
+  .warm_or_cool = "cool",
+  .acid_extract = "Mehlich",
+  .include_results_interpretation = "Yes",
+  .include_sand_fraction = "Yes",
+  .output = c("pdf","html")
+)
+
+generate_report(
+  .site_name = "Maroon Creek Club",
+  .site_name_abbr = "35873-maroon",
+  .date_sample_submitted = "2025-09-23",
+  .start_date = "2017-01-01",
+  .om_seasons = "season",
+  .om_stats = "median",
+  .warm_or_cool = "cool",
+  .acid_extract = "Mehlich",
+  .include_results_interpretation = "No",
+  .include_sand_fraction = "Yes",
+  .output = c("pdf","html")
+)
+
+generate_report(
+  .site_name = "Aspen Golf Club",
+  .site_name_abbr = "90182-aspen",
+  .date_sample_submitted = "2025-09-22",
+  .start_date = "2017-01-01",
+  .om_stats = "median",
+  .om_seasons = "season",
+  .warm_or_cool = "cool",
+  .acid_extract = "Mehlich",
+  .include_results_interpretation = "No",
+  .include_sand_fraction = "No",
+  .output = c("pdf")
+)
+
+generate_report(
+  .site_name = "Snowmass Club",
+  .site_name_abbr = "36644-snowmass",
+  .date_sample_submitted = "2025-09-16",
+  .start_date = "2017-01-01",
+  .om_seasons = "season",
+  .warm_or_cool = "cool",
+  .acid_extract = "Mehlich",
+  .include_results_interpretation = "No",
+  .include_sand_fraction = "Yes",
+  .output = c("pdf","html")
+)
+
+generate_report(
+  .site_name = "Town of Basalt",
+  .site_name_abbr = "46061-basalt",
+  .date_sample_submitted = "2025-09-17",
+  .start_date = "2017-01-01",
+  .om_seasons = "all",
+  .om_stats = "average",
+  .warm_or_cool = "cool",
+  .acid_extract = "Mehlich",
+  .include_results_interpretation = "No",
+  .include_sand_fraction = "No",
+  .output = c("pdf")
+)
+
+generate_report(
+  .site_name = "Town of Basalt",
+  .site_name_abbr = "46061-basalt",
+  .date_sample_submitted = "2025-09-16",
+  .start_date = "2017-01-01",
+  .om_seasons = "all",
+  .om_stats = "median",
+  .warm_or_cool = "cool",
+  .acid_extract = "Mehlich",
+  .include_results_interpretation = "No",
+  .include_sand_fraction = "No",
+  .output = c("pdf")
+)
+
+generate_report(
+  .site_name = "Town of Basalt",
+  .site_name_abbr = "46061-basalt",
+  .date_sample_submitted = "2025-09-15",
+  .start_date = "2017-01-01",
+  .om_seasons = "all",
+  .om_stats = "median",
+  .warm_or_cool = "cool",
+  .acid_extract = "Mehlich",
+  .include_results_interpretation = "No",
+  .include_sand_fraction = "No",
+  .output = c("pdf")
+)
+
+generate_report(
+  .site_name = "Crown Mountain Park",
+  .site_name_abbr = "93893-crown",
+  .date_sample_submitted = "2025-09-16",
+  .start_date = "2017-01-01",
+  .om_seasons = "all",
+  .om_stats = "median",
+  .warm_or_cool = "cool",
+  .acid_extract = "Mehlich",
+  .include_results_interpretation = "No",
+  .include_sand_fraction = "No",
+  .output = c("pdf")
+)
+
+generate_report(
+  .site_name = "Maroon Creek Club",
+  .site_name_abbr = "35873-maroon",
+  .date_sample_submitted = "2025-08-06",
+  .start_date = "2017-01-01",
+  .om_seasons = "all",
+  .om_stats = "median",
+  .warm_or_cool = "cool",
+  .acid_extract = "Mehlich",
+  .include_results_interpretation = "No",
+  .include_sand_fraction = "No",
+  .output = c("html","pdf")
+)
+
+generate_report(
   .site_name = "Rifle Creek Golf Course",
   .site_name_abbr = "94252-rifle",
   .date_sample_submitted = "2025-05-22",
