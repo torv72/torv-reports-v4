@@ -596,8 +596,8 @@ if(length(om_types > 0)) {
 if(length(soil_types > 0)) {
   source(here("aux-scripts", "deficit-tables.R"))
   source(here("aux-scripts", "soil-text-automation.R"))
-  invisible(source(here("aux-scripts", "soil-tiny-charts.R")))
- invisible(source(here("aux-scripts", "required_element_table.R")))
+  source(here("aux-scripts", "soil-tiny-charts.R"))
+  invisible(source(here("aux-scripts", "required_element_table.R")))
 }
 
 message("\n\n💪 Perfect, we're all set up! I'll compile the rest of the report now, wait a moment.\n\n\n")

@@ -130,8 +130,13 @@ for(file_type in names(skip_rows)){
                             c("source_filename", "date_sample_submitted", "Sample Location",
                               "Sample Description #1", "Sample Description #2", "Lab Number",
                               "client_number", "test_short_name", "sample_type_raw", "sample_type_raw")),
-                    ~(str_replace(.x, "<|>", "") %>%
-                        as.numeric()))) %>%  # if below limit of detection, set to max possible value
+                    ~{
+                      cleaned <- str_replace_all(.x, "<|>", "") %>%
+                        str_trim() %>%
+                        na_if("NA") %>%
+                        na_if("")
+                      suppressWarnings(as.numeric(cleaned))
+                    })) %>%  # if below limit of detection, set to max possible value
       relocate(source_filename) %>%
       pivot_longer(cols = setdiff(names(.),
                                   c("source_filename", "date_sample_submitted", "Sample Location",
@@ -143,7 +148,6 @@ for(file_type in names(skip_rows)){
       filter(!is.na(measurement_result))
   }
 }
-
 
 # Read in data for PHYSg sheet, slightly different format than others ----------------------------
 

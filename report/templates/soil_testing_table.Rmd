@@ -5,12 +5,10 @@
 cat("## ", "{{sample_description_number_1}}", "{#soil-", "{{str_to_lower(sample_description_number_1)}}", "}", sep="")
 ```
 
-
 ```{r, warning=FALSE, message=FALSE, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.7in" else NULL}
 header_file_create("Soil", glue("{{sample_description_number_1}}"))
 knitr::include_graphics(here(root_figure_location, "headers", glue("soil_testing_{{sample_description_number_1}}_plot.png")))
 ```
-
 
 <!--### Measurement results and MLSN values-->
 
@@ -42,6 +40,7 @@ girafe(ggobj = readRDS(glue(here(root_figure_location, "soil_testing"), "/MLSN_d
 knitr::include_graphics(glue(here(root_figure_location, "soil_testing"), "/MLSN_deficits_{{sample_description_number_1}}_plot.png"))
 ```
 
+````{=html}
 <!--
 ```{r, results='asis', include=html}
 cat("<br><details><summary style='font-size:1.95rem;font-weight:500;'>Required element per area</summary>")
@@ -146,6 +145,8 @@ cat("### Mean measurements")
    '<br>', sep = "\n")
 ```
 -->
+````
+
 \newpage
 
 ```{r, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.7in" else NULL}

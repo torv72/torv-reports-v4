@@ -59,6 +59,7 @@ zip_code_list <<- tibble::tribble(
   "Copper Creek Golf Course", 80443,
   "Crown Mountain Park", 81623,
   "Dominion Meadows Golf Club", 99114,
+  "Geneva Golf Club", 60134,
   "Greeley Country Club", 80634,
   "Hemingway Golf Club", 80649,
   "Maroon Creek Club", 81611,
@@ -83,7 +84,7 @@ knitr::knit("templates/setup.Rmd")
 
 <!-- report starts here -->
 
-```{r logo-header, out.width="80%", fig.align='center'}
+```{r logo-header, out.width=if(knitr::is_latex_output()) "3.5in" else "35%", fig.align='center'}
 knitr::include_graphics(here("report", "assets", "torv-logo-wide.png"))
 ```
 
@@ -126,7 +127,7 @@ invisible(file.copy(here::here("report", "assets", "torv-logo.png"), "torv-logo.
 \AddToShipoutPictureFG{%
   \AtPageCenter{%
     \makebox[0pt]{%
-      \transparent{0.2}\includegraphics[width=4in]{torv-logo.png}%
+      \transparent{0.07}\includegraphics[width=4in]{torv-logo.png}%
     }%
   }%
 }
@@ -192,8 +193,13 @@ if (!file.exists(txt_path) | overwrite_report) {
       
       cat("
 All calculations are based on a monthly maximum of", grass_max_n_per_month_per_1000sqft[[soil_type]], "lbs of N/M.\n\n\\medskip", sep = " ")
-      cat("
-This table shows how sample values have changed between the most recent and previous testing periods.\n\n\\medskip", sep = "")
+      # Try to get the comparison text with dates if available
+if(exists("chart_info") && soil_type %in% names(chart_info) && !is.null(chart_info[[soil_type]]$comparison_text)) {
+  cat("\n", chart_info[[soil_type]]$comparison_text, "\n\n\\medskip", sep = "")
+} else {
+  cat("
+This table shows how sample values have changed between the two most recent comparable testing periods.\n\n\\medskip", sep = "")
+}
       
       cat("\n", "![](", here(root_figure_location, "soil_testing", glue::glue("tiny_chart_{soil_type}.png")), ")", "\n", sep = "")
       

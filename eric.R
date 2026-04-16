@@ -13,6 +13,133 @@ source(here::here("aux-scripts/generate-report.R"))
 # ... and now run the function with the custom inputs:
 
 generate_report(
+  .site_name = "Geneva Golf Club",
+  .site_name_abbr = "30368-geneva",
+  .date_sample_submitted = "2026-04-08",
+  .start_date = "2017-01-01",
+  .om_seasons = "season",
+  .om_stats = "average",
+  .warm_or_cool = "cool",
+  .acid_extract = "Mehlich",
+  .include_results_interpretation = "Yes",
+  .include_sand_fraction = "No",
+  .output = c("pdf")
+)
+
+generate_report(
+  .site_name = "Rifle Creek Golf Course",
+  .site_name_abbr = "94252-rifle",
+  .date_sample_submitted = "2025-10-31",
+  .start_date = "2017-01-01",
+  .om_seasons = "season",
+  .om_stats = "average",
+  .warm_or_cool = "cool",
+  .acid_extract = "Mehlich",
+  .include_results_interpretation = "No",
+  .include_sand_fraction = "Yes",
+  .output = c("pdf")
+)
+
+generate_report(
+  .site_name = "Three Crowns Golf Club",
+  .site_name_abbr = "83008-three-crowns",
+  .date_sample_submitted = "2025-10-27",
+  .start_date = "2017-01-01",
+  .om_seasons = "season",
+  .om_stats = "average",
+  .warm_or_cool = "cool",
+  .acid_extract = "Mehlich",
+  .include_results_interpretation = "No",
+  .include_sand_fraction = "Yes",
+  .output = c("html","pdf")
+)
+
+generate_report(
+  .site_name = "Wellshire Golf Club",
+  .site_name_abbr = "39960-wellshire",
+  .date_sample_submitted = "2025-10-24",
+  .start_date = "2017-01-01",
+  .om_seasons = "season",
+  .om_stats = "average",
+  .warm_or_cool = "cool",
+  .acid_extract = "Mehlich",
+  .include_results_interpretation = "No",
+  .include_sand_fraction = "Yes",
+  .output = c("html","pdf")
+)
+
+generate_report(
+  .site_name = "Hemingway Golf Course",
+  .site_name_abbr = "34498-hemingway",
+  .date_sample_submitted = "2025-10-27",
+  .start_date = "2017-01-01",
+  .om_seasons = "season",
+  .om_stats = "average",
+  .warm_or_cool = "cool",
+  .acid_extract = "Mehlich",
+  .include_results_interpretation = "Yes",
+  .include_sand_fraction = "No",
+  .output = c("pdf")
+)
+
+generate_report(
+  .site_name = "CommonGround Golf Course",
+  .site_name_abbr = "48321-commonground",
+  .date_sample_submitted = "2025-10-24",
+  .start_date = "2017-01-01",
+  .om_seasons = "season",
+  .om_stats = "average",
+  .warm_or_cool = "cool",
+  .acid_extract = "Mehlich",
+  .include_results_interpretation = "No",
+  .include_sand_fraction = "No",
+  .output = c("html","pdf")
+)
+
+generate_report(
+  .site_name = "Sonnenalp Golf Club",
+  .site_name_abbr = "36540-sonnenalp",
+  .date_sample_submitted = "2025-10-09",
+  .start_date = "2017-01-01",
+  .om_seasons = "season",
+  .om_stats = "average",
+  .warm_or_cool = "cool",
+  .acid_extract = "Mehlich",
+  .include_results_interpretation = "No",
+  .include_sand_fraction = "Yes",
+  .output = c("html","pdf")
+)
+
+c
+generate_report(
+  .site_name = "Bartlett Hills Golf Course",
+  .site_name_abbr = "42443-bartlett",
+  .date_sample_submitted = "2025-10-10",
+  .start_date = "2017-01-01",
+  .om_seasons = "season",
+  .om_stats = "average",
+  .warm_or_cool = "cool",
+  .acid_extract = "Mehlich",
+  .include_results_interpretation = "No",
+  .include_sand_fraction = "Yes",
+  .output = c("html","pdf")
+)
+
+generate_report(
+  .site_name = "Copper Creek Golf Course",
+  .site_name_abbr = "35495-copper",
+  .date_sample_submitted = "2025-10-10",
+  .start_date = "2017-01-01",
+  .om_seasons = "season",
+  .om_stats = "median",
+  .warm_or_cool = "cool",
+  .acid_extract = "Mehlich",
+  .include_results_interpretation = "No",
+  .include_sand_fraction = "No",
+  .output = c("pdf")
+)
+
+generate_report(
   .site_name = "The Valley Club Irwin",
   .site_name_abbr = "89973-valley-irwin",
   .date_sample_submitted = "2025-10-02",
