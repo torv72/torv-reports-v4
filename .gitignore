@@ -70,3 +70,6 @@ tests/test-reports/*/*/*/*.png
 .DS_Store
 
 .quarto
+
+# Claude Code local settings
+.claude/
