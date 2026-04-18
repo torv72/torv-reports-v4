@@ -185,7 +185,7 @@ plot_test_trend <- function(plot_measurement, is_first, draw_beeswarm = input_pa
     ## historical average as dashed horizontal line
     geom_hline_interactive(
       aes(yintercept = torv_avg, data_id = 1, tooltip = paste0("<span style='font-size:12pt;'>Historic average:</span><br><b>", round(torv_avg, 2), unit, "</b>")),
-      linewidth = .4, linetype = "31", color = torv_gray, stat = "unique"
+      linewidth = .4, linetype = "31", color = torv_blue, stat = "unique"
     ) +
     { if(draw_beeswarm)
       ## raw measurements as beeswarms to avoid overlaps (varied around x)
@@ -264,7 +264,7 @@ if (!html) {
       data = filter(site_avgs, plot_date == max(plot_date)),
       aes(x = plot_date, y = avg_measurement_result,
           label = sprintf("%3.1f", avg_measurement_result)),
-      color = clr_darken(torv_color, .2), label.size = NA,
+      color = torv_gray, label.size = NA,
       label.padding = unit(.1, "lines"), vjust = .5, hjust = -.25,
       family = typeface_condensed, fontface = "bold", size = 3,
       show.legend = FALSE
@@ -285,7 +285,7 @@ if (!html) {
         data = second_point,
         aes(x = plot_date, y = avg_measurement_result,
             label = sprintf("%3.1f", avg_measurement_result)),
-        color = clr_darken(torv_color, .2), label.size = NA,
+        color = torv_gray, label.size = NA,
         label.padding = unit(.1, "lines"), vjust = .5, hjust = -.25,
         family = typeface_condensed, fontface = "bold", size = 2.5,
         show.legend = FALSE
@@ -346,5 +346,5 @@ cat('
 ```
 
 ```{r, results='asis', include=!html}
-cat('→ [How to read this chart](#how-to-read)')
+cat('→ \\hyperlink{how-to-read}{How to read this chart}')
 ```

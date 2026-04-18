@@ -1,14 +1,12 @@
 
 \newpage
-
-```{r, results='asis'}
-cat("## ", "{{sample_description_number_1}}", "{#soil-", "{{str_to_lower(sample_description_number_1)}}", "}", sep="")
-```
-
-```{r, warning=FALSE, message=FALSE, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.7in" else NULL}
+\vspace*{-0.8cm}
+```{r, warning=FALSE, message=FALSE, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.58in" else NULL}
 header_file_create("Soil", glue("{{sample_description_number_1}}"))
 knitr::include_graphics(here(root_figure_location, "headers", glue("soil_testing_{{sample_description_number_1}}_plot.png")))
 ```
+
+\vspace{3mm}
 
 <!--### Measurement results and MLSN values-->
 
@@ -148,11 +146,13 @@ cat("### Mean measurements")
 ````
 
 \newpage
-
-```{r, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.7in" else NULL}
+\vspace*{-0.8cm}
+```{r, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.58in" else NULL}
 header_file_create("Soil", glue("{{sample_description_number_1}}"), trends = TRUE)
 knitr::include_graphics(here(root_figure_location, "headers", glue("soil_testing_{{sample_description_number_1}}_trends_plot.png")))
 ```
+
+\vspace{3mm}
 
 ```{r, warning=FALSE, message=FALSE, results='asis', fig.fullwidth=TRUE}
 knitr::knit_expand("templates/trendline_figure.Rmd", 

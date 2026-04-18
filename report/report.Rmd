@@ -18,6 +18,10 @@ params:
 header-includes:
   - \usepackage{graphicx}  # Ensure image handling is included
   - \graphicspath{{report/assets/}} #Tell LaTex where to look for images 
+  - \usepackage{amssymb}
+  - \usepackage{tcolorbox}
+  - \usepackage{fontawesome}
+  - \usepackage{booktabs}
   - \usepackage{xcolor}
   - \definecolor{deficitred}{HTML}{A65D57}
   - \definecolor{warningorange}{HTML}{D08C47}
@@ -26,9 +30,10 @@ header-includes:
   - \definecolor{CustomGreen}{HTML}{2f5d00} # Define your custom green color here
   - \usepackage{fancyhdr}
   - \usepackage{lipsum}
+  - \usepackage[useregional=false,datesep=-]{datetime2}
   - \pagestyle{fancy}
   - \fancyhf{}
-  - \fancyhead[L]{\textcolor{gray}{Agronomic Survey Report}}
+  - \fancyhead[L]{\textcolor{gray}{Agronomic Report -- \today}}
   - \fancyfoot[L]{\textcolor{gray}{TORV, LLC • 260 Woodruff Road, Glenwood Springs, CO 81601 • +1.970.409.9874 • eric@torv.me}}
   - \fancyfoot[R]{\textcolor{gray}{\thepage}}
   - \usepackage{eso-pic}
@@ -93,9 +98,9 @@ knitr::include_graphics(here("report", "assets", "torv-logo-wide.png"))
 ```{r header-pdf, results='asis', include=!html}
 cat(
   "\\thispagestyle{empty}",
-  "\\bigskip  \\bigskip  \\begin{center}\\Large \\textbf{Report for ", 
-  input_params$site_name, 
-  "}\\par   \\large ", 
+  "\\bigskip  \\bigskip  \\begin{center}\\Large \\textbf{Agronomic Report}\\par\\large ",
+  input_params$site_name,
+  "\\par   \\large ",
   format(Sys.time(), "%Y, %B %d"), 
   "\\par   \\large ", 
   "Eric Foerster MG, CGCS\\end{center}",
@@ -136,7 +141,7 @@ invisible(file.copy(here::here("report", "assets", "torv-logo.png"), "torv-logo.
 <!-- header section HTML -->
 
 ```{r header-html, results='asis', include=html}
-cat("<br><h1 style='color:black;font-size:18pt !important;'><b style='font-weight:600;'>Interactive Agronomic Survey Report</b><br>", input_params$site_name, "</h1>",
+cat("<br><h1 style='color:black;font-size:18pt !important;'><b style='font-weight:600;'>Interactive Agronomic Report</b><br>", input_params$site_name, "</h1>",
   "**Sampling Date:** ",
   format(as_date(input_params$date_sample_submitted), "%B %d, %Y"),
   "<br>**Consultant:** Eric Foerster MG, CGCS<br><br>",
@@ -166,14 +171,13 @@ cat(
 ```
 
 \newpage
-
-
-## Executive Summary
-
-```{r exec-summary-header, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.7in" else NULL}
+\vspace*{-0.8cm}
+```{r exec-summary-header, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.44in" else NULL}
 header_file_create("None","Executive Summary")
 knitr::include_graphics(here(root_figure_location, "headers", "none_testing_executive_summary_plot.png"))
 ```
+
+\vspace{-6mm}
 
 ```{r exec-summary, results='asis', out.width="100%"}
 non_table_elements <- c("pH", "Sodium (ppm)", "Micronutrients", 
@@ -187,9 +191,7 @@ if (!file.exists(txt_path) | overwrite_report) {
   
   if(length(soil_types) > 0) {
     for(soil_type in soil_types) {
-      cat("
-
-### [", str_to_title(soil_type), "](#soil-", str_to_lower(soil_type), ")", sep = "")
+      cat("\n\n\\vspace{6mm}\n\\noindent{\\large\\textbf{Nutrient Analysis \U2014 ", str_to_title(soil_type), "}}\n", sep = "")
       
       cat("
 All calculations are based on a monthly maximum of", grass_max_n_per_month_per_1000sqft[[soil_type]], "lbs of N/M.\n\n\\medskip", sep = " ")
@@ -267,10 +269,7 @@ if(nrow(filter(fertilizer_table_all, sample_description_number_1 == soil_type)) 
   } ## close `if(length(soil_types) > 0)`
   
   if(length(om_types > 0)) {
-    cat("
-      
-### [Organic Matter](#om-testing)
-    ")
+    cat("\n\n\\vspace{6mm}\n\\noindent{\\large\\textbf{Organic Matter}}\n")
   
     cat("
 The ", input_params$om_stats, "OM measurements can be summarised as follows: \n")
@@ -351,10 +350,7 @@ The median value is the central point of the data, meaning half of the numbers i
   } ## close `if(length(om_types > 0))`
   
   if(input_params$include_sand_fraction) {
-    cat("
-      
-### [Sand Fraction](#sand-fraction-testing)
-    ")
+    cat("\n\n\\vspace{6mm}\n\\noindent{\\large\\textbf{Sand Fraction}}\n")
   
     cat("
 ***The sand fraction results dummy text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.***\n")
@@ -362,9 +358,7 @@ The median value is the central point of the data, meaning half of the numbers i
   
   
   if(length(water_types > 0)) {
-    cat("
-        
-### [Water](#water-testing)
+    cat("\n\n\\vspace{6mm}\n\\noindent{\\large\\textbf{Water}}\n
 
 * ***The waters results dummy text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas facilisis sollicitudin magna at condimentum. Vestibulum at aliquam lorem. Aliquam ut nibh pretium, volutpat metus eu, fermentum velit.***")
   } ## close `if(length(water_types > 0))`
@@ -387,15 +381,15 @@ cat(
 )
 ```
 
-`r if(length(soil_types) > 0) {"## Turf Growth Potential Model"}`
-
 ```{r interpret-results, eval=(length(soil_types) > 0 && input_params$include_results_interpretation), child="templates/how_to_interpret_results.Rmd"}
 ```
 
-```{r turf-growth-header, eval=(length(soil_types) > 0), out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.7in" else NULL}
+```{r turf-growth-header, eval=(length(soil_types) > 0), out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.44in" else NULL}
 header_file_create("Turf", "growth")
 knitr::include_graphics(here(root_figure_location, "headers", "turf_testing_growth_plot.png"))
 ```
+
+\vspace{3mm}
 
 ```{r turf-growth-text, eval=(length(soil_types) > 0), results='asis'}
 cat("The temperature data is provided by NOAA using 30-year climate normals and is site-specific to your location. Pace Turf, LLC ([Gelernter and Stowell, 2005](https://www.files.asianturfgrass.com/gelernter_stowell_2005_improved_overseeding_gp.pdf)) developed the growth potential model to explain the myriad of ways in which weather impacts turf growth.\n\nThe model considers <b style='color:#6b7f52;'>turf growth to be good when the GP is between 50% and 100%</b> (the best possible growth occurs at a GP of 100%). However, when weather conditions are either too hot or too cold for optimal turf growth, <b style='color:#686617;'>the GP falls below 50%, and turf becomes progressively more stressed</b>. When <b style='color:#7c230d;'>the GP falls to 10% or lower, growth is extremely limited</b>. Appearing below is your model specific to ", input_params$site_name, ".\n\n", sep = "")
@@ -500,13 +494,14 @@ if(length(water_types > 0)) { # So the section only shows up if there are Water 
 
 
 \newpage
-
-## How to Read Trend Line Plots {#how-to-read}
-
-```{r r how-to-header, include=!html, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.7in" else NULL}
+\hypertarget{how-to-read}{}
+\vspace*{-0.8cm}
+```{r r how-to-header, include=!html, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.44in" else NULL}
 header_file_create("None", "How to Read Trend Line Plots")
 knitr::include_graphics(here(root_figure_location, "headers", "none_testing_how_to_read_trend_line_plots_plot.png"))
 ```
+
+\vspace{3mm}
 
 \par
 

@@ -383,14 +383,14 @@ create_deficits_graph <- function(soil_type) {
     ) +
     geom_point(
       aes(x = sample_description_number_2, y = mean_measurement),
-      color = theme_gray_boxes, size = 2.5
+      color = theme_gray_boxes, size = 1.6
     ) +
     geom_point_interactive(
-      aes(x = sample_description_number_2, y = mean_measurement, 
+      aes(x = sample_description_number_2, y = mean_measurement,
           fill = point_color, color = after_scale(clr_darken(fill, .3)),
          # tooltip = tooltip,
          data_id = mehlich_3),
-      shape = 21, size = 2.5, stroke = .8
+      shape = 21, size = 1.6, stroke = .8
     ) +
     geom_text(
       aes(x = sample_description_number_2, 
@@ -405,7 +405,7 @@ create_deficits_graph <- function(soil_type) {
     ggtext::geom_textbox(
       aes(x = Inf,
           y = aiming_for,
-          label = glue::glue("<span style='font-size:6pt;'>MLSN<br></span>**{janitor::round_half_up(aiming_for)}**"),
+          label = glue::glue("<span style='font-size:7pt;'>MLSN<br></span>**{janitor::round_half_up(aiming_for)}**"),
           vjust = case_when(aiming_for > mean_per_soil_type ~ .2, TRUE ~ .9),
           valign = case_when(aiming_for > mean_per_soil_type ~ 0, TRUE ~ 1)),
       hjust = 1.1, halign = .5, stat = "unique",
@@ -415,7 +415,7 @@ create_deficits_graph <- function(soil_type) {
     ggtext::geom_textbox(
       aes(x = Inf,
           y = mean_per_soil_type,
-          label = glue::glue("<span style='font-size:6pt;'>MEAN<br></span>**{janitor::round_half_up(mean_per_soil_type)}**"),
+          label = glue::glue("<span style='font-size:7pt;'>MEAN<br></span>**{janitor::round_half_up(mean_per_soil_type)}**"),
           color = stage(mean_line_color, after_scale = clr_darken(color, .3)),
           vjust = case_when(aiming_for > mean_per_soil_type ~ .9, TRUE ~ .2),
           valign = case_when(aiming_for > mean_per_soil_type ~ 1, TRUE ~ 0)),
@@ -441,12 +441,10 @@ create_deficits_graph <- function(soil_type) {
     scale_color_identity() +
     labs(x = NULL, y = NULL) +
     theme(
-      strip.background = element_rect(color = torv_orange, fill = torv_orange),
-      panel.grid = element_line(color = "white", linewidth = .3),
-      panel.grid.major.x = element_blank(),
-      panel.grid.major.y = element_blank(),
-      panel.background = element_rect(color = theme_gray_boxes, fill = theme_gray_boxes),
-      strip.text.y.left = ggtext::element_markdown(color = "white", angle = 0, face = "bold"),
+      strip.background = element_rect(color = NA, fill = NA),
+      panel.grid = element_blank(),
+      panel.background = element_rect(color = "white", fill = "white"),
+      strip.text.y.left = ggtext::element_markdown(color = torv_gray, angle = 0, face = "bold"),
       axis.text.y = element_blank(),
       axis.ticks = element_blank(),
       axis.text.x.top = ggtext::element_markdown(color = torv_gray, family = typeface, size = rel(1.8)),

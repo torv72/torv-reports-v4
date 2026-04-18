@@ -1,8 +1,10 @@
 
-```{r how_to_header, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.7in" else NULL}
+```{r how_to_header, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.44in" else NULL}
 header_file_create("None", "How to interpret these results")
 knitr::include_graphics(here(root_figure_location, "headers", "none_testing_how_to_interpret_these_results_plot.png"))
 ```
+
+\vspace{3mm}
 
 The Minimum Levels for Sustainable Nutrition (MLSN) guidelines are applied in this report. These guidelines are developed and based on two key principles (Global Soil Survey):
 

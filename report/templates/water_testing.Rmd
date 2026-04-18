@@ -1,14 +1,18 @@
 
 \newpage
-
-```{r, message=FALSE, warning=FALSE, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.7in" else NULL}
+\vspace*{-0.8cm}
+```{r, message=FALSE, warning=FALSE, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.58in" else NULL}
 clean_water_description <- janitor::make_clean_names("{{water_description}}")
 
 header_file_create("Water", "{{water_description}}")
 knitr::include_graphics(here(root_figure_location,  "headers", glue("water_testing_{clean_water_description}_plot.png")))
 ```
 
+\vspace{3mm}
+
 FAO Handbook 29 is the Food and Agricultural Organization of the United Nations and widely is recognized as the leading source for irrigation water quality guidelines. Below are the water sample results as shown in comparison to the FAO guidelines for likelihood of soil problems.
+
+\vspace{3mm}
 
 ```{r}
 fao_water_guidelines <- tribble(
@@ -191,8 +195,8 @@ plot_pre_annotate <-
       axis.text.x = element_blank(),
       axis.text.y = element_blank(),
       axis.title.x = element_blank(),
-      axis.title.y = element_text(hjust = 0, vjust = .5, angle = 0, 
-                                  size = rel(.75), family = typeface_condensed_medium),
+      axis.title.y = element_text(hjust = 0, vjust = .5, angle = 0,
+                                  size = rel(.75), family = typeface),
       plot.margin = margin(8, .5, 8, .5)
     )
   
@@ -207,14 +211,14 @@ plot_pre_annotate <-
                x = (lower_bound + water_plot_data$low_med_cutoff)/2, # halfway between left edge and cutoff
                y = -.75, 
                label = "low",
-               color = "#848CC0", #torv_gray, 
+               color = torv_gray_light,
                family = typeface,
                size = label_size) + 
       annotate("text", 
                x = (water_plot_data$low_med_cutoff - lower_bound)/2 + water_plot_data$low_med_cutoff, # halfway between right edge and cutoff
                y = -.75, 
                label = "medium/high",
-               color = "#779CC6", #torv_gray,
+               color = torv_gray_light,
                family = typeface,
                size = label_size)
     
@@ -257,14 +261,14 @@ plot_pre_annotate <-
                x = (lower_bound + water_plot_data$low_med_cutoff)/2,
                y = -.75, 
                label = "low",
-               color = "#848CC0",
+               color = torv_gray_light,
                family = typeface,
                size = label_size) + 
       annotate("text", 
                x = (water_plot_data$low_med_cutoff + upper_bound)/2,
                y = -.75, 
                label = "medium/high",
-               color = "#779CC6",
+               color = torv_gray_light,
                family = typeface,
                size = label_size)
 } else {
@@ -284,21 +288,21 @@ plot_pre_annotate <-
                    x = 35,  # Position labels at fixed points
                    y = -.75, 
                    label = "low",
-                   color = "#848CC0",
+                   color = torv_gray_light,
                    family = typeface,
                    size = label_size) +
           annotate("text", 
                    x = 135,
                    y = -.75, 
                    label = "medium",
-                   color = "#5AADD1",
+                   color = torv_gray_light,
                    family = typeface,
                    size = label_size) + 
           annotate("text", 
                    x = 300,
                    y = -.75, 
                    label = "high",
-                   color = "#6AC7BD",
+                   color = torv_gray_light,
                    family = typeface,
                    size = label_size)
       } else {
@@ -313,21 +317,21 @@ plot_pre_annotate <-
                    x = water_plot_data$low_med_cutoff - (cutoff_distance)/2,
                    y = -.75, 
                    label = "low",
-                   color = "#848CC0",
+                   color = torv_gray_light,
                    family = typeface,
                    size = label_size) +
           annotate("text", 
                    x = water_plot_data$low_med_cutoff + (cutoff_distance)/2,
                    y = -.75, 
                    label = "medium",
-                   color = "#5AADD1",
+                   color = torv_gray_light,
                    family = typeface,
                    size = label_size) + 
           annotate("text", 
                    x = water_plot_data$med_high_cutoff + (cutoff_distance)/2,
                    y = -.75, 
                    label = "high",
-                   color = "#6AC7BD",
+                   color = torv_gray_light,
                    family = typeface,
                    size = label_size)
       }
@@ -341,21 +345,21 @@ plot_pre_annotate <-
                  x = water_plot_data$low_med_cutoff - (cutoff_distance)/2,
                  y = -.75, 
                  label = "low",
-                 color = "#848CC0",
+                 color = torv_gray_light,
                  family = typeface,
                  size = label_size) +
         annotate("text", 
                  x = water_plot_data$low_med_cutoff + (cutoff_distance)/2,
                  y = -.75, 
                  label = "medium",
-                 color = "#5AADD1",
+                 color = torv_gray_light,
                  family = typeface,
                  size = label_size) + 
         annotate("text", 
                  x = water_plot_data$med_high_cutoff + (cutoff_distance)/2,
                  y = -.75, 
                  label = "high",
-                 color = "#6AC7BD",
+                 color = torv_gray_light,
                  family = typeface,
                  size = label_size)
     }
@@ -398,8 +402,8 @@ if (html) {
 ```
 
 \newpage
-
-```{r, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.7in" else NULL}
+\vspace*{-0.8cm}
+```{r, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.58in" else NULL}
 header_file_create("Water", "{{water_description}}", trends = TRUE)
 knitr::include_graphics(here(root_figure_location,  "headers", glue("water_testing_{clean_water_description}_trends_plot.png")))
 ```
