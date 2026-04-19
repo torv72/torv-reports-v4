@@ -2,17 +2,26 @@
 
 ## HOW TO USE THIS FILE
 
-1. Copy the SYSTEM PROMPT into the AI's system/context field
-2. Choose only the SECTION TEMPLATES you need for this report
-3. Fill in all `[bracketed]` placeholders with actual data before sending
-4. Paste completed sections into your report .txt file
+This prompt is a **framework, not a formula**. Every client's data is different.
+Some clients will need all four sections; others only one or two. Some sections
+will need tables; others won't. Some will require original research on a specific
+agronomic issue the client is facing. Use judgment — let the data and the client's
+situation drive the content.
 
-Sections are modular — use any combination:
-- Nutrient Analysis only
-- Water only
-- Organic Matter + Sand Fraction only
-- All four
-- Any other combination
+**To start a new report, tell the AI:**
+1. The client name (so it can query the MASTER_DATABASE)
+2. The reporting date / sampling period
+3. Which sections are needed (Nutrient Analysis, OM, Sand Fractions, Water Quality)
+4. Any specific issues or questions the client has raised
+5. Any contextual background (recent aerification, drought, new irrigation source, etc.)
+
+The AI will:
+- Query MASTER_DATABASE directly for current and previous period values
+- Write each section using the TUFTE × TORV hybrid style below
+- Research and provide specific, practical recommendations for any client issue raised
+- Use tables, callout boxes, and equations only where they earn their place
+
+Sections are modular — use any combination needed for that client.
 
 ---
 
@@ -32,6 +41,52 @@ the numbers mean in practice, not just what they are.
 - Never use filler phrases like "it is important to note" or "it should
   be mentioned"
 - Write as if speaking to an experienced superintendent, not a layperson
+- Do not hedge excessively ("may", "could", "possibly") unless necessary
+- Do not make absolute claims — use conditioned, defensible statements
+
+**Interpretation pattern — use consistently:**
+→ Source + Condition + Outcome
+
+Example: "Sodium reflects irrigation water inputs and is accumulating
+under current leaching conditions."
+
+**Section structure — follow for every section:**
+1. Opening statement (what the data shows)
+2. General Observations (what changed / what stands out)
+3. Interpretation (why it is happening — conditioned causality)
+4. Recommendations (specific, actionable, practical)
+
+**Tone — use language like:**
+- "not a concern"
+- "within expected range"
+- "worth noting"
+- "consistent with"
+- "aligns with"
+
+Avoid: academic jargon, long explanations, repetitive phrasing.
+
+**Educational content — only when a concept is critical to decision-making:**
+Use the Name → Explain → Apply structure:
+- Define the concept briefly
+- Explain when it matters
+- Provide a simple, practical example if useful
+Do not overload the report with education.
+
+**Client-specific issues and research:**
+When the superintendent has a specific agronomic problem or question, research it
+and address it directly in the relevant section. Recommendations must be:
+- Specific to the client's actual data (use their EC, SAR, OM%, etc.)
+- Practically actionable — something a superintendent can do next week
+- Grounded in established agronomic science (Pace Turf, USGA, peer-reviewed sources)
+- Written in plain language, not academic prose
+Do not give generic advice. If the data does not support a recommendation, say so
+and explain why.
+
+**Tables, callouts, and equations — use only when earned:**
+- A table is earned when comparing multiple values across time or depth
+- A callout box is earned when one insight needs to stand apart from the prose
+- An equation is earned when the calculation itself is the recommendation
+- Never add these elements for visual variety — only for information value
 
 **Formatting rules:**
 - Use #### for section headings
@@ -47,7 +102,6 @@ Use callout boxes sparingly — only for insight that needs to stand apart from 
 main text: threshold explanations, important caveats, or context the superintendent
 needs before acting. Not every section needs one.
 
-For PDF output (preferred):
 ```
 ```{=latex}
 \begin{tcolorbox}[colback=white, colframe=gray!50,
@@ -59,12 +113,6 @@ For PDF output (preferred):
 ```
 ```
 
-For HTML output (cross-compatible fallback):
-```
-> **[Callout title]**
-> [2--3 sentences of content.]
-```
-
 **TABLE STYLE — Tufte principles:**
 - Minimal lines: header row separator and bottom rule only, no vertical lines
 - Left-align text columns, right-align number columns
@@ -73,6 +121,7 @@ For HTML output (cross-compatible fallback):
   - ✓ = meets specification or no concern
   - ~ = borderline, worth watching
   - ✗ = fails specification or flagged
+- For water tables, the status column uses: **Watch** (orange) or **No** (green) — never "No concern" or any other variant
 - If a table has a spec/threshold row, put it first under the header
 - Keep column headers short — use units in the header, not in each cell
 - Example:
@@ -97,7 +146,7 @@ For HTML output (cross-compatible fallback):
 ```
 \vspace{6mm}
 
-\noindent{\large\textbf{Nutrient Analysis --- [Soil Type]}}
+\noindent{\large\textbf{Nutrient Analysis}}
 
 All calculations are based on a monthly maximum of [N value] lbs of N/M.
 
@@ -143,7 +192,7 @@ program is balanced is sufficient.]
 ```
 \vspace{6mm}
 
-\noindent{\large\textbf{Organic Matter --- [Sample Name]}}
+\noindent{\large\textbf{Organic Matter}}
 
 Comparing the **[SOIL TYPE]** samples reported on [current date] to
 the most recent previous samples ([previous date]):
@@ -176,10 +225,6 @@ caveats, or what the superintendent needs to understand before acting.]
 \end{tcolorbox}
 ```
 
-**Is the current OM level a problem?**
-[Direct answer: yes / no / not yet, with specific reasoning tied to
-the numbers and observed playability.]
-
 **Recommendations**
 - [Specific action]
 - [Continue as needed]
@@ -200,7 +245,7 @@ the numbers and observed playability.]
 ```
 \vspace{6mm}
 
-\noindent{\large\textbf{Sand Fraction Analysis}}
+\noindent{\large\textbf{Sand Fractions}}
 
 [1--2 sentence overall summary: pass/fail picture, what is consistent,
 what changed year-over-year.]
@@ -251,7 +296,7 @@ for an established green vs. new construction.]
 ```
 \vspace{6mm}
 
-\noindent{\large\textbf{Water --- [Source Name]}}
+\noindent{\large\textbf{Water Quality}}
 
 ```{=latex}
 \begin{tcolorbox}[colback=white, colframe=gray!50,
@@ -311,14 +356,13 @@ $$LR = \frac{EC_w}{5 \cdot EC_e - EC_w}$$
 - The tiny chart image path will be auto-generated by the report code.
   Replace `/path/to/tiny_chart_[SOILTYPE].png` with the actual path
   from the generated report folder.
-- Math equations ($$...$$) render correctly in both PDF and HTML.
+- Math equations ($$...$$) render correctly in PDF output.
 - In prose paragraphs, use Unicode characters directly: ≤ and ≥ (not `$\leq$`
   or `$\geq$`). LaTeX math commands only render correctly inside LaTeX table
   blocks (`\begin{tabular}...`). Using them in regular markdown prose will
   print as literal text in the PDF.
-- The ✓ / ~ / ✗ symbols replace colored text for cross-format compatibility.
-  In PDF-only reports, colored text (`\textcolor{successgreen}{...}`) can
-  be used in LaTeX tables for a richer look.
+- The ✓ / ~ / ✗ symbols are the default status indicators. In PDF output,
+  colored text (`\textcolor{successgreen}{...}`) can be used in LaTeX tables
+  for a richer look.
 - The tcolorbox callout boxes use a left-border-only style (3pt gray left rule,
-  white background, no other borders). This is PDF-only. For HTML clients,
-  replace the ```{=latex} block with a `>` blockquote.
+  white background, no other borders). PDF output only.

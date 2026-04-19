@@ -7,11 +7,9 @@ knitr::include_graphics(here(root_figure_location, "headers", "physical_testing_
 
 \vspace{3mm}
 
-The sand fraction analysis examines the composition of the golf course greens in the top 6 cm of the surface. The S022 lab test analyzes organic matter samples after they have been ashed from three depths: 0-2 cm, 2-4 cm, and 4-6 cm. These samples are sieved according to the United States Golf Association (USGA) specifications for sand particle sizes, as outlined in "USGA Recommendations for a Method of Putting Green Construction, 2018 Revision."
+The S022 analysis measures the particle size distribution of the rootzone at three depths — 0–2 cm, 2–4 cm, and 4–6 cm — and compares each fraction against the specifications outlined in \textit{USGA Recommendations for a Method of Putting Green Construction, 2018 Revision}. Particle size governs drainage rate, surface firmness, and how quickly the profile compacts over time.
 
-The results show the distribution of sand fractions at each depth, providing information about the green's physical properties in its upper layer. This data helps in assessing factors such as water movement and surface firmness in the most active part of the green's profile. The analysis offers insights into the surface and near-surface conditions, which is useful for evaluating the current state of the green's top layer and for making informed decisions about its maintenance.
-
-Note that the USGA does not provide a recommendation for Sand, and thus no recommended ranges are shown in the following charts and tables.
+Note that the USGA specifies no target range for the Sand fraction; no recommendation line appears in those charts.
 
 ```{r}
 usga_specs <- tribble(

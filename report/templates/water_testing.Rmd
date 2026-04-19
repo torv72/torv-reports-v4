@@ -10,7 +10,7 @@ knitr::include_graphics(here(root_figure_location,  "headers", glue("water_testi
 
 \vspace{3mm}
 
-FAO Handbook 29 is the Food and Agricultural Organization of the United Nations and widely is recognized as the leading source for irrigation water quality guidelines. Below are the water sample results as shown in comparison to the FAO guidelines for likelihood of soil problems.
+FAO Handbook 29 is the recognized international standard for irrigation water quality. Each parameter is plotted against FAO thresholds for likelihood of soil problems.
 
 \vspace{3mm}
 
@@ -407,6 +407,8 @@ if (html) {
 header_file_create("Water", "{{water_description}}", trends = TRUE)
 knitr::include_graphics(here(root_figure_location,  "headers", glue("water_testing_{clean_water_description}_trends_plot.png")))
 ```
+
+\vspace{3mm}
 
 ```{r, results='asis', warning=FALSE, message=FALSE}
 knitr::knit_expand("templates/trendline_figure.Rmd", 

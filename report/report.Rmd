@@ -33,7 +33,8 @@ header-includes:
   - \usepackage[useregional=false,datesep=-]{datetime2}
   - \pagestyle{fancy}
   - \fancyhf{}
-  - \fancyhead[L]{\textcolor{gray}{Agronomic Report -- \today}}
+  - \fancyhead[L]{\textcolor{gray}{Agronomic Report}}
+  - \renewcommand{\headrulewidth}{0pt}
   - \fancyfoot[L]{\textcolor{gray}{TORV, LLC • 260 Woodruff Road, Glenwood Springs, CO 81601 • +1.970.409.9874 • eric@torv.me}}
   - \fancyfoot[R]{\textcolor{gray}{\thepage}}
   - \usepackage{eso-pic}
@@ -89,7 +90,7 @@ knitr::knit("templates/setup.Rmd")
 
 <!-- report starts here -->
 
-```{r logo-header, out.width=if(knitr::is_latex_output()) "3.5in" else "35%", fig.align='center'}
+```{r logo-header, out.width="35%", fig.align='left', include=!knitr::is_latex_output()}
 knitr::include_graphics(here("report", "assets", "torv-logo-wide.png"))
 ```
 
@@ -97,27 +98,22 @@ knitr::include_graphics(here("report", "assets", "torv-logo-wide.png"))
 
 ```{r header-pdf, results='asis', include=!html}
 cat(
-  "\\thispagestyle{empty}",
-  "\\bigskip  \\bigskip  \\begin{center}\\Large \\textbf{Agronomic Report}\\par\\large ",
-  input_params$site_name,
-  "\\par   \\large ",
-  format(Sys.time(), "%Y, %B %d"), 
-  "\\par   \\large ", 
-  "Eric Foerster MG, CGCS\\end{center}",
-  sep = ""
+  "\\thispagestyle{empty}\\vspace*{-1in}",
+  "\\noindent\\includegraphics[width=2.2in]{assets/torv-logo-wide.png}",
+  "\\vspace*{2.8in}",
+  "\\par\\noindent{\\Large\\textbf{Agronomic Report}}\\par\\vspace{0.25em}",
+  paste0("\\noindent{\\large ", input_params$site_name, "}\\par\\vspace{0.25em}"),
+  paste0("\\noindent{\\normalsize ", format(Sys.time(), "%B %d, %Y"), "}\\par\\vspace{0.25em}"),
+  "\\noindent{\\normalsize Eric Foerster MG, CGCS}",
+  sep = "\n"
 )
 ```
 
 ```{r lab-pdf, results='asis', include=!html}
 cat(
   "\\vfill",
-  "\\begin{center}",
+  "\\noindent\\includegraphics[totalheight=0.7cm]{assets/logo-brookside.png}\\newline",
   "\\footnotesize Analysis provided by Brookside Laboratories, Inc",
-  "\\end{center}",
-  "\\begin{figure}",
-  "\\centering",
-  "\\includegraphics[totalheight=.8cm]{assets/logo-brookside.png}",
-  "\\end{figure}",
   sep = "\n"
 )
 ```
@@ -129,10 +125,11 @@ invisible(file.copy(here::here("report", "assets", "torv-logo.png"), "torv-logo.
 
 ```{=latex}
 \clearpage
+\setcounter{page}{1}
 \AddToShipoutPictureFG{%
   \AtPageCenter{%
     \makebox[0pt]{%
-      \transparent{0.07}\includegraphics[width=4in]{torv-logo.png}%
+      \transparent{0.04}\includegraphics[width=4in]{torv-logo.png}%
     }%
   }%
 }
@@ -507,8 +504,8 @@ knitr::include_graphics(here(root_figure_location, "headers", "none_testing_how_
 
 \begin{multicols}{2}
 ```{r how-to-text, results='asis', include=!html}
-cat("The trend line plots show the raw sampling values (small grey dots) and the averages per sampling date (large colored points). The purple line indicates a linear fitting across all sampling dates This method is a general indicator of the trend of the average values across time. However, note that a linear fitting is not always suitable (i.e., be careful in case the distance between averages and the trendline is high).  
-    \\newline For reference, the grey dotted line indicates the historic average. The plots in the Organic Matter section show the TORV average as a cyan dotted line instead.")
+cat("Each plot shows individual sample values as small gray dots and the period average as a larger colored point. The purple line is a linear trend fitted across all sampling dates — it indicates direction, not precision. When averages scatter widely around the trend line, treat the direction as a signal rather than a conclusion.
+    \\newline For reference, the blue dotted line marks the site historic average. Organic Matter plots show the TORV average as a gray dotted line instead.")
 ```
 \columnbreak
 ```{r how-to-graphic, out.width="100%", include=!html}

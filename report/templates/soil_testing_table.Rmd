@@ -11,18 +11,10 @@ knitr::include_graphics(here(root_figure_location, "headers", glue("soil_testing
 <!--### Measurement results and MLSN values-->
 
 ```{r, results='asis'}
-cat(glue("The following graph shows how the samples taken from each {{sample_description_number_1}} compare to the calculated MLSN values and required elemental inputs based on the provided nitrogen input and the Turf Growth Potential Model."))
-```
-
-```{r, results='asis'}
 if(html) {
-  cat("- <b style='color:#a65d57;'>Red dots</b> dots highlight samples where a deficit was found.\n")
-  cat("- <b style='color:#d08c47;'>Orange dots</b> represent samples which are within 1% of the desired MLSN value.\n")
-  cat("- <b style='color:#698960;'>Green dots</b> indicate that the samples met the MLSN requirements.\n")
+  cat("Each element is plotted against its MLSN threshold, scaled to nitrogen input and growth potential. A <b style='color:#698960;'>green dot</b> meets the requirement; <b style='color:#d08c47;'>orange</b> falls within 1%; <b style='color:#a65d57;'>red</b> indicates a deficit.")
 } else {
-  cat("- \\textcolor{deficitred}{Red dots} dots highlight samples where a deficit was found.\n")
-  cat("- \\textcolor{warningorange}{Orange dots} represent samples which are within 1% of the desired MLSN value.\n")
-  cat("- \\textcolor{successgreen}{Green dots} indicate that the samples met the MLSN requirements.\n")
+  cat("Each element is plotted against its MLSN threshold, scaled to nitrogen input and growth potential. A \\textcolor{successgreen}{green dot} meets the requirement; \\textcolor{warningorange}{orange} falls within 1\\%; \\textcolor{deficitred}{red} indicates a deficit.")
 }
 ```
 

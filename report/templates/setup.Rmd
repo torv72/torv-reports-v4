@@ -537,7 +537,7 @@ header_file_create <<- function(sampletype, title, trends = FALSE) {
   ## NEW: two-level typographic headers — primary bold dark, secondary lighter gray, no icon
   ## section_title = primary line; location_label = secondary line (empty for headers with no location)
   if (sampletype == "OM") {
-    section_title <- "Total Organic Matter"
+    section_title <- "Organic Matter"
     location_label <- str_to_title(title)
   } else if (sampletype == "Soil" & trends == TRUE) {
     section_title <- "Trends Over Time"
@@ -549,13 +549,13 @@ header_file_create <<- function(sampletype, title, trends = FALSE) {
     section_title <- "Trends Over Time"
     location_label <- str_to_title(title)
   } else if (sampletype == "Water" & trends == FALSE) {
-    section_title <- "Water Testing"
+    section_title <- "Water Quality"
     location_label <- str_to_title(title)
   } else if (sampletype == "Turf") {
     section_title <- "Turf Growth Potential Model"
     location_label <- ""
   } else if (sampletype == "Physical") {
-    section_title <- "Sand Fraction Analysis"
+    section_title <- "Sand Fractions"
     location_label <- ""
   } else if (sampletype == "None") {
     section_title <- glue("{title}")
@@ -584,7 +584,7 @@ header_file_create <<- function(sampletype, title, trends = FALSE) {
       color = col_primary, fontface = "bold", family = typeface
     ) +
     { if (two_line)
-        annotate("text", x = -0.4, y = y_secondary, hjust = 0,
+        annotate("text", x = -0.15, y = y_secondary, hjust = 0,
                  label = location_label, size = 4.4,
                  color = col_secondary, fontface = "plain", family = typeface)
     } +
