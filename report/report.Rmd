@@ -20,6 +20,10 @@ header-includes:
   - \graphicspath{{report/assets/}} #Tell LaTex where to look for images 
   - \usepackage{amssymb}
   - \usepackage{tcolorbox}
+  - \tcbuselibrary{breakable}
+  - \definecolor{torvmoss}{HTML}{6D7F56}
+  - \newtcolorbox{insight}{breakable,colback=white,colframe=torvmoss,leftrule=3pt,rightrule=0pt,toprule=0pt,bottomrule=0pt,arc=3pt,boxsep=4pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+  - \newtcolorbox{context}{breakable,colback=white,colframe=gray!50,leftrule=3pt,rightrule=0pt,toprule=0pt,bottomrule=0pt,arc=3pt,boxsep=4pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
   - \usepackage{fontawesome}
   - \usepackage{booktabs}
   - \usepackage{xcolor}
@@ -28,6 +32,7 @@ header-includes:
   - \definecolor{successgreen}{HTML}{698960}
   - \definecolor{customgray}{HTML}{5A5A5A}
   - \definecolor{CustomGreen}{HTML}{2f5d00} # Define your custom green color here
+  - \colorlet{torvgray}{customgray}
   - \usepackage{fancyhdr}
   - \usepackage{lipsum}
   - \usepackage[useregional=false,datesep=-]{datetime2}
@@ -35,11 +40,12 @@ header-includes:
   - \fancyhf{}
   - \fancyhead[L]{\textcolor{gray}{Agronomic Report}}
   - \renewcommand{\headrulewidth}{0pt}
-  - \fancyfoot[L]{\textcolor{gray}{TORV, LLC • 260 Woodruff Road, Glenwood Springs, CO 81601 • +1.970.409.9874 • eric@torv.me}}
-  - \fancyfoot[R]{\textcolor{gray}{\thepage}}
+  - \fancyfoot[L]{\footnotesize\textcolor{gray}{TORV, LLC • 260 Woodruff Road, Glenwood Springs, CO 81601 • +1.970.409.9874 • eric@torv.me}}
+  - \fancyfoot[R]{\footnotesize\textcolor{gray}{\thepage}}
   - \usepackage{eso-pic}
   - \usepackage{transparent}
   - \usepackage{tikz}
+  - \AtBeginDocument{\normalem}
 ---
 
 ```{r options, include=FALSE}
@@ -72,6 +78,8 @@ zip_code_list <<- tibble::tribble(
   "Rifle Creek Golf Course", 81650,
   "Snowmass Club", 81615,
   "Sonnenalp Golf Club", 81632,
+  "Sun Valley Resort White Clouds Golf Course", 83353,
+  "Sun Valley Resort Trail Creek Golf Course", 83353,
   "The Briarwood", 59101,
   "The Broadmoor East", 80906,
   "The Broadmoor West", 80906,
@@ -174,7 +182,7 @@ header_file_create("None","Executive Summary")
 knitr::include_graphics(here(root_figure_location, "headers", "none_testing_executive_summary_plot.png"))
 ```
 
-\vspace{-6mm}
+\vspace{2mm}
 
 ```{r exec-summary, results='asis', out.width="100%"}
 non_table_elements <- c("pH", "Sodium (ppm)", "Micronutrients", 
@@ -371,9 +379,13 @@ cat(readLines(txt_path), sep = "\n")
 
 ```{r liability-pdf, results='asis', include=!html}
 cat(
-  "\\vfill",
-  "\\small \\textbf{\\emph{Liability Waiver}}",
-  "\\par \\footnotesize \\emph{The recommendations provided in this report are based on current industry standards and site-specific conditions. They are advisory in nature and should be implemented at the client's discretion. The consultant disclaims any liability for outcomes resulting from the application of this advice. Clients are encouraged to seek additional professional input and consider all relevant factors before proceeding with any changes. By using this report, the client acknowledges that they have read, understood, and agreed to these terms, and that they are solely responsible for any decisions made based on these recommendations.} \\newpage",
+  "\\vfill\n",
+  "\\noindent\\textcolor{customgray}{\\rule{\\linewidth}{0.4pt}}\n",
+  "\\vspace{2pt}\n",
+  "\\begingroup\\footnotesize\\color{customgray}\\itshape\n",
+  "\\textbf{Liability Waiver.} The recommendations provided in this report are based on current industry standards and site-specific conditions. They are advisory in nature and should be implemented at the client's discretion. The consultant disclaims any liability for outcomes resulting from the application of this advice. Clients are encouraged to seek additional professional input and consider all relevant factors before proceeding with any changes. By using this report, the client acknowledges that they have read, understood, and agreed to these terms, and that they are solely responsible for any decisions made based on these recommendations.\n",
+  "\\endgroup\n",
+  "\\newpage",
   sep = ""
 )
 ```
@@ -473,8 +485,9 @@ if(length(water_types > 0)) { # So the section only shows up if there are Water 
   water_sample_descriptions <- water_mod_filtered_database %>%
     filter(sample_description_number_1 %in% water_types) %>%
     pull(water_sample_description) %>%
-    unique()
-  
+    unique() %>%
+    .[!tolower(.) %in% tolower(input_params$suppress_water_sources)]
+
   map(water_sample_descriptions, function(water_type) {
     knitr::knit_expand("templates/water_testing.Rmd",
                        sample_type = "Water",
@@ -490,25 +503,23 @@ if(length(water_types > 0)) { # So the section only shows up if there are Water 
 ```
 
 
-\newpage
-\hypertarget{how-to-read}{}
-\vspace*{-0.8cm}
-```{r r how-to-header, include=!html, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.44in" else NULL}
+<!-- HOW TO READ PAGE — suppressed. To restore: remove these HTML comments, change include=FALSE back to include=!html on the three chunks below. -->
+<!-- \newpage -->
+<!-- \hypertarget{how-to-read}{} -->
+<!-- \vspace*{-0.8cm} -->
+```{r r how-to-header, include=FALSE, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.44in" else NULL}
 header_file_create("None", "How to Read Trend Line Plots")
 knitr::include_graphics(here(root_figure_location, "headers", "none_testing_how_to_read_trend_line_plots_plot.png"))
 ```
-
-\vspace{3mm}
-
-\par
-
-\begin{multicols}{2}
-```{r how-to-text, results='asis', include=!html}
+<!-- \vspace{3mm} -->
+<!-- \par -->
+<!-- \begin{multicols}{2} -->
+```{r how-to-text, results='asis', include=FALSE}
 cat("Each plot shows individual sample values as small gray dots and the period average as a larger colored point. The purple line is a linear trend fitted across all sampling dates — it indicates direction, not precision. When averages scatter widely around the trend line, treat the direction as a signal rather than a conclusion.
     \\newline For reference, the blue dotted line marks the site historic average. Organic Matter plots show the TORV average as a gray dotted line instead.")
 ```
-\columnbreak
-```{r how-to-graphic, out.width="100%", include=!html}
+<!-- \columnbreak -->
+```{r how-to-graphic, out.width="100%", include=FALSE}
 knitr::include_graphics(here(root_figure_location, "trendlines", "trend_plot_legend_mean_median.png"))
 ```
-\end{multicols}
+<!-- \end{multicols} -->
