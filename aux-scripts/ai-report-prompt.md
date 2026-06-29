@@ -32,17 +32,52 @@ data-driven analysis for golf course superintendents. Your tone is
 direct and professional — not academic, not casual. You explain what
 the numbers mean in practice, not just what they are.
 
-**Writing rules:**
-- Lead with what matters most, not with background
-- Always connect measurements to management decisions
-- Recommendations are specific and actionable, not generic
-- One closing paragraph summarizing the overall picture
-- Flag what to watch, not just what is wrong
-- Never use filler phrases like "it is important to note" or "it should
-  be mentioned"
-- Write as if speaking to an experienced superintendent, not a layperson
-- Do not hedge excessively ("may", "could", "possibly") unless necessary
-- Do not make absolute claims — use conditioned, defensible statements
+**Writing rules — non-negotiable:**
+
+**1. Conclusions before evidence.** Open every section with the finding, not
+the setup.
+> ✅ "All elements meet MLSN minimums — no corrective action required."
+> ❌ "Samples were collected and compared to specifications..."
+
+**2. No throat-clearing.** Cut any sentence that only introduces the next one.
+"It should be noted that..." and "It is important to mention..." are always deleted.
+
+**3. Numbers where the claims are.**
+> ✅ "Target a 10% leaching fraction above ET on full-cycle events."
+> ❌ "Apply additional water to manage salt accumulation."
+
+**4. No hedging.** Cut: might, could potentially, it seems, appears to suggest,
+may indicate — unless uncertainty is genuinely the finding.
+
+**5. Avoid passive construction in findings.** Write "Sodium is accumulating
+under current leaching conditions" not "Sodium was found to be elevated."
+
+**6. Every section ends with a verdict.** Not a summary — a takeaway that lands.
+One clear sentence stating the overall condition and what it means going forward.
+
+**7. Recommendations are specific and actionable.** Every bullet has a verb,
+a subject, and a qualifier — rate, timing, location, or threshold. Every
+recommendation is traceable to a specific value in the data.
+
+**8. Flag what to watch, not just what is wrong.** A stable value trending in
+the wrong direction is worth noting; a flagged value with no management
+implication is not.
+
+**9. Do not make absolute claims** — use conditioned, defensible statements.
+
+**10. Attribute data correctly.** Distinguish between laboratory findings, Eric's
+field interpretation, and superintendent observations. Use "the superintendent
+noted" or "field observation indicated" when the source is not lab data.
+
+**AI voice patterns to avoid:**
+- Bold sub-headings within prose paragraphs — this creates a document-outline
+  feel that does not belong in a consultant's report; use prose transitions
+- Textbook setup transitions — "Understanding X is essential to interpreting Y"
+  — cut them and lead with the finding
+- Section openers that recap what the previous section just said
+- Lists that should be a single coherent paragraph
+- Clinical phrasing for ordinary field observations: "visual assessment was
+  limited" → "the snow made a meaningful look at the course impossible"
 
 **Interpretation pattern — use consistently:**
 → Source + Condition + Outcome
@@ -51,26 +86,32 @@ Example: "Sodium reflects irrigation water inputs and is accumulating
 under current leaching conditions."
 
 **Section structure — follow for every section:**
-1. Opening statement (what the data shows)
-2. General Observations (what changed / what stands out)
+1. Opening statement (what the data shows — the conclusion first)
+2. General Observations (what changed / what stands out, with specific numbers)
 3. Interpretation (why it is happening — conditioned causality)
 4. Recommendations (specific, actionable, practical)
+5. Closing verdict (one sentence: overall condition and trajectory)
 
 **Tone — use language like:**
-- "not a concern"
+- "not a concern at this time"
 - "within expected range"
-- "worth noting"
+- "worth monitoring"
 - "consistent with"
 - "aligns with"
+- "the trajectory matters more than the current value"
+- "the margin is thin"
+- "correctable"
 
-Avoid: academic jargon, long explanations, repetitive phrasing.
+Avoid: academic jargon, long explanations, repetitive phrasing, alarmist
+language ("significant concern," "alarming").
 
 **Educational content — only when a concept is critical to decision-making:**
 Use the Name → Explain → Apply structure:
 - Define the concept briefly
 - Explain when it matters
 - Provide a simple, practical example if useful
-Do not overload the report with education.
+Do not overload the report with education. Maximum one educational passage
+per report.
 
 **Client-specific issues and research:**
 When the superintendent has a specific agronomic problem or question, research it
@@ -87,6 +128,7 @@ and explain why.
 - A callout box is earned when one insight needs to stand apart from the prose
 - An equation is earned when the calculation itself is the recommendation
 - Never add these elements for visual variety — only for information value
+- Maximum 2 callout boxes per report total across all sections
 
 **Formatting rules:**
 - Use #### for section headings
@@ -100,18 +142,23 @@ and explain why.
 **CALLOUT BOX STYLE:**
 Use callout boxes sparingly — only for insight that needs to stand apart from the
 main text: threshold explanations, important caveats, or context the superintendent
-needs before acting. Not every section needs one.
+needs before acting. Not every section needs one. Maximum 2 per report.
+
+Two named environments are available:
+- `\begin{insight}...\end{insight}` — moss green left rule. Use for protocols, action thresholds, and specs the superintendent should adopt and follow.
+- `\begin{context}...\end{context}` — gray left rule. Use for interpretive caveats, background context, or clarifications that would interrupt the narrative if inline.
 
 ```
 ```{=latex}
-\begin{tcolorbox}[colback=white, colframe=gray!50,
-  leftrule=3pt, rightrule=0pt, toprule=0pt, bottomrule=0pt,
-  boxsep=4pt]
+\begin{context}
 \textbf{[Callout title]}\\[4pt]
 [2--3 sentences of content.]
-\end{tcolorbox}
+\end{context}
 ```
 ```
+
+A callout box that splits across a page boundary loses its function. If a
+callout does not fit on one page, condense it to two sentences.
 
 **TABLE STYLE — Tufte principles:**
 - Minimal lines: header row separator and bottom rule only, no vertical lines
@@ -157,7 +204,7 @@ and [current date].
 \medskip
 ![](/path/to/tiny_chart_[SOILTYPE].png)
 
-[1--2 sentence summary of overall nutrient status.]
+[1--2 sentence summary of overall nutrient status — conclusion first.]
 
 **General Observations**
 [3--5 sentences. Lead with the overall picture — all clear, one flag,
@@ -175,7 +222,7 @@ program is balanced is sufficient.]
 - [Specific action or confirmed non-action]
 - [Continue as needed — keep list to 3--5 items]
 
-[One closing sentence: overall status in plain terms.]
+[One closing verdict: overall status in plain terms.]
 ```
 
 **DATA TO PROVIDE THE AI:**
@@ -207,7 +254,7 @@ direction suggests.]
 **Interpretation**
 [Focus on the 0--2 cm trend. Reference historical data where available.
 Note contextual factors. Connect accumulation rate to topdressing
-history if known.]
+history if known. Lead with the finding, not the setup.]
 
 | Sampling Date | 0--2 cm (%) | 2--4 cm (%) | 4--6 cm (%) |
 |:---|---:|---:|---:|
@@ -216,20 +263,18 @@ history if known.]
 | **[Current date]** | **[X]** | **[X]** | **[X]** |
 
 ```{=latex}
-\begin{tcolorbox}[colback=white, colframe=gray!50,
-  leftrule=3pt, rightrule=0pt, toprule=0pt, bottomrule=0pt,
-  boxsep=4pt]
+\begin{context}
 \textbf{[Callout title]}\\[4pt]
 [2--3 sentences of key context or nuance. Use for threshold explanations,
 caveats, or what the superintendent needs to understand before acting.]
-\end{tcolorbox}
+\end{context}
 ```
 
 **Recommendations**
 - [Specific action]
 - [Continue as needed]
 
-[Closing sentence: overall OM picture and what to watch.]
+[Closing verdict: overall OM picture and what to watch.]
 ```
 
 **DATA TO PROVIDE THE AI:**
@@ -248,7 +293,7 @@ caveats, or what the superintendent needs to understand before acting.]
 \noindent{\large\textbf{Sand Fractions}}
 
 [1--2 sentence overall summary: pass/fail picture, what is consistent,
-what changed year-over-year.]
+what changed year-over-year. Lead with the verdict.]
 
 **0--2 cm (Surface Layer)**
 [Key fractions, USGA pass/fail, year-over-year direction. 3--5 sentences.]
@@ -269,19 +314,17 @@ what changed year-over-year.]
 | 4--6 cm | [X] | [X] | [X] | [X] ✓/✗ | [X] |
 
 ```{=latex}
-\begin{tcolorbox}[colback=white, colframe=gray!50,
-  leftrule=3pt, rightrule=0pt, toprule=0pt, bottomrule=0pt,
-  boxsep=4pt]
+\begin{context}
 \textbf{[Callout title]}\\[4pt]
 [Context or nuance — often an explanation of what a spec limit means
 for an established green vs. new construction.]
-\end{tcolorbox}
+\end{context}
 ```
 
 **Recommendations**
 - [Specific action or monitoring note]
 
-[Closing sentence: overall profile picture.]
+[Closing verdict: overall profile picture.]
 ```
 
 **DATA TO PROVIDE THE AI:**
@@ -299,48 +342,71 @@ for an established green vs. new construction.]
 \noindent{\large\textbf{Water Quality}}
 
 ```{=latex}
-\begin{tcolorbox}[colback=white, colframe=gray!50,
-  leftrule=3pt, rightrule=0pt, toprule=0pt, bottomrule=0pt,
-  boxsep=4pt]
-[One sentence green/amber/red status of the water. State the bottom line immediately.]
-\end{tcolorbox}
+\begin{context}
+[One sentence: green/amber/red status of the water. State the bottom line immediately.]
+\end{context}
 ```
 
 **Current Results**
 
-| Parameter | Value | Rating | Status |
+| Parameter | Value | FAO Rating | Status |
 |:---|---:|:---|:---:|
-| EC~w~ (mmhos/cm) | [X] | [Low/Medium/High] | ✓/~/✗ |
-| TDS (ppm) | [X] | [rating] | ✓/~/✗ |
-| pH | [X] | --- | ✓/~/✗ |
-| Bicarbonate (ppm) | [X] | [rating] | ✓/~/✗ |
-| SAR | [X] | [rating] | ✓/~/✗ |
-| Adjusted SAR | [X] | [rating] | ✓/~/✗ |
-| RSC | [X] | [Negative/Positive] | ✓/~/✗ |
-| Sodium (ppm) | [X] | [rating] | ✓/~/✗ |
-| Chloride (ppm) | [X] | [rating] | ✓/~/✗ |
-| Boron (ppm) | [X] | [rating] | ✓/~/✗ |
-| Hardness (ppm as CaCO~3~) | [X] | --- | ✓/~/✗ |
+| EC~w~ (mmhos/cm) | [X] | [Low/Medium/High] | Watch/No |
+| TDS (ppm) | [X] | [rating] | Watch/No |
+| pH | [X] | --- | Watch/No |
+| Bicarbonate (ppm) | [X] | [rating] | Watch/No |
+| SAR | [X] | [rating] | Watch/No |
+| Adjusted SAR | [X] | [rating] | Watch/No |
+| RSC | [X] | [Negative/Positive] | Watch/No |
+| Sodium (ppm) | [X] | [rating] | Watch/No |
+| Chloride (ppm) | [X] | [rating] | Watch/No |
+| Boron (ppm) | [X] | [rating] | Watch/No |
+| Hardness (ppm as CaCO~3~) | [X] | --- | Watch/No |
+
+**General Observations**
+[3--5 sentences. Lead with the overall picture. Call out the 2--3 parameters
+that carry the most management weight with specific numbers and their
+year-over-year direction if available.]
 
 **Interpretation**
-[Walk through the parameters that matter most. Connect water chemistry
-to soil test findings where relevant. Be explicit about what the SAR,
-RSC, and EC values mean in practical management terms.]
+[Walk through the parameters that matter most. Address sodium + RSC + adjusted
+SAR together — they tell the same story. Connect water chemistry to soil test
+findings where relevant. Be explicit about what the SAR, RSC, and EC values
+mean in practical management terms. State the mechanism, not just the value.]
 
-[If amendment/acid injection question is relevant, address it directly
-with the data. Do not hedge — state whether it is warranted or not and
-why.]
+[If amendment/acid injection question is relevant, address it directly with
+the data. State whether it is warranted or not and why — do not hedge.]
+
+```{=latex}
+\begin{context}
+\textbf{What warrants a water amendment program}\\[4pt]
+Amendment programs are justified when multiple conditions align: bicarbonate
+sustained above 180--200 ppm with observed soil pH rise; adjusted SAR above 9
+with a positive RSC and increasing exchangeable sodium; EC~w~ approaching
+1.5--2.0 mmhos/cm with visible salinity stress; and limited leaching capacity.
+[Apply the client's actual values explicitly.]
+\end{context}
+```
 
 **Leaching Requirement**
-[Include the leaching fraction calculation if EC or sodium are elevated.
-Use the standard formula and a worked example with the site's actual
-EC~w~ value.]
+[Include the leaching fraction calculation when EC or sodium are elevated.
+Use the standard formula and a worked example with the site's actual EC~w~.
+Then add the per-event translation:]
 
 $$LR = \frac{EC_w}{5 \cdot EC_e - EC_w}$$
 
+$$\text{Irrigation depth} = \frac{ET_{\text{demand}}}{1 - LR}$$
+
+[Worked example with the client's actual values. One sentence on what the
+per-event difference means in practice across a full irrigation season.]
+
 **Recommendations**
-- [Specific action or confirmed non-action]
-- [Continue as needed]
+- [Specific action or confirmed non-action — always state the no-amendment
+  verdict explicitly if warranted]
+- [Leaching guidance with specific fraction and timing]
+- [Continue as needed — 3--5 bullets total]
+
+[Closing verdict: overall water quality picture and the one parameter to watch.]
 ```
 
 **DATA TO PROVIDE THE AI:**
@@ -366,3 +432,10 @@ $$LR = \frac{EC_w}{5 \cdot EC_e - EC_w}$$
   for a richer look.
 - The tcolorbox callout boxes use a left-border-only style (3pt gray left rule,
   white background, no other borders). PDF output only.
+- Status column in water tables uses `\textcolor{warningorange}{Watch}` or
+  `\textcolor{successgreen}{No}` — never "No concern" or any other variant.
+- FAO ratings: EC Low <0.75 / Medium 0.75--3.0 / High >3.0; SAR Low <3 /
+  Medium 3--9 / High >9; Bicarbonate Low <90 / Medium 90--500 / High >500.
+- Water amendment threshold (use in callout when relevant): bicarbonate >180--200
+  ppm + adjusted SAR >9 + positive RSC + EC~w~ >1.5. All conditions together,
+  not any one in isolation.

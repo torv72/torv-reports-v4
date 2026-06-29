@@ -267,12 +267,21 @@ cat('
 ```
 
 ```{r, results='asis', include=!html}
-cat('→ \\hyperlink{how-to-read}{How to read this chart}')
+om_point_color_hex <- if(exists("sample_type_for_color") && sample_type_for_color == "Soil") "c88544" else "147891"
+cat(paste0(
+  '\\noindent\\begingroup\\small\\color{customgray}\\itshape ',
+  'Dots --- individual samples; ',
+  '\\textcolor[HTML]{', om_point_color_hex, '}{circle} --- period average; ',
+  '\\textcolor[HTML]{756b96}{trend line} --- linear trend; ',
+  '\\textcolor[HTML]{147891}{dashed line} --- site historic average; ',
+  '\\textcolor[HTML]{b0b0b0}{dashed line} --- TORV average',
+  '\\endgroup'
+))
 ```
 
 \vspace{3mm}
 
-\noindent{\large\textbf{Historical Results by Depth}}
+\noindent{\large\textbf{\textcolor{torvgray}{Historical Results by Depth}}}
 
 Values above the row average are shown in blue, values below in gray.
 
@@ -304,14 +313,22 @@ om_wide <-
   ungroup()
 
 ## font color: above row mean = dark teal, below = light gray (date columns only)
-color_matrix <-
+## apply(MARGIN=1) returns a vector (not matrix) when there is only one date column;
+## normalize to nrow(om_wide) × length(date_cols_om) in both cases
+color_matrix_raw <-
   om_wide |>
   select(all_of(date_cols_om)) |>
   apply(1, function(row) {
     avg <- mean(row, na.rm = TRUE)
     ifelse(row >= avg, as.character(clr_darken(prismatic::color(torv_blue), .2)), "gray78")
-  }) |>
-  t()
+  })
+
+color_matrix <-
+  if (!is.matrix(color_matrix_raw)) {
+    matrix(color_matrix_raw, ncol = length(date_cols_om))
+  } else {
+    t(color_matrix_raw)
+  }
 
 w_om <- .45
 

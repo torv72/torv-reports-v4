@@ -365,7 +365,7 @@ cat("<br><br><details><summary style='font-size:1.95rem;font-weight:500;'>Partic
 
 ```{r, results='asis', include=!html}
 cat("\\pagebreak")
-cat("\\vspace{6mm}\n\\noindent{\\large\\textbf{Particle Size Trends}}")
+cat("\\vspace{6mm}\n\\noindent{\\large\\textbf{\\textcolor{torvgray}{Particle Size Trends}}}")
 ```
 
 The table shows the particle size fractions defined by USGA specifications for putting green construction, along with the total sand fraction.

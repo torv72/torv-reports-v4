@@ -1,18 +1,27 @@
 
-\newpage
-\vspace*{-0.8cm}
-```{r, message=FALSE, warning=FALSE, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.58in" else NULL}
+```{r, include=FALSE}
+# Variables needed by both the bar chart page and the trendline page
 clean_water_description <- janitor::make_clean_names("{{water_description}}")
+water_measurements_to_plot <<- c("Conductivity (mmhos/cm)",
+                                 "Salt Concentration - TDS (ppm)",
+                                 "SAR",
+                                 "Sodium (ppm)",
+                                 "Residual Sodium Carbonate (RSC)",
+                                 "Boron (ppm)",
+                                 "Bicarbonate (ppm)",
+                                 "Chloride (ppm)")
+```
 
+<!-- BAR CHART PAGE — suppressed. To restore: remove HTML comments, change include=FALSE to the original chunk options on the tile chunk below, and set eval=TRUE on the bar-chart-render chunk. -->
+<!-- \newpage -->
+<!-- \vspace*{-0.8cm} -->
+```{r, include=FALSE, out.width=if(knitr::is_latex_output()) "5.8in" else "900px", out.height=if(knitr::is_latex_output()) "0.58in" else NULL}
 header_file_create("Water", "{{water_description}}")
 knitr::include_graphics(here(root_figure_location,  "headers", glue("water_testing_{clean_water_description}_plot.png")))
 ```
-
-\vspace{3mm}
-
-FAO Handbook 29 is the recognized international standard for irrigation water quality. Each parameter is plotted against FAO thresholds for likelihood of soil problems.
-
-\vspace{3mm}
+<!-- \vspace{3mm} -->
+<!-- FAO Handbook 29 is the recognized international standard for irrigation water quality. Each parameter is plotted against FAO thresholds for likelihood of soil problems. -->
+<!-- \vspace{3mm} -->
 
 ```{r}
 fao_water_guidelines <- tribble(
@@ -373,16 +382,8 @@ plot_pre_annotate <-
 if(html) fig_w <- 7 else fig_w <- 8.1
 ```
 
-```{r, message=FALSE, warning=FALSE, results='asis', fig.width=6.8, fig.height=fig_w, out.width="100%"}
-water_measurements_to_plot <<- c("Conductivity (mmhos/cm)",
-                                 "Salt Concentration - TDS (ppm)",
-                                 "SAR",
-                                 "Sodium (ppm)",
-                                 "Residual Sodium Carbonate (RSC)",
-                                 "Boron (ppm)",
-                                 "Bicarbonate (ppm)",
-                                 "Chloride (ppm)")
-
+```{r, eval=FALSE, message=FALSE, warning=FALSE, results='asis', fig.width=6.8, fig.height=8.1, out.width="100%"}
+# BAR CHART RENDER — suppressed. Set eval=TRUE to restore. water_measurements_to_plot is set in water-setup chunk above.
 water_plots <- map(water_measurements_to_plot, make_water_plot)
 
 water_combined_plot <- patchwork::wrap_plots(water_plots) +
@@ -391,14 +392,110 @@ water_combined_plot <- patchwork::wrap_plots(water_plots) +
 #ggsave(here(root_figure_location,  "water_testing", glue::glue(janitor::make_clean_names("water_plot_{{water_description}}"), ".png")),
 #       water_combined_plot, width = 6.8, height = 6, bg = "white", dpi = 500)
 
-#cat("![](", here(root_figure_location, "water_testing", glue::glue(janitor::make_clean_names("water_plot_{{water_description}})"), ".png")), ")", sep = "")
-#knitr::include_graphics(here(root_figure_location, "water_testing", glue::glue(janitor::make_clean_names("water_plot_{{water_description}})"), ".png")))
-
 if (html) {
   girafe(ggobj = water_combined_plot)
 } else {
   water_combined_plot
 }
+```
+
+<!-- Bar chart page suppressed — header tile, page break, and spacing removed. Set bar chart chunk to eval=TRUE and restore this block to re-enable. -->
+```{r, include=FALSE}
+# Side effect only — creates the header image file on disk even though the page is suppressed
+header_file_create("Water", "{{water_description}}")
+```
+
+<!-- FAO Handbook 29 table suppressed from analytics pages — table belongs in executive summary narrative (.txt). Code preserved here for reference. -->
+```{r, results='asis', eval=FALSE, include=FALSE}
+# FAO Handbook 29 Water Quality Table
+# Pull most recent values for this water source
+most_recent_water_date <- water_mod_filtered_database %>%
+  filter(water_sample_description == "{{water_description}}") %>%
+  pull(date_sample_submitted) %>%
+  max(na.rm = TRUE)
+
+current_water_vals <- water_mod_filtered_database %>%
+  filter(water_sample_description == "{{water_description}}",
+         date_sample_submitted == most_recent_water_date) %>%
+  select(measurement_name, measurement_result) %>%
+  distinct()
+
+# FAO parameters with thresholds (FAO Irrigation & Drainage Paper No. 29)
+fao_params <- tribble(
+  ~label,                            ~db_name,                            ~none_hi, ~mod_hi, ~direction, ~thresh_text,
+  "EC\\textsubscript{w} (mmhos/cm)", "Conductivity (mmhos/cm)",               0.70,    3.00, "high",     "0.7 / 3.0",
+  "TDS (ppm)",                       "Salt Concentration - TDS (ppm)",          450,    2000, "high",     "450 / 2,000",
+  "pH",                              "pH",                                        NA,      NA, "range",    "6.5--8.4",
+  "SAR",                             "SAR",                                        3,       9, "high",     "3 / 9",
+  "RSC (meq/L)",                     "Residual Sodium Carbonate (RSC)",         1.25,    2.50, "high_rsc", "1.25 / 2.50",
+  "Sodium (ppm)",                    "Sodium (ppm)",                              70,     400, "high",     "70 / 400",
+  "Chloride (ppm)",                  "Chloride (ppm)",                           105,     355, "high",     "105 / 355",
+  "Boron (ppm)",                     "Boron (ppm)",                              0.5,     3.0, "high",     "0.5 / 3.0",
+  "Bicarbonate (ppm)",               "Bicarbonate (ppm)",                         92,     520, "high",     "92 / 520"
+)
+
+fao_display <- fao_params %>%
+  left_join(current_water_vals, by = c("db_name" = "measurement_name")) %>%
+  mutate(
+    val_fmt = case_when(
+      is.na(measurement_result)          ~ "---",
+      abs(measurement_result) >= 1000    ~ formatC(measurement_result, format = "f", digits = 0, big.mark = ","),
+      abs(measurement_result) >= 100     ~ formatC(measurement_result, format = "f", digits = 0),
+      abs(measurement_result) >= 10      ~ formatC(measurement_result, format = "f", digits = 1),
+      TRUE                               ~ formatC(measurement_result, format = "f", digits = 2)
+    ),
+    val_fmt = str_replace(val_fmt, "^-", "--"),  # LaTeX en-dash for negative values
+    rating_raw = case_when(
+      is.na(measurement_result)  ~ "na",
+      direction == "range"       ~ if_else(between(measurement_result, 6.5, 8.4), "none", "watch"),
+      direction == "high_rsc"    ~ case_when(
+        measurement_result <  none_hi  ~ "none",
+        measurement_result <= mod_hi   ~ "slight",
+        TRUE                           ~ "severe"
+      ),
+      direction == "high"        ~ case_when(
+        measurement_result <= none_hi  ~ "none",
+        measurement_result <= mod_hi   ~ "slight",
+        TRUE                           ~ "severe"
+      ),
+      TRUE ~ "na"
+    ),
+    rating_tex = case_when(
+      rating_raw == "none"   ~ "\\textcolor{successgreen}{None}",
+      rating_raw == "slight" ~ "\\textcolor{warningorange}{Slight--Moderate}",
+      rating_raw == "severe" ~ "\\textcolor{deficitred}{Severe}",
+      rating_raw == "watch"  ~ "\\textcolor{warningorange}{Watch}",
+      TRUE                   ~ "---"
+    )
+  )
+
+rows <- paste0(
+  fao_display$label, " & ",
+  fao_display$val_fmt, " & ",
+  fao_display$thresh_text, " & ",
+  fao_display$rating_tex,
+  " \\\\"
+) %>% paste(collapse = "\n")
+
+cat(paste0(
+  "\\begin{table}[h]\n",
+  "\\centering\n",
+  "\\small\n",
+  "\\begin{tabular}{p{5.5cm}rp{2cm}p{3.5cm}}\n",
+  "\\toprule\n",
+  "\\textbf{Parameter} & \\textbf{Value} & \\textbf{Thresholds} & \\textbf{Rating} \\\\\n",
+  "\\midrule\n",
+  rows, "\n",
+  "\\bottomrule\n",
+  "\\end{tabular}\n",
+  "\\par\\vspace{3pt}\n",
+  "\\begingroup\\footnotesize\\color{customgray}\\itshape\n",
+  "Degree of restriction on use. Source: FAO Irrigation and Drainage Paper No.~29, Ayers and Westcott (1985). ",
+  "Thresholds show the \\textcolor{successgreen}{None}/\\textcolor{deficitred}{Severe} breakpoints; values between are \\textcolor{warningorange}{Slight--Moderate}. ",
+  "RSC~<~0 indicates calcium and magnesium dominance at the exchange sites --- beneficial for permeability.\n",
+  "\\endgroup\n",
+  "\\end{table}\n"
+))
 ```
 
 \newpage

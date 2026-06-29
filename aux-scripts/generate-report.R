@@ -25,6 +25,7 @@ generate_report <- function(.site_name,
                             .include_sand_fraction = "No",
                             .draw_beeswarm = "Yes",
                             .typeface = "Georama",
+                            .suppress_water_sources = NULL,
                             .output = "html",
                             .overwrite = "No") {
   
@@ -135,7 +136,8 @@ generate_report <- function(.site_name,
                        om_stats = .om_stats,
                        include_results_interpretation = ifelse(.include_results_interpretation %in% c("Yes", "yes"), TRUE, FALSE),
                        include_sand_fraction = ifelse(.include_sand_fraction %in% c("Yes", "yes"), TRUE, FALSE),
-                       beeswarm = ifelse(.draw_beeswarm %in% c("Yes", "yes"), TRUE, FALSE))
+                       beeswarm = ifelse(.draw_beeswarm %in% c("Yes", "yes"), TRUE, FALSE),
+                       suppress_water_sources = if(is.null(.suppress_water_sources)) character(0) else .suppress_water_sources)
 
   # The default is for the end date to be the same as the sample date (so that we're not
   # pulling in data from "the future")

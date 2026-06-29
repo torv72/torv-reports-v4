@@ -346,5 +346,13 @@ cat('
 ```
 
 ```{r, results='asis', include=!html}
-cat('→ \\hyperlink{how-to-read}{How to read this chart}')
+point_color_hex <- if(exists("sample_type_for_color") && sample_type_for_color == "Soil") "c88544" else "147891"
+cat(paste0(
+  '\\noindent\\begingroup\\small\\color{customgray}\\itshape ',
+  'Dots --- individual samples; ',
+  '\\textcolor[HTML]{', point_color_hex, '}{circle} --- period average; ',
+  '\\textcolor[HTML]{756b96}{trend line} --- linear trend; ',
+  '\\textcolor[HTML]{147891}{dashed line} --- site historic average',
+  '\\endgroup'
+))
 ```
